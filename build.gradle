@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'idea'
+    id 'org.openjfx.javafxplugin' version '0.0.7'
+}
+group 'ST6404'
+version '1.0-SNAPSHOT'
+
+mainClassName = 'ST6404.Main'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+javafx {
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+    version = '11.0.2'
+}
