@@ -1,22 +1,8 @@
-package MedicineList;
+package ST6404;
 
 import java.util.List;
 
 public class medicineListController {
-
-    public List<String> getMedicineListController;
-    private List medicineListController;
-
-    public medicineListController(List<String> medicineListController){
-        this.getMedicineListController();
-
-    }
-
-    private List<String> getMedicineListController() { return medicineListController;}
-
-    public void setMedicineList(List<String> medicineList) {
-        this.medicineListController = medicineListController;
-    }
 
 
 /*
