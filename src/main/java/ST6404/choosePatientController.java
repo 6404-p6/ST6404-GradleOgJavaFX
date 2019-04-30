@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class choosePatientController {
+
     /*
     public static Object changeStageToChoosePatientView;
 
@@ -21,5 +22,3 @@ public class choosePatientController {
         choosePatientWindow.show();
         */
     }
-
-}

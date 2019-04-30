@@ -6,7 +6,7 @@ public class medicineListModel {
     private List medicineList;
     private String CPRNumber;
     private List availableMedicineList;
-
+/*
     public List<String> getMedicineListController;
     private List medicineListController;
 
@@ -25,7 +25,7 @@ public class medicineListModel {
         this.CPRNumber = CPRnumber;
         this.availableMedicineList = availableMedicineList;
     }
-
+*/
 /*
 Metoder:
 - showMedicineList ()

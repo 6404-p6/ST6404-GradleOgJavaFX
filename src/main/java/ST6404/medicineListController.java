@@ -1,19 +1,12 @@
 package ST6404;
 
-import java.util.List;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class medicineListController {
-
-
-/*
-Metoder:
-    - showMedicineList ()
-- deleteMedication ()
-- changePrescriptionInformation ()
-- createPrescription ()
-- updateExternalFlkList ()
-- getFMKList ()
-Skal kunne kalde medikamentlisten frem og ændre i den. Metoder skal kunne kalde på metoderne i medicineListModel
- */
 
 }
