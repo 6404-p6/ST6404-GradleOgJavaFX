@@ -1,6 +1,7 @@
 package ST6404;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -11,14 +12,19 @@ import java.io.IOException;
 
 public class choosePatientController {
 
-    /*
-    public static Object changeStageToChoosePatientView;
+    @FXML
+    public void changeSceneToChoosePatientView(ActionEvent event) throws IOException {
+        System.out.println("Troubleshoot: Begynder metode changeSceneToChoosePatientView");
+        //// Her findes informationerne til medicinlistens view fra database
 
-    public void changeStageToChoosePatientView(ActionEvent event) throws IOException {
-        Parent choosePatientViewParent = FXMLLoader.load(Main.class.getResource("/choosePatientView.fxml"));
-        Scene choosePatientViewScene = new Scene(choosePatientViewParent);
-        Stage choosePatientWindow = (Stage)((Node)event.getSource()).getScene().getWindow();
-        choosePatientWindow.setScene(choosePatientViewScene);
-        choosePatientWindow.show();
-        */
+        //// Her ændres view'et til medicinlisten
+        // Forklaring følger, men den er her indtil videre: https://www.youtube.com/watch?v=XCgcQTQCfJQ
+        Parent choosePatientView = FXMLLoader.load(Main.class.getResource("/choosePatientView.fxml"));
+        Scene choosePatientViewScene = new Scene(choosePatientView);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(choosePatientViewScene);
+        window.show();
+        System.out.println("Troubleshoot: Afslutter metode changeSceneToChoosePatientView");
+
+    }
     }

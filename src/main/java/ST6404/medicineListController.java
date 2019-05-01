@@ -28,11 +28,6 @@ public class medicineListController {
         window.show();
         System.out.println("Troubleshoot: Afslutter metode changeSceneToMedicineList");
 
-/* Kunne ikke få det til at virke, men vent til efter søndag d. 5 med at slette dette udkommenteret
-        Parent medicineListViewScene = FXMLLoader.load(Main.class.getResource("/medicineListView.fxml"));
-        Main.primaryStage.setScene(new Scene(medicineListViewScene));
-        Main.primaryStage.show();
-*/
     }
 
     @FXML
