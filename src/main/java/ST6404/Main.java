@@ -23,6 +23,15 @@ public class Main extends Application {
         primaryStage.setTitle("Medicinmodul");
         primaryStage.setScene(new Scene(choosePatientView));
         primaryStage.show();
+
+            try {
+                patientModel.patientModel.getCPRfromSQL();
+            }catch(Exception e) {
+                System.out.println("Something went wrong..." + e.getMessage());
+
+            }
+
+        }
         //test
     }
-}
+
