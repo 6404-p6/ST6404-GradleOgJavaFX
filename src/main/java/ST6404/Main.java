@@ -5,11 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
-import patientModel.patientModel;
 
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 public class Main extends Application {
 
@@ -20,18 +18,10 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws IOException{
+    public void start(Stage primaryStage) throws IOException {
         Parent choosePatientView = FXMLLoader.load(Main.class.getResource("/choosePatientView.fxml"));
+        primaryStage.setTitle("Medicinmodul");
         primaryStage.setScene(new Scene(choosePatientView));
         primaryStage.show();
-
-        //TimeUnit.SECONDS.sleep(3)
-/*
-        Parent medicineListViewScene = FXMLLoader.load(Main.class.getResource("/medicineListView.fxml"));
-        primaryStage.setScene(new Scene(medicineListViewScene));
-        primaryStage.show();
-*/
-
-
     }
 }
