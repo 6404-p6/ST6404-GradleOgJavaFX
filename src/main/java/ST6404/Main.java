@@ -11,8 +11,6 @@ import java.io.IOException;
 
 public class Main extends Application {
 
-    public static Stage primaryStage;
-
     public static void main(String[] args) {
         launch(args);
     }
@@ -23,6 +21,5 @@ public class Main extends Application {
         primaryStage.setTitle("Medicinmodul");
         primaryStage.setScene(new Scene(choosePatientView));
         primaryStage.show();
-        //test
     }
 }

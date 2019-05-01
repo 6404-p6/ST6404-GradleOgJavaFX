@@ -14,18 +14,6 @@ import java.io.IOException;
 
 public class medicineListController {
 
-    @FXML
-    public void changeSceneToMedicineList(ActionEvent event) throws IOException {
-        System.out.println("Troubleshoot: Begynder metode changeSceneToMedicineList");
-        // Forklaring følger, men den er her indtil videre: https://www.youtube.com/watch?v=XCgcQTQCfJQ
-        Parent medicineListView = FXMLLoader.load(Main.class.getResource("/medicineListView.fxml"));
-        Scene medicineListViewScene = new Scene(medicineListView);
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(medicineListViewScene);
-        window.show();
-        System.out.println("Troubleshoot: Afslutter metode changeSceneToMedicineList");
-
-    }
 
     @FXML
     public void testSystemPrintMethod(ActionEvent event){

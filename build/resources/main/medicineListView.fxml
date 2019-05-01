@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Text?>
 
-<TitledPane animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" text="[010203-1234, Tove Tovesen]" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ST6404.choosePatientController">
+<TitledPane animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" text="[010203-1234, Tove Tovesen]" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ST6404.medicineListController">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="287.0" prefWidth="1364.0">
          <children>
@@ -37,7 +37,7 @@
             <Button layoutX="-2.0" layoutY="2.0" mnemonicParsing="false" text="Visualiser medicininteraktioner" />
             <Circle fill="WHITE" layoutX="190.0" layoutY="15.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
             <Text layoutX="179.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-            <Button layoutX="248.0" layoutY="3.0" mnemonicParsing="false" onAction="#changeSceneToChoosePatientView" text="Vælg ny patient" />
+            <Button layoutX="248.0" layoutY="3.0" mnemonicParsing="false" text="Vælg ny patient" />
          </children></AnchorPane>
   </content>
 </TitledPane>
