@@ -20,15 +20,16 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException{
-        Parent choosePatientViewScene = FXMLLoader.load(Main.class.getResource("/choosePatientView.fxml"));
-        primaryStage.setScene(new Scene(choosePatientViewScene));
+        Parent choosePatientView = FXMLLoader.load(Main.class.getResource("/choosePatientView.fxml"));
+        primaryStage.setScene(new Scene(choosePatientView));
         primaryStage.show();
 
-/*
+        TimeUnit.SECONDS.sleep(3)
+
         Parent medicineListViewScene = FXMLLoader.load(Main.class.getResource("/medicineListView.fxml"));
         primaryStage.setScene(new Scene(medicineListViewScene));
         primaryStage.show();
-*/
+
 
     }
 }
