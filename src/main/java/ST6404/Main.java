@@ -26,11 +26,11 @@ public class Main extends Application {
         primaryStage.show();
 
         //TimeUnit.SECONDS.sleep(3)
-
+/*
         Parent medicineListViewScene = FXMLLoader.load(Main.class.getResource("/medicineListView.fxml"));
         primaryStage.setScene(new Scene(medicineListViewScene));
         primaryStage.show();
-
+*/
 
 
     }
