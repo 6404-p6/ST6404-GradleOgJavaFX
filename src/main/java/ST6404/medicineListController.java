@@ -27,6 +27,18 @@ public class medicineListController {
     }
 
     @FXML
+    public void changeSceneToCVisualizationView(ActionEvent event) throws IOException {
+        System.out.println("Troubleshoot: Begynder metode changeSceneToCVisualizationView");
+        // Forklaring følger, men den er her indtil videre: https://www.youtube.com/watch?v=XCgcQTQCfJQ
+        Parent visualizationView = FXMLLoader.load(Main.class.getResource("/visualizationView.fxml"));
+        Scene visualizationViewScene = new Scene(visualizationView);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(visualizationViewScene);
+        window.show();
+        System.out.println("Troubleshoot: Afslutter metode changeSceneToCVisualizationView");
+    }
+
+    @FXML
     public void testSystemPrintMethod(ActionEvent event){
         System.out.println("Test");
     }
