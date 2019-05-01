@@ -17,9 +17,6 @@ public class medicineListController {
     @FXML
     public void changeSceneToMedicineList(ActionEvent event) throws IOException {
         System.out.println("Troubleshoot: Begynder metode changeSceneToMedicineList");
-        //// Her findes informationerne til medicinlistens view fra database
-
-        //// Her ændres view'et til medicinlisten
         // Forklaring følger, men den er her indtil videre: https://www.youtube.com/watch?v=XCgcQTQCfJQ
         Parent medicineListView = FXMLLoader.load(Main.class.getResource("/medicineListView.fxml"));
         Scene medicineListViewScene = new Scene(medicineListView);

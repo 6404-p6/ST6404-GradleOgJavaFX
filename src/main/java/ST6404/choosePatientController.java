@@ -15,9 +15,6 @@ public class choosePatientController {
     @FXML
     public void changeSceneToChoosePatientView(ActionEvent event) throws IOException {
         System.out.println("Troubleshoot: Begynder metode changeSceneToChoosePatientView");
-        //// Her findes informationerne til medicinlistens view fra database
-
-        //// Her ændres view'et til medicinlisten
         // Forklaring følger, men den er her indtil videre: https://www.youtube.com/watch?v=XCgcQTQCfJQ
         Parent choosePatientView = FXMLLoader.load(Main.class.getResource("/choosePatientView.fxml"));
         Scene choosePatientViewScene = new Scene(choosePatientView);
