@@ -236,6 +236,7 @@
       </list>
     </option>
   </component>
+<<<<<<< Updated upstream
   <component name="MavenProjectNavigator">
     <treeState>
       <expand />
@@ -245,6 +246,12 @@
   <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1280" />
     <option name="height" value="800" />
+=======
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1358" />
+    <option name="width" value="974" />
+    <option name="height" value="1028" />
+>>>>>>> Stashed changes
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -415,15 +422,20 @@
       <workItem from="1556607482297" duration="4989000" />
       <workItem from="1556613765913" duration="4200000" />
       <workItem from="1556618159043" duration="1402000" />
+<<<<<<< Updated upstream
 <<<<<<< HEAD
       <workItem from="1556627465675" duration="3118000" />
 =======
       <workItem from="1556623307218" duration="7851000" />
 >>>>>>> master
+=======
+      <workItem from="1556623307218" duration="8430000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< Updated upstream
 <<<<<<< HEAD
     <option name="totallyTimeSpent" value="13709000" />
   </component>
@@ -433,9 +445,12 @@
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16882068" />
 =======
     <option name="totallyTimeSpent" value="18442000" />
+=======
+    <option name="totallyTimeSpent" value="19021000" />
+>>>>>>> Stashed changes
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27155825" />

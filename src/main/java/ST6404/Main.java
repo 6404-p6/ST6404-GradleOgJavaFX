@@ -25,7 +25,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(choosePatientView));
         primaryStage.show();
 
-        TimeUnit.SECONDS.sleep(3)
+        //TimeUnit.SECONDS.sleep(3)
 
         Parent medicineListViewScene = FXMLLoader.load(Main.class.getResource("/medicineListView.fxml"));
         primaryStage.setScene(new Scene(medicineListViewScene));

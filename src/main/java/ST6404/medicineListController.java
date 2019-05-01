@@ -14,7 +14,7 @@ import java.io.IOException;
 public class medicineListController {
 
     public void changeSceneToMedicineList(ActionEvent event) throws IOException {
-        Parent medicineListView = FXMLLoader.load(Main.class.getResource("/ST6404/medicineListView.fxml"));
+        Parent medicineListView = FXMLLoader.load(Main.class.getResource("/medicineListView.fxml"));
         Scene medicineListViewScene = new Scene(medicineListView);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
