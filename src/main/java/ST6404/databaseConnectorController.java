@@ -1,4 +1,10 @@
 public class databaseConnectorController {
+
+
+
+
+
+
     /*
     Metoder
     - loadPatientData ()

@@ -3,6 +3,8 @@ import java.sql.Timestamp;
 
 public class medicineModel extends prescriptionModel{
 
+
+
     private String medicationName;
     private enum administrationRoute{
         OR,
