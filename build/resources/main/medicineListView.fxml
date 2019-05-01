@@ -27,7 +27,7 @@
                <contextMenu>
                   <ContextMenu>
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Ordiner medikament" />
+                        <MenuItem mnemonicParsing="false" onAction="#changeSceneToPrescriptionView" text="Ordiner medikament" />
                         <MenuItem mnemonicParsing="false" text="Rediger medikament" />
                         <MenuItem mnemonicParsing="false" text="Slet medikament" />
                     </items>

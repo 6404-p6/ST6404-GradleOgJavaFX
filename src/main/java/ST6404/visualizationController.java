@@ -1,6 +1,5 @@
 package ST6404;
 
-import ST6404.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

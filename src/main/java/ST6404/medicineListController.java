@@ -39,6 +39,18 @@ public class medicineListController {
     }
 
     @FXML
+    public void changeSceneToPrescriptionView(ActionEvent event) throws IOException {
+        System.out.println("Troubleshoot: Begynder metode changeSceneToPrescriptionView");
+        // Forklaring følger, men den er her indtil videre: https://www.youtube.com/watch?v=XCgcQTQCfJQ
+        Parent prescriptionView = FXMLLoader.load(Main.class.getResource("/prescriptionView.fxml"));
+        Scene prescriptionViewScene = new Scene(prescriptionView);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(prescriptionViewScene);
+        window.show();
+        System.out.println("Troubleshoot: Afslutter metode changeSceneToPrescriptionView");
+    }
+
+    @FXML
     public void testSystemPrintMethod(ActionEvent event){
         System.out.println("Test");
     }
