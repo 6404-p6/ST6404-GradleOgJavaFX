@@ -23,5 +23,6 @@ public class Main extends Application {
         primaryStage.setTitle("Medicinmodul");
         primaryStage.setScene(new Scene(choosePatientView));
         primaryStage.show();
+        //test
     }
 }
