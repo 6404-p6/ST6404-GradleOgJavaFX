@@ -21,6 +21,7 @@ public class Main extends Application {
         primaryStage.setTitle("Medicinmodul");
         primaryStage.setScene(new Scene(choosePatientView));
         primaryStage.show();
+        /*
 <<<<<<< HEAD
 
             try {
@@ -34,5 +35,7 @@ public class Main extends Application {
         //test
 =======
 >>>>>>> master
+*/
     }
+}
 
