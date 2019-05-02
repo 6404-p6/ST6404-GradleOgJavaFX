@@ -18,9 +18,10 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         Parent choosePatientView = FXMLLoader.load(Main.class.getResource("/choosePatientView.fxml"));
-        primaryStage.setTitle("Medicinmodul");
+        primaryStage.setTitle("EPJ");
         primaryStage.setScene(new Scene(choosePatientView));
         primaryStage.show();
+        /*
 <<<<<<< HEAD
 
             try {
@@ -34,6 +35,10 @@ public class Main extends Application {
         //test
 =======
 >>>>>>> master
+*/
     }
+}
+
+// Tobias test
 
 // Tim Test // 
