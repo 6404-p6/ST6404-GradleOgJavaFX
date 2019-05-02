@@ -12,6 +12,7 @@ import java.io.IOException;
 
 public class choosePatientController {
 
+    
     @FXML
     public void changeSceneToMedicineListView(ActionEvent event) throws IOException {
         System.out.println("Troubleshoot: Begynder metode changeSceneToMedicineListView");
