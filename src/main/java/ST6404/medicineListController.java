@@ -35,7 +35,7 @@ public class medicineListController {
         Parent visualizationView = FXMLLoader.load(Main.class.getResource("/visualizationView.fxml"));
         Scene visualizationViewScene = new Scene(visualizationView);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setTitle("FIO);
+        window.setTitle("FIO");
         window.setScene(visualizationViewScene);
         window.show();
         System.out.println("Troubleshoot: Afslutter metode changeSceneToCVisualizationView");
