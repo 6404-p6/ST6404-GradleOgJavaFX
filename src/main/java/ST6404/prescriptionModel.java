@@ -1,4 +1,4 @@
-package Prescription;
+package ST6404;
 
 import java.sql.Timestamp;
 

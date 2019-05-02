@@ -29,6 +29,10 @@ public class patientModel {
         }
     }
 
+    public void loadPatientInfo (){
+
+    }
+
     // Atributterne opstilles i en contruktur for at kunne instantieres senere i main.
     public patientModel(String firstName, String lastName, String CPRNumber){
         this.setFirstName(firstName);

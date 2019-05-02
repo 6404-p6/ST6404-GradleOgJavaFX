@@ -1,4 +1,4 @@
-package MedicineList;
+package ST6404;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package medicineInteraction;
+package ST6404;
 
 public class medicineInteractionModel {
     private String medicamentA;

@@ -14,6 +14,7 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+    databaseConnectorController.
 
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -21,6 +22,7 @@ public class Main extends Application {
         primaryStage.setTitle("Medicinmodul");
         primaryStage.setScene(new Scene(choosePatientView));
         primaryStage.show();
+
         /*
 <<<<<<< HEAD
 
