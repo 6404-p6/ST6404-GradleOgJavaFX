@@ -6,11 +6,23 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class choosePatientController {
+
+    @FXML
+    private TextField textFieldInsertCPR;
+
+    @FXML
+    private void processTextFieldInsertCPR(ActionEvent event){
+        String CPRoutputString = textFieldInsertCPR.getText();
+        System.out.println("CPR er: " + CPRoutputString + " og nu burde den søge på SQL. Koden er endnu ikke lavet");
+    }
 
     /*
     Først skabes en parent-klasse kaldt "medicineListView". Parent-klassen
@@ -30,6 +42,6 @@ public class choosePatientController {
         window.setScene(medicineListViewScene);
         window.show();
         System.out.println("Troubleshoot: Afslutter metode changeSceneToMedicineListView");
+    }
 
-    }
-    }
+}
