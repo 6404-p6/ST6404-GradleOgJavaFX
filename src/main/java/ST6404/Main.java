@@ -11,8 +11,6 @@ import java.io.IOException;
 
 public class Main extends Application {
 
-    public static Stage primaryStage;
-
     public static void main(String[] args) {
         launch(args);
     }
@@ -23,9 +21,10 @@ public class Main extends Application {
         primaryStage.setTitle("Medicinmodul");
         primaryStage.setScene(new Scene(choosePatientView));
         primaryStage.show();
+<<<<<<< HEAD
 
             try {
-                patientModel.patientModel.getCPRfromSQL();
+                patientModel.patientModel.getPatientdatafromSQL();
             }catch(Exception e) {
                 System.out.println("Something went wrong..." + e.getMessage());
 
@@ -33,5 +32,7 @@ public class Main extends Application {
 
         }
         //test
+=======
+>>>>>>> master
     }
 

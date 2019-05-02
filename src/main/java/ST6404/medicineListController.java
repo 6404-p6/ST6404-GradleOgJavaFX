@@ -15,16 +15,39 @@ import java.io.IOException;
 public class medicineListController {
 
     @FXML
-    public void changeSceneToMedicineList(ActionEvent event) throws IOException {
-        System.out.println("Troubleshoot: Begynder metode changeSceneToMedicineList");
+    public void changeSceneToChoosePatientView(ActionEvent event) throws IOException {
+        System.out.println("Troubleshoot: Begynder metode changeSceneToChoosePatientView");
         // Forklaring følger, men den er her indtil videre: https://www.youtube.com/watch?v=XCgcQTQCfJQ
-        Parent medicineListView = FXMLLoader.load(Main.class.getResource("/medicineListView.fxml"));
-        Scene medicineListViewScene = new Scene(medicineListView);
+        Parent choosePatientView = FXMLLoader.load(Main.class.getResource("/choosePatientView.fxml"));
+        Scene choosePatientViewScene = new Scene(choosePatientView);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(medicineListViewScene);
+        window.setScene(choosePatientViewScene);
         window.show();
-        System.out.println("Troubleshoot: Afslutter metode changeSceneToMedicineList");
+        System.out.println("Troubleshoot: Afslutter metode changeSceneToChoosePatientView");
+    }
 
+    @FXML
+    public void changeSceneToCVisualizationView(ActionEvent event) throws IOException {
+        System.out.println("Troubleshoot: Begynder metode changeSceneToCVisualizationView");
+        // Forklaring følger, men den er her indtil videre: https://www.youtube.com/watch?v=XCgcQTQCfJQ
+        Parent visualizationView = FXMLLoader.load(Main.class.getResource("/visualizationView.fxml"));
+        Scene visualizationViewScene = new Scene(visualizationView);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(visualizationViewScene);
+        window.show();
+        System.out.println("Troubleshoot: Afslutter metode changeSceneToCVisualizationView");
+    }
+
+    @FXML
+    public void changeSceneToPrescriptionView(ActionEvent event) throws IOException {
+        System.out.println("Troubleshoot: Begynder metode changeSceneToPrescriptionView");
+        // Forklaring følger, men den er her indtil videre: https://www.youtube.com/watch?v=XCgcQTQCfJQ
+        Parent prescriptionView = FXMLLoader.load(Main.class.getResource("/prescriptionView.fxml"));
+        Scene prescriptionViewScene = new Scene(prescriptionView);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(prescriptionViewScene);
+        window.show();
+        System.out.println("Troubleshoot: Afslutter metode changeSceneToPrescriptionView");
     }
 
     @FXML
