@@ -12,11 +12,17 @@ import java.io.IOException;
 
 public class choosePatientController {
 
-    
+    /*
+    Først skabes en parent-klasse kaldt "medicineListView". Parent-klassen
+    håndterer operationer og organisering af layout i den bagvedliggende kode.
+    Parent'en sættes til at loade i en FXMLLoader ud fra FXML filen, der er lavet
+    i Scenebuilder. Herefter laves der en Scene af denne. Kun stages vises, så scenen
+    laves til en stage, som får en titel og derefter sættes til at poppe up.
+    TD: Video jeg fik det fra: https://www.youtube.com/watch?v=XCgcQTQCfJQ
+     */
     @FXML
     public void changeSceneToMedicineListView(ActionEvent event) throws IOException {
         System.out.println("Troubleshoot: Begynder metode changeSceneToMedicineListView");
-        // Forklaring følger, men den er her indtil videre: https://www.youtube.com/watch?v=XCgcQTQCfJQ
         Parent medicineListView = FXMLLoader.load(Main.class.getResource("/medicineListView.fxml"));
         Scene medicineListViewScene = new Scene(medicineListView);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();

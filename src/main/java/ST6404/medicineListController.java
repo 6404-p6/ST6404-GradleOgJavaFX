@@ -18,7 +18,6 @@ public class medicineListController {
     @FXML
     public void changeSceneToChoosePatientView(ActionEvent event) throws IOException {
         System.out.println("Troubleshoot: Begynder metode changeSceneToChoosePatientView");
-        // Forklaring følger, men den er her indtil videre: https://www.youtube.com/watch?v=XCgcQTQCfJQ
         Parent choosePatientView = FXMLLoader.load(Main.class.getResource("/choosePatientView.fxml"));
         Scene choosePatientViewScene = new Scene(choosePatientView);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -31,7 +30,6 @@ public class medicineListController {
     @FXML
     public void changeSceneToCVisualizationView(ActionEvent event) throws IOException {
         System.out.println("Troubleshoot: Begynder metode changeSceneToCVisualizationView");
-        // Forklaring følger, men den er her indtil videre: https://www.youtube.com/watch?v=XCgcQTQCfJQ
         Parent visualizationView = FXMLLoader.load(Main.class.getResource("/visualizationView.fxml"));
         Scene visualizationViewScene = new Scene(visualizationView);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -44,7 +42,6 @@ public class medicineListController {
     @FXML
     public void changeSceneToPrescriptionView(ActionEvent event) throws IOException {
         System.out.println("Troubleshoot: Begynder metode changeSceneToPrescriptionView");
-        // Forklaring følger, men den er her indtil videre: https://www.youtube.com/watch?v=XCgcQTQCfJQ
         Parent prescriptionView = FXMLLoader.load(Main.class.getResource("/prescriptionView.fxml"));
         Scene prescriptionViewScene = new Scene(prescriptionView);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
