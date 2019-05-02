@@ -14,9 +14,9 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    databaseConnectorController.
+    //databaseConnectorController.
 
-    @Override
+    //@Override
     public void start(Stage primaryStage) throws IOException {
         Parent choosePatientView = FXMLLoader.load(Main.class.getResource("/choosePatientView.fxml"));
         primaryStage.setTitle("EPJ");

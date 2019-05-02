@@ -37,4 +37,3 @@ public class databaseConnectorController {
     - loadMedicineList ()
     - loadMedicineInteractions ()
      */
-}
