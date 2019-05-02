@@ -19,6 +19,7 @@ public class prescriptionController {
         Parent visualizationView = FXMLLoader.load(Main.class.getResource("/visualizationView.fxml"));
         Scene visualizationViewScene = new Scene(visualizationView);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setTitle("FIO");
         window.setScene(visualizationViewScene);
         window.show();
         System.out.println("Troubleshoot: Afslutter metode changeSceneToCVisualizationView");
@@ -31,6 +32,7 @@ public class prescriptionController {
         Parent medicineListView = FXMLLoader.load(Main.class.getResource("/medicineListView.fxml"));
         Scene medicineListViewScene = new Scene(medicineListView);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setTitle("Medicinmodul");
         window.setScene(medicineListViewScene);
         window.show();
         System.out.println("Troubleshoot: Afslutter metode changeSceneToMedicineListView");
