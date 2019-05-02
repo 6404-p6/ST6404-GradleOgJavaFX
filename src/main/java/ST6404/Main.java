@@ -38,7 +38,3 @@ public class Main extends Application {
 */
     }
 }
-
-// Tobias test
-
-// Tim Test // 
