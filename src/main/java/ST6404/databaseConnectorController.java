@@ -14,7 +14,7 @@ public class databaseConnectorController{
             //loadPatientData ()
             ResultSet patientdatabase = conn.prepareStatement("SELECT * FROM `patientdatabase` WHERE patientdatabase.CPR = 3003965678").executeQuery();
             // loadMedicineList ()
-            ResultSet præparatdatabase = conn.prepareStatement("SELECT * FROM `præparatdatabase`").executeQuery();
+            ResultSet praeparatdatabase = conn.prepareStatement("SELECT * FROM `præparatdatabase`").executeQuery();
             // loadMedicineInteractions
             ResultSet MIdatabase = conn.prepareStatement("SELECT * FROM `MIdatabase`").executeQuery();
 
@@ -23,8 +23,8 @@ public class databaseConnectorController{
                 String s = patientdatabase.getString(2);
                 System.out.println(s);
             }
-            while (præparatdatabase.next()) {
-                String a = præparatdatabase.getString(2);
+            while (praeparatdatabase.next()) {
+                String a = praeparatdatabase.getString(2);
                 System.out.println(a);
             }
             while (MIdatabase.next()) {
