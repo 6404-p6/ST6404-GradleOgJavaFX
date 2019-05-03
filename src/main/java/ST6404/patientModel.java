@@ -1,5 +1,4 @@
 package ST6404;
-//package databaseConnectorController.java;
 
 /*
 * Dette er model-klassen for patient.
@@ -33,4 +32,9 @@ public class patientModel{
     private String getCPRNumber() { return CPRNumber; }
 
     private void setCPRNumber(String CPRNumber) { this.CPRNumber = CPRNumber; }
+
+
+
+
+
 }
