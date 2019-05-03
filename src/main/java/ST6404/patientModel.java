@@ -1,14 +1,11 @@
 package ST6404;
-import java.sql.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+//package databaseConnectorController.java;
+
 /*
 * Dette er model-klassen for patient.
  */
 
-public class patientModel {
+public class patientModel{
     public static databaseConnectorController patientModel;
     // Klassen har attributterne fornavn, efternavn og cpr-nummer
     private String firstName;
@@ -36,5 +33,4 @@ public class patientModel {
     private String getCPRNumber() { return CPRNumber; }
 
     private void setCPRNumber(String CPRNumber) { this.CPRNumber = CPRNumber; }
-
 }
