@@ -16,11 +16,11 @@ import java.io.IOException;
 public class choosePatientController {
 
     @FXML
-    private TextField textFieldInsertCPR;
+    private TextField IDTextFieldInsertCPR;
 
     @FXML
-    private void processTextFieldInsertCPR(ActionEvent event){
-        String CPRoutputString = textFieldInsertCPR.getText();
+    private void processTextFieldInsertCPR(){
+        String CPRoutputString = IDTextFieldInsertCPR.getText();
         System.out.println("CPR er: " + CPRoutputString + " og nu burde den søge på SQL. Koden er endnu ikke lavet");
     }
 
@@ -35,6 +35,7 @@ public class choosePatientController {
     @FXML
     public void changeSceneToMedicineListView(ActionEvent event) throws IOException {
         System.out.println("Troubleshoot: Begynder metode changeSceneToMedicineListView");
+        processTextFieldInsertCPR();
         Parent medicineListView = FXMLLoader.load(Main.class.getResource("/medicineListView.fxml"));
         Scene medicineListViewScene = new Scene(medicineListView);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
