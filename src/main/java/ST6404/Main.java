@@ -26,7 +26,7 @@ public class Main extends Application {
 //<<<<<<< HEAD
 
             try {
-                patientModel.getPatientdatafromSQL();
+                TestMysql.TestMysql();
             }catch(Exception e) {
                 System.out.println("Something went wrong..." + e.getMessage());
 
