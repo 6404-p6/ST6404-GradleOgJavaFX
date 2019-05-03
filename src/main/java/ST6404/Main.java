@@ -23,11 +23,10 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(choosePatientView));
         primaryStage.show();
 
-        /*
-<<<<<<< HEAD
+//<<<<<<< HEAD
 
             try {
-                patientModel.patientModel.getPatientdatafromSQL();
+                patientModel.getPatientdatafromSQL();
             }catch(Exception e) {
                 System.out.println("Something went wrong..." + e.getMessage());
 
@@ -35,8 +34,6 @@ public class Main extends Application {
 
         }
         //test
-=======
->>>>>>> master
-*/
+//=======
+//>>>>>>> master
     }
-}
