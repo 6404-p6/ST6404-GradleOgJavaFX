@@ -11,6 +11,7 @@ import java.sql.SQLException;
 
 
 public class patientModel {
+    public static databaseConnectorController patientModel;
     // Klassen har attributterne fornavn, efternavn og cpr-nummer
     private String firstName;
     private String lastName;
@@ -19,15 +20,23 @@ public class patientModel {
     public static void getPatientdatafromSQL () throws ClassNotFoundException, SQLException{
         Class.forName("com.mysql.cj.jdbc.Driver");
         String connectionUrl =
-                "https://db.course.hst.aau.dk/phpmyadmin/sql.php?server=1&db=hst_2019_19gr6404&table=patientdatabase&pos=0&token=76c8a524756aa73ade2e664ae9d13ef1";
+                "jdbc:mysql://db.course.hst.aau.dk/phpmyadmin/sql.php?server=1&db=hst_2019_19gr6404&table=patientdatabase&pos=0&token=76c8a524756aa73ade2e664ae9d13ef1";
         Connection conn = DriverManager.getConnection(connectionUrl);
-        //ResultSet rs = conn.prepareStatement("show tables").executeQuery();
+        //ResultSet rs = conn.prepareStatement("show tables").executeQuery();
         ResultSet rs = conn.prepareStatement("SELECT * FROM `patientdatabase`").executeQuery();
         while(rs.next()) {
             String s = rs.getString(1);
             System.out.println(s);
         }
+
     }
+// String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6401?autoReconnect=true&useSSL=false&user=hst_2019_19gr6401&password=******************&serverTimezone=UTC";
+
+
+
+
+
+
 
     public void loadPatientInfo (){
 
