@@ -3,16 +3,27 @@ package ST6404;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TitledPane;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.net.URL;
+import java.sql.Timestamp;
+import java.util.ResourceBundle;
 
 
+public class medicineListController implements Initializable {
 
-public class medicineListController {
+    @FXML
+    private TitledPane IDTitledPaneMedicineList;
 
 
     @FXML
@@ -56,4 +67,10 @@ public class medicineListController {
         System.out.println("Test");
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        System.out.println("Initialiser medicineListView");
+        patientModel chosenPatient = new patientModel("Tobias", "Duncker", "3003965678");
+        IDTitledPaneMedicineList.setText(chosenPatient.getPatientIdentification());
+    }
 }

@@ -14,7 +14,8 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    //databaseConnectorController.
+
+
 
     //@Override
     public void start(Stage primaryStage) throws IOException {
@@ -24,16 +25,16 @@ public class Main extends Application {
         primaryStage.show();
 
 //<<<<<<< HEAD
-
+/*
             try {
                 databaseConnectorController.databaseConnectorController();
             }catch(Exception e) {
                 System.out.println("Something went wrong..." + e.getMessage());
 
-            }
+            }*/
 
         }
         //test
 //=======
 //>>>>>>> master
-    }
+}

@@ -2,25 +2,29 @@ package ST6404;
 
 import java.sql.Timestamp;
 
+// ALT HERINDE SKAL LIGE ÆNDRES: EXTEND ER FORKERT RÆKKEFØLGE OG VI SNAKKER OM NOGLE ÆNDRER VED VEJLEDERMØDET
+
 public class prescriptionModel {
     private int dosage;
     private String frequency;
-    private Timestamp startDate;
-    private Timestamp endDate;
-    private enum unit{
+    // TD: Jeg kan ikke få dem indsat i tabellen endnu. Forstår ikke hvordan jeg laver dem i constructoren
+    //private Timestamp startDate;
+    //private Timestamp endDate;
+    /*private enum unit{
         mg,
         ml;
     }
     private int unit;
+    */
 
-    public prescriptionModel (int dosage, String frequency, Timestamp startDate, Timestamp endDate, int unit){
+    public prescriptionModel (int dosage, String frequency/*Timestamp startDate, Timestamp endDate, int unit*/){
         this.setDosage(dosage);
         this.setFrequency(frequency);
-        this.setStartDate(startDate);
-        this.setEndDate(endDate);
+        //this.setStartDate(startDate);
+        //this.setEndDate(endDate);
     }
 
-//Metoder:
+    //Metoder:
     private int getDosage() {
         return dosage;
     }
@@ -36,6 +40,7 @@ public class prescriptionModel {
     private void setFrequency(String frequency) {
         this.frequency = frequency;
     }
+    /*
 
     private Timestamp getStartDate() {
         return startDate;
@@ -52,6 +57,7 @@ public class prescriptionModel {
     private void setEndDate(Timestamp endDate) {
         this.endDate = endDate;
     }
+    */
 
 
 }

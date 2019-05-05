@@ -3,17 +3,18 @@ package ST6404;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class choosePatientController {
+public class choosePatientController implements Initializable {
 
     @FXML
     private TextField IDTextFieldInsertCPR;
@@ -45,4 +46,8 @@ public class choosePatientController {
         System.out.println("Troubleshoot: Afslutter metode changeSceneToMedicineListView");
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        System.out.println("Test af initializeable i choosePatientView");
+    }
 }

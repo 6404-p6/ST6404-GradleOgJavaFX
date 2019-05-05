@@ -2,6 +2,8 @@ package ST6404;
 
 import java.sql.Timestamp;
 
+// ALT HERINDE SKAL LIGE ÆNDRES: EXTEND ER FORKERT RÆKKEFØLGE OG VI SNAKKER OM NOGLE ÆNDRER VED VEJLEDERMØDET
+
 public class medicineModel extends prescriptionModel{
 
 
@@ -17,7 +19,7 @@ public class medicineModel extends prescriptionModel{
 
     public medicineModel(int dosage, String frequency, Timestamp startDate, Timestamp endDate, int unit, String medicationName,
                               String administrationRoute, int ATC){
-        super(dosage, frequency, startDate, endDate, unit);
+        super(dosage, frequency);
         this.setMedicationName(medicationName);
         this.setAdministrationRoute(administrationRoute);
         this.setATC(ATC);

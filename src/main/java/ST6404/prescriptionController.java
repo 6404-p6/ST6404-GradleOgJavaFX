@@ -1,17 +1,24 @@
 package ST6404;
 
-import ST6404.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TitledPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class prescriptionController {
+public class prescriptionController implements Initializable {
+
+    @FXML
+    private TitledPane IDTitledPanePrescription;
+
     @FXML
     public void changeSceneToCVisualizationView(ActionEvent event) throws IOException {
         System.out.println("Troubleshoot: Begynder metode changeSceneToCVisualizationView");
@@ -34,5 +41,13 @@ public class prescriptionController {
         window.setScene(medicineListViewScene);
         window.show();
         System.out.println("Troubleshoot: Afslutter metode changeSceneToMedicineListView");
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        System.out.println("Initialiser prescriptionView");
+        // Dette stykke kode virker ikke, før jeg fatter, hvordan man passerer en instans rundt til en anden klasse.
+        // Jeg kan simpelthen ikke få fat i instansen herfra...
+        //IDTitledPanePrescription.setText(chosenPatient.getPatientIdentification());
     }
 }
