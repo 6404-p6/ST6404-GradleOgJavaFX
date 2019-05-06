@@ -48,6 +48,7 @@ public class choosePatientController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("Test af initializeable i choosePatientView");
+        patientModel chosenPatientV2 = new patientModel("Tim", "Warburg", "1234567890");;
+        System.out.println(chosenPatientV2.getPatientIdentification());
     }
 }
