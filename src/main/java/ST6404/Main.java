@@ -23,17 +23,17 @@ public class Main extends Application {
 
 //<<<<<<< HEAD
         // Denne af
-        try {
+        /*try {
             databaseConnectorController.databaseConnectorController();
         } catch (Exception e) {
             System.out.println("Something went wrong..." + e.getMessage());
-        }
+        }*/
         // Skal bruges for at køre koden.
-        /*try {
+        try {
             databaseConnectorController.loadPatientData();
         } catch (Exception e) {
             System.out.println("Something went wrong..." + e.getMessage());
-        }*/
+        }
     }
 }
     //test

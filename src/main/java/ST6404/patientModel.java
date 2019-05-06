@@ -18,22 +18,27 @@ public class patientModel {
         this.setCPRNumber(CPRNumber);
     }
 
+    // LoadedPatientData
+
 
     public String getPatientIdentification() {return firstName + " " + lastName + ", CPR: " + CPRNumber;}
 
     // Returnere attributten firstname
     public String getFirstName() { return firstName; }
 
+    // Bruges i Databasecontroller
     public void setFirstName(String firstName) { this.firstName = firstName; }
 
     // Returnere attributten lastname
     public String getLastName() { return lastName; }
 
+    // Bruges i Databasecontroller
     public void setLastName(String lastName) { this.lastName = lastName; }
 
     // Returnere attributten getCPRnumber
     public String getCPRNumber() { return CPRNumber; }
 
+    // Bruges i Databasecontroller
     public void setCPRNumber(String CPRNumber) { this.CPRNumber = CPRNumber; }
 
 
