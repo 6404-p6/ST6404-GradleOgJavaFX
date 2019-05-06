@@ -33,14 +33,14 @@ public class databaseConnectorController {
         // Dette er koden, som volder problemer!!!
         // Bemærk at linje 11 også skal bruges til koden.
         /*public static void loadPatientData() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
-        Connection conn = DriverManager.getConnection(connectionUrl);
         Statement st = null; //
         ResultSet rs = null; //
         String CPR;          // Patientens CPR
         String FirstName;    // Patientens fornavn
         String LastName;     // Patientens efternavn
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
+        Connection conn = DriverManager.getConnection(connectionUrl);
         try {
             String SQL =("select *FROM patientdatabase WHERE CPR = 1122335678");
             conn().createStatement().executeQuery(SQL);   // Forbindes til vores URL.
