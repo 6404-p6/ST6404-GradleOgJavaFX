@@ -1,17 +1,19 @@
 package ST6404;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class prescriptedMedicineModel extends medicineModel {
     private int dosage;
     private String frequency;
     // TD: Jeg kan ikke få dem indsat i tabellen endnu. Forstår ikke hvordan jeg laver dem i constructoren
-    private Timestamp startDate;
-    private Timestamp endDate;
+    private String startDate;
+    private String endDate;
     String unit;
 
-    public prescriptedMedicineModel( String medicationName, String administrationRoute, int ATC,int dosage, String frequency, Timestamp startDate, Timestamp endDate, String unit){
+    public prescriptedMedicineModel( String medicationName, String administrationRoute, String ATC,int dosage, String frequency, String startDate, String endDate, String unit){
         super (medicationName, administrationRoute, ATC);
         this.dosage = dosage;
         this.frequency = frequency;
@@ -19,6 +21,8 @@ public class prescriptedMedicineModel extends medicineModel {
         this.endDate = endDate;
         this.unit = unit;
     }
+
+    prescriptedMedicineModel test = new prescriptedMedicineModel("Placebo", "numse","AB001A01",100,"2 Dagligt","06-05-2019","06-06-2020","mL");
 
     //Metoder:
     private int getDosage() {
@@ -55,5 +59,6 @@ public class prescriptedMedicineModel extends medicineModel {
     }
     */
 
+    }
 
-}
+

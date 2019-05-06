@@ -1,12 +1,20 @@
 package ST6404;
+import ST6404.prescriptedMedicineModel;
 
+import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 public class medicineListModel {
     private List medicineList;
     private String CPRNumber;
     private List availableMedicineList;
-/*
+
+    static List<prescriptedMedicineModel> prescriptedMedicineList = new ArrayList<>();
+
+
+
+    /*
     public List<String> getMedicineListController;
     private List medicineListController;
 
@@ -36,5 +44,11 @@ Metoder:
 - updateExternalFMK ()
 - getAvailableMedicineList ()
  */
+public static void createPrescription(String a, String b, String c,int d, String e, String f, String g, String h){
+prescriptedMedicineModel newPrescription = new prescriptedMedicineModel(a,b,c,d,e,f,g,h);
+prescriptedMedicineList.add(newPrescription);
+}
+
+
 
 }

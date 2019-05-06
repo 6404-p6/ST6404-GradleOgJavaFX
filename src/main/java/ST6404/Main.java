@@ -1,10 +1,13 @@
 package ST6404;
 
+import ST6404.medicineListModel.*;
+import ST6404.prescriptedMedicineModel.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
+import ST6404.prescriptedMedicineModel.*;
 
 import java.io.IOException;
 

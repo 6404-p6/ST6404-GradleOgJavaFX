@@ -10,9 +10,9 @@ public class medicineModel {
 
     private String medicationName;
     private String administrationRoute;
-    private int ATC;
+    private String ATC;
 
-    public medicineModel( String medicationName, String administrationRoute, int ATC){
+    public medicineModel( String medicationName, String administrationRoute, String ATC){
         this.medicationName = medicationName;
         this.administrationRoute = administrationRoute;
         this.ATC = ATC;
@@ -29,6 +29,6 @@ Metoder:
 
     private void setAdministrationRoute(String administrationRoute) { this.administrationRoute = administrationRoute; }
 
-    private int getATC() { return ATC; }
+    private String getATC() { return ATC; }
 
 }
