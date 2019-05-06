@@ -70,7 +70,8 @@ public class medicineListController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Initialiser medicineListView");
-        patientModel chosenPatient = new patientModel("Tobias", "Duncker", "3003965678");
-        IDTitledPaneMedicineList.setText(chosenPatient.getPatientIdentification());
+        patientModel chosenPatientV1 = new patientModel("Tobias", "Duncker", "3003965678");
+        IDTitledPaneMedicineList.setText(chosenPatientV1.getPatientIdentification());
+        //System.out.println(chosenPatientV2.getPatientIdentification());
     }
 }

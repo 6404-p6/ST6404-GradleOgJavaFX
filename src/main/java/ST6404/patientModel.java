@@ -7,9 +7,9 @@ package ST6404;
 public class patientModel {
     public static databaseConnectorController patientModel;
     // Klassen har attributterne fornavn, efternavn og cpr-nummer
-    private String firstName;
-    private String lastName;
-    private String CPRNumber;
+    public String firstName;
+    public String lastName;
+    public String CPRNumber;
 
     // Atributterne opstilles i en contruktur for at kunne instantieres senere i main.
     public patientModel(String firstName, String lastName, String CPRNumber){
@@ -24,17 +24,17 @@ public class patientModel {
     // Returnere attributten firstname
     public String getFirstName() { return firstName; }
 
-    private void setFirstName(String firstName) { this.firstName = firstName; }
+    public void setFirstName(String firstName) { this.firstName = firstName; }
 
     // Returnere attributten lastname
     public String getLastName() { return lastName; }
 
-    private void setLastName(String lastName) { this.lastName = lastName; }
+    public void setLastName(String lastName) { this.lastName = lastName; }
 
     // Returnere attributten getCPRnumber
     public String getCPRNumber() { return CPRNumber; }
 
-    private void setCPRNumber(String CPRNumber) { this.CPRNumber = CPRNumber; }
+    public void setCPRNumber(String CPRNumber) { this.CPRNumber = CPRNumber; }
 
 
     
