@@ -6,7 +6,6 @@ import javafx.scene.Scene;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
 
-
 import java.io.IOException;
 
 public class Main extends Application {
@@ -14,8 +13,6 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
-
 
     //@Override
     public void start(Stage primaryStage) throws IOException {
@@ -25,16 +22,20 @@ public class Main extends Application {
         primaryStage.show();
 
 //<<<<<<< HEAD
-/*
-            try {
-                databaseConnectorController.databaseConnectorController();
-            }catch(Exception e) {
-                System.out.println("Something went wrong..." + e.getMessage());
-
-            }*/
-
+        // Denne af
+        try {
+            databaseConnectorController.databaseConnectorController();
+        } catch (Exception e) {
+            System.out.println("Something went wrong..." + e.getMessage());
         }
-        //test
+        // Skal bruges for at køre koden.
+        /*try {
+            databaseConnectorController.loadPatientData();
+        } catch (Exception e) {
+            System.out.println("Something went wrong..." + e.getMessage());
+        }*/
+    }
+}
+    //test
 //=======
 //>>>>>>> master
-}
