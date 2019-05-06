@@ -46,8 +46,7 @@ public class prescriptionController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Initialiser prescriptionView");
-        // Dette stykke kode virker ikke, før jeg fatter, hvordan man passerer en instans rundt til en anden klasse.
-        // Jeg kan simpelthen ikke få fat i instansen herfra...
-        //IDTitledPanePrescription.setText(chosenPatient.getPatientIdentification());
+        patientModel patientModelSingleton = patientModel.getInstance();
+        IDTitledPanePrescription.setText(patientModelSingleton.getPatientIdentification());
     }
 }
