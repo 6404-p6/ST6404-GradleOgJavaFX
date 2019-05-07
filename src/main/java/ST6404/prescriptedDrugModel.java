@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class prescriptedMedicineModel extends medicineModel {
+public class prescriptedDrugModel extends drugModel {
     private int dosage;
     private String frequency;
     // TD: Jeg kan ikke få dem indsat i tabellen endnu. Forstår ikke hvordan jeg laver dem i constructoren
@@ -13,7 +13,7 @@ public class prescriptedMedicineModel extends medicineModel {
     private String endDate;
     String unit;
 
-    public prescriptedMedicineModel( String medicationName, String administrationRoute, String ATC,int dosage, String frequency, String startDate, String endDate, String unit){
+    public prescriptedDrugModel(String medicationName, String administrationRoute, String ATC, int dosage, String frequency, String startDate, String endDate, String unit){
         super (medicationName, administrationRoute, ATC);
         this.dosage = dosage;
         this.frequency = frequency;
@@ -22,7 +22,7 @@ public class prescriptedMedicineModel extends medicineModel {
         this.unit = unit;
     }
 
-    prescriptedMedicineModel test = new prescriptedMedicineModel("Placebo", "numse","AB001A01",100,"2 Dagligt","06-05-2019","06-06-2020","mL");
+    prescriptedDrugModel test = new prescriptedDrugModel("Placebo", "numse","AB001A01",100,"2 Dagligt","06-05-2019","06-06-2020","mL");
 
     //Metoder:
     private int getDosage() {
