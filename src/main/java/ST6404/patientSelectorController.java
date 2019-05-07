@@ -21,9 +21,13 @@ public class patientSelectorController implements Initializable {
 
     @FXML
     private void processTextFieldInsertCPR(){
-        String CPRoutputString = IDTextFieldInsertCPR.getText();
-        System.out.println("CPR er: " + CPRoutputString + " og nu burde den soege paa SQL. Koden er endnu ikke lavet");
-    }
+        String CPRTextFieldInput = IDTextFieldInsertCPR.getText();
+        try {
+            databaseConnectorController.loadPatientData(CPRTextFieldInput);
+        } catch (Exception e) {
+            System.out.println("Something went wrong..." + e.getMessage());
+        }
+        }
 
     /*
     Først skabes en parent-klasse kaldt "medicineListView". Parent-klassen

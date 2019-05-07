@@ -30,7 +30,7 @@ public class databaseConnectorController {
             System.out.println(c);
         }
     }*/
-    public static void loadPatientData() throws ClassNotFoundException, SQLException {
+    public static void loadPatientData(String CPRInput) throws ClassNotFoundException, SQLException {
         Statement st;
         st = null;
         ResultSet rs;
@@ -42,7 +42,7 @@ public class databaseConnectorController {
         String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
         Connection connection = DriverManager.getConnection(connectionUrl);
         try {
-            String SQL = ("select *FROM patientdatabase WHERE CPR = 4455662345");
+            String SQL = ("select *FROM patientdatabase WHERE CPR = " + CPRInput);
             connection.createStatement().executeQuery(SQL);   // Forbindes til vores URL.
             st = connection.createStatement();
             rs = st.executeQuery(SQL);

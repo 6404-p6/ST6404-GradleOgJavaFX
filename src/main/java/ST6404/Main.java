@@ -22,12 +22,12 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(choosePatientView));
         primaryStage.show();
 
-
+/*
         try {
             databaseConnectorController.loadPatientData();
         } catch (Exception e) {
             System.out.println("Something went wrong..." + e.getMessage());
-        }
+        }*/
         // Skal bruges for at køre koden.
         /*try {
             databaseConnectorController.loadPatientData();
