@@ -1,0 +1,64 @@
+package ST6404;
+
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class prescriptedMedicineModel extends medicineModel {
+    private int dosage;
+    private String frequency;
+    // TD: Jeg kan ikke få dem indsat i tabellen endnu. Forstår ikke hvordan jeg laver dem i constructoren
+    private String startDate;
+    private String endDate;
+    String unit;
+
+    public prescriptedMedicineModel( String medicationName, String administrationRoute, String ATC,int dosage, String frequency, String startDate, String endDate, String unit){
+        super (medicationName, administrationRoute, ATC);
+        this.dosage = dosage;
+        this.frequency = frequency;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.unit = unit;
+    }
+
+    prescriptedMedicineModel test = new prescriptedMedicineModel("Placebo", "numse","AB001A01",100,"2 Dagligt","06-05-2019","06-06-2020","mL");
+
+    //Metoder:
+    private int getDosage() {
+        return dosage;
+    }
+
+    private void setDosage(int dosage) {
+        this.dosage = dosage;
+    }
+
+    private String getFrequency() {
+        return frequency;
+    }
+
+    private void setFrequency(String frequency) {
+        this.frequency = frequency;
+    }
+    /*
+
+    private Timestamp getStartDate() {
+        return startDate;
+    }
+
+    private void setStartDate(Timestamp startDate) {
+        this.startDate = startDate;
+    }
+
+    private Timestamp getEndDate() {
+        return endDate;
+    }
+
+    private void setEndDate(Timestamp endDate) {
+        this.endDate = endDate;
+    }
+    */
+
+    }
+
+

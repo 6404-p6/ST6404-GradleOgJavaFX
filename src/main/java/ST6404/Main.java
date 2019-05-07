@@ -1,10 +1,13 @@
 package ST6404;
 
+import ST6404.medicineListModel.*;
+import ST6404.prescriptedMedicineModel.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
+import ST6404.prescriptedMedicineModel.*;
 
 import java.io.IOException;
 
@@ -16,6 +19,7 @@ public class Main extends Application {
 
     //@Override
     public void start(Stage primaryStage) throws IOException {
+
         Parent choosePatientView = FXMLLoader.load(Main.class.getResource("/choosePatientView.fxml"));
         primaryStage.setTitle("EPJ");
         primaryStage.setScene(new Scene(choosePatientView));
@@ -23,14 +27,15 @@ public class Main extends Application {
 
 //<<<<<<< HEAD
         // Denne af
-        // Skal bruges for at køre koden.
+        /*
         try {
             databaseConnectorController.loadPatientData();
         } catch (Exception e) {
             System.out.println("Something went wrong..." + e.getMessage());
-        }
-        try {
-            patientModel.getPatientInfo();
+        }*/
+        // Skal bruges for at køre koden.
+        /*try {
+            databaseConnectorController.loadPatientData();
         } catch (Exception e) {
             System.out.println("Something went wrong..." + e.getMessage());
         }

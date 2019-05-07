@@ -22,7 +22,7 @@ public class choosePatientController implements Initializable {
     @FXML
     private void processTextFieldInsertCPR(){
         String CPRoutputString = IDTextFieldInsertCPR.getText();
-        System.out.println("CPR er: " + CPRoutputString + " og nu burde den søge på SQL. Koden er endnu ikke lavet");
+        System.out.println("CPR er: " + CPRoutputString + " og nu burde den soege paa SQL. Koden er endnu ikke lavet");
     }
 
     /*
@@ -48,6 +48,5 @@ public class choosePatientController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("Test af initializeable i choosePatientView");
     }
 }

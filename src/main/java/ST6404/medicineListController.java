@@ -25,7 +25,6 @@ public class medicineListController implements Initializable {
     @FXML
     private TitledPane IDTitledPaneMedicineList;
 
-
     @FXML
     public void changeSceneToChoosePatientView(ActionEvent event) throws IOException {
         System.out.println("Troubleshoot: Begynder metode changeSceneToChoosePatientView");
@@ -70,7 +69,10 @@ public class medicineListController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Initialiser medicineListView");
-        patientModel chosenPatient = new patientModel("Tobias", "Duncker", "3003965678");
+        patientModel chosenPatient = patientModel.getInstance();
+        chosenPatient.setFirstName("Tobias");
+        chosenPatient.setLastName("Duncker");
+        chosenPatient.setCPRNumber("3003965678");
         IDTitledPaneMedicineList.setText(chosenPatient.getPatientIdentification());
     }
 }
