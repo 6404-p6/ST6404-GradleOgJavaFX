@@ -1,5 +1,7 @@
 package ST6404;
 
+import java.util.Scanner;
+
 public class medicineInteractionModel {
     private String medicamentA;
     private String medicamentB;
@@ -85,6 +87,37 @@ public class medicineInteractionModel {
     }
 
     private void setSuggestionForAlternative(String suggestionForAlternative) { this.suggestionForAlternative = suggestionForAlternative; }
+
+
+
+    public static void main(String[] args) {
+
+        String MedicamentA;
+        String MedicamentB;
+
+        MedicamentA = "Medikament A";
+        MedicamentB = "Medikament B";
+
+        Scanner input1 = new Scanner(System.in);
+        System.out.println("Medikament A : ");
+        String medicamentA = input1.next();
+
+        Scanner input2 = new Scanner(System.in);
+        System.out.println("Medikament B : ");
+        String medicamentB = input2.next();
+
+        if (medicamentA.equals(input1) && medicamentB.equals(input2)) {
+
+            System.out.println("Access Granted! Welcome!");
+        } else if (medicamentA.equals(input1)) {
+            System.out.println("Invalid Password!");
+        } else if (medicamentB.equals(input2)) {
+            System.out.println("Invalid Username!");
+        } else {
+            System.out.println("Invalid Username & Password!");
+        }
+
+    }
 
 
 }

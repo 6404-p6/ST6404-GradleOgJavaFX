@@ -4,8 +4,7 @@ package ST6404;
 * Dette er model-klassen for patient.
  */
 
-public class patientModel extends databaseConnectorController {
-    public static databaseConnectorController patientModel;
+public class patientModel {
     //Singleton objekt
     private static patientModel patientModelObject;
     // Klassen har attributterne fornavn, efternavn og cpr-nummer
