@@ -29,7 +29,7 @@ public class Main extends Application {
         // Denne af
         /*
         try {
-            databaseConnectorController.databaseConnectorController();
+            databaseConnectorController.loadPatientData();
         } catch (Exception e) {
             System.out.println("Something went wrong..." + e.getMessage());
         }*/
@@ -38,7 +38,8 @@ public class Main extends Application {
             databaseConnectorController.loadPatientData();
         } catch (Exception e) {
             System.out.println("Something went wrong..." + e.getMessage());
-        }*/
+        }
+
     }
 }
     //test
