@@ -1,16 +1,13 @@
 package ST6404;
-
-import javax.swing.plaf.nimbus.State;
+//import javax.swing.plaf.nimbus.State;
 import java.sql.*;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.DriverManager;
 
 public class databaseConnectorController {
-
-    /*public static void databaseConnectorController() throws ClassNotFoundException, SQLException {
+    public static void databaseConnectorController() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
         Connection connection = DriverManager.getConnection(connectionUrl);
@@ -29,7 +26,7 @@ public class databaseConnectorController {
             String c = MIdatabase.getString(2);
             System.out.println(c);
         }
-    }*/
+    }
     public static void loadPatientData() throws ClassNotFoundException, SQLException {
         Statement st;
         st = null;
@@ -42,28 +39,28 @@ public class databaseConnectorController {
         String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
         Connection connection = DriverManager.getConnection(connectionUrl);
         try {
-            String SQL = ("select *FROM patientdatabase WHERE CPR = 4455662345");
-            connection.createStatement().executeQuery(SQL);   // Forbindes til vores URL.
+            String SQL1 = ("select *FROM patientdatabase WHERE CPR = 4455662345");
+            ResultSet resultSet = connection.createStatement().executeQuery(SQL1);// Forbindes til vores URL.
             st = connection.createStatement();
-            rs = st.executeQuery(SQL);
+            rs = st.executeQuery(SQL1);
             if (rs.next()) {
                 CPR = rs.getString(1);              // Finder CPR i første kolonne.
                 FirstName = rs.getString(2);        // Finder fornavn i anden kolonne.
                 LastName = rs.getString(3);         // Finder efternavn i tredje kolonne.
-                //patientModel LoadedPatientData = new patientModel(FirstName,LastName,CPR);
-                //new patientModel(FirstName, LastName, CPR);
+                //patientModel LoadedPatientData = new patientModel(FirstName, LastName, CPR);
             } else {
-                System.out.println("CPR eksistere ikke. Prøv igen.");     // Hvis systemet ikke finder CPR, skal der skrives fejl.
+                System.out.println("CPR eksisterer ikke. Prøv igen.");     // Hvis systemet ikke finder CPR, skal der skrives fejl.
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("SQL ERROR");    // Hvis forbindelse ikke kan oprettes.
+            System.out.println("SQL FEJL");    // Hvis forbindelse ikke kan oprettes.
         }
     }
-
-    public static void loadPatienloadMedicineListtData() throws ClassNotFoundException, SQLException {
-        Statement st = null;
-        ResultSet rs = null;
+    public void loadMedicineList() throws ClassNotFoundException, SQLException {
+        Statement st;
+        st = null;
+        ResultSet rs;
+        rs = null;
         String navn;
         String ATC;
         String administrationsvej;
@@ -71,16 +68,17 @@ public class databaseConnectorController {
         String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
         Connection connection = DriverManager.getConnection(connectionUrl);
         try {
-            String SQL = ("select *FROM MIdatabase WHERE navn = warfarin");
-            connection.createStatement().executeQuery(SQL);   // Forbindes til vores URL.
+            String SQL2 = ("select *FROM praeparatdatabase WHERE atc = B01AA02"); // B01AA02
+            connection.createStatement().executeQuery(SQL2);   // Forbindes til vores URL.
             st = connection.createStatement();
-            rs = st.executeQuery(SQL);
+            rs = st.executeQuery(SQL2);
             if (rs.next()) {
-                navn = rs.getString(1);              // Finder CPR i første kolonne.
-                ATC = rs.getString(2);        // Finder fornavn i anden kolonne.
-                administrationsvej = rs.getString(3);         // Finder efternavn i tredje kolonne.
+                navn = rs.getString(1);
+                ATC = rs.getString(2);
+                administrationsvej = rs.getString(3);
+                //medicineInteractionModel LoadedMedicine = new medicineListModel(navn,ATC,administrationsvej);
             } else {
-                System.out.println("Medikament eksistere ikke");     // Hvis systemet ikke finder CPR, skal der skrives fejl.
+                System.out.println("Medikament eksisterer ikke");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -88,7 +86,7 @@ public class databaseConnectorController {
         }
     }
 
-    public static void loadMedicationError() throws ClassNotFoundException, SQLException {
+    /*public static void loadMedicationError() throws ClassNotFoundException, SQLException {
         Statement st = null;
         ResultSet rs = null;
         String MedikamentA;
@@ -100,5 +98,5 @@ public class databaseConnectorController {
         Class.forName("com.mysql.cj.jdbc.Driver");
         String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
         Connection connection = DriverManager.getConnection(connectionUrl);
-    }
+    }*/
 }
