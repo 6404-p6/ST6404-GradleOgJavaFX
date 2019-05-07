@@ -21,14 +21,13 @@ public class Main extends Application {
         primaryStage.setTitle("EPJ");
         primaryStage.setScene(new Scene(choosePatientView));
         primaryStage.show();
-        
-        // Denne af
-        /*
+
+
         try {
             databaseConnectorController.loadPatientData();
         } catch (Exception e) {
             System.out.println("Something went wrong..." + e.getMessage());
-        }*/
+        }
         // Skal bruges for at køre koden.
         /*try {
             databaseConnectorController.loadPatientData();

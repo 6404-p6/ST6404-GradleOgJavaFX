@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TitledPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -14,6 +15,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class visualizationController implements Initializable {
+
+    @FXML
+    private TitledPane IDTitledPaneVisualization;
+
     @FXML
     public void changeSceneToMedicineListView(ActionEvent event) throws IOException {
         System.out.println("Troubleshoot: Begynder metode changeSceneToMedicineListView");
@@ -30,5 +35,7 @@ public class visualizationController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Initialiser visualitionView");
+        patientModel chosenPatient = patientModel.getInstance();
+        IDTitledPaneVisualization.setText(chosenPatient.getPatientIdentification());
     }
 }

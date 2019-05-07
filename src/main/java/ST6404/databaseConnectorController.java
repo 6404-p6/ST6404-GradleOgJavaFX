@@ -50,7 +50,11 @@ public class databaseConnectorController {
                 CPR = rs.getString(1);              // Finder CPR i første kolonne.
                 FirstName = rs.getString(2);        // Finder fornavn i anden kolonne.
                 LastName = rs.getString(3);         // Finder efternavn i tredje kolonne.
-                //patientModel LoadedPatientData = new patientModel(FirstName,LastName,CPR);
+                //patientModel loadedPatientData = new patientModel(FirstName,LastName,CPR);
+                patientModel chosenPatient = patientModel.getInstance();
+                chosenPatient.setFirstName(FirstName);
+                chosenPatient.setLastName(LastName);
+                chosenPatient.setCPRNumber(CPR);
                 //new patientModel(FirstName, LastName, CPR);
             } else {
                 System.out.println("CPR eksistere ikke. Prøv igen.");     // Hvis systemet ikke finder CPR, skal der skrives fejl.

@@ -65,9 +65,6 @@ public class medicineListController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Initialiser medicineListView");
         patientModel chosenPatient = patientModel.getInstance();
-        chosenPatient.setFirstName("Tobias");
-        chosenPatient.setLastName("Duncker");
-        chosenPatient.setCPRNumber("3003965678");
         IDTitledPaneMedicineList.setText(chosenPatient.getPatientIdentification());
     }
 }
