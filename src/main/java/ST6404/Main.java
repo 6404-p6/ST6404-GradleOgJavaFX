@@ -1,13 +1,10 @@
 package ST6404;
 
-import ST6404.medicineCardModel.*;
-import ST6404.prescriptedDrugModel.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
-import ST6404.prescriptedDrugModel.*;
 
 import java.io.IOException;
 
@@ -20,7 +17,7 @@ public class Main extends Application {
     //@Override
     public void start(Stage primaryStage) throws IOException {
 
-        Parent choosePatientView = FXMLLoader.load(Main.class.getResource("/choosePatientView.fxml"));
+        Parent choosePatientView = FXMLLoader.load(Main.class.getResource("/patientSelectorView.fxml"));
         primaryStage.setTitle("EPJ");
         primaryStage.setScene(new Scene(choosePatientView));
         primaryStage.show();

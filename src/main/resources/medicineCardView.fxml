@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Text?>
 
-<TitledPane animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" text="[010203-1234, Tove Tovesen]" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ST6404.medicineListController">
+<TitledPane fx:id="IDTitledPaneMedicineList" animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" text="[010203-1234, Tove Tovesen]" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ST6404.medicineListController">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="287.0" prefWidth="1364.0">
          <children>
