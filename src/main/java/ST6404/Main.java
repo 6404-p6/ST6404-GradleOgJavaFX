@@ -24,8 +24,7 @@ public class Main extends Application {
         primaryStage.setTitle("EPJ");
         primaryStage.setScene(new Scene(choosePatientView));
         primaryStage.show();
-
-//<<<<<<< HEAD
+        
         // Denne af
         /*
         try {
@@ -38,10 +37,7 @@ public class Main extends Application {
             databaseConnectorController.loadPatientData();
         } catch (Exception e) {
             System.out.println("Something went wrong..." + e.getMessage());
-        }
+        }*/
 
     }
 }
-    //test
-//=======
-//>>>>>>> master
