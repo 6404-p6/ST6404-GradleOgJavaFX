@@ -1,16 +1,16 @@
 package ST6404;
-import ST6404.prescriptedMedicineModel;
+import ST6404.prescriptedDrugModel;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-public class medicineListModel {
+public class medicineCardModel {
     private List medicineList;
     private String CPRNumber;
     private List availableMedicineList;
 
-    static List<prescriptedMedicineModel> prescriptedMedicineList = new ArrayList<>();
+    static List<prescriptedDrugModel> prescriptedMedicineList = new ArrayList<>();
 
 
 
@@ -45,7 +45,7 @@ Metoder:
 - getAvailableMedicineList ()
  */
 public static void createPrescription(String a, String b, String c,int d, String e, String f, String g, String h){
-prescriptedMedicineModel newPrescription = new prescriptedMedicineModel(a,b,c,d,e,f,g,h);
+prescriptedDrugModel newPrescription = new prescriptedDrugModel(a,b,c,d,e,f,g,h);
 prescriptedMedicineList.add(newPrescription);
 }
 

@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 // ALT HERINDE SKAL LIGE ÆNDRES: EXTEND ER FORKERT RÆKKEFØLGE OG VI SNAKKER OM NOGLE ÆNDRER VED VEJLEDERMØDET
 
-public class medicineModel {
+public class drugModel {
 
 
 
@@ -12,7 +12,7 @@ public class medicineModel {
     private String administrationRoute;
     private String ATC;
 
-    public medicineModel( String medicationName, String administrationRoute, String ATC){
+    public drugModel(String medicationName, String administrationRoute, String ATC){
         this.medicationName = medicationName;
         this.administrationRoute = administrationRoute;
         this.ATC = ATC;
