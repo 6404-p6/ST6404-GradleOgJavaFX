@@ -4,11 +4,11 @@ package ST6404;
 * Dette er model-klassen for patient.
  */
 
-public class patientModel {
+public class patientModel extends databaseConnectorController {
     public static databaseConnectorController patientModel;
     // Klassen har attributterne fornavn, efternavn og cpr-nummer
-    public String firstName;
-    public String lastName;
+    public static String firstName;
+    public static String lastName;
     public String CPRNumber;
 
     // Atributterne opstilles i en contruktur for at kunne instantieres senere i main.
@@ -19,6 +19,14 @@ public class patientModel {
     }
 
     // LoadedPatientData
+    public static void getPatientInfo(){
+        try {
+            patientModel LoadedPatientData = databaseConnectorController.loadPatientData();
+            System.out.println("Name: " + firstName + " " + lastName);
+        } catch (Exception e) {
+            System.out.println("Something went wrong..." + e.getMessage());
+        }
+    }
 
 
     public String getPatientIdentification() {return firstName + " " + lastName + ", CPR: " + CPRNumber;}
