@@ -5,7 +5,6 @@ package ST6404;
  */
 
 public class patientModel {
-    public static databaseConnectorController patientModel;
     //Singleton objekt
     private static patientModel patientModelObject;
     // Klassen har attributterne fornavn, efternavn og cpr-nummer
