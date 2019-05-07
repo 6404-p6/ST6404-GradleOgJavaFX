@@ -25,14 +25,14 @@ public class patientModel extends databaseConnectorController {
     }
 
     // LoadedPatientData
-    public static void getPatientInfo(){
+    /*public static void getPatientInfo(){
         try {
             patientModel LoadedPatientData = databaseConnectorController.loadPatientData();
             System.out.println("Name: " + firstName + " " + lastName);
         } catch (Exception e) {
             System.out.println("Something went wrong..." + e.getMessage());
         }
-    }
+    }*/
 
 
     public String getPatientIdentification() {return firstName + " " + lastName + ", CPR: " + CPRNumber;}
