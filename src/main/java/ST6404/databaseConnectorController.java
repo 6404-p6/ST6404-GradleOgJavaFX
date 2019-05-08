@@ -105,7 +105,7 @@ public class databaseConnectorController {
         String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
         Connection connection = DriverManager.getConnection(connectionUrl);
     }*/
-
+/* Det virker det her, men det giver fejl med view og java fx
     public static void interaction() {
         try {
             // create our mysql database connection
@@ -141,8 +141,5 @@ public class databaseConnectorController {
             System.err.println("Got an exception! ");
             System.err.println(e.getMessage());
         }
-    }
-
-
-
+    }*/
 }
