@@ -91,7 +91,7 @@ public class databaseConnectorController {
             System.out.println("SQL ERROR");    // Hvis forbindelse ikke kan oprettes.
         }
     }
-
+/*
     public static void loadMedicationError() throws ClassNotFoundException, SQLException {
         Statement st = null;
         ResultSet rs = null;
@@ -104,5 +104,45 @@ public class databaseConnectorController {
         Class.forName("com.mysql.cj.jdbc.Driver");
         String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
         Connection connection = DriverManager.getConnection(connectionUrl);
+    }*/
+
+    public static void interaction() {
+        try {
+            // create our mysql database connection
+            String myDriver = "com.mysql.cj.jdbc.Driver";
+            String myUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
+            Class.forName(myDriver);
+            Connection conn = DriverManager.getConnection(myUrl);
+
+            // our SQL SELECT query.
+            // if you only need a few columns, specify them by name instead of using "*"
+            String query = "SELECT medikamentA, medikamentB, alvorlighedsgrad, dokumentationsgrad, anbefaling, beskrivelse FROM MIdatabase WHERE MedikamentA = 'dicoumarol' AND MedikamentB = 'ergotamine'";
+
+            // create the java statement
+            Statement st = conn.createStatement();
+
+            // execute the query, and get a java resultset
+            ResultSet rs = st.executeQuery(query);
+
+            // iterate through the java resultset
+            while (rs.next()) {
+                String medicamentA = rs.getString("medikamentA");
+                String medicamentB = rs.getString("medikamentB");
+                int severity = rs.getInt("alvorlighedsgrad");
+                int probability = rs.getInt("dokumentationsgrad");
+                String recommendationText = rs.getString("anbefaling");
+                String descriptionOfEffect = rs.getString("beskrivelse");
+
+                // print the results
+                System.out.format("%s, %s, %s, %s, %s, %s\n", medicamentA, medicamentB, severity, probability, recommendationText, descriptionOfEffect);
+            }
+            st.close();
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
     }
+
+
+
 }
