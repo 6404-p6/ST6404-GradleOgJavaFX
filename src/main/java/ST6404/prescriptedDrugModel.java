@@ -25,19 +25,19 @@ public class prescriptedDrugModel extends drugModel {
     prescriptedDrugModel test = new prescriptedDrugModel("Placebo", "numse","AB001A01",100,"2 Dagligt","06-05-2019","06-06-2020","mL");
 
     //Metoder:
-    private int getDosage() {
+    public int getDosage() {
         return dosage;
     }
 
-    private void setDosage(int dosage) {
+    public void setDosage(int dosage) {
         this.dosage = dosage;
     }
 
-    private String getFrequency() {
+    public String getFrequency() {
         return frequency;
     }
 
-    private void setFrequency(String frequency) {
+    public void setFrequency(String frequency) {
         this.frequency = frequency;
     }
     /*
