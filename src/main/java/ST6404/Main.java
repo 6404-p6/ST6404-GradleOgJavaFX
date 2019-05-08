@@ -72,7 +72,7 @@ public class Main extends Application {
                 String beskrivelse = rs.getString("beskrivelse");
 
                 // print the results
-                System.out.format("%s, %s, %s, %s, %s, %s, %s\n", id, medikamentA, medikamentB, alvorlighedsgrad, dokumentationsgrad, anbefaling, beskrivelse);
+                System.out.format("%s, %s, %s, %s, %s, %s, %s\n", medikamentA, medikamentB, alvorlighedsgrad, dokumentationsgrad, anbefaling, beskrivelse);
             }
             st.close();
         }
