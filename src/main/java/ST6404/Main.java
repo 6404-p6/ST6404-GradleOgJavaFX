@@ -64,7 +64,6 @@ public class Main extends Application {
             // iterate through the java resultset
             while (rs.next())
             {
-                int id = rs.getInt("id");
                 String medikamentA = rs.getString("medicamentA");
                 String medikamentB = rs.getString("medicamentB");
                 int alvorlighedsgrad = rs.getInt("alvorlighedsgrad");
