@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class medicineListController implements Initializable {
+public class medicineCardController implements Initializable {
 
     @FXML
     private TitledPane IDTitledPaneMedicineList;
