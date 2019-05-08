@@ -13,21 +13,12 @@ public class interactionSummarizerModel {
     private int highestSeverity;
     private List interactionList;
 
+
     public interactionSummarizerModel(int NumberOfErrors){
         this.setNumberOfErrors(NumberOfErrors);
     }
 
-
-    static void calculateNumberOfErrors(){
-
-    }
-
-/*
-Metoder:
-- calculateNumberOfErrors ()
-- showIndicator ()
-- viewInteractions ()
- */
+    //Metoder
     public int getNumberOfErrors() { return numberOfErrors; }
 
     public void setNumberOfErrors(int numberOfErrors) { this.numberOfErrors = numberOfErrors;  }
@@ -40,4 +31,10 @@ Metoder:
 
     public void setInteractionList(List interactionList) { this.interactionList = interactionList; }
 
+    /*
+    Metoden udtrækker antallet af interaktioner fra listen interactionList.
+     */
+    public int calculateNumberOfErrors (List interactionList) {
+        return interactionList.size();
+    }
 }
