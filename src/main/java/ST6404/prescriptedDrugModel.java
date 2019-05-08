@@ -21,7 +21,7 @@ public class prescriptedDrugModel extends drugModel {
         this.unit = unit;
     }
 
-    prescriptedDrugModel test = new prescriptedDrugModel("Placebo", "numse","AB001A01",100,"2 Dagligt","06-05-2019","06-06-2020","mL");
+    prescriptedDrugModel prescriptedDrugModel = new prescriptedDrugModel("Placebo", "numse","AB001A01",100,"2 Dagligt","06-05-2019","06-06-2020","mL");
 
     //Metoder:
     private int getDosage() {
@@ -39,7 +39,6 @@ public class prescriptedDrugModel extends drugModel {
     private void setFrequency(String frequency) {
         this.frequency = frequency;
     }
-    /*
 
     private Timestamp getStartDate() {
         return startDate;
@@ -56,8 +55,7 @@ public class prescriptedDrugModel extends drugModel {
     private void setEndDate(Timestamp endDate) {
         this.endDate = endDate;
     }
-    */
 
-    }
+}
 
 

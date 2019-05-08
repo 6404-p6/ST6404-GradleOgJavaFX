@@ -4,16 +4,18 @@ import ST6404.prescriptedDrugModel;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
+import java.util.*;
+import java.util.stream.*;
 
 public class medicineCardModel {
     private List medicineList;
     private String CPRNumber;
     private List availableMedicineList;
+    private static medicineCardModel medicineCardModelObject;
 
     // Til Tim: Denne skal lige kigges på efter ny
     static List<prescriptedDrugModel> prescriptedDrugList = new ArrayList<>();
-
-
 
     /*
     public List<String> getMedicineListController;
@@ -45,10 +47,11 @@ Metoder:
 - updateExternalFMK ()
 - getAvailableMedicineList ()
  */
-public static void createPrescription(String a, String b, String c,int d, String e, String f, String g, String h){
-prescriptedDrugModel newPrescription = new prescriptedDrugModel(a,b,c,d,e,f,g,h);
-prescriptedDrugList.add(newPrescription);
-}
+    public static void createPrescription(String a, String b, String c,int d, String e, String f, String g, String h){
+        prescriptedDrugModel newPrescription = new prescriptedDrugModel(a,b,c,d,e,f,g,h);
+        prescriptedDrugList.add(newPrescription);
+    }
+
 
 
 
