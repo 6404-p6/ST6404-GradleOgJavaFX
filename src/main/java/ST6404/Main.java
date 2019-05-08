@@ -22,6 +22,12 @@ public class Main extends Application {
             System.out.println("Something went wrong..." + e.getMessage());
         }
 
+        Parent choosePatientView = FXMLLoader.load(Main.class.getResource("/patientSelectorView.fxml"));
+        primaryStage.setTitle("EPJ");
+        primaryStage.setScene(new Scene(choosePatientView));
+        primaryStage.show();
+
+/*
         try {
             databaseConnectorController.loadPatientData();
         } catch (Exception e) {

@@ -26,8 +26,8 @@ public class databaseConnectorController {
             String c = MIdatabase.getString(2);
             System.out.println(c);
         }
-    }
-    public static void loadPatientData() throws ClassNotFoundException, SQLException {
+    }*/
+    public static void loadPatientData(String CPRInput) throws ClassNotFoundException, SQLException {
         Statement st;
         st = null;
         ResultSet rs;
@@ -39,15 +39,20 @@ public class databaseConnectorController {
         String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
         Connection connection = DriverManager.getConnection(connectionUrl);
         try {
-            String SQL1 = ("select *FROM patientdatabase WHERE CPR = 4455662345");
-            ResultSet resultSet = connection.createStatement().executeQuery(SQL1);// Forbindes til vores URL.
+            String SQL = ("select *FROM patientdatabase WHERE CPR = " + CPRInput);
+            connection.createStatement().executeQuery(SQL);   // Forbindes til vores URL.
             st = connection.createStatement();
             rs = st.executeQuery(SQL1);
             if (rs.next()) {
                 CPR = rs.getString(1);              // Finder CPR i første kolonne.
                 FirstName = rs.getString(2);        // Finder fornavn i anden kolonne.
                 LastName = rs.getString(3);         // Finder efternavn i tredje kolonne.
-                //patientModel LoadedPatientData = new patientModel(FirstName, LastName, CPR);
+                //patientModel loadedPatientData = new patientModel(FirstName,LastName,CPR);
+                patientModel chosenPatient = patientModel.getInstance();
+                chosenPatient.setFirstName(FirstName);
+                chosenPatient.setLastName(LastName);
+                chosenPatient.setCPRNumber(CPR);
+                //new patientModel(FirstName, LastName, CPR);
             } else {
                 System.out.println("CPR eksisterer ikke. Prøv igen.");     // Hvis systemet ikke finder CPR, skal der skrives fejl.
             }

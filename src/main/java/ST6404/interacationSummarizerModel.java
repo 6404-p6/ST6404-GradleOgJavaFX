@@ -2,7 +2,7 @@ package ST6404;
 
 import java.util.List;
 
-public class interactionHandlerModel {
+public class interacationSummarizerModel {
 
     private int NumberOfErrors;
     private enum highestSeverity{
@@ -12,7 +12,7 @@ public class interactionHandlerModel {
     }
     private List interactionList;
 
-    public interactionHandlerModel(int NumberOfErrors){
+    public interacationSummarizerModel(int NumberOfErrors){
         this.setNumberOfErrors(NumberOfErrors);
     }
 

@@ -10,7 +10,8 @@ public class medicineCardModel {
     private String CPRNumber;
     private List availableMedicineList;
 
-    static List<prescriptedDrugModel> prescriptedMedicineList = new ArrayList<>();
+    // Til Tim: Denne skal lige kigges på efter ny
+    static List<prescriptedDrugModel> prescriptedDrugList = new ArrayList<>();
 
 
 
@@ -46,7 +47,7 @@ Metoder:
  */
 public static void createPrescription(String a, String b, String c,int d, String e, String f, String g, String h){
 prescriptedDrugModel newPrescription = new prescriptedDrugModel(a,b,c,d,e,f,g,h);
-prescriptedMedicineList.add(newPrescription);
+prescriptedDrugList.add(newPrescription);
 }
 
 

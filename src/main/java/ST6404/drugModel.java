@@ -2,8 +2,6 @@ package ST6404;
 
 import java.sql.Timestamp;
 
-// ALT HERINDE SKAL LIGE ÆNDRES: EXTEND ER FORKERT RÆKKEFØLGE OG VI SNAKKER OM NOGLE ÆNDRER VED VEJLEDERMØDET
-
 public class drugModel {
 
 

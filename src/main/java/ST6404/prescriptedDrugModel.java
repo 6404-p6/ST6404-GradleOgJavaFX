@@ -12,7 +12,7 @@ public class prescriptedDrugModel extends drugModel {
     private String endDate;
     String unit;
 
-    public prescriptedDrugModel( String medicationName, String administrationRoute, String ATC,int dosage, String frequency, String startDate, String endDate, String unit){
+    public prescriptedDrugModel(String medicationName, String administrationRoute, String ATC, int dosage, String frequency, String startDate, String endDate, String unit){
         super (medicationName, administrationRoute, ATC);
         this.dosage = dosage;
         this.frequency = frequency;

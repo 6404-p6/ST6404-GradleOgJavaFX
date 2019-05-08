@@ -7,16 +7,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TitledPane;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.lang.reflect.Constructor;
 import java.net.URL;
-import java.sql.Timestamp;
 import java.util.ResourceBundle;
 
 
@@ -28,7 +23,7 @@ public class medicineListController implements Initializable {
     @FXML
     public void changeSceneToChoosePatientView(ActionEvent event) throws IOException {
         System.out.println("Troubleshoot: Begynder metode changeSceneToChoosePatientView");
-        Parent choosePatientView = FXMLLoader.load(Main.class.getResource("/choosePatientView.fxml"));
+        Parent choosePatientView = FXMLLoader.load(Main.class.getResource("/patientSelectorView.fxml"));
         Scene choosePatientViewScene = new Scene(choosePatientView);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setTitle("EPJ");
@@ -70,9 +65,6 @@ public class medicineListController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Initialiser medicineListView");
         patientModel chosenPatient = patientModel.getInstance();
-        chosenPatient.setFirstName("Tobias");
-        chosenPatient.setLastName("Duncker");
-        chosenPatient.setCPRNumber("3003965678");
         IDTitledPaneMedicineList.setText(chosenPatient.getPatientIdentification());
     }
 }
