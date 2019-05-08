@@ -21,11 +21,11 @@
             <Button layoutX="387.0" layoutY="3.0" mnemonicParsing="false" onAction="#changeSceneToPrescriptionView" text="Gå til ordination" />
             <Button layoutX="489.0" layoutY="3.0" mnemonicParsing="false" text="Rediger medikament" />
             <Button layoutX="616.0" layoutY="2.0" mnemonicParsing="false" text="Slet medikament" />
-            <TableView layoutX="-2.0" layoutY="34.0" prefHeight="720.0" prefWidth="1023.0">
+            <TableView fx:id="tableView" layoutX="-2.0" layoutY="34.0" prefHeight="720.0" prefWidth="1023.0">
               <columns>
-                <TableColumn prefWidth="200.0" text="Navn" />
-                <TableColumn prefWidth="79.0" text="Dosis" />
-                  <TableColumn prefWidth="48.0" text="Enhed" />
+                <TableColumn fx:id="firstNameColumn" prefWidth="200.0" text="Navn" />
+                <TableColumn fx:id="lastNameColumn" prefWidth="79.0" text="Dosis" />
+                  <TableColumn fx:id="birthdayColumn" prefWidth="48.0" text="Enhed" />
                   <TableColumn prefWidth="88.0" text="Hyppighed" />
                   <TableColumn prefWidth="57.0" text="Adm. vej" />
                   <TableColumn prefWidth="122.0" text="Startdato" />
