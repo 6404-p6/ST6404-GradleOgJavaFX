@@ -1,5 +1,7 @@
 package ST6404;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.util.Scanner;
 
 public class medicineInteractionModel {
@@ -119,5 +121,31 @@ public class medicineInteractionModel {
 
     }
 
+    private class da implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            Connection con = null;
+
+            String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
+            Connection connection = DriverManager.getConnection(connectionUrl);
+            try{
+                con = DriverManager.getConnection(connectionUrl,"","");
+
+                PreparedStatement upd = con.prepareStatement("select *FROM MIdatabase WHERE navn = warfarin");
+                upd.setString(1,name.getText());
+                ResultSet rs = upd.executeQuery();
+
+
+                while(rs.next()){
+                    String authorname = rs.getString("author");
+                    String bookname = rs.getString("bookname");
+                    String categort = rs.getString("category");
+                    int isbn = Integer.parseInt(rs.getString("ISBN"));
+                    String data = "اسم المؤلف: "+authorname+"\n"+"اسم الكتاب: "+bookname+"\n"+"التصنيف: "+categort+"\n"+"ISBN: "+isbn;
+
+
+                    if(name.getText().equals(authorname))
+                        txt.setText(data);
+                    else
+                        txt.setText("no matches");
 
 }
