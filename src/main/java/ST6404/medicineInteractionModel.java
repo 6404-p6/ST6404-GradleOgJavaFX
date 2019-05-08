@@ -1,35 +1,40 @@
 package ST6404;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.util.Scanner;
 
 public class medicineInteractionModel {
     private String medicamentA;
     private String medicamentB;
     private int probability;
+
     private enum severity {
         mild,
         moderate,
         severe;
     }
+
     private int severity;
     private String documentationLevel;
     private String recommendationText;
     private String descriptionOfEffect;
     private String suggestionForAlternative;
 
-    public medicineInteractionModel (String medicamentA, String medicamentB, int probability, int severity){
+    public medicineInteractionModel(String medicamentA, String medicamentB, int probability, int severity) {
         this.setMedicamentA(medicamentA);
         this.setMedicamentB(medicamentB);
         this.setProbability(probability);
         this.setSeverity(severity);
     }
-/*
- Metoder:
-    - retrieveInteractionsInformation ()
-    - retrieveSimilarDrugs ()
-    - calculationBestMedicine ()
-    - showInteractionsInformation ()
- */
+
+    /*
+     Metoder:
+        - retrieveInteractionsInformation ()
+        - retrieveSimilarDrugs ()
+        - calculationBestMedicine ()
+        - showInteractionsInformation ()
+     */
     private String getMedicamentA() {
         return medicamentA;
     }
@@ -70,9 +75,13 @@ public class medicineInteractionModel {
         this.documentationLevel = documentationLevel;
     }
 
-    private String getRecommendationText () {return recommendationText;}
+    private String getRecommendationText() {
+        return recommendationText;
+    }
 
-    private void setRecommendationText (String recommendationText) {this.recommendationText = recommendationText;}
+    private void setRecommendationText(String recommendationText) {
+        this.recommendationText = recommendationText;
+    }
 
     private String getDescriptionOfEffect() {
         return descriptionOfEffect;
@@ -86,10 +95,12 @@ public class medicineInteractionModel {
         return suggestionForAlternative;
     }
 
-    private void setSuggestionForAlternative(String suggestionForAlternative) { this.suggestionForAlternative = suggestionForAlternative; }
+    private void setSuggestionForAlternative(String suggestionForAlternative) {
+        this.suggestionForAlternative = suggestionForAlternative;
+    }
 
 
-
+/*
     public static void main(String[] args) {
 
         String MedicamentA;
@@ -117,7 +128,6 @@ public class medicineInteractionModel {
             System.out.println("Invalid Username & Password!");
         }
 
-    }
-
+    }*/
 
 }
