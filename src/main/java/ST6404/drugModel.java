@@ -21,12 +21,12 @@ Metoder:
 - showPrescriptionInfo ()
 - pullRecordInfo ()
 */
-    private String getMedicationName() { return medicationName; }
+    public String getMedicationName() { return medicationName; }
 
-    private String getAdministrationRoute() { return administrationRoute; }
+    public String getAdministrationRoute() { return administrationRoute; }
 
-    private void setAdministrationRoute(String administrationRoute) { this.administrationRoute = administrationRoute; }
+    public void setAdministrationRoute(String administrationRoute) { this.administrationRoute = administrationRoute; }
 
-    private String getATC() { return ATC; }
+    public String getATC() { return ATC; }
 
 }
