@@ -12,7 +12,33 @@ public class medicineCardModel extends databaseConnectorController {
     private List medicineList;
     private String CPRNumber;
     private static medicineCardModel medicineCardModelObject;
+    public String medicineName;
+    public String atcCode;
+    public String routeOfAdministration;
 
+    public medicineCardController(String medicineName, String atcCode, String routeOfAdministration) {
+        this.setMedicineName(medicineName);
+        this.setAtcCode(atcCode);
+        this.setRouteOfAdministration(routeOfAdministration);
+    }
+
+    public String getMedicineName() {return medicineName; }
+
+    private void setMedicineName(String medicineName) {
+        this.medicineName = medicineName;
+    }
+
+    public String getAtcCode() {return atcCode; }
+
+    private void setAtcCode(String atcCode) {
+        this.atcCode = atcCode;
+    }
+
+    public String getRouteOfAdministration() {return routeOfAdministration; }
+
+    private void setRouteOfAdministration(String routeOfAdministration) {
+        this.routeOfAdministration = routeOfAdministration;
+    }
 
 
 
