@@ -9,7 +9,6 @@ import java.util.Scanner;
 public class medicineInteractionModel {
     private String medicamentA;
     private String medicamentB;
-    private int probability;
 
     private enum severity {
         mild,
@@ -18,16 +17,16 @@ public class medicineInteractionModel {
     }
 
     private int severity;
-    private String documentationLevel;
+    private int documentationLevel;
     private String recommendationText;
     private String descriptionOfEffect;
     private String suggestionForAlternative;
 
-    public medicineInteractionModel(String medicamentA, String medicamentB, int probability, int severity, String recommendationText, String descriptionOfEffect) {
+    public medicineInteractionModel(String medicamentA, String medicamentB, int documentationLevel, int severity, String recommendationText, String descriptionOfEffect) {
         this.setMedicamentA(medicamentA);
         this.setMedicamentB(medicamentB);
-        this.setProbability(probability);
         this.setSeverity(severity);
+        this.setDocumentationLevel(documentationLevel);
         this.setRecommendationText(recommendationText);
         this.setDescriptionOfEffect(descriptionOfEffect);
     }
@@ -55,13 +54,6 @@ public class medicineInteractionModel {
         this.medicamentB = medicamentB;
     }
 
-    public int getProbability() {
-        return probability;
-    }
-
-    private void setProbability(int probability) {
-        this.probability = probability;
-    }
 
     public int getSeverity() {
         return severity;
@@ -71,11 +63,11 @@ public class medicineInteractionModel {
         this.severity = severity;
     }
 
-    private String getDocumentationLevel() {
+    public int getDocumentationLevel() {
         return documentationLevel;
     }
 
-    private void setDocumentationLevel(String documentationLevel) {
+    public void setDocumentationLevel(int documentationLevel) {
         this.documentationLevel = documentationLevel;
     }
 
