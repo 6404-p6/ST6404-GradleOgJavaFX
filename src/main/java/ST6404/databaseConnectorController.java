@@ -118,7 +118,7 @@ public class databaseConnectorController {
 
             // our SQL SELECT query.
             // if you only need a few columns, specify them by name instead of using "*"
-            String query = "SELECT medikamentA, medikamentB, alvorlighedsgrad, dokumentationsgrad, anbefaling, beskrivelse FROM MIdatabase WHERE MedikamentA = 'dicoumarol' AND MedikamentB = 'ergotamine'";
+            String query = "SELECT * FROM MIdatabase WHERE MedikamentA = 'dicoumarol' AND MedikamentB = 'ergotamine'";
 
             // create the java statement
             Statement st = conn.createStatement();
@@ -144,7 +144,46 @@ public class databaseConnectorController {
                 System.out.println(interactionList.getRecommendationText());
                 System.out.println(interactionList.getDescriptionOfEffect());
                 // print the results
-               // System.out.format("%s, %s, %s, %s, %s, %s\n", medicamentA, medicamentB, severity, probability, recommendationText, descriptionOfEffect);
+                // System.out.format("%s, %s, %s, %s, %s, %s\n", medicamentA, medicamentB, severity, probability, recommendationText, descriptionOfEffect);
+            }
+            st.close();
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
+    }
+
+    public static void availableMedicineList() {
+        try {
+            // create our mysql database connection
+            String myDriver = "com.mysql.cj.jdbc.Driver";
+            String myUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
+            Class.forName(myDriver);
+            Connection conn = DriverManager.getConnection(myUrl);
+
+            // our SQL SELECT query.
+            // if you only need a few columns, specify them by name instead of using "*"
+            String query = "SELECT * FROM praeparatdatabase WHERE navn = 'dicoumarol'";
+
+            // create the java statement
+            Statement st = conn.createStatement();
+
+            // execute the query, and get a java resultset
+            ResultSet rs = st.executeQuery(query);
+
+            // iterate through the java resultset
+            while (rs.next()) {
+                String medicineName = rs.getString("navn");
+                String atcCode = rs.getString("atc");
+                String routeOfAdministration = rs.getString("administrationsvej");
+
+                medicineCardController availableMedicineList = new medicineCardController(medicineName, atcCode, routeOfAdministration);
+
+                System.out.println(availableMedicineList.getMedicineName());
+                System.out.println(availableMedicineList.getAtcCode());
+                System.out.println(availableMedicineList.getRouteOfAdministration());
+                // print the results
+                // System.out.format("%s, %s, %s, %s, %s, %s\n", medicamentA, medicamentB, severity, probability, recommendationText, descriptionOfEffect);
             }
             st.close();
         } catch (Exception e) {

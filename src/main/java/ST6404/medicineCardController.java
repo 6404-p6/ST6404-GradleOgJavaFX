@@ -20,10 +20,39 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.List;
 import java.util.ResourceBundle;
 
-
 public class medicineCardController implements Initializable {
+
+    public String medicineName;
+    public String atcCode;
+    public String routeOfAdministration;
+    private List availableMedicineList;
+
+    public medicineCardController(String medicineName, String atcCode, String routeOfAdministration) {
+        this.setMedicineName(medicineName);
+        this.setAtcCode(atcCode);
+        this.setRouteOfAdministration(routeOfAdministration);
+    }
+
+    public String getMedicineName() {return medicineName; }
+
+    private void setMedicineName(String medicineName) {
+        this.medicineName = medicineName;
+    }
+
+    public String getAtcCode() {return atcCode; }
+
+    private void setAtcCode(String atcCode) {
+        this.atcCode = atcCode;
+    }
+
+    public String getRouteOfAdministration() {return routeOfAdministration; }
+
+    private void setRouteOfAdministration(String routeOfAdministration) {
+        this.routeOfAdministration = routeOfAdministration;
+    }
 
     @FXML
     private TitledPane IDTitledPaneMedicineList;
@@ -90,7 +119,6 @@ public class medicineCardController implements Initializable {
         startDateColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("startDate"));
         endDateColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("endDate"));
         tableView.setItems(prescriptedDrugModel.getprescriptedDrugModelList());
-
     }
 
 }
