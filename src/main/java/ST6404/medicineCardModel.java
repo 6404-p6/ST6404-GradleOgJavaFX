@@ -10,11 +10,15 @@ import java.util.stream.*;
 
 public class medicineCardModel {
     private List medicineList;
+    public String MedicineName;
+    public String atcCode;
+    public String routeOfAdministration;
 
     public medicineCardModel(String medicineName, String atcCode, String routeOfAdministration) {
         this.setMedicineName(medicineName);
         this.setAtcCode(atcCode);
         this.setRouteOfAdministration(routeOfAdministration);
+    }
     public medicineCardModel(List medicineList) {
         this.medicineList = medicineList;
     }
