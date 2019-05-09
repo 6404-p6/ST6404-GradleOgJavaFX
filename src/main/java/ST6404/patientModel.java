@@ -8,9 +8,9 @@ public class patientModel {
     //Singleton objekt for at kunne instantiere den
     private static patientModel patientModelObject;
 
-    public static String firstName;
-    public static String lastName;
-    public String CPRNumber;
+    private static String firstName;
+    private static String lastName;
+    private String CPRNumber;
     private medicineCardModel medicineCard;
 
     // Tom Singleton constructor. Den er tom, så den er nemmere at skrive i metoden getInstance
@@ -20,6 +20,8 @@ public class patientModel {
     private patientModel(){
     }
 
+    // Metode til at skabe et Singleton af patientModel. Hvis der ikke findes en, skabes der en.
+    // HVis der findes en, så returneres den.
     public static patientModel getInstance(){
         if (patientModelObject == null)
             patientModelObject = new patientModel();
@@ -38,7 +40,7 @@ public class patientModel {
 
     // Bruges i Databasecontroller
     public void setLastName(String lastName) { this.lastName = lastName; }
-    
+
     public String getCPRNumber() { return CPRNumber; }
 
     // Bruges i Databasecontroller
