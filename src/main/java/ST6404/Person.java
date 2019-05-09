@@ -5,29 +5,28 @@ import javafx.beans.property.SimpleStringProperty;
 import java.time.LocalDate;
 
 public class Person {
-    private SimpleStringProperty firstName, lastName;
+    private String firstName, lastName;
     private LocalDate birthday;
 
     public Person(String firstName, String lastName, LocalDate birthday) {
-        this.firstName = new SimpleStringProperty(firstName);
-        this.lastName = new SimpleStringProperty(lastName);
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.birthday = birthday;
     }
 
     public String getFirstName() {
-        return firstName.get();
+        return firstName;
     }
 
-    public void setFirstName(SimpleStringProperty firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-
     public String getLastName() {
-        return lastName.get();
+        return lastName;
     }
 
-    public void setLastName(SimpleStringProperty lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
