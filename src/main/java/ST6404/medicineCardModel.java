@@ -11,8 +11,12 @@ import java.util.stream.*;
 public class medicineCardModel extends databaseConnectorController {
     private List medicineList;
     private String CPRNumber;
-    private List availableMedicineList;
     private static medicineCardModel medicineCardModelObject;
+
+
+
+
+
 
     // Til Tim: Denne skal lige kigges på efter ny
     //static List<prescriptedDrugModel> prescriptedDrugList = new ArrayList<>();
