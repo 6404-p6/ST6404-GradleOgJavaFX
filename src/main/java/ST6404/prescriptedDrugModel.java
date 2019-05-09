@@ -1,5 +1,8 @@
 package ST6404;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.sql.Timestamp;
 
 public class prescriptedDrugModel extends drugModel {
@@ -20,6 +23,7 @@ public class prescriptedDrugModel extends drugModel {
     }
 
     //prescriptedDrugModel prescriptedDrugModel = new prescriptedDrugModel("Placebo", 100,"AB001A01","100","2 Dagligt","06-05-2019","06-06-2020","mL");
+    //prescriptedDrugModel test = new prescriptedDrugModel("Placebo", "numse","AB001A01",100,"2 Dagligt","06-05-2019","06-06-2020","mL");
 
     //Metoder:
     public int getDosage() {
@@ -37,16 +41,36 @@ public class prescriptedDrugModel extends drugModel {
     public void setFrequency(String frequency) {
         this.frequency = frequency;
     }
-    /*
 
-    //private String getStartDate() {return startDate;}
+    public String getStartDate() {
+        return startDate;
+    }
 
-    //private void setStartDate(Timestamp startDate) {this.startDate = startDate;}
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
 
-    //private Timestamp getEndDate() {return endDate;}
+    public String getEndDate() {
+        return endDate;
+    }
 
-    //private void setEndDate(Timestamp endDate) {this.endDate = endDate;}
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
 
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+    public static ObservableList<prescriptedDrugModel> getprescriptedDrugModelList(){
+        ObservableList<prescriptedDrugModel> prescriptedDrugModelList = FXCollections.observableArrayList();
+        prescriptedDrugModelList.add(new prescriptedDrugModel("Warfarin", "OR", "ABC131", 5, "1 dagligt", "Idag", "Imorgen", "mL"));
+        return prescriptedDrugModelList;
+    }
 }
 
 
