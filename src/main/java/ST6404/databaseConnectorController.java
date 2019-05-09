@@ -133,7 +133,7 @@ public class databaseConnectorController {
 
             // our SQL SELECT query.
             // if you only need a few columns, specify them by name instead of using "*"
-            String query = "SELECT * FROM praeparatdatabase WHERE navn = 'dicoumarol'";
+            String query = "SELECT * FROM praeparatdatabase";
 
             // create the java statement
             Statement st = conn.createStatement();
@@ -147,14 +147,13 @@ public class databaseConnectorController {
                 String atcCode = rs.getString("atc");
                 String routeOfAdministration = rs.getString("administrationsvej");
 
-                medicineCardController availableMedicineList = new medicineCardController(medicineName, atcCode, routeOfAdministration);
+                drugModel availableMedicineList = new drugModel(medicineName, atcCode, routeOfAdministration);
 
-                System.out.println(availableMedicineList.getMedicineName());
+                System.out.println(availableMedicineList.getMedicationName());
                 System.out.println(availableMedicineList.getAtcCode());
                 System.out.println(availableMedicineList.getRouteOfAdministration());
-                // print the results
-                // System.out.format("%s, %s, %s, %s, %s, %s\n", medicamentA, medicamentB, severity, probability, recommendationText, descriptionOfEffect);
-            }
+
+                }
             st.close();
         } catch (Exception e) {
             System.err.println("Got an exception! ");

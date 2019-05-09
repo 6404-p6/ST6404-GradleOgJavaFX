@@ -11,6 +11,7 @@ import java.util.stream.*;
 public class medicineCardModel {
     private List medicineList;
 
+
     public medicineCardModel(List medicineList) {
         this.medicineList = medicineList;
     }

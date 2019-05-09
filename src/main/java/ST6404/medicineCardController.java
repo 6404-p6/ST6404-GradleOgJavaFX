@@ -26,9 +26,6 @@ import java.util.ResourceBundle;
 public class medicineCardController implements Initializable {
 
     private List availableMedicineList;
-    
-
-    public static void deleteMedicine
 
 
     @FXML
@@ -84,7 +81,7 @@ public class medicineCardController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Initialiser medicineListView");
-        databaseConnectorController.interactionList();
+        //databaseConnectorController.interactionList();
         patientModel chosenPatient = patientModel.getInstance();
         IDTitledPaneMedicineList.setText(chosenPatient.getPatientIdentification());
 
