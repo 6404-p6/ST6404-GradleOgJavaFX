@@ -12,6 +12,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 
 public class visualizationController implements Initializable {
@@ -38,4 +42,5 @@ public class visualizationController implements Initializable {
         patientModel chosenPatient = patientModel.getInstance();
         IDTitledPaneVisualization.setText(chosenPatient.getPatientIdentification());
     }
+
 }

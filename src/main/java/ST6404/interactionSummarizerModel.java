@@ -1,5 +1,9 @@
 package ST6404;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.List;
 
 public class interactionSummarizerModel {
@@ -34,7 +38,12 @@ public class interactionSummarizerModel {
     /*
     Metoden udtrækker antallet af interaktioner fra listen interactionList.
      */
-    public int calculateNumberOfErrors (List interactionList) {
+    public int calculateNumberOfErrors(List interactionList) {
         return interactionList.size();
     }
+
+    public int calculateNumberOfMedicine(List medicineCardList) {
+        return medicineCardList.size();
+    }
+
 }

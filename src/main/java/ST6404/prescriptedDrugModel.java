@@ -22,13 +22,22 @@ public class prescriptedDrugModel extends drugModel {
     //prescriptedDrugModel prescriptedDrugModel = new prescriptedDrugModel("Placebo", 100,"AB001A01","100","2 Dagligt","06-05-2019","06-06-2020","mL");
 
     //Metoder:
-    //private int getDosage() {return dosage;}
+    public int getDosage() {
+        return dosage;
+    }
 
-    //private void setDosage(int dosage) {this.dosage = dosage;}
+    public void setDosage(int dosage) {
+        this.dosage = dosage;
+    }
 
-    //private String getFrequency() {return frequency;}
+    public String getFrequency() {
+        return frequency;
+    }
 
-    //private void setFrequency(String frequency) {this.frequency = frequency;}
+    public void setFrequency(String frequency) {
+        this.frequency = frequency;
+    }
+    /*
 
     //private String getStartDate() {return startDate;}
 

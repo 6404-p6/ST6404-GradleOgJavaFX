@@ -92,35 +92,67 @@ public class databaseConnectorController {
             e.printStackTrace();
             System.out.println("SQL ERROR");    // Hvis forbindelse ikke kan oprettes.
         }
-    }*/
-
-    public static ArrayList<prescriptedDrugModel> loadMedicineList() throws ClassNotFoundException, SQLException {
-        Statement st;
-        st = null;
-        ResultSet rs;
-        rs = null;
+    }
+/*
+    public static void loadMedicationError() throws ClassNotFoundException, SQLException {
+        Statement st = null;
+        ResultSet rs = null;
+        String MedikamentA;
+        String MedikamentB;
+        String alvorlighedsgrad;
+        String dokumentationsgrad;
+        String anbefaling;
+        String beskrivelse;
         Class.forName("com.mysql.cj.jdbc.Driver");
         String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
         Connection connection = DriverManager.getConnection(connectionUrl);
+    }*/
+
+    public static void interactionList() {
         try {
-            String SQL2 = ("SELECT * FROM `FMKdatabase`  WHERE CPR = 1122335678");
-            connection.createStatement().executeQuery(SQL2);   // Forbindes til vores URL.
-            st = connection.createStatement();
-            rs = st.executeQuery(SQL2);
-            if (rs.next()) {
-                ArrayList<prescriptedDrugModel> prescriptedDrugList = new ArrayList<>();
-                prescriptedDrugModel prescriptedDrugModel = new prescriptedDrugModel(rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(7), rs.getString(7)); // Indsæt til construktor.
-                prescriptedDrugList.add(prescriptedDrugModel);
-                return prescriptedDrugList;
-            } else {
-                System.out.println("Forkert CPR");
+            // create our mysql database connection
+            String myDriver = "com.mysql.cj.jdbc.Driver";
+            String myUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
+            Class.forName(myDriver);
+            Connection conn = DriverManager.getConnection(myUrl);
+
+            // our SQL SELECT query.
+            // if you only need a few columns, specify them by name instead of using "*"
+            String query = "SELECT medikamentA, medikamentB, alvorlighedsgrad, dokumentationsgrad, anbefaling, beskrivelse FROM MIdatabase WHERE MedikamentA = 'dicoumarol' AND MedikamentB = 'ergotamine'";
+
+            // create the java statement
+            Statement st = conn.createStatement();
+
+            // execute the query, and get a java resultset
+            ResultSet rs = st.executeQuery(query);
+
+            // iterate through the java resultset
+            while (rs.next()) {
+                String medicamentA = rs.getString("medikamentA");
+                String medicamentB = rs.getString("medikamentB");
+                int severity = rs.getInt("alvorlighedsgrad");
+                int documentationLevel = rs.getInt("dokumentationsgrad");
+                String recommendationText = rs.getString("anbefaling");
+                String descriptionOfEffect = rs.getString("beskrivelse");
+
+                medicineInteractionModel interactionList = new medicineInteractionModel(medicamentA, medicamentB, documentationLevel, severity, recommendationText, descriptionOfEffect);
+
+                System.out.println(interactionList.getMedicamentA());
+                System.out.println(interactionList.getMedicamentB());
+                System.out.println(interactionList.getDocumentationLevel());
+                System.out.println(interactionList.getSeverity());
+                System.out.println(interactionList.getRecommendationText());
+                System.out.println(interactionList.getDescriptionOfEffect());
+                // print the results
+               // System.out.format("%s, %s, %s, %s, %s, %s\n", medicamentA, medicamentB, severity, probability, recommendationText, descriptionOfEffect);
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("SQL ERROR");    // Hvis forbindelse ikke kan oprettes.
+            st.close();
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
         }
-        return null;
     }
+
 }
 
 // prescriptedDrugModel prescriptedDrugModel
