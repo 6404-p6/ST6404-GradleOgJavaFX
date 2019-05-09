@@ -64,6 +64,7 @@ public class medicineCardController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Initialiser medicineListView");
+        databaseConnectorController.interactionList();
         patientModel chosenPatient = patientModel.getInstance();
         IDTitledPaneMedicineList.setText(chosenPatient.getPatientIdentification());
     }
