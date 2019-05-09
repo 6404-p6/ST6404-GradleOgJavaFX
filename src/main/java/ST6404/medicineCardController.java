@@ -82,7 +82,7 @@ public class medicineCardController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Initialiser medicineListView");
         databaseConnectorController.interactionList();
-        databaseConnectorController.deleteRow();
+        //databaseConnectorController.deleteRow();
         patientModel chosenPatient = patientModel.getInstance();
         IDTitledPaneMedicineList.setText(chosenPatient.getPatientIdentification());
 
