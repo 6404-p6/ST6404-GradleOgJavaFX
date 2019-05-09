@@ -11,7 +11,7 @@ public class prescriptedDrugModel extends drugModel {
     // TD: Jeg kan ikke få dem indsat i tabellen endnu. Forstår ikke hvordan jeg laver dem i constructoren
     private String startDate;
     private String endDate;
-    String unit;
+    private String unit;
 
     public prescriptedDrugModel(String medicationName, String administrationRoute, String ATC, int dosage, String frequency, String startDate, String endDate, String unit){
         super (medicationName, administrationRoute, ATC);
