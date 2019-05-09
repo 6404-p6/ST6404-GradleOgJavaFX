@@ -68,7 +68,7 @@ public class prescriptedDrugModel extends drugModel {
 
     public static ObservableList<prescriptedDrugModel> getprescriptedDrugModelList(){
         ObservableList<prescriptedDrugModel> prescriptedDrugModelList = FXCollections.observableArrayList();
-        prescriptedDrugModelList.add(new prescriptedDrugModel("Warfarin", "OR", "ABC131", 5, "1 dagligt", "Idag", "Imorgen", "mL"));
+        prescriptedDrugModelList.add(new prescriptedDrugModel("Warfarin", 5, "mL", "1 dagligt", "I dag", "I morgen", "OR", "ABC131"));
         return prescriptedDrugModelList;
     }
 }
