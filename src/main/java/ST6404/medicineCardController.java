@@ -29,9 +29,13 @@ public class medicineCardController implements Initializable {
     private TitledPane IDTitledPaneMedicineList;
 
     @FXML private TableView<prescriptedDrugModel> tableView;
-    @FXML private TableColumn<prescriptedDrugModel, String> firstNameColumn;
-    @FXML private TableColumn<prescriptedDrugModel, String> lastNameColumn;
-    @FXML private TableColumn<prescriptedDrugModel, String> birthdayColumn;
+    @FXML private TableColumn<prescriptedDrugModel, String> nameColumn;
+    @FXML private TableColumn<prescriptedDrugModel, String> dosageColumn;
+    @FXML private TableColumn<prescriptedDrugModel, String> unitColumn;
+    @FXML private TableColumn<prescriptedDrugModel, String> frequencyColumn;
+    @FXML private TableColumn<prescriptedDrugModel, String> administrationColumn;
+    @FXML private TableColumn<prescriptedDrugModel, String> startDateColumn;
+    @FXML private TableColumn<prescriptedDrugModel, String> endDateColumn;
 
 
 
@@ -73,7 +77,7 @@ public class medicineCardController implements Initializable {
 
     public ObservableList<prescriptedDrugModel> getprescriptedDrugModelList(){
         ObservableList<prescriptedDrugModel> prescriptedDrugModelList = FXCollections.observableArrayList();
-        prescriptedDrugModelList.add(new prescriptedDrugModel("Frank", "Sinatra", "ABC131", 5, "1 dagligt", "Idag", "Imorgen", "ml"));
+        prescriptedDrugModelList.add(new prescriptedDrugModel("Warfarin", "OR", "ABC131", 5, "1 dagligt", "Idag", "Imorgen", "mL"));
         return prescriptedDrugModelList;
     }
 
@@ -84,9 +88,14 @@ public class medicineCardController implements Initializable {
         patientModel chosenPatient = patientModel.getInstance();
         IDTitledPaneMedicineList.setText(chosenPatient.getPatientIdentification());
 
-        firstNameColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("medicationName"));
-        lastNameColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("administrationRoute"));
-        birthdayColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("ATC"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("medicationName"));
+        dosageColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("dosage"));
+        unitColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("unit"));
+        frequencyColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("frequency"));
+        administrationColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("administrationRoute"));
+        startDateColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("startDate"));
+        endDateColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("endDate"));
+
         tableView.setItems(getprescriptedDrugModelList());
 
     }

@@ -40,25 +40,30 @@ public class prescriptedDrugModel extends drugModel {
     public void setFrequency(String frequency) {
         this.frequency = frequency;
     }
-    /*
 
-    private Timestamp getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    private void setStartDate(Timestamp startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    private Timestamp getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    private void setEndDate(Timestamp endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
-    */
 
+    public String getUnit() {
+        return unit;
     }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+}
 
 
