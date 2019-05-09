@@ -4,13 +4,13 @@ import java.sql.Timestamp;
 
 public class drugModel {
     private String medicationName;
-    private String administrationRoute;
-    private String ATC;
+    private String routeOfAdministration;
+    private String atcCode;
 
-    public drugModel(String medicationName, String administrationRoute, String ATC){
-        this.medicationName = medicationName;
-        this.administrationRoute = administrationRoute;
-        this.ATC = ATC;
+    public drugModel(String medicineName, String atcCode, String routeOfAdministration) {
+        this.setMedicationName(medicineName);
+        this.setAtcCode(atcCode);
+        this.setRouteOfAdministration(routeOfAdministration);
     }
 
 /*
@@ -20,10 +20,13 @@ Metoder:
 */
     public String getMedicationName() { return medicationName; }
 
-    public String getAdministrationRoute() { return administrationRoute; }
+    public void setMedicationName(String medicationName) {this.medicationName = medicationName; }
 
-    public void setAdministrationRoute(String administrationRoute) { this.administrationRoute = administrationRoute; }
+    public String getRouteOfAdministration() { return routeOfAdministration; }
 
-    public String getATC() { return ATC; }
+    public void setRouteOfAdministration(String administrationRoute) { this.routeOfAdministration = routeOfAdministration; }
 
+    public String getAtcCode() { return atcCode; }
+
+    public void setAtcCode(String atcCode) { this.atcCode = atcCode; }
 }
