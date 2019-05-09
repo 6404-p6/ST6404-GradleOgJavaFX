@@ -2,6 +2,8 @@ package ST6404;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Scanner;
 
 public class medicineInteractionModel {
@@ -21,11 +23,13 @@ public class medicineInteractionModel {
     private String descriptionOfEffect;
     private String suggestionForAlternative;
 
-    public medicineInteractionModel(String medicamentA, String medicamentB, int probability, int severity) {
+    public medicineInteractionModel(String medicamentA, String medicamentB, int probability, int severity, String recommendationText, String descriptionOfEffect) {
         this.setMedicamentA(medicamentA);
         this.setMedicamentB(medicamentB);
         this.setProbability(probability);
         this.setSeverity(severity);
+        this.setRecommendationText(recommendationText);
+        this.setDescriptionOfEffect(descriptionOfEffect);
     }
 
     /*
@@ -35,7 +39,7 @@ public class medicineInteractionModel {
         - calculationBestMedicine ()
         - showInteractionsInformation ()
      */
-    private String getMedicamentA() {
+    public String getMedicamentA() {
         return medicamentA;
     }
 
@@ -43,7 +47,7 @@ public class medicineInteractionModel {
         this.medicamentA = medicamentA;
     }
 
-    private String getMedicamentB() {
+   public String getMedicamentB() {
         return medicamentB;
     }
 
@@ -51,7 +55,7 @@ public class medicineInteractionModel {
         this.medicamentB = medicamentB;
     }
 
-    private int getProbability() {
+    public int getProbability() {
         return probability;
     }
 
@@ -59,7 +63,7 @@ public class medicineInteractionModel {
         this.probability = probability;
     }
 
-    private int getSeverity() {
+    public int getSeverity() {
         return severity;
     }
 
@@ -75,7 +79,7 @@ public class medicineInteractionModel {
         this.documentationLevel = documentationLevel;
     }
 
-    private String getRecommendationText() {
+    public String getRecommendationText() {
         return recommendationText;
     }
 
@@ -83,7 +87,7 @@ public class medicineInteractionModel {
         this.recommendationText = recommendationText;
     }
 
-    private String getDescriptionOfEffect() {
+    public String getDescriptionOfEffect() {
         return descriptionOfEffect;
     }
 
@@ -99,35 +103,5 @@ public class medicineInteractionModel {
         this.suggestionForAlternative = suggestionForAlternative;
     }
 
-
-/*
-    public static void main(String[] args) {
-
-        String MedicamentA;
-        String MedicamentB;
-
-        MedicamentA = "Medikament A";
-        MedicamentB = "Medikament B";
-
-        Scanner input1 = new Scanner(System.in);
-        System.out.println("Medikament A : ");
-        String medicamentA = input1.next();
-
-        Scanner input2 = new Scanner(System.in);
-        System.out.println("Medikament B : ");
-        String medicamentB = input2.next();
-
-        if (medicamentA.equals(input1) && medicamentB.equals(input2)) {
-
-            System.out.println("Access Granted! Welcome!");
-        } else if (medicamentA.equals(input1)) {
-            System.out.println("Invalid Password!");
-        } else if (medicamentB.equals(input2)) {
-            System.out.println("Invalid Username!");
-        } else {
-            System.out.println("Invalid Username & Password!");
-        }
-
-    }*/
 
 }

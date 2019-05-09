@@ -105,8 +105,8 @@ public class databaseConnectorController {
         String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
         Connection connection = DriverManager.getConnection(connectionUrl);
     }*/
-/* Det virker det her, men det giver fejl med view og java fx
-    public static void interaction() {
+
+    public static void interactionList() {
         try {
             // create our mysql database connection
             String myDriver = "com.mysql.cj.jdbc.Driver";
@@ -133,13 +133,22 @@ public class databaseConnectorController {
                 String recommendationText = rs.getString("anbefaling");
                 String descriptionOfEffect = rs.getString("beskrivelse");
 
+                medicineInteractionModel interactionList = new medicineInteractionModel(medicamentA, medicamentB, probability, severity, recommendationText, descriptionOfEffect);
+
+                System.out.println(interactionList.getMedicamentA());
+                System.out.println(interactionList.getMedicamentB());
+                System.out.println(interactionList.getProbability());
+                System.out.println(interactionList.getSeverity());
+                System.out.println(interactionList.getRecommendationText());
+                System.out.println(interactionList.getDescriptionOfEffect());
                 // print the results
-                System.out.format("%s, %s, %s, %s, %s, %s\n", medicamentA, medicamentB, severity, probability, recommendationText, descriptionOfEffect);
+               // System.out.format("%s, %s, %s, %s, %s, %s\n", medicamentA, medicamentB, severity, probability, recommendationText, descriptionOfEffect);
             }
             st.close();
         } catch (Exception e) {
             System.err.println("Got an exception! ");
             System.err.println(e.getMessage());
         }
-    }*/
+    }
+
 }
