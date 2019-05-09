@@ -129,15 +129,15 @@ public class databaseConnectorController {
                 String medicamentA = rs.getString("medikamentA");
                 String medicamentB = rs.getString("medikamentB");
                 int severity = rs.getInt("alvorlighedsgrad");
-                int probability = rs.getInt("dokumentationsgrad");
+                int documentationLevel = rs.getInt("dokumentationsgrad");
                 String recommendationText = rs.getString("anbefaling");
                 String descriptionOfEffect = rs.getString("beskrivelse");
 
-                medicineInteractionModel interactionList = new medicineInteractionModel(medicamentA, medicamentB, probability, severity, recommendationText, descriptionOfEffect);
+                medicineInteractionModel interactionList = new medicineInteractionModel(medicamentA, medicamentB, documentationLevel, severity, recommendationText, descriptionOfEffect);
 
                 System.out.println(interactionList.getMedicamentA());
                 System.out.println(interactionList.getMedicamentB());
-                System.out.println(interactionList.getProbability());
+                System.out.println(interactionList.getDocumentationLevel());
                 System.out.println(interactionList.getSeverity());
                 System.out.println(interactionList.getRecommendationText());
                 System.out.println(interactionList.getDescriptionOfEffect());

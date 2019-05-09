@@ -42,6 +42,8 @@ public class interactionSummarizerModel {
         return interactionList.size();
     }
 
-
+    public int calculateNumberOfMedicine(List medicineCardList) {
+        return medicineCardList.size();
+    }
 
 }
