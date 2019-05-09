@@ -1,5 +1,8 @@
 package ST6404;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -63,6 +66,12 @@ public class prescriptedDrugModel extends drugModel {
 
     public void setUnit(String unit) {
         this.unit = unit;
+    }
+
+    public static ObservableList<prescriptedDrugModel> getprescriptedDrugModelList(){
+        ObservableList<prescriptedDrugModel> prescriptedDrugModelList = FXCollections.observableArrayList();
+        prescriptedDrugModelList.add(new prescriptedDrugModel("Warfarin", "OR", "ABC131", 5, "1 dagligt", "Idag", "Imorgen", "mL"));
+        return prescriptedDrugModelList;
     }
 }
 

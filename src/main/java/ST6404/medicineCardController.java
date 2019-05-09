@@ -75,12 +75,6 @@ public class medicineCardController implements Initializable {
         System.out.println("Troubleshoot: Afslutter metode changeSceneToPrescriptionView");
     }
 
-    public ObservableList<prescriptedDrugModel> getprescriptedDrugModelList(){
-        ObservableList<prescriptedDrugModel> prescriptedDrugModelList = FXCollections.observableArrayList();
-        prescriptedDrugModelList.add(new prescriptedDrugModel("Warfarin", "OR", "ABC131", 5, "1 dagligt", "Idag", "Imorgen", "mL"));
-        return prescriptedDrugModelList;
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Initialiser medicineListView");
@@ -95,8 +89,7 @@ public class medicineCardController implements Initializable {
         administrationColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("administrationRoute"));
         startDateColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("startDate"));
         endDateColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("endDate"));
-
-        tableView.setItems(getprescriptedDrugModelList());
+        tableView.setItems(prescriptedDrugModel.getprescriptedDrugModelList());
 
     }
 
