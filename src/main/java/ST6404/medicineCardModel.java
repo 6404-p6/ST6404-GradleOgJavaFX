@@ -9,7 +9,7 @@ import java.util.*;
 import java.util.stream.*;
 
 public class medicineCardModel {
-    private List medicineList;
+    public List medicineList;
 
 
     public medicineCardModel(List medicineList) {
@@ -22,5 +22,9 @@ public class medicineCardModel {
 
     public void setMedicineList(List medicineList) {
         this.medicineList = medicineList;
+    }
+
+    public void addToMedicineList(prescriptedDrugModel drugToAdd){
+        medicineList.add(drugToAdd);
     }
 }
