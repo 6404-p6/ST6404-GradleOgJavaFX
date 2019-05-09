@@ -5,16 +5,19 @@ package ST6404;
  */
 
 public class patientModel {
-    //Singleton objekt
+    //Singleton objekt for at kunne instantiere den
     private static patientModel patientModelObject;
-    // Klassen har attributterne fornavn, efternavn og cpr-nummer
+
     public static String firstName;
     public static String lastName;
     public String CPRNumber;
+    private medicineCardModel medicineCard;
 
-    // Atributterne opstilles i en contruktur for at kunne instantieres senere i main.
+    // Tom Singleton constructor. Den er tom, så den er nemmere at skrive i metoden getInstance
+    // sådan at det fylder mindre og er hurtigere. first, lastName og CPR sættes med setters
+    // i stykket lige efter den instantieres første gang, nemlig efter kald til SQL i
+    // databaseConnectorController.loadPatientData()
     private patientModel(){
-
     }
 
     public static patientModel getInstance(){
@@ -23,33 +26,19 @@ public class patientModel {
         return patientModelObject;
     }
 
-    // LoadedPatientData
-    /*public static void getPatientInfo(){
-        try {
-            patientModel LoadedPatientData = databaseConnectorController.loadPatientData();
-            System.out.println("Name: " + firstName + " " + lastName);
-        } catch (Exception e) {
-            System.out.println("Something went wrong..." + e.getMessage());
-        }
-    }*/
-
-
+// Getters og setters
     public String getPatientIdentification() {return firstName + " " + lastName + ", CPR: " + CPRNumber;}
 
-
-    // Returnere attributten firstname
     public String getFirstName() { return firstName; }
 
     // Bruges i Databasecontroller
     public void setFirstName(String firstName) { this.firstName = firstName; }
 
-    // Returnere attributten lastname
     public String getLastName() { return lastName; }
 
     // Bruges i Databasecontroller
     public void setLastName(String lastName) { this.lastName = lastName; }
-
-    // Returnere attributten getCPRnumber
+    
     public String getCPRNumber() { return CPRNumber; }
 
     // Bruges i Databasecontroller
