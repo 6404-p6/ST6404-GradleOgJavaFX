@@ -16,7 +16,8 @@ public class databaseConnectorController {
         ResultSet patient = connection.prepareStatement("SELECT * FROM `patientdatabase`").executeQuery();
         ResultSet praeparatdatabase = connection.prepareStatement("SELECT * FROM `praeparatdatabase`").executeQuery();
         ResultSet MIdatabase = connection.prepareStatement("SELECT * FROM `MIdatabase`").executeQuery();
-        while (patient.next()) {
+        ResultSet FMKdatabase = connection.prepareStatement("SELECT * FROM `FMKdatabase`  WHERE CPR = 2233449876").executeQuery();
+        /*while (patient.next()) {
             String a = patient.getString(1);
             System.out.println(a);
         }
@@ -28,6 +29,21 @@ public class databaseConnectorController {
             String c = MIdatabase.getString(2);
             System.out.println(c);
         }
+        while (FMKdatabase.next()) {
+            String navn = FMKdatabase.getString(2);
+            int dosis = FMKdatabase.getInt(3);
+            String enhed = FMKdatabase.getString(4);
+            String hyppighed = FMKdatabase.getString(5);
+            String startdato = FMKdatabase.getString(6);
+            String slutdato = FMKdatabase.getString(7);
+
+            System.out.println(navn);
+            System.out.println(dosis);
+            System.out.println(enhed);
+            System.out.println(hyppighed);
+            System.out.println(startdato);
+            System.out.println(slutdato);
+        }*/
     }
 
     /* Denne metode skal hente patientdata fra MySQL.
@@ -144,7 +160,7 @@ public class databaseConnectorController {
                 System.out.println(interactionList.getRecommendationText());
                 System.out.println(interactionList.getDescriptionOfEffect());
                 // print the results
-               // System.out.format("%s, %s, %s, %s, %s, %s\n", medicamentA, medicamentB, severity, probability, recommendationText, descriptionOfEffect);
+                // System.out.format("%s, %s, %s, %s, %s, %s\n", medicamentA, medicamentB, severity, probability, recommendationText, descriptionOfEffect);
             }
             st.close();
         } catch (Exception e) {
@@ -152,7 +168,73 @@ public class databaseConnectorController {
             System.err.println(e.getMessage());
         }
     }
+    /*public static ArrayList<prescriptedDrugModel> loadMedicineList() throws ClassNotFoundException, SQLException {
+        Statement st;
+        st = null;
+        ResultSet rs;
+        rs = null;
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
+        Connection connection = DriverManager.getConnection(connectionUrl);
+        try {
+            ArrayList<prescriptedDrugModel> prescriptedDrugList = new ArrayList<>();
+            String SQL2 = ("SELECT * FROM `FMKdatabase`  WHERE CPR = 1122335678");
+            connection.createStatement().executeQuery(SQL2);   // Forbindes til vores URL.
+            st = connection.createStatement();
+            rs = st.executeQuery(SQL2);
+            if (rs.next()) {
+                //ArrayList<prescriptedDrugModel> prescriptedDrugList = new ArrayList<>();
+                prescriptedDrugModel prescriptedDrugModel = new prescriptedDrugModel(rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(7), rs.getString(7)); // Indsæt til construktor.
+                prescriptedDrugList.add(prescriptedDrugModel);
+                return prescriptedDrugList;
+            } else {
+                System.out.println("Forkert CPR");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("SQL ERROR");    // Hvis forbindelse ikke kan oprettes.
+        }
+        return null;
+    }*/
 
+    public static void loadMedicineList2() throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
+        Connection connection = DriverManager.getConnection(connectionUrl);
+        ResultSet FMKdatabase = connection.prepareStatement("SELECT * FROM `FMKdatabase`  WHERE CPR = 1122335678").executeQuery();
+        while (FMKdatabase.next()) {
+            ArrayList<prescriptedDrugModel> prescriptedDrugList = new ArrayList<>();
+            String navn = FMKdatabase.getString(2);
+            int dosis = FMKdatabase.getInt(3);
+            String enhed = FMKdatabase.getString(4);
+            String hyppighed = FMKdatabase.getString(5);
+            String startdato = FMKdatabase.getString(6);
+            String slutdato = FMKdatabase.getString(7);
+            /*prescriptedDrugList.add(FMKdatabase.getString(2));
+            prescriptedDrugList.add(FMKdatabase.getInt(3));
+            prescriptedDrugList.add(FMKdatabase.getString(4));
+            prescriptedDrugList.add(FMKdatabase.getString(5));
+            prescriptedDrugList.add(FMKdatabase.getString(6));
+            prescriptedDrugList.add(FMKdatabase.getString(7));*/
+
+            //prescriptedDRugModel loadedPrescriptedDrug = newPrescriptedDrugModel(navn, dosis, enhed, hy....)
+            //prescriptedDrugModel loadedPrescriptedDrug = new prescriptedDrugModel(navn, dosis, enhed, hyppighed, startdato, slutdato, "", ""); // Indsæt til construktor.
+            prescriptedDrugList.add(new prescriptedDrugModel(navn, dosis, enhed, hyppighed, startdato, slutdato, "", ""));
+            // PrescripprescriptedModel virker med observable list i linje 69.
+
+            /*
+            public static ObservableList<prescriptedDrugModel> getprescriptedDrugModelList(){
+            ObservableList<prescriptedDrugModel> prescriptedDrugModelList = FXCollections.observableArrayList();
+            prescriptedDrugModelList.add(new prescriptedDrugModel("Warfarin", 5, "mL", "1 dagligt", "I dag", "I morgen", "OR", "ABC131"));
+            return prescriptedDrugModelList;
+             */
+
+            System.out.println(navn);
+            System.out.println(dosis);
+            System.out.println(enhed);
+            System.out.println(hyppighed);
+            System.out.println(startdato);
+            System.out.println(slutdato);
+        }
+    }
 }
-
-// prescriptedDrugModel prescriptedDrugModel
