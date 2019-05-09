@@ -20,20 +20,9 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
 
+
         try {
             databaseConnectorController.databaseConnectorController();
-        } catch (Exception e) {
-            System.out.println("Something went wrong..." + e.getMessage());
-        }
-
-        Parent choosePatientView = FXMLLoader.load(Main.class.getResource("/patientSelectorView.fxml"));
-        primaryStage.setTitle("EPJ");
-        primaryStage.setScene(new Scene(choosePatientView));
-        primaryStage.show();
-
-/*
-        try {
-            databaseConnectorController.loadPatientData();
         } catch (Exception e) {
             System.out.println("Something went wrong..." + e.getMessage());
         }
@@ -44,19 +33,13 @@ public class Main extends Application {
             System.out.println("Something went wrong..." + e.getMessage());
         }*/
 
-
-
-
     }
 
-
-
-        //@Override
-        public void start (Stage primaryStage) throws IOException {
-
-            Parent choosePatientView = FXMLLoader.load(Main.class.getResource("/choosePatientView.fxml"));
-            primaryStage.setTitle("EPJ");
-            primaryStage.setScene(new Scene(choosePatientView));
-            primaryStage.show();
-        }
+    @Override
+    public void start (Stage primaryStage) throws IOException {
+        Parent choosePatientView = FXMLLoader.load(Main.class.getResource("/PatientSelectorView.fxml"));
+        primaryStage.setTitle("EPJ");
+        primaryStage.setScene(new Scene(choosePatientView));
+        primaryStage.show();
+    }
 }
