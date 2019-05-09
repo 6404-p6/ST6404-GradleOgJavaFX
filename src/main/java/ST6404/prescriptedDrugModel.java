@@ -1,8 +1,6 @@
 package ST6404;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
 
 public class prescriptedDrugModel extends drugModel {
     private int dosage;
@@ -10,9 +8,9 @@ public class prescriptedDrugModel extends drugModel {
     // TD: Jeg kan ikke få dem indsat i tabellen endnu. Forstår ikke hvordan jeg laver dem i constructoren
     private String startDate;
     private String endDate;
-    String unit;
+    private String unit;
 
-    public prescriptedDrugModel(String medicationName, String administrationRoute, String ATC, int dosage, String frequency, String startDate, String endDate, String unit){
+    public prescriptedDrugModel(String medicationName,int dosage, String unit, String frequency, String startDate, String endDate,String administrationRoute, String ATC){
         super (medicationName, administrationRoute, ATC);
         this.dosage = dosage;
         this.frequency = frequency;
@@ -21,40 +19,24 @@ public class prescriptedDrugModel extends drugModel {
         this.unit = unit;
     }
 
-    prescriptedDrugModel prescriptedDrugModel = new prescriptedDrugModel("Placebo", "numse","AB001A01",100,"2 Dagligt","06-05-2019","06-06-2020","mL");
+    //prescriptedDrugModel prescriptedDrugModel = new prescriptedDrugModel("Placebo", 100,"AB001A01","100","2 Dagligt","06-05-2019","06-06-2020","mL");
 
     //Metoder:
-    private int getDosage() {
-        return dosage;
-    }
+    //private int getDosage() {return dosage;}
 
-    private void setDosage(int dosage) {
-        this.dosage = dosage;
-    }
+    //private void setDosage(int dosage) {this.dosage = dosage;}
 
-    private String getFrequency() {
-        return frequency;
-    }
+    //private String getFrequency() {return frequency;}
 
-    private void setFrequency(String frequency) {
-        this.frequency = frequency;
-    }
+    //private void setFrequency(String frequency) {this.frequency = frequency;}
 
-    private Timestamp getStartDate() {
-        return startDate;
-    }
+    //private String getStartDate() {return startDate;}
 
-    private void setStartDate(Timestamp startDate) {
-        this.startDate = startDate;
-    }
+    //private void setStartDate(Timestamp startDate) {this.startDate = startDate;}
 
-    private Timestamp getEndDate() {
-        return endDate;
-    }
+    //private Timestamp getEndDate() {return endDate;}
 
-    private void setEndDate(Timestamp endDate) {
-        this.endDate = endDate;
-    }
+    //private void setEndDate(Timestamp endDate) {this.endDate = endDate;}
 
 }
 

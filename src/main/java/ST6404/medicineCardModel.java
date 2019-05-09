@@ -8,14 +8,21 @@ import java.util.Collections;
 import java.util.*;
 import java.util.stream.*;
 
-public class medicineCardModel {
+public class medicineCardModel extends databaseConnectorController {
     private List medicineList;
     private String CPRNumber;
     private List availableMedicineList;
     private static medicineCardModel medicineCardModelObject;
 
     // Til Tim: Denne skal lige kigges på efter ny
-    static List<prescriptedDrugModel> prescriptedDrugList = new ArrayList<>();
+    //static List<prescriptedDrugModel> prescriptedDrugList = new ArrayList<>();
+    //static List<prescriptedDrugModel> prescriptedDrugList = new ArrayList<>();
+
+    //public static medicineCardModel getInstance(){
+    //    if (medicineCardModelObject == null)
+    //        medicineCardModelObject = new medicineCardModel();
+    //    return medicineCardModel;
+    //}
 
     /*
     public List<String> getMedicineListController;
@@ -30,6 +37,7 @@ public class medicineCardModel {
     public void setMedicineList(List<String> medicineList) {
         this.medicineListController = medicineListController;
     }
+
 
     public medicineListModel (List medicineList, String CPRnumber, List availableMedicineList){
         this.medicineList = medicineList;
@@ -47,10 +55,10 @@ Metoder:
 - updateExternalFMK ()
 - getAvailableMedicineList ()
  */
-    public static void createPrescription(String a, String b, String c,int d, String e, String f, String g, String h){
-        prescriptedDrugModel newPrescription = new prescriptedDrugModel(a,b,c,d,e,f,g,h);
-        prescriptedDrugList.add(newPrescription);
-    }
+    //public static void createPrescription(String a, String b, String c,int d, String e, String f, String g, String h){
+    //    prescriptedDrugModel newPrescription = new prescriptedDrugModel(a,b,c,d,e,f,g,h);
+    //    prescriptedDrugList.add(newPrescription);
+    //}
 
 
 

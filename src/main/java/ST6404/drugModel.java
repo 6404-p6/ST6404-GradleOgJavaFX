@@ -3,9 +3,6 @@ package ST6404;
 import java.sql.Timestamp;
 
 public class drugModel {
-
-
-
     private String medicationName;
     private String administrationRoute;
     private String ATC;
