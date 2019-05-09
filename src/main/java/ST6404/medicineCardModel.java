@@ -16,7 +16,7 @@ public class medicineCardModel extends databaseConnectorController {
     public String atcCode;
     public String routeOfAdministration;
 
-    public medicineCardController(String medicineName, String atcCode, String routeOfAdministration) {
+    public medicineCardModel(String medicineName, String atcCode, String routeOfAdministration) {
         this.setMedicineName(medicineName);
         this.setAtcCode(atcCode);
         this.setRouteOfAdministration(routeOfAdministration);

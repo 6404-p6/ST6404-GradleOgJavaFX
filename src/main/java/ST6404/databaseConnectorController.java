@@ -177,7 +177,7 @@ public class databaseConnectorController {
                 String atcCode = rs.getString("atc");
                 String routeOfAdministration = rs.getString("administrationsvej");
 
-                medicineCardController availableMedicineList = new medicineCardController(medicineName, atcCode, routeOfAdministration);
+                medicineCardModel availableMedicineList = new medicineCardModel(medicineName, atcCode, routeOfAdministration);
 
                 System.out.println(availableMedicineList.getMedicineName());
                 System.out.println(availableMedicineList.getAtcCode());
@@ -191,7 +191,24 @@ public class databaseConnectorController {
             System.err.println(e.getMessage());
         }
     }
+/*
+    public static void deleteMedicine()
+    {
+        try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            String myUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
+            Connection conn = DriverManager.getConnection(myUrl);
 
+            PreparedStatement st = conn.prepareStatement("DELETE FROM FMKdatabase WHERE CPR = '3003965678' );
+            st.executeUpdate();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+    }
+    */
 }
 
 // prescriptedDrugModel prescriptedDrugModel

@@ -26,9 +26,6 @@ import java.util.ResourceBundle;
 public class medicineCardController implements Initializable {
 
     private List availableMedicineList;
-    
-
-    public static void deleteMedicine
 
 
     @FXML
