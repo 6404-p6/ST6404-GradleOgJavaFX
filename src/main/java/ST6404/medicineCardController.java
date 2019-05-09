@@ -15,6 +15,7 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import javax.print.DocFlavor;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -27,10 +28,10 @@ public class medicineCardController implements Initializable {
     @FXML
     private TitledPane IDTitledPaneMedicineList;
 
-    @FXML private TableView<Person> tableView;
-    @FXML private TableColumn<Person, String> firstNameColumn;
-    @FXML private TableColumn<Person, String> lastNameColumn;
-    @FXML private TableColumn<Person, LocalDate> birthdayColumn;
+    @FXML private TableView<prescriptedDrugModel> tableView;
+    @FXML private TableColumn<prescriptedDrugModel, String> firstNameColumn;
+    @FXML private TableColumn<prescriptedDrugModel, String> lastNameColumn;
+    @FXML private TableColumn<prescriptedDrugModel, String> birthdayColumn;
 
 
 
@@ -70,12 +71,10 @@ public class medicineCardController implements Initializable {
         System.out.println("Troubleshoot: Afslutter metode changeSceneToPrescriptionView");
     }
 
-    public ObservableList<Person> getPeople(){
-        ObservableList<Person> people = FXCollections.observableArrayList();
-        people.add(new Person("Frank", "Sinatra", LocalDate.of(1915, Month.DECEMBER, 12)));
-        people.add(new Person("Rebecca", "Fergusson", LocalDate.of(1986, Month.JULY, 21)));
-        people.add(new Person("Mr.", "T", LocalDate.of(1952, Month.MAY, 21)));
-        return people;
+    public ObservableList<prescriptedDrugModel> getprescriptedDrugModelList(){
+        ObservableList<prescriptedDrugModel> prescriptedDrugModelList = FXCollections.observableArrayList();
+        prescriptedDrugModelList.add(new prescriptedDrugModel("Frank", "Sinatra", "ABC131", 5, "1 dagligt", "Idag", "Imorgen", "ml"));
+        return prescriptedDrugModelList;
     }
 
     @Override
@@ -85,10 +84,10 @@ public class medicineCardController implements Initializable {
         patientModel chosenPatient = patientModel.getInstance();
         IDTitledPaneMedicineList.setText(chosenPatient.getPatientIdentification());
 
-        firstNameColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("firstName"));
-        lastNameColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("lastName"));
-        birthdayColumn.setCellValueFactory(new PropertyValueFactory<Person, LocalDate>("birthday"));
-        tableView.setItems(getPeople());
+        firstNameColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("medicationName"));
+        lastNameColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("administrationRoute"));
+        birthdayColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("ATC"));
+        tableView.setItems(getprescriptedDrugModelList());
 
     }
 

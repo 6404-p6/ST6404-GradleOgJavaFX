@@ -22,7 +22,7 @@ public class prescriptedDrugModel extends drugModel {
         this.unit = unit;
     }
 
-    prescriptedDrugModel test = new prescriptedDrugModel("Placebo", "numse","AB001A01",100,"2 Dagligt","06-05-2019","06-06-2020","mL");
+    //prescriptedDrugModel test = new prescriptedDrugModel("Placebo", "numse","AB001A01",100,"2 Dagligt","06-05-2019","06-06-2020","mL");
 
     //Metoder:
     public int getDosage() {
