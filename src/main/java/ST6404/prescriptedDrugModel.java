@@ -71,7 +71,7 @@ public class prescriptedDrugModel extends drugModel {
         prescriptedDrugModelList.add(new prescriptedDrugModel("Warfarin", 10, "mg", "1 dagligt", "11-10-2019", "11-11-2019", "OR", "CDA131"));
         prescriptedDrugModelList.add(new prescriptedDrugModel("Hyaliksin", 50, "ml", "i timen nar vagen", "13-11-2019", "15-11-2019", "IV", "FGB111"));
         prescriptedDrugModelList.add(new prescriptedDrugModel("Warfarin", 5, "mg", "3 dagligt", "01-07-2019", "01-01-2020", "OR", "DEF221"));
-        prescriptedDrugModelList.add(new prescriptedDrugModel("Dicoumarol", 20, "mg", "1 dagligt", "01-07-2019", "01-01-2020", "OR", "ABC562"));
+        //prescriptedDrugModelList.add(new prescriptedDrugModel("Dicoumarol", 20, "mg", "1 dagligt", "01-07-2019", "01-01-2020", "OR", "ABC562"));
         return prescriptedDrugModelList;
     }
 }

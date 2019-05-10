@@ -180,4 +180,22 @@ public class databaseConnectorController {
             System.out.println(prescriptedDrugList);
         }
     }
+
+
+    public static void deleteRow(String dicoumarol) {
+        try {
+            String myDriver = "com.mysql.cj.jdbc.Driver";
+            String myUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
+            Class.forName(myDriver);
+            Connection conn = DriverManager.getConnection(myUrl);
+
+            PreparedStatement st = conn.prepareStatement("DELETE FROM FMKdatabase WHERE name = ?");
+            st.setString(1, dicoumarol);
+            st.executeUpdate();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
 }

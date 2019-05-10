@@ -81,10 +81,14 @@ public class medicineCardController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Initialiser medicineListView");
-        //databaseConnectorController.interactionList();
+
+        databaseConnectorController.interactionList();
+        //databaseConnectorController.deleteRow();
         patientModel chosenPatient = patientModel.getInstance();
         IDTitledPaneMedicineList.setText(chosenPatient.getPatientIdentification());
+        //chosenPatient.medicineCard.medicineList.add(new prescriptedDrugModel("Dicoumarol", 20, "mg", "1 dagligt", "01-07-2019", "01-01-2020", "OR", "ABC562"));
 
+        //System.out.print(chosenPatient.medicineCard.medicineList.size());
         nameColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("medicationName"));
         dosageColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("dosage"));
         unitColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("unit"));

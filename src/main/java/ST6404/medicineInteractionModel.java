@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
 import java.util.Scanner;
 
 public class medicineInteractionModel {
@@ -95,5 +96,8 @@ public class medicineInteractionModel {
         this.suggestionForAlternative = suggestionForAlternative;
     }
 
+    public int calculateNumberOfMedicine(List medicineCardList) {
+        return medicineCardList.size();
+    }
 
 }

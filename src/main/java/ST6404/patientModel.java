@@ -11,7 +11,7 @@ public class patientModel {
     private static String firstName;
     private static String lastName;
     private String CPRNumber;
-    private medicineCardModel medicineCard;
+    public medicineCardModel medicineCard;
 
     // Tom Singleton constructor. Den er tom, så den er nemmere at skrive i metoden getInstance
     // sådan at det fylder mindre og er hurtigere. first, lastName og CPR sættes med setters
@@ -45,6 +45,8 @@ public class patientModel {
 
     // Bruges i Databasecontroller
     public void setCPRNumber(String CPRNumber) { this.CPRNumber = CPRNumber; }
+
+
 
 
     
