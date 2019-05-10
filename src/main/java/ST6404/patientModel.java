@@ -6,7 +6,7 @@ package ST6404;
 
 public class patientModel {
     //Singleton objekt for at kunne instantiere den
-    private static patientModel patientModelObject;
+    private static patientModel patientModelObject; // Skal slettes.
 
     private static String firstName;
     private static String lastName;
@@ -17,12 +17,12 @@ public class patientModel {
     // sådan at det fylder mindre og er hurtigere. first, lastName og CPR sættes med setters
     // i stykket lige efter den instantieres første gang, nemlig efter kald til SQL i
     // databaseConnectorController.loadPatientData()
-    private patientModel(){
+    private patientModel(){ // Skal laves public og udfyldes.
     }
 
     // Metode til at skabe et Singleton af patientModel. Hvis der ikke findes en, skabes der en.
     // HVis der findes en, så returneres den.
-    public static patientModel getInstance(){
+    public static patientModel getInstance(){ // Skal fjernes.
         if (patientModelObject == null)
             patientModelObject = new patientModel();
         return patientModelObject;

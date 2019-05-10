@@ -11,7 +11,7 @@ import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class databaseConnectorController {
+public class databaseConnectorController { // Dette er en testerkode. Den skal slettes ind aflevering og kan tjekke forbindelse til MySQL.
     /*public static void databaseConnectorController() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
@@ -33,13 +33,16 @@ public class databaseConnectorController {
             String a = FMKdatabase.getString(2);
             System.out.println(a);}
     } */
-    /* Denne metode skal hente patientdata fra MySQL.
+    /*
+    loadPatientData (MGS + TD) skal hente patientdata fra MySQL. Den har 2 throws, som gør at ...
+    Koden laver et Try, hvor den søger efter et CPR-input fra brugeren. Hvis CPR-inputtet stemmer overens
+    med et CPR-nr. fra patientdatabase vil fornavn og efternavn blive vist.
      */
     public static void loadPatientData(String CPRInput) throws ClassNotFoundException, SQLException {
-        Statement st;
-        st = null;
-        ResultSet rs;
-        rs = null;
+        Statement st;           // Deklarer et statement til st.
+        st = null;              // Fortæller, at ST = null -->
+        ResultSet rs;           // ..
+        rs = null;              // ..
         Class.forName("com.mysql.cj.jdbc.Driver");
         String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
         Connection connection = DriverManager.getConnection(connectionUrl);
@@ -48,15 +51,15 @@ public class databaseConnectorController {
             connection.createStatement().executeQuery(SQL1);   // Forbindes til vores URL.
             st = connection.createStatement();          //
             rs = st.executeQuery(SQL1);                 //
-            if (rs.next()) {                            // Hvis CPR genkendes, så gemmes CPR, fornavn og efternavn.
+            if (rs.next()) {                            // Hvis CPR genkendes, så hentes CPR, fornavn og efternavn.
                 String CPR = rs.getString(1);              // Finder CPR i første kolonne.
                 String FirstName = rs.getString(2);        // Finder fornavn i anden kolonne.
                 String LastName = rs.getString(3);         // Finder efternavn i tredje kolonne.
                 //patientModel loadedPatientData = new patientModel(FirstName,LastName,CPR);
-                patientModel chosenPatient = patientModel.getInstance();
-                chosenPatient.setFirstName(FirstName);
-                chosenPatient.setLastName(LastName);
-                chosenPatient.setCPRNumber(CPR);
+                patientModel chosenPatient = patientModel.getInstance();    //
+                chosenPatient.setFirstName(FirstName);                      //
+                chosenPatient.setLastName(LastName);                        //
+                chosenPatient.setCPRNumber(CPR);                            //
                 //new patientModel(FirstName, LastName, CPR);
             } else {
                 System.out.println("CPR eksisterer ikke. Prøv igen.");     // Hvis systemet ikke finder CPR, skal der skrives fejl.
@@ -164,6 +167,12 @@ public class databaseConnectorController {
         }
     }
 
+    /*
+    loadMedicineList(MGS) henter patientens informationer fra FMK-databasen og gemmer dem i en liste: prescriptedDrugList
+    ObservableList er en unik JavaFX funktion.
+    OBS:! Funktionen er ikke færdig, da CPR ikke skal indskrives af brugeren endnu for at virke.
+
+     */
     public static void loadMedicineList() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
