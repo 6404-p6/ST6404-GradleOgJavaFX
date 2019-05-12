@@ -6,12 +6,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<TitledPane animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" text="[CPR, Fornavn, Efternavn, Alder]" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ST6404.patientSelectorController">
+<TitledPane animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" text="" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ST6404.patientSelectorController">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
          <children>
             <Button layoutX="608.0" layoutY="403.0" mnemonicParsing="false" onAction="#changeSceneToMedicineListView" text="Gå til medicinmodul" />
-            <TextField fx:id="IDTextFieldInsertCPR" layoutX="608.0" layoutY="359.0" />
+            <TextField fx:id="IDTextFieldInsertCPR" layoutX="608.0" layoutY="359.0" text="test" />
             <Text layoutX="527.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Indsæt CPR" />
             <TextField disable="true" layoutX="519.0" layoutY="359.0" prefHeight="25.0" prefWidth="76.0" />
          </children></AnchorPane>
