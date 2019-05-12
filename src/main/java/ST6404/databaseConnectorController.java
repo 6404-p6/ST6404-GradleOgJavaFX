@@ -165,7 +165,7 @@ public class databaseConnectorController { // Dette er en testerkode. Den skal s
         }
     }
 
-
+/*
     public static void deleteRow(String dicoumarol) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
