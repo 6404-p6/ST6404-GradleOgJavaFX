@@ -46,7 +46,7 @@ public class prescriptionController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Initialiser prescriptionView");
-        patientModel patientModelSingleton = patientModel.getInstance();
-        IDTitledPanePrescription.setText(patientModelSingleton.getPatientIdentification());
+        globalInstanceHandler.getInstance();
+        IDTitledPanePrescription.setText(globalInstanceHandler.chosenPatient.getPatientIdentification());
     }
 }

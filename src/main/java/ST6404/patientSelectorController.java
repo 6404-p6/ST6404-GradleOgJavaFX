@@ -23,7 +23,8 @@ public class patientSelectorController implements Initializable {
     private void processTextFieldInsertCPR(){
         String CPRTextFieldInput = IDTextFieldInsertCPR.getText();
         try {
-            databaseConnectorController.loadPatientData(CPRTextFieldInput);
+            databaseConnectorController db = new databaseConnectorController();
+            db.loadPatientData(CPRTextFieldInput);
         } catch (Exception e) {
             System.out.println("Something went wrong..." + e.getMessage());
         }
