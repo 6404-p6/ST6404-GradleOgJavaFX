@@ -84,6 +84,7 @@ public class medicineCardController implements Initializable {
 
         databaseConnectorController.interactionList();
         //databaseConnectorController.deleteRow();
+        //databaseConnectorController.addRow();
         patientModel chosenPatient = patientModel.getInstance(); // Finds i alle controller.
         // Find alternativ metode --> Ny reference.
         IDTitledPaneMedicineList.setText(chosenPatient.getPatientIdentification());
