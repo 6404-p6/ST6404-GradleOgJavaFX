@@ -10,6 +10,8 @@ import java.sql.ResultSet;
 import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.PreparedStatement;
+import java.util.Date;
 
 public class databaseConnectorController { // Dette er en testerkode. Den skal slettes ind aflevering og kan tjekke forbindelse til MySQL.
     /*public static void databaseConnectorController() throws ClassNotFoundException, SQLException {
@@ -163,44 +165,38 @@ public class databaseConnectorController { // Dette er en testerkode. Den skal s
         }
     }
 
-    /*
-    loadMedicineList(MGS) henter patientens informationer fra FMK-databasen og gemmer dem i en liste: prescriptedDrugList
-    ObservableList er en unik JavaFX funktion.
-    OBS:! Funktionen er ikke færdig, da CPR ikke skal indskrives af brugeren endnu for at virke.
-
-     */
-    public static void loadMedicineList() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
-        Connection connection = DriverManager.getConnection(connectionUrl);
-        ResultSet FMKdatabase = connection.prepareStatement("SELECT * FROM `FMKdatabase`  WHERE CPR = 1122335678").executeQuery(); //1122335678
-        while (FMKdatabase.next()) {
-            ObservableList<String> prescriptedDrugList = FXCollections.observableArrayList();
-            prescriptedDrugList.add(FMKdatabase.getString(2));
-            prescriptedDrugList.add(FMKdatabase.getString(3));
-            prescriptedDrugList.add(FMKdatabase.getString(4));
-            prescriptedDrugList.add(FMKdatabase.getString(5));
-            prescriptedDrugList.add(FMKdatabase.getString(6));
-            prescriptedDrugList.add(FMKdatabase.getString(7));
-            System.out.println(prescriptedDrugList);
-        }
-    }
-
 
     public static void deleteRow(String dicoumarol) {
         try {
-            String myDriver = "com.mysql.cj.jdbc.Driver";
-            String myUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
-            Class.forName(myDriver);
-            Connection conn = DriverManager.getConnection(myUrl);
-
-            PreparedStatement st = conn.prepareStatement("DELETE FROM FMKdatabase WHERE name = ?");
-            st.setString(1, dicoumarol);
-            st.executeUpdate();
-
-        } catch (Exception e) {
-            System.out.println(e);
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC",
+                    "hst_2019_19gr6404", "agipheethohwiquiteam");
+            ps = con.prepareStatement(query);
+            ps.executeUpdate();
+        } catch (ClassNotFoundException | SQLException e) {
+            System.out.println("Error: " + e.getMessage());
         }
+
     }
+
+    public static void addRow () {
+        try {
+            String url = "com.mysql.cj.jdbc.Driver";
+            Connection conn = DriverManager.getConnection("jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC",
+                    "hst_2019_19gr6404", "agipheethohwiquiteam");
+            Statement st = conn.createStatement();
+            st.executeUpdate("INSERT INTO FMKdatabase (cpr, navn, dosis, enhed, hyppighed, startdato, slutdato) VALUES ('3003965678',50,'mg','3 gange dagligt',2019-02-03,2019-02-04)");
+
+            conn.close();
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
+
+    }*/
+
+    //edit
+
+    //insert eller add
 
 }
