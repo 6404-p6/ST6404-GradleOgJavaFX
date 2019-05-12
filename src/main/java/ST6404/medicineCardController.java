@@ -81,8 +81,8 @@ public class medicineCardController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Initialiser medicineListView");
-        globalInstanceHandler.getInstance();
-        IDTitledPaneMedicineList.setText(globalInstanceHandler.chosenPatient.getPatientIdentification());
+        dataStorage.getInstance();
+        IDTitledPaneMedicineList.setText(dataStorage.chosenPatient.getPatientIdentification());
         nameColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("medicationName"));
         dosageColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("dosage"));
         unitColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("unit"));

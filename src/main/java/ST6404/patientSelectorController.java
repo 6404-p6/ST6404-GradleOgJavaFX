@@ -19,12 +19,20 @@ public class patientSelectorController implements Initializable {
     @FXML
     private TextField IDTextFieldInsertCPR;
 
+    /*
+    Håndterer indtastningen af CPR ved at lave en getText på attributten for
+    feltet. Efter at konvertere TextField typen til string, sættes
+    det ind i metoden loadPatientData der returnerer et patientModel-objekt
+    og lægger det ind i dataStorage klassens chosenPatient. Denne
+    kan så tages videre til andre klasser
+     */
     @FXML
     private void processTextFieldInsertCPR(){
         String CPRTextFieldInput = IDTextFieldInsertCPR.getText();
         try {
             databaseConnectorController db = new databaseConnectorController();
-            db.loadPatientData(CPRTextFieldInput);
+            dataStorage.chosenPatient = db.loadPatientData(CPRTextFieldInput);
+
         } catch (Exception e) {
             System.out.println("Something went wrong..." + e.getMessage());
         }
@@ -58,6 +66,8 @@ public class patientSelectorController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+        /* Instantiering af dataStorage, sådan at dens attribut for
+        chosenPatient kan tages med og indsættes i her. */
+        dataStorage.getInstance();
     }
 }

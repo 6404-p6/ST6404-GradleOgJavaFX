@@ -40,7 +40,7 @@ public class databaseConnectorController { // Dette er en testerkode. Den skal s
     Koden laver et Try, hvor den søger efter et CPR-input fra brugeren. Hvis CPR-inputtet stemmer overens
     med et CPR-nr. fra patientdatabase vil fornavn og efternavn blive vist.
      */
-    public void loadPatientData(String CPRInput) throws ClassNotFoundException, SQLException {
+    public patientModel loadPatientData(String CPRInput) throws ClassNotFoundException, SQLException {
         Statement st;           // Deklarer et statement til st.
         st = null;              // Fortæller, at ST = null -->
         ResultSet rs;           // ..
@@ -57,15 +57,16 @@ public class databaseConnectorController { // Dette er en testerkode. Den skal s
                 String CPR = rs.getString(1);              // Finder CPR i første kolonne.
                 String FirstName = rs.getString(2);        // Finder fornavn i anden kolonne.
                 String LastName = rs.getString(3);         // Finder efternavn i tredje kolonne.
-                globalInstanceHandler.getInstance();
-                globalInstanceHandler.chosenPatient = new patientModel(FirstName, LastName, CPR, null);
+
+                patientModel tempPatientModel = new patientModel(FirstName, LastName, CPR, null);
+                return tempPatientModel;
             } else {
                 System.out.println("CPR eksisterer ikke. Prøv igen.");     // Hvis systemet ikke finder CPR, skal der skrives fejl.
             }
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("SQL FEJL");    // Hvis forbindelse ikke kan oprettes.
-        }
+        }   return null;
     }
 
     public static void loadMedicationError() throws ClassNotFoundException, SQLException {

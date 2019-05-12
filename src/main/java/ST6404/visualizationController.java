@@ -39,8 +39,8 @@ public class visualizationController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Initialiser visualitionView");
-        globalInstanceHandler.getInstance();
-        IDTitledPaneVisualization.setText(globalInstanceHandler.chosenPatient.getPatientIdentification());
+        dataStorage.getInstance();
+        IDTitledPaneVisualization.setText(dataStorage.chosenPatient.getPatientIdentification());
     }
 
 }
