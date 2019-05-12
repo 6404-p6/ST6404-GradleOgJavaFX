@@ -7,6 +7,9 @@ import java.sql.ResultSet;
 import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.PreparedStatement;
+import java.util.Date;
+
 
 public class databaseConnectorController {
     public static void databaseConnectorController() throws ClassNotFoundException, SQLException {
@@ -191,22 +194,43 @@ public class databaseConnectorController {
         }
     }
 
+// Nedenstående virker. Den sletter medikamenter fra patientens FMK
+    /*public static void deleteDrugRow() {
+        Connection con = null;
+        PreparedStatement ps = null;
+        String query = "DELETE FROM FMKdatabase WHERE CPR = '3003965678' AND navn = 'reserpine'";
 
-    public static void deleteRow(String dicoumarol) {
         try {
-            String myDriver = "com.mysql.cj.jdbc.Driver";
-            String myUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
-            Class.forName(myDriver);
-            Connection conn = DriverManager.getConnection(myUrl);
-
-            PreparedStatement st = conn.prepareStatement("DELETE FROM FMKdatabase WHERE name = ?");
-            st.setString(1, dicoumarol);
-            st.executeUpdate();
-
-        } catch (Exception e) {
-            System.out.println(e);
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC",
+                    "hst_2019_19gr6404", "agipheethohwiquiteam");
+            ps = con.prepareStatement(query);
+            ps.executeUpdate();
+        } catch (ClassNotFoundException | SQLException e) {
+            System.out.println("Error: " + e.getMessage());
         }
+
     }
+
+    public static void addRow () {
+        try {
+            String url = "com.mysql.cj.jdbc.Driver";
+            Connection conn = DriverManager.getConnection("jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC",
+                    "hst_2019_19gr6404", "agipheethohwiquiteam");
+            Statement st = conn.createStatement();
+            st.executeUpdate("INSERT INTO FMKdatabase (cpr, navn, dosis, enhed, hyppighed, startdato, slutdato) VALUES ('3003965678',50,'mg','3 gange dagligt',2019-02-03,2019-02-04)");
+
+            conn.close();
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
+
+    }*/
+
+    //edit
+
+    //insert eller add
 
 }
 
