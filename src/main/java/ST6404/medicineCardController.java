@@ -64,7 +64,7 @@ public class medicineCardController implements Initializable {
     @FXML private TableColumn<prescriptedDrugModel, String> endDateColumn;
 
 
-
+    // Se forklaring i patientSelector.changeSceneToMedicineListView
     @FXML
     public void changeSceneToChoosePatientView(ActionEvent event) throws IOException {
         System.out.println("Troubleshoot: Begynder metode changeSceneToChoosePatientView");
@@ -78,6 +78,7 @@ public class medicineCardController implements Initializable {
         System.out.println("Troubleshoot: Afslutter metode changeSceneToChoosePatientView");
     }
 
+    // Se forklaring i patientSelector.changeSceneToMedicineListView
     @FXML
     public void changeSceneToCVisualizationView(ActionEvent event) throws IOException {
         System.out.println("Troubleshoot: Begynder metode changeSceneToCVisualizationView");
@@ -90,6 +91,7 @@ public class medicineCardController implements Initializable {
         System.out.println("Troubleshoot: Afslutter metode changeSceneToCVisualizationView");
     }
 
+    // Se forklaring i patientSelector.changeSceneToMedicineListView
     @FXML
     public void changeSceneToPrescriptionView(ActionEvent event) throws IOException {
         System.out.println("Troubleshoot: Begynder metode changeSceneToPrescriptionView");
@@ -105,6 +107,7 @@ public class medicineCardController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Initialiser medicineListView");
+        // Indhentning af dataStorage for at bruge dens patientModel
         dataStorage.getInstance();
         // Topbjælken får indsat navn og CPR fra metoden getPatientIdentification
         IDTitledPaneMedicineList.setText(dataStorage.chosenPatient.getPatientIdentification());
