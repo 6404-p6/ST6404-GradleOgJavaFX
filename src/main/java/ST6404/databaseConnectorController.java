@@ -205,7 +205,7 @@ public class databaseConnectorController { // Dette er en testerkode. Den skal s
             Connection conn = DriverManager.getConnection("jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC",
                     "hst_2019_19gr6404", "agipheethohwiquiteam");
             Statement st = conn.createStatement();
-            st.executeUpdate("UPDATE FMKdatabase SET navn = disedase, dosis = 5 WHERE CPR = 3003965678";
+            st.executeUpdate("UPDATE FMKdatabase SET navn = disedase, dosis = 5 WHERE CPR = 3003965678");
 
             conn.close();
         } catch (Exception e) {
