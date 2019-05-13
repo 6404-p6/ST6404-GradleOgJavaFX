@@ -28,32 +28,28 @@ import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.DriverManager;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class medicineCardController implements Initializable {
 
     private List availableMedicineList;
 
-    /*public void updateData() {
-        Connection connection = null;
+    private void deleteDrugButton(java.awt.event.ActionEvent evt) {
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC", "hst_2019_19gr6404", "agipheethohwiquiteam");
-            Statement con = connection.createStatement();
-            //connection
-            TablePosition pos = tableView.getSelectionModel().getSelectedCells().get(0);
-            int row = pos.getRow();
-            TableColumn col = pos.getTableColumn();
-            String data1 = (String) col.getCellObservableValue(row).getValue();
-            //cell
-            medicineCardModel row1 = tableView.getSelectionModel().getSelectedItem();
-            c1 = row1.getID();
-            //row
-            //tableview variables
-            con.execute("UPDATE FMKdatabase SET navn = disedase, dosis = 5 WHERE CPR = 3003965678");
-            //Query
-        } catch (SQLException ex) {
-            System.err.println("Error" + ex);
+            Class.forName("com.mysql.jdbc.Driver");
+            // establish connection
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Studentinformation", "root", "");
+            Statement statement = con.createStatement();
+            statement.executeUpdate("DELETE FROM FMKdatabase WHERE roll=" + nameColumn.getText() + "");
+            JOptionPane.showMessageDialog(null, "Drug deleted...");
+            statement.close();
+            con.close();
+            databaseConnectorController.deleteDrugRow(); //Calling Referesh() method
+        } catch (SQLException | ClassNotFoundException e) {
+            JOptionPane.showMessageDialog(null, e);
         }
-    }*/
+    }
 
     @FXML
     private TitledPane IDTitledPaneMedicineList;
