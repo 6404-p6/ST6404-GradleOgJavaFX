@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.*;
 import java.util.stream.*;
 
-public class medicineCardModel {
+public class medicineCardModel{
     public List medicineList;
 
 
@@ -27,4 +27,13 @@ public class medicineCardModel {
     public void addToMedicineList(prescriptedDrugModel drugToAdd){
         medicineList.add(drugToAdd);
     }
+
+
+    /*public static void Showlist(){ // Marianne arbejder på denne.
+        System.out.println(prescriptedDrugList);
+    }*/
+
+
+
+
 }

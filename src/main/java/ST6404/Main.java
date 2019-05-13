@@ -19,20 +19,6 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-
-/*      Kan vi slette disse to metoder? (TD)
-        try {
-            databaseConnectorController.databaseConnectorController();
-        } catch (Exception e) {
-            System.out.println("Something went wrong..." + e.getMessage());
-        }
-*/
-        /*try {
-            databaseConnectorController.loadMedicineList();
-        } catch (Exception e) {
-            System.out.println("Something went wrong..." + e.getMessage());
-        }*/
-
     }
     /*
     Der skiftes view ved at skabe en scene ud fra FXMLLoaderen der
