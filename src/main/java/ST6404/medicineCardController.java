@@ -95,30 +95,4 @@ public class medicineCardController implements Initializable {
         endDateColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("endDate"));
         tableView.setItems(prescriptedDrugModel.getprescriptedDrugModelList());
     }
-    /*
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("Initialiser medicineListView");
-        databaseConnectorController db = new databaseConnectorController();
-        databaseConnectorController.interactionList();
-        patientModel chosenPatient = patientModel.getInstance();
-        IDTitledPaneMedicineList.setText(chosenPatient.getPatientIdentification());
-        chosenPatient.medicineCard = db.getMedicineCard("3003965678");
-        //chosenPatient.medicineCard.medicineList.add(new prescriptedDrugModel("Dicoumarol", 20, "mg", "1 dagligt", "01-07-2019", "01-01-2020", "OR", "ABC562"));
-
-        //System.out.print(chosenPatient.medicineCard.medicineList.size());
-        //Her skal der laves noget list casting
-        //ObservableList<prescriptedDrugModel> medicineCardForView = FXCollections.observableArrayList(chosenPatient.medicineCard);
-
-        nameColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("medicationName"));
-        dosageColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("dosage"));
-        unitColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("unit"));
-        frequencyColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("frequency"));
-        administrationColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("administrationRoute"));
-        startDateColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("startDate"));
-        endDateColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("endDate"));
-        //tableView.setItems(medicineCardForView);
-    }
-     */
-
 }
