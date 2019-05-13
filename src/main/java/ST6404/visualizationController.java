@@ -23,6 +23,7 @@ public class visualizationController implements Initializable {
     @FXML
     private TitledPane IDTitledPaneVisualization;
 
+    // Se forklaring i patientSelector.changeSceneToMedicineListView
     @FXML
     public void changeSceneToMedicineListView(ActionEvent event) throws IOException {
         System.out.println("Troubleshoot: Begynder metode changeSceneToMedicineListView");
@@ -39,7 +40,9 @@ public class visualizationController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Initialiser visualitionView");
+        // Indhentning af dataStorage for at bruge dens patientModel
         dataStorage.getInstance();
+        // Topbjælken får indsat navn og CPR fra metoden getPatientIdentification
         IDTitledPaneVisualization.setText(dataStorage.chosenPatient.getPatientIdentification());
     }
 
