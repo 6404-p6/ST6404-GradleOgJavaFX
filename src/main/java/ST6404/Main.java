@@ -20,13 +20,13 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
 
-
+/*      Kan vi slette disse to metoder? (TD)
         try {
             databaseConnectorController.databaseConnectorController();
         } catch (Exception e) {
             System.out.println("Something went wrong..." + e.getMessage());
         }
-
+*/
         /*try {
             databaseConnectorController.loadMedicineList();
         } catch (Exception e) {
@@ -34,7 +34,12 @@ public class Main extends Application {
         }*/
 
     }
-
+    /*
+    Der skiftes view ved at skabe en scene ud fra FXMLLoaderen der
+    er sat til at loade et FXML dokument, her PatientSelectorView
+    og samme tid instantierer den dertilhørende controller.
+    Herefter "vises" scenen, så et vindue popper op.
+     */
     @Override
     public void start (Stage primaryStage) throws IOException {
         Parent choosePatientView = FXMLLoader.load(Main.class.getResource("/PatientSelectorView.fxml"));

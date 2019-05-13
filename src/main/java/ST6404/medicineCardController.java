@@ -45,6 +45,7 @@ public class medicineCardController implements Initializable {
     @FXML
     public void changeSceneToChoosePatientView(ActionEvent event) throws IOException {
         System.out.println("Troubleshoot: Begynder metode changeSceneToChoosePatientView");
+        dataStorage.chosenPatient = null;
         Parent choosePatientView = FXMLLoader.load(Main.class.getResource("/patientSelectorView.fxml"));
         Scene choosePatientViewScene = new Scene(choosePatientView);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -81,7 +82,12 @@ public class medicineCardController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Initialiser medicineListView");
+        dataStorage.getInstance();
+        // Topbjælken får indsat navn og CPR fra metoden getPatientIdentification
+        IDTitledPaneMedicineList.setText(dataStorage.chosenPatient.getPatientIdentification());
 
+        // Klargøring og indsættelse af tabellerne. Herefter indsættes en liste, i dette
+        // tilfælde "getPrescriptedDrugModelList" som indeholder "prescirptedDrugModel" objekter
         databaseConnectorController.interactionList();
         //databaseConnectorController.deleteDrugRow();
         //databaseConnectorController.addRow();
