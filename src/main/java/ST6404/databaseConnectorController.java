@@ -13,28 +13,7 @@ import java.util.List;
 import java.sql.PreparedStatement;
 import java.util.Date;
 
-public class databaseConnectorController { // Dette er en testerkode. Den skal slettes ind aflevering og kan tjekke forbindelsen til MySQL.
-    /*public static void databaseConnectorController() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
-        Connection connection = DriverManager.getConnection(connectionUrl);
-        ResultSet patient = connection.prepareStatement("SELECT * FROM `patientdatabase`").executeQuery();
-        ResultSet praeparatdatabase = connection.prepareStatement("SELECT * FROM `praeparatdatabase`").executeQuery();
-        ResultSet MIdatabase = connection.prepareStatement("SELECT * FROM `MIdatabase`").executeQuery();
-        ResultSet FMKdatabase = connection.prepareStatement("SELECT * FROM `FMKdatabase`  WHERE CPR = 2233449876").executeQuery();
-        /*while (patient.next()) {
-            String a = patient.getString(1);
-            System.out.println(a);}
-        while (praeparatdatabase.next()) {
-            String b = praeparatdatabase.getString(2);
-            System.out.println(b);}
-        while (MIdatabase.next()) {
-            String c = MIdatabase.getString(2);
-            System.out.println(c);}
-        while (FMKdatabase.next()) {
-            String a = FMKdatabase.getString(2);
-            System.out.println(a);}
-    } */
+public class databaseConnectorController {
     /*
     loadPatientData (MGS + TD) skal hente patientdata fra MySQL. Den har 2 throws, som gør at ...
     Koden laver et Try, hvor den søger efter et CPR-input fra brugeren. Hvis CPR-inputtet stemmer overens
@@ -68,22 +47,6 @@ public class databaseConnectorController { // Dette er en testerkode. Den skal s
             System.out.println("SQL FEJL");    // Hvis forbindelse ikke kan oprettes.
         }   return null;
     }
-
-    // Kan denne kode slettes? --- Start ----
-    public static void loadMedicationError() throws ClassNotFoundException, SQLException {
-        Statement st = null;
-        ResultSet rs = null;
-        String MedikamentA;
-        String MedikamentB;
-        String alvorlighedsgrad;
-        String dokumentationsgrad;
-        String anbefaling;
-        String beskrivelse;
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
-        Connection connection = DriverManager.getConnection(connectionUrl);
-    }
-    // ?????? ---- Slut ----
 
     public static void interactionList() {
         try {
@@ -205,4 +168,52 @@ public class databaseConnectorController { // Dette er en testerkode. Den skal s
 
     //insert eller add
 
+    public static medicineCardModel getMedicineCard(String id){
+        try {
+            String myDriver = "com.mysql.cj.jdbc.Driver";
+            String myUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
+            Class.forName(myDriver);
+            String test = "select From FMKdatabase Where CPR = " + id;
+            Connection conn = DriverManager.getConnection(myUrl);
+            PreparedStatement st  = conn.prepareStatement("select * from FMKdatabase Where CPR = " + id); //
+            ResultSet rs = st.executeQuery();
+            List<prescriptedDrugModel> pml = new ArrayList<prescriptedDrugModel>();
+            while(rs.next()) {
+                prescriptedDrugModel pm = new prescriptedDrugModel(rs.getString("navn"), rs.getInt("dosis"), rs.getString("enhed"), rs.getString("hyppighed"), rs.getString("startdato"), rs.getString("slutdato"),"or", "atc");
+                pml.add(pm);
+            }
+            medicineCardModel m = new medicineCardModel(pml);
+            return m;
+        } catch (Exception e){
+            System.out.println(e);
+        }
+        return null;
+    }
+
+    /*
+loadMedicineList(MGS) henter patientens informationer fra FMK-databasen og gemmer dem i en liste: prescriptedDrugList
+ObservableList er en unik JavaFX funktion.
+OBS:! Funktionen er ikke færdig, da CPR ikke skal indskrives af brugeren endnu for at virke.
+
+ */
+    /*public static void loadMedicineList() throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
+        Connection connection = DriverManager.getConnection(connectionUrl);
+        ResultSet FMKdatabase = connection.prepareStatement("SELECT * FROM `FMKdatabase`  WHERE CPR = 1122335678").executeQuery(); //1122335678
+        while (FMKdatabase.next()) {
+            // Brug constructor for medicineCard og dens attribut medicineList
+
+            ObservableList<String> prescriptedDrugList = FXCollections.observableArrayList();
+            prescriptedDrugList.add(FMKdatabase.getString(2));
+            prescriptedDrugList.add(FMKdatabase.getString(3));
+            prescriptedDrugList.add(FMKdatabase.getString(4));
+            prescriptedDrugList.add(FMKdatabase.getString(5));
+            prescriptedDrugList.add(FMKdatabase.getString(6));
+            prescriptedDrugList.add(FMKdatabase.getString(7));
+            // Brug constructor for prescriptedDrugModel
+            // medicineCard.medicinelist.ad(Constructor indsæt her)
+            System.out.println(prescriptedDrugList);
+        }
+    }*/
 }
