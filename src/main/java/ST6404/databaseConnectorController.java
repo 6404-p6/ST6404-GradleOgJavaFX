@@ -11,7 +11,7 @@ import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class databaseConnectorController { // Dette er en testerkode. Den skal slettes ind aflevering og kan tjekke forbindelse til MySQL.
+public class databaseConnectorController { // Dette er en testerkode. Den skal slettes ind aflevering og kan tjekke forbindelsen til MySQL.
     /*public static void databaseConnectorController() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
@@ -40,26 +40,26 @@ public class databaseConnectorController { // Dette er en testerkode. Den skal s
      */
     public static void loadPatientData(String CPRInput) throws ClassNotFoundException, SQLException {
         Statement st;           // Deklarer et statement til st.
-        st = null;              // Fortæller, at ST = null -->
-        ResultSet rs;           // ..
-        rs = null;              // ..
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        st = null;              // Fortæller, at ST = null ->
+        ResultSet rs;           // Deklarer vores ResultSet til rs.
+        rs = null;              // Fortæller, at ST = null ->
+        Class.forName("com.mysql.cj.jdbc.Driver"); // Vores driver.
         String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
         Connection connection = DriverManager.getConnection(connectionUrl);
         try {
-            String SQL1 = ("select *FROM patientdatabase WHERE CPR = " + CPRInput);
-            connection.createStatement().executeQuery(SQL1);   // Forbindes til vores URL.
-            st = connection.createStatement();          //
-            rs = st.executeQuery(SQL1);                 //
+            String SQL1 = ("select *FROM patientdatabase WHERE CPR = " + CPRInput); // Søger efter et CPR i patientdatabase, som stemmer overens med det indtastede
+            connection.createStatement().executeQuery(SQL1);   // Forbinder til vores URL.
+            st = connection.createStatement();          // ST får nu betydning.
+            rs = st.executeQuery(SQL1);                 // Rs bliver sat til en SQL Query. Den kan nu indeholder info fra vores MySQL database, som ikke var en mulighed før.
             if (rs.next()) {                            // Hvis CPR genkendes, så hentes CPR, fornavn og efternavn.
-                String CPR = rs.getString(1);              // Finder CPR i første kolonne.
-                String FirstName = rs.getString(2);        // Finder fornavn i anden kolonne.
-                String LastName = rs.getString(3);         // Finder efternavn i tredje kolonne.
+                String CPR = rs.getString(1);              // Finder CPR i første kolonne af databasen.
+                String FirstName = rs.getString(2);        // Finder fornavn i anden kolonne af databasen.
+                String LastName = rs.getString(3);         // Finder efternavn i tredje kolonne af databasen.
                 //patientModel loadedPatientData = new patientModel(FirstName,LastName,CPR);
                 patientModel chosenPatient = patientModel.getInstance();    //
-                chosenPatient.setFirstName(FirstName);                      //
-                chosenPatient.setLastName(LastName);                        //
-                chosenPatient.setCPRNumber(CPR);                            //
+                chosenPatient.setFirstName(FirstName);                      // Vi anvender set, da vi kun har brug en string til næste skridt i projektet.
+                chosenPatient.setLastName(LastName);                        // Same.
+                chosenPatient.setCPRNumber(CPR);                            // Same.
                 //new patientModel(FirstName, LastName, CPR);
             } else {
                 System.out.println("CPR eksisterer ikke. Prøv igen.");     // Hvis systemet ikke finder CPR, skal der skrives fejl.
@@ -70,6 +70,7 @@ public class databaseConnectorController { // Dette er en testerkode. Den skal s
         }
     }
 
+    // Kan denne kode slettes? --- Start ----
     public static void loadMedicationError() throws ClassNotFoundException, SQLException {
         Statement st = null;
         ResultSet rs = null;
@@ -83,6 +84,7 @@ public class databaseConnectorController { // Dette er en testerkode. Den skal s
         String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
         Connection connection = DriverManager.getConnection(connectionUrl);
     }
+    // ?????? ---- Slut ----
 
     public static void interactionList() {
         try {
@@ -112,7 +114,7 @@ public class databaseConnectorController { // Dette er en testerkode. Den skal s
                 String descriptionOfEffect = rs.getString("beskrivelse");
 
                 medicineInteractionModel interactionList = new medicineInteractionModel(medicamentA, medicamentB, documentationLevel, severity, recommendationText, descriptionOfEffect);
-
+                
                 System.out.println(interactionList.getMedicamentA());
                 System.out.println(interactionList.getMedicamentB());
                 System.out.println(interactionList.getDocumentationLevel());
@@ -179,6 +181,8 @@ public class databaseConnectorController { // Dette er en testerkode. Den skal s
         Connection connection = DriverManager.getConnection(connectionUrl);
         ResultSet FMKdatabase = connection.prepareStatement("SELECT * FROM `FMKdatabase`  WHERE CPR = 1122335678").executeQuery(); //1122335678
         while (FMKdatabase.next()) {
+            // Brug constructor for medicineCard og dens attribut medicineList
+
             ObservableList<String> prescriptedDrugList = FXCollections.observableArrayList();
             prescriptedDrugList.add(FMKdatabase.getString(2));
             prescriptedDrugList.add(FMKdatabase.getString(3));
@@ -186,9 +190,37 @@ public class databaseConnectorController { // Dette er en testerkode. Den skal s
             prescriptedDrugList.add(FMKdatabase.getString(5));
             prescriptedDrugList.add(FMKdatabase.getString(6));
             prescriptedDrugList.add(FMKdatabase.getString(7));
+            // Brug constructor for prescriptedDrugModel
+            // medicineCard.medicinelist.ad(Constructor indsæt her)
             System.out.println(prescriptedDrugList);
         }
     }
+    /*
+    Vi skal bruge den nederste, og denne skal instantieres.
+     */
+
+    public static medicineCardModel getMedicineCard(String id){
+        try {
+            String myDriver = "com.mysql.cj.jdbc.Driver";
+            String myUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
+            Class.forName(myDriver);
+            String test = "select From FMKdatabase Where CPR = " + id;
+            Connection conn = DriverManager.getConnection(myUrl);
+            PreparedStatement st  = conn.prepareStatement("select * from FMKdatabase Where CPR = " + id); //
+            ResultSet rs = st.executeQuery();
+            List<prescriptedDrugModel> pml = new ArrayList<prescriptedDrugModel>();
+            while(rs.next()) {
+                prescriptedDrugModel pm = new prescriptedDrugModel(rs.getString("navn"), rs.getInt("dosis"), rs.getString("enhed"), rs.getString("hyppighed"), rs.getString("startdato"), rs.getString("slutdato"),"or", "atc");
+                pml.add(pm);
+            }
+            medicineCardModel m = new medicineCardModel(pml);
+            return m;
+        } catch (Exception e){
+            System.out.println(e);
+        }
+        return null;
+    }
+
 
 
     public static void deleteRow(String dicoumarol) {
