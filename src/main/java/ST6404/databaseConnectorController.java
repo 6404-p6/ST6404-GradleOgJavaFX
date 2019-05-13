@@ -83,7 +83,7 @@ public class databaseConnectorController { // Dette er en testerkode. Den skal s
         Connection connection = DriverManager.getConnection(connectionUrl);
     }
 
-    public static void interactionList() {
+    /*public static void interactionList() {
         try {
             // create our mysql database connection
             String myDriver = "com.mysql.cj.jdbc.Driver";
@@ -167,7 +167,7 @@ public class databaseConnectorController { // Dette er en testerkode. Den skal s
     }
 
 // Nedenstående virker. Den sletter medikamenter fra patientens FMK
-    /*public static void deleteDrugRow() {
+    public static void deleteDrugRow() {
         Connection con = null;
         PreparedStatement ps = null;
         String query = "DELETE FROM FMKdatabase WHERE CPR = '3003965678' AND navn = 'reserpine'";
@@ -182,9 +182,9 @@ public class databaseConnectorController { // Dette er en testerkode. Den skal s
             System.out.println("Error: " + e.getMessage());
         }
 
-    }*/
+    }
 
-    /*public static void addRow () {
+    public static void addRow () {
         try {
             String url = "com.mysql.cj.jdbc.Driver";
             Connection conn = DriverManager.getConnection("jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC",
@@ -198,7 +198,7 @@ public class databaseConnectorController { // Dette er en testerkode. Den skal s
             System.err.println(e.getMessage());
         }
 
-    }*/
+    }
     public static void updateRow () {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -213,11 +213,6 @@ public class databaseConnectorController { // Dette er en testerkode. Den skal s
             System.err.println(e.getMessage());
         }
 
-    }
+    }*/
 
 }
-
-    //edit
-
-    //insert eller add
-
