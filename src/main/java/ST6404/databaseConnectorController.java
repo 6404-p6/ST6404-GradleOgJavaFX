@@ -180,6 +180,10 @@ public class databaseConnectorController {
 
     }*/
 
+   /*
+   MedicineCardModel loader alle medikamenter, som er sat til en patient med tilhoerende CPR nr. Når patienten er genkendt
+   vil den danne en ny arrayliste, som skal gemmes i Datastorage. Når dataeerne er gemt i datastorage vil de blive vist
+    */
     public static medicineCardModel getMedicineCard(String id){
         try {
             String myDriver = "com.mysql.cj.jdbc.Driver";
@@ -201,11 +205,4 @@ public class databaseConnectorController {
         }
         return null;
     }
-
-
-
-
-
-
-
 }
