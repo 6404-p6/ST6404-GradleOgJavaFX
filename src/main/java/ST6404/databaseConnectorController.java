@@ -93,7 +93,7 @@ public class databaseConnectorController {
         }
     }
 
-    public static void availableMedicineList() {
+   /* public static void availableMedicineList() {
         try {
             // create our mysql database connection
             String myDriver = "com.mysql.cj.jdbc.Driver";
@@ -178,11 +178,34 @@ public class databaseConnectorController {
             System.err.println(e.getMessage());
         }
 
+    }*/
+
+    public static medicineCardModel getMedicineCard(String id){
+        try {
+            String myDriver = "com.mysql.cj.jdbc.Driver";
+            String myUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
+            Class.forName(myDriver);
+            String test = "select From FMKdatabase Where CPR = " + id;
+            Connection conn = DriverManager.getConnection(myUrl);
+            PreparedStatement st  = conn.prepareStatement("select * from FMKdatabase Where CPR = " + id); //
+            ResultSet rs = st.executeQuery();
+            List<prescriptedDrugModel> pml = new ArrayList<prescriptedDrugModel>();
+            while(rs.next()) {
+                prescriptedDrugModel pm = new prescriptedDrugModel(rs.getString("navn"), rs.getInt("dosis"), rs.getString("enhed"), rs.getString("hyppighed"), rs.getString("startdato"), rs.getString("slutdato"),"or", "atc");
+                pml.add(pm);
+            }
+            medicineCardModel m = new medicineCardModel(pml);
+            return m;
+        } catch (Exception e){
+            System.out.println(e);
+        }
+        return null;
     }
 
+
+
+
+
+
+
 }
-
-    //edit
-
-    //insert eller add
-
