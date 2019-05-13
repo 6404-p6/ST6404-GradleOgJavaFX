@@ -180,7 +180,7 @@ public class databaseConnectorController {
 
     }*/
 
-    public static medicineCardModel getMedicineCard(String id){
+    public medicineCardModel getMedicineCard(String id){
         try {
             String myDriver = "com.mysql.cj.jdbc.Driver";
             String myUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
