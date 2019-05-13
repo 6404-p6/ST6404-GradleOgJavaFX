@@ -86,17 +86,6 @@ public class medicineCardController implements Initializable {
         // Topbjælken får indsat navn og CPR fra metoden getPatientIdentification
         IDTitledPaneMedicineList.setText(dataStorage.chosenPatient.getPatientIdentification());
 
-        // Klargøring og indsættelse af tabellerne. Herefter indsættes en liste, i dette
-        // tilfælde "getPrescriptedDrugModelList" som indeholder "prescirptedDrugModel" objekter
-        databaseConnectorController.interactionList();
-        //databaseConnectorController.deleteDrugRow();
-        //databaseConnectorController.addRow();
-        patientModel chosenPatient = patientModel.getInstance(); // Finds i alle controller.
-        // Find alternativ metode --> Ny reference.
-        IDTitledPaneMedicineList.setText(chosenPatient.getPatientIdentification());
-        //chosenPatient.medicineCard.medicineList.add(new prescriptedDrugModel("Dicoumarol", 20, "mg", "1 dagligt", "01-07-2019", "01-01-2020", "OR", "ABC562"));
-
-        //System.out.print(chosenPatient.medicineCard.medicineList.size());
         nameColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("medicationName"));
         dosageColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("dosage"));
         unitColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("unit"));
