@@ -178,7 +178,7 @@ public class databaseConnectorController {
             System.err.println(e.getMessage());
         }
 
-    }*/
+    }
 
 }
 
