@@ -19,11 +19,21 @@ public class patientSelectorController implements Initializable {
     @FXML
     private TextField IDTextFieldInsertCPR;
 
+    /*
+    Håndterer indtastningen af CPR ved at lave en getText på attributten for
+    feltet. Efter at konvertere TextField typen til string, sættes
+    det ind i metoden loadPatientData der returnerer et patientModel-objekt
+    og lægger det ind i dataStorage klassens chosenPatient. Denne
+    kan så tages videre til andre klasser
+     */
     @FXML
     private void processTextFieldInsertCPR(){
         String CPRTextFieldInput = IDTextFieldInsertCPR.getText();
         try {
-            databaseConnectorController.loadPatientData(CPRTextFieldInput);
+            databaseConnectorController db = new databaseConnectorController();
+            dataStorage.getInstance();
+            dataStorage.chosenPatient = db.loadPatientData(CPRTextFieldInput);
+
         } catch (Exception e) {
             System.out.println("Something went wrong..." + e.getMessage());
         }
@@ -46,6 +56,14 @@ public class patientSelectorController implements Initializable {
     public void changeSceneToMedicineListView(ActionEvent event) throws IOException {
         System.out.println("Troubleshoot: Begynder metode changeSceneToMedicineListView");
         processTextFieldInsertCPR();
+        // Hvis der ikke blev instantieret en patient, så stoppes metoden og man
+        // forbliver i view'et.
+        if (dataStorage.chosenPatient.getCPRNumber() == null) {
+            // TD: Virker ikke, men ved ikke lige helt hvorfor. Som om den
+            // smider en invocationException
+            //IDTextFieldInsertCPR.setText("Forkert CPR");
+             return;
+        }
         Parent medicineListView = FXMLLoader.load(Main.class.getResource("/medicineCardView.fxml"));
         Scene medicineListViewScene = new Scene(medicineListView);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -57,6 +75,7 @@ public class patientSelectorController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+
+
     }
 }

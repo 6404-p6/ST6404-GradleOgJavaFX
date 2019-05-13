@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class medicineInteractionModel {
-    public String medicamentA;
-    public String medicamentB;
+    private String medicamentA;
+    private String medicamentB;
 
     private enum severity {
         mild,
@@ -17,7 +17,7 @@ public class medicineInteractionModel {
         severe;
     }
 
-    public int severity;
+    private int severity;
     private int documentationLevel;
     private String recommendationText;
     private String descriptionOfEffect;
