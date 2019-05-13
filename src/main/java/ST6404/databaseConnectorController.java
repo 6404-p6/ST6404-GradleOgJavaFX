@@ -93,7 +93,7 @@ public class databaseConnectorController {
         }
     }
 
-    public static void availableMedicineList() {
+   /* public static void availableMedicineList() {
         try {
             // create our mysql database connection
             String myDriver = "com.mysql.cj.jdbc.Driver";
@@ -178,7 +178,7 @@ public class databaseConnectorController {
             System.err.println(e.getMessage());
         }
 
-    }
+    }*/
 
 }
 
