@@ -86,8 +86,6 @@ public class medicineCardController implements Initializable {
         // Topbjælken får indsat navn og CPR fra metoden getPatientIdentification
         IDTitledPaneMedicineList.setText(dataStorage.chosenPatient.getPatientIdentification());
 
-        // Klargøring og indsættelse af tabellerne. Herefter indsættes en liste, i dette
-        // tilfælde "getPrescriptedDrugModelList" som indeholder "prescirptedDrugModel" objekter
         nameColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("medicationName"));
         dosageColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("dosage"));
         unitColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("unit"));

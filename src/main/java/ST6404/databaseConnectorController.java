@@ -123,7 +123,7 @@ public class databaseConnectorController {
                 System.out.println(availableMedicineList.getAtcCode());
                 System.out.println(availableMedicineList.getRouteOfAdministration());
 
-                }
+            }
             st.close();
         } catch (Exception e) {
             System.err.println("Got an exception! ");
@@ -131,8 +131,12 @@ public class databaseConnectorController {
         }
     }
 
-/*
-    public static void deleteRow(String dicoumarol) {
+// Nedenstående virker. Den sletter medikamenter fra patientens FMK
+    /*public static void deleteDrugRow() {
+        Connection con = null;
+        PreparedStatement ps = null;
+        String query = "DELETE FROM FMKdatabase WHERE CPR = '3003965678' AND navn = 'reserpine'";
+
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC",
@@ -143,18 +147,15 @@ public class databaseConnectorController {
             System.out.println("Error: " + e.getMessage());
         }
 
-    }
-    /*
-    Vi skal bruge den nederste, og denne skal instantieres.
-     */
+    }*/
 
-    public static void addRow () {
+    /*public static void addRow () {
         try {
             String url = "com.mysql.cj.jdbc.Driver";
             Connection conn = DriverManager.getConnection("jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC",
                     "hst_2019_19gr6404", "agipheethohwiquiteam");
             Statement st = conn.createStatement();
-            st.executeUpdate("INSERT INTO FMKdatabase (cpr, navn, dosis, enhed, hyppighed, startdato, slutdato) VALUES ('3003965678',50,'mg','3 gange dagligt',2019-02-03,2019-02-04)");
+            st.executeUpdate("INSERT INTO FMKdatabase  VALUES ('3003965678', 50, 'mg', '3 gange dagligt', 2019-02-03, 2019-02-04)");
 
             conn.close();
         } catch (Exception e) {
@@ -163,6 +164,23 @@ public class databaseConnectorController {
         }
 
     }*/
+    public static void updateRow () {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC",
+                    "hst_2019_19gr6404", "agipheethohwiquiteam");
+            Statement st = conn.createStatement();
+            st.executeUpdate("UPDATE FMKdatabase SET navn = disedase, dosis = 5 WHERE CPR = 3003965678");
+
+            conn.close();
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
+
+    }
+
+}
 
     //edit
 
