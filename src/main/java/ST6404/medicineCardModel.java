@@ -1,5 +1,6 @@
 package ST6404;
 import ST6404.prescriptedDrugModel;
+import javafx.collections.ObservableList;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -27,13 +28,6 @@ public class medicineCardModel{
     public void addToMedicineList(prescriptedDrugModel drugToAdd){
         medicineList.add(drugToAdd);
     }
-
-
-    /*public static void Showlist(){ // Marianne arbejder på denne.
-        System.out.println(prescriptedDrugList);
-    }*/
-
-
 
 
 }
