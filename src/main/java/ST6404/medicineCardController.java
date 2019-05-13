@@ -83,7 +83,7 @@ public class medicineCardController implements Initializable {
         System.out.println("Initialiser medicineListView");
 
         databaseConnectorController.interactionList();
-        //databaseConnectorController.deleteRow();
+        //databaseConnectorController.deleteDrugRow();
         //databaseConnectorController.addRow();
         patientModel chosenPatient = patientModel.getInstance(); // Finds i alle controller.
         // Find alternativ metode --> Ny reference.

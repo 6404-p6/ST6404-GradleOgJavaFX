@@ -14,7 +14,7 @@ import java.sql.PreparedStatement;
 import java.util.Date;
 
 public class databaseConnectorController { // Dette er en testerkode. Den skal slettes ind aflevering og kan tjekke forbindelse til MySQL.
-    /*public static void databaseConnectorController() throws ClassNotFoundException, SQLException {
+    public static void databaseConnectorController() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
         Connection connection = DriverManager.getConnection(connectionUrl);
@@ -22,7 +22,7 @@ public class databaseConnectorController { // Dette er en testerkode. Den skal s
         ResultSet praeparatdatabase = connection.prepareStatement("SELECT * FROM `praeparatdatabase`").executeQuery();
         ResultSet MIdatabase = connection.prepareStatement("SELECT * FROM `MIdatabase`").executeQuery();
         ResultSet FMKdatabase = connection.prepareStatement("SELECT * FROM `FMKdatabase`  WHERE CPR = 2233449876").executeQuery();
-        /*while (patient.next()) {
+        while (patient.next()) {
             String a = patient.getString(1);
             System.out.println(a);}
         while (praeparatdatabase.next()) {
@@ -34,7 +34,7 @@ public class databaseConnectorController { // Dette er en testerkode. Den skal s
         while (FMKdatabase.next()) {
             String a = FMKdatabase.getString(2);
             System.out.println(a);}
-    } */
+    }
     /*
     loadPatientData (MGS + TD) skal hente patientdata fra MySQL. Den har 2 throws, som gør at ...
     Koden laver et Try, hvor den søger efter et CPR-input fra brugeren. Hvis CPR-inputtet stemmer overens
@@ -161,7 +161,7 @@ public class databaseConnectorController { // Dette er en testerkode. Den skal s
                 System.out.println(availableMedicineList.getAtcCode());
                 System.out.println(availableMedicineList.getRouteOfAdministration());
 
-                }
+            }
             st.close();
         } catch (Exception e) {
             System.err.println("Got an exception! ");
@@ -169,8 +169,12 @@ public class databaseConnectorController { // Dette er en testerkode. Den skal s
         }
     }
 
+// Nedenstående virker. Den sletter medikamenter fra patientens FMK
+    /*public static void deleteDrugRow() {
+        Connection con = null;
+        PreparedStatement ps = null;
+        String query = "DELETE FROM FMKdatabase WHERE CPR = '3003965678' AND navn = 'reserpine'";
 
-    public static void deleteRow(String dicoumarol) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC",
@@ -181,15 +185,15 @@ public class databaseConnectorController { // Dette er en testerkode. Den skal s
             System.out.println("Error: " + e.getMessage());
         }
 
-    }
+    }*/
 
-    public static void addRow () {
+    /*public static void addRow () {
         try {
             String url = "com.mysql.cj.jdbc.Driver";
             Connection conn = DriverManager.getConnection("jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC",
                     "hst_2019_19gr6404", "agipheethohwiquiteam");
             Statement st = conn.createStatement();
-            st.executeUpdate("INSERT INTO FMKdatabase (cpr, navn, dosis, enhed, hyppighed, startdato, slutdato) VALUES ('3003965678',50,'mg','3 gange dagligt',2019-02-03,2019-02-04)");
+            st.executeUpdate("INSERT INTO FMKdatabase  VALUES ('3003965678', 50, 'mg', '3 gange dagligt', 2019-02-03, 2019-02-04)");
 
             conn.close();
         } catch (Exception e) {
@@ -198,9 +202,25 @@ public class databaseConnectorController { // Dette er en testerkode. Den skal s
         }
 
     }*/
+    public static void updateRow () {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC",
+                    "hst_2019_19gr6404", "agipheethohwiquiteam");
+            Statement st = conn.createStatement();
+            st.executeUpdate("UPDATE FMKdatabase SET navn = disedase, dosis = 5 WHERE CPR = 3003965678";
+
+            conn.close();
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
+
+    }
+
+}
 
     //edit
 
     //insert eller add
 
-}
