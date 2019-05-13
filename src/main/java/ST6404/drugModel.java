@@ -3,7 +3,7 @@ package ST6404;
 import java.sql.Timestamp;
 
 public class drugModel {
-    private String medicationName;
+    public String medicationName;
     private String routeOfAdministration;
     private String atcCode;
 
