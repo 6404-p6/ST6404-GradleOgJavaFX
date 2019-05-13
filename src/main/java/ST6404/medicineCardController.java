@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TitledPane;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -22,11 +23,37 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.sql.*;
+import java.sql.Connection;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import java.sql.DriverManager;
 
 public class medicineCardController implements Initializable {
 
     private List availableMedicineList;
 
+    /*public void updateData() {
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC", "hst_2019_19gr6404", "agipheethohwiquiteam");
+            Statement con = connection.createStatement();
+            //connection
+            TablePosition pos = tableView.getSelectionModel().getSelectedCells().get(0);
+            int row = pos.getRow();
+            TableColumn col = pos.getTableColumn();
+            String data1 = (String) col.getCellObservableValue(row).getValue();
+            //cell
+            medicineCardModel row1 = tableView.getSelectionModel().getSelectedItem();
+            c1 = row1.getID();
+            //row
+            //tableview variables
+            con.execute("UPDATE FMKdatabase SET navn = disedase, dosis = 5 WHERE CPR = 3003965678");
+            //Query
+        } catch (SQLException ex) {
+            System.err.println("Error" + ex);
+        }
+    }*/
 
     @FXML
     private TitledPane IDTitledPaneMedicineList;
