@@ -129,7 +129,7 @@ public class databaseConnectorController {
             System.err.println("Got an exception! ");
             System.err.println(e.getMessage());
         }
-    }
+    }*/
 
 // Nedenstående virker. Den sletter medikamenter fra patientens FMK
     public static void deleteDrugRow() {
@@ -148,7 +148,7 @@ public class databaseConnectorController {
         }
 
     }
-
+/*
     public static void addRow () {
         try {
             String url = "com.mysql.cj.jdbc.Driver";
