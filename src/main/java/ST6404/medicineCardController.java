@@ -65,7 +65,7 @@ public class medicineCardController implements Initializable {
     @FXML private TextField circle;
 
     public void setTextInCircle (){
-        circle.setText();
+        //circle.setText();
     }
 
 
