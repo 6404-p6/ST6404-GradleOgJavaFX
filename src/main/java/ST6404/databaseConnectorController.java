@@ -45,7 +45,8 @@ public class databaseConnectorController {
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("SQL FEJL");    // Hvis forbindelse ikke kan oprettes.
-        }   return null;
+        }
+        return null;
     }
 
     public static void interactionList() {
@@ -76,7 +77,7 @@ public class databaseConnectorController {
                 String descriptionOfEffect = rs.getString("beskrivelse");
 
                 medicineInteractionModel interactionList = new medicineInteractionModel(medicamentA, medicamentB, documentationLevel, severity, recommendationText, descriptionOfEffect);
-                
+
                 System.out.println(interactionList.getMedicamentA());
                 System.out.println(interactionList.getMedicamentB());
                 System.out.println(interactionList.getDocumentationLevel());
@@ -129,9 +130,9 @@ public class databaseConnectorController {
             System.err.println("Got an exception! ");
             System.err.println(e.getMessage());
         }
-    }
+    }*/
 
-// Nedenstående virker. Den sletter medikamenter fra patientens FMK
+    // Nedenstående virker. Den sletter medikamenter fra patientens FMK
     public static void deleteDrugRow() {
         Connection con = null;
         PreparedStatement ps = null;
@@ -148,7 +149,7 @@ public class databaseConnectorController {
         }
 
     }
-
+/*
     public static void addRow () {
         try {
             String url = "com.mysql.cj.jdbc.Driver";
@@ -198,32 +199,76 @@ public class databaseConnectorController {
             System.err.println(e.getMessage());
         }
 
-    public medicineCardModel getMedicineCard(String id){
+    /*
+    MedicineCardModel loader alle medikamenter, som er sat til en patient med tilhoerende CPR nr. Når patienten er genkendt
+    vil den danne en ny arrayliste, som skal gemmes i Datastorage. Når dataeerne er gemt i datastorage vil de blive vist
+     */
+    public static medicineCardModel getMedicineCard(String id) {
         try {
             String myDriver = "com.mysql.cj.jdbc.Driver";
             String myUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
             Class.forName(myDriver);
             String test = "select From FMKdatabase Where CPR = " + id;
             Connection conn = DriverManager.getConnection(myUrl);
-            PreparedStatement st  = conn.prepareStatement("select * from FMKdatabase Where CPR = " + id); //
+            PreparedStatement st = conn.prepareStatement("select * from FMKdatabase Where CPR = " + id); //
             ResultSet rs = st.executeQuery();
             List<prescriptedDrugModel> pml = new ArrayList<prescriptedDrugModel>();
-            while(rs.next()) {
-                prescriptedDrugModel pm = new prescriptedDrugModel(rs.getString("navn"), rs.getInt("dosis"), rs.getString("enhed"), rs.getString("hyppighed"), rs.getString("startdato"), rs.getString("slutdato"),"or", "atc");
+            //ObservableList<prescriptedDrugModel> pml = new ObservableList<prescriptedDrugModel>();
+            while (rs.next()) {
+                prescriptedDrugModel pm = new prescriptedDrugModel(rs.getString("navn"), rs.getInt("dosis"), rs.getString("enhed"), rs.getString("hyppighed"), rs.getString("startdato"), rs.getString("slutdato"), "or", "atc");
                 pml.add(pm);
             }
             medicineCardModel m = new medicineCardModel(pml);
+            //m = (medicineCardModel) FXCollections.observableArrayList();
             return m;
-        } catch (Exception e){
+            //return FXCollections.observableArrayList(pml.getList());
+            //return pml;
+        } catch (Exception e) {
             System.out.println(e);
         }
         return null;
     }
 
+    /*public static ObservableList loadMedicineList(String id) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
+        Connection connection = DriverManager.getConnection(connectionUrl);
+        ResultSet FMKdatabase = connection.prepareStatement("SELECT * FROM `FMKdatabase`  WHERE CPR = 1122335678").executeQuery(); //1122335678
+        ObservableList<String> prescriptedDrugList = FXCollections.observableArrayList();
 
-
-
-
-
-
+        while (FMKdatabase.next()) {
+            // Brug constructor for medicineCard og dens attribut medicineList
+            prescriptedDrugList.add(FMKdatabase.getString(2));
+            prescriptedDrugList.add(FMKdatabase.getString(3));
+            prescriptedDrugList.add(FMKdatabase.getString(4));
+            prescriptedDrugList.add(FMKdatabase.getString(5));
+            prescriptedDrugList.add(FMKdatabase.getString(6));
+            prescriptedDrugList.add(FMKdatabase.getString(7));
+            // Brug constructor for prescriptedDrugModel
+            // medicineCard.medicinelist.ad(Constructor indsæt her)
+            //System.out.println(prescriptedDrugList);
+        }
+        return prescriptedDrugList;
+    }*/
+    /*public static medicineCardModel getMedicineCard(String id) {
+        try {
+            String myDriver = "com.mysql.cj.jdbc.Driver";
+            String myUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
+            Class.forName(myDriver);
+            Connection conn = DriverManager.getConnection(myUrl);
+            PreparedStatement st = conn.prepareStatement("select * from FMKdatabase Where CPR = " + id); //
+            ResultSet rs = st.executeQuery();
+            ObservableList<prescriptedDrugModel> pml = new ObservableList<>();
+            while (rs.next()){
+                prescriptedDrugModel pm = new prescriptedDrugModel(rs.getString("navn"), rs.getInt("dosis"), rs.getString("enhed"), rs.getString("hyppighed"), rs.getString("startdato"), rs.getString("slutdato"), "or", "atc");
+                pml.add(pm);
+            }
+            medicineCardModel m = new medicineCardModel(pml);
+            //return m;
+            return (medicineCardModel) pml;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }*/
 }

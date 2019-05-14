@@ -44,7 +44,7 @@ public class interactionSummarizerModel {
 
     //Metoden udregner den samlede severity for alle interaktioner på interactionList, som medikamentet under ordination
     //indgår i. Der er lavet kode, så der kan returneres højeste severity i stedet
-     public int function (drugModel new1, ArrayList interactionList){
+     public int calculateHighestSeverity (drugModel new1, ArrayList interactionList){
         int highestSeverity = 0;
         for (int i = 0; i < interactionList.size(); i++){
             medicineInteractionModel test = (medicineInteractionModel) interactionList.get(i);

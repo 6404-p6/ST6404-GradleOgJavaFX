@@ -30,6 +30,7 @@ public class prescriptionController implements Initializable {
     private TextField IDTextfieldSlutdato;
     private Text IDTextAntalInteraktioner;
 
+    // Se forklaring i patientSelector.changeSceneToMedicineListView
     @FXML
     public void changeSceneToCVisualizationView(ActionEvent event) throws IOException {
         System.out.println("Troubleshoot: Begynder metode changeSceneToCVisualizationView");
@@ -42,6 +43,7 @@ public class prescriptionController implements Initializable {
         System.out.println("Troubleshoot: Afslutter metode changeSceneToCVisualizationView");
     }
 
+    // Se forklaring i patientSelector.changeSceneToMedicineListView
     @FXML
     public void changeSceneToMedicineListView(ActionEvent event) throws IOException {
         System.out.println("Troubleshoot: Begynder metode changeSceneToMedicineListView");
@@ -85,7 +87,9 @@ public class prescriptionController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Initialiser prescriptionView");
+        // Indhentning af dataStorage for at bruge dens patientModel
         dataStorage.getInstance();
+        // Topbjælken får indsat navn og CPR fra metoden getPatientIdentification
         IDTitledPanePrescription.setText(dataStorage.chosenPatient.getPatientIdentification());
         databaseConnectorController db = new databaseConnectorController();
     }
