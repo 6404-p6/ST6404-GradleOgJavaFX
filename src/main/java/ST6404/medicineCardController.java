@@ -133,5 +133,12 @@ public class medicineCardController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        /*try {
+            tableView.setItems(databaseConnectorController.getMedicineCard());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }*/
     }
 }
