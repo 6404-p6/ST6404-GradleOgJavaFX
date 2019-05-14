@@ -18,10 +18,6 @@
                   <TextField disable="true" layoutX="535.0" layoutY="153.0" prefHeight="26.0" prefWidth="65.0" />
                   <TextField disable="true" layoutX="535.0" layoutY="257.0" prefHeight="26.0" prefWidth="65.0" />
                   <TextField disable="true" layoutX="535.0" layoutY="205.0" prefHeight="26.0" prefWidth="65.0" />
-                  <TextField fx:id="IDTextfieldDosis" layoutX="632.0" layoutY="205.0" prefHeight="26.0" prefWidth="212.0" />
-                  <Button layoutX="635.0" layoutY="563.0" mnemonicParsing="false" onAction="#changeSceneToMedicineListView" text="Godkend og opdater" />
-                  <Button layoutX="635.0" layoutY="507.0" mnemonicParsing="false" onAction="#changeSceneToCVisualizationView" text="Vis interaktioner" />
-                  <Button layoutX="773.0" layoutY="563.0" mnemonicParsing="false" onAction="#changeSceneToMedicineListView" text="Annuller" />
                   <Circle fill="WHITE" layoutX="752.0" layoutY="520.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
                   <Text fx:id="IDTextAntalInteraktioner" layoutX="744.0" layoutY="524.0" strokeType="OUTSIDE" strokeWidth="0.0" text="99" wrappingWidth="16.46875" />
                   <Text layoutX="552.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dosis" />
@@ -34,19 +30,23 @@
                   </Text>
                   <TextField disable="true" layoutX="535.0" layoutY="100.0" prefHeight="37.0" prefWidth="129.0" />
                   <TextField disable="true" layoutX="536.0" layoutY="311.0" prefHeight="26.0" prefWidth="65.0" />
-                  <TextField fx:id="IDTextfieldHyppighed" layoutX="632.0" layoutY="311.0" prefHeight="26.0" prefWidth="212.0" />
                   <Text layoutX="538.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hyppighed" />
                   <TextField disable="true" layoutX="536.0" layoutY="358.0" prefHeight="26.0" prefWidth="65.0" />
                   <Text layoutX="538.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adm. Vej" />
                   <TextField disable="true" layoutX="536.0" layoutY="407.0" prefHeight="26.0" prefWidth="65.0" />
-                  <TextField fx:id="IDTextfieldStartdato" layoutX="632.0" layoutY="407.0" prefHeight="26.0" prefWidth="212.0" />
                   <Text layoutX="538.0" layoutY="425.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Startdato" />
                   <TextField disable="true" layoutX="538.0" layoutY="459.0" prefHeight="26.0" prefWidth="65.0" />
-                  <TextField fx:id="IDTextfieldSlutdato" layoutX="634.0" layoutY="459.0" prefHeight="26.0" prefWidth="212.0" />
                   <Text layoutX="540.0" layoutY="477.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Slutdato" />
                   <TextField fx:id="IDTextfieldNavn" layoutX="634.0" layoutY="153.0" prefHeight="26.0" prefWidth="210.0" />
+                  <TextField fx:id="IDTextfieldDosis" layoutX="632.0" layoutY="205.0" prefHeight="26.0" prefWidth="212.0" />
                   <TextField fx:id="IDTextfieldEnhed" layoutX="632.0" layoutY="257.0" prefHeight="26.0" prefWidth="210.0" />
+                  <TextField fx:id="IDTextfieldHyppighed" layoutX="632.0" layoutY="311.0" prefHeight="26.0" prefWidth="212.0" />
                   <TextField fx:id="IDTextfieldAdmVej" layoutX="632.0" layoutY="357.0" prefHeight="26.0" prefWidth="210.0" />
+                  <TextField fx:id="IDTextfieldStartdato" layoutX="632.0" layoutY="407.0" prefHeight="26.0" prefWidth="212.0" />
+                  <TextField fx:id="IDTextfieldSlutdato" layoutX="634.0" layoutY="459.0" prefHeight="26.0" prefWidth="212.0" />
+                  <Button layoutX="635.0" layoutY="507.0" mnemonicParsing="false" onAction="#changeSceneToCVisualizationView" text="Vis interaktioner" />
+                  <Button layoutX="635.0" layoutY="563.0" mnemonicParsing="false" onAction="#processTextFieldPrescripeDrug" text="Godkend og opdater" />
+                  <Button layoutX="773.0" layoutY="563.0" mnemonicParsing="false" onAction="#changeSceneToMedicineListView" text="Annuller" />
                </children>
             </AnchorPane>
         </items>

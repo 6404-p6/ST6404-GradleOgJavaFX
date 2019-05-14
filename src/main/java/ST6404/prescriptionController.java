@@ -19,16 +19,15 @@ import java.util.ResourceBundle;
 
 public class prescriptionController implements Initializable {
 
-    @FXML
-    private TitledPane IDTitledPanePrescription;
-    private TextField IDTextfieldNavn;
-    private TextField IDTextfieldDosis;
-    private TextField IDTextfieldEnhed;
-    private TextField IDTextfieldHyppighed;
-    private TextField IDTextfieldAdmVej;
-    private TextField IDTextfieldStartdato;
-    private TextField IDTextfieldSlutdato;
-    private Text IDTextAntalInteraktioner;
+    @FXML private TitledPane IDTitledPanePrescription;
+    @FXML private TextField IDTextfieldNavn;
+    @FXML private TextField IDTextfieldDosis;
+    @FXML private TextField IDTextfieldEnhed;
+    @FXML private TextField IDTextfieldHyppighed;
+    @FXML private TextField IDTextfieldAdmVej;
+    @FXML private TextField IDTextfieldStartdato;
+    @FXML private TextField IDTextfieldSlutdato;
+    @FXML private Text IDTextAntalInteraktioner;
 
     // Se forklaring i patientSelector.changeSceneToMedicineListView
     @FXML
@@ -59,7 +58,7 @@ public class prescriptionController implements Initializable {
     // Jeg prøver her at lave en metode som tager informationerne skrevet
     // Ind i prescriptionView og tilføje dem til databasen. dele af den skal skrives inde i databaseController
 
-    public void processTextFieldPrescripeDrug(){
+    public void processTextFieldPrescripeDrug() throws IOException {
         String NavnTextFieldInput = IDTextfieldNavn.getText();
         String DosisTextFieldInput = IDTextfieldDosis.getText();
         String EnhedTextFieldInput = IDTextfieldEnhed.getText();
@@ -68,16 +67,17 @@ public class prescriptionController implements Initializable {
         String StartdatoTextFieldInput = IDTextfieldStartdato.getText();
         String SlutdatoTextFieldInput = IDTextfieldSlutdato.getText();
 
+        System.out.println("vi når til del 1 ");
 
-
-        /*try {
+        try {
             databaseConnectorController db = new databaseConnectorController();
             db.FMKDatabaseAddRow(NavnTextFieldInput, DosisTextFieldInput, EnhedTextFieldInput, HyppighedTextFieldInput, AdmVejTextFieldInput, StartdatoTextFieldInput, SlutdatoTextFieldInput);
+        System.out.println("Vi når til del 2");
         }
 
         catch (Exception e) {
             System.out.println("Something went wrong..." + e.getMessage());
-        }*/
+        }
     }
 
 
