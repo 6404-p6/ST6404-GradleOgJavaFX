@@ -1,7 +1,5 @@
 package ST6404;
 //import javax.swing.plaf.nimbus.State;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.sql.Connection;
@@ -95,13 +93,20 @@ public class databaseConnectorController {
     }
 
     // Dette er den ovenstående metode der er "in progress" til at blive lavet implementerbar.
-    public List loadInteractionsList() {
+    public List loadInteractionsList(List medicineList) {
+        String tempSQLDrugNames = "";
+        for(int i = 0; i < medicineList.size(); i++ ){
+            prescriptedDrugModel tempPrescriptedDrugModel = (prescriptedDrugModel) medicineList.get(i);
+            tempSQLDrugNames = "'" + tempPrescriptedDrugModel.medicationName + "', " + tempSQLDrugNames;
+        }
+        tempSQLDrugNames = tempSQLDrugNames.substring(0, (tempSQLDrugNames.length()-2));
+
         try {
             String myDriver = "com.mysql.cj.jdbc.Driver";
             String myUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
             Class.forName(myDriver);
             Connection conn = DriverManager.getConnection(myUrl);
-            PreparedStatement st = conn.prepareStatement("SELECT * FROM MIdatabase WHERE MedikamentA IN ('dicoumarol', 'warfarin', 'reserpine', 'warfarin', 'butorphanol', 'somatostatin') AND MedikamentB IN ('dicoumarol', 'warfarin', 'reserpine', 'warfarin', 'butorphanol', 'somatostatin')"); //
+            PreparedStatement st = conn.prepareStatement("SELECT * FROM MIdatabase WHERE MedikamentA IN (" + tempSQLDrugNames + ") AND MedikamentB IN (" + tempSQLDrugNames + ")");
             ResultSet rs = st.executeQuery();
             List<medicineInteractionModel> tempIntList = new ArrayList<medicineInteractionModel>();
 

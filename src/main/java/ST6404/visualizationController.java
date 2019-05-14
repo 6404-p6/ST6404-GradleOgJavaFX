@@ -48,7 +48,7 @@ public class visualizationController implements Initializable {
         IDTitledPaneVisualization.setText(dataStorage.chosenPatient.getPatientIdentification());
         // Instantiering og load af interaktionslisten
         interactionSummarizerModel iSM = new interactionSummarizerModel();
-        iSM.setInteractionList(db.loadInteractionsList());
+        iSM.setInteractionList(db.loadInteractionsList(dataStorage.chosenPatient.medicineCard.medicineList));
     }
 
 }
