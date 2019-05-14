@@ -182,10 +182,17 @@ public class databaseConnectorController {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection conn = DriverManager.getConnection("jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC",
                 "hst_2019_19gr6404", "agipheethohwiquiteam");
+        Statement st = conn.createStatement();
+
+        String ATCretrieve = ("select atc FROM praeparatdatabase WHERE navn = '" + a + "'");
+        ResultSet rs = st.executeQuery(ATCretrieve);
+        String ATC = rs.getString(1);
+
         String CPRnummer = dataStorage.chosenPatient.getCPRNumber();
+
         try {
-            String SQL1 = ("INSERT INTO FMKdatabase (CPR, navn, dosis, enhed, administrationsvej, hyppighed, startdato, slutdato) VALUE (" + CPRnummer + "," + a + "," + b + "," + c + "," + d + "," + h + "," + f + "," + g + ")");   // Søger efter et CPR i patientdatabase, som stemmer overens med det indtastede
-            Statement st = conn.createStatement();
+            String SQL1 = ("INSERT INTO FMKdatabase (CPR, navn, ATC, dosis, enhed, administrationsvej, hyppighed, startdato, slutdato) VALUE (" + CPRnummer + "," + ATC + "," + a + "," + b + "," + c + "," + d + "," + h + "," + f + "," + g + ")");   // Søger efter et CPR i patientdatabase, som stemmer overens med det indtastede
+
             st.executeUpdate(SQL1);   // Forbinder til vores URL.
 
         } catch (Exception e) {
@@ -193,6 +200,8 @@ public class databaseConnectorController {
             System.err.println(e.getMessage());
         }
     }
+
+
 
     /*public static void FMKDatabaseAddRow (String a, String b, String c, String d, String e, String f, String g) {
         Statement st;           // Deklarer et statement til st.
@@ -229,7 +238,7 @@ public class databaseConnectorController {
             ResultSet rs = st.executeQuery();
             List<prescriptedDrugModel> pml = new ArrayList<prescriptedDrugModel>();
             while (rs.next()) {
-                prescriptedDrugModel pm = new prescriptedDrugModel(rs.getString("navn"), rs.getInt("dosis"), rs.getString("enhed"), rs.getString("hyppighed"), rs.getString("startdato"), rs.getString("slutdato"), rs.getString("administrationsvej"), rs.getString("ACT"));
+                prescriptedDrugModel pm = new prescriptedDrugModel(rs.getString("navn"), rs.getInt("dosis"), rs.getString("enhed"), rs.getString("hyppighed"), rs.getString("startdato"), rs.getString("slutdato"), rs.getString("administrationsvej"), rs.getString("ATC"));
                 pml.add(pm);
             }
             medicineCardModel m = new medicineCardModel(pml);
