@@ -179,24 +179,21 @@ public class databaseConnectorController {
         }
     }*/
 
-    /*public static void FMKDatabaseAddRow (String a, String b, String c, String d, String e, String f, String g) {
-        Statement st;           // Deklarer et statement til st.
-        st = null;              // Fortæller, at ST = null ->
-        ResultSet rs;           // Deklarer vores ResultSet til rs.
-        rs = null;              // Fortæller, at ST = null ->
-        Class.forName("com.mysql.cj.jdbc.Driver"); // Vores driver.
-        String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
-        Connection connection = DriverManager.getConnection(connectionUrl);
+    public static void FMKDatabaseAddRow (String a, String b, String c, String d, String h, String f, String g) throws ClassNotFoundException, SQLException{
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC",
+                "hst_2019_19gr6404", "agipheethohwiquiteam");
         String CPRnummer = dataStorage.chosenPatient.getCPRNumber();
         try {
-            String SQL1 = ("INSERT INTO FMKdatabase (CPR, navn, dosis, enhed, administrationsvej, hyppighed, startdato, slutdato) VALUE (" + CPRnummer + "," + a + "," + b + "," + c + "," + d + "," + e + "," + f + "," + g + ")");   // Søger efter et CPR i patientdatabase, som stemmer overens med det indtastede
-            connection.createStatement().executeUpdate(SQL1);   // Forbinder til vores URL.
+            String SQL1 = ("INSERT INTO FMKdatabase (CPR, navn, dosis, enhed, administrationsvej, hyppighed, startdato, slutdato) VALUE (" + CPRnummer + "," + a + "," + b + "," + c + "," + d + "," + h + "," + f + "," + g + ")");   // Søger efter et CPR i patientdatabase, som stemmer overens med det indtastede
+            Statement st = conn.createStatement();
+            st.executeUpdate(SQL1);   // Forbinder til vores URL.
 
         } catch (Exception e) {
             System.err.println("Got an exception! ");
             System.err.println(e.getMessage());
         }
-    }*/
+    }
 
     /*public static void FMKDatabaseAddRow (String a, String b, String c, String d, String e, String f, String g) {
         Statement st;           // Deklarer et statement til st.
@@ -233,7 +230,7 @@ public class databaseConnectorController {
             List<prescriptedDrugModel> pml = new ArrayList<prescriptedDrugModel>();
             //ObservableList<prescriptedDrugModel> pml = new ObservableList<prescriptedDrugModel>();
             while (rs.next()) {
-                prescriptedDrugModel pm = new prescriptedDrugModel(rs.getString("navn"), rs.getInt("dosis"), rs.getString("enhed"), rs.getString("hyppighed"), rs.getString("startdato"), rs.getString("slutdato"), "or", "atc");
+                prescriptedDrugModel pm = new prescriptedDrugModel(rs.getString("navn"), rs.getInt("dosis"), rs.getString("enhed"), rs.getString("hyppighed"), rs.getString("startdato"), rs.getString("slutdato"), rs.getString("administrationsvej"), rs.getString("ACT"));
                 pml.add(pm);
             }
             medicineCardModel m = new medicineCardModel(pml);
