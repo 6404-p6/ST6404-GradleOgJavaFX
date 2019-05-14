@@ -124,7 +124,7 @@ public class medicineCardController implements Initializable {
         administrationColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("administrationRoute"));
         startDateColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("startDate"));
         endDateColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("endDate"));
-        //tableView.setItems(prescriptedDrugModel.getprescriptedDrugModelList());
+        tableView.setItems(prescriptedDrugModel.getprescriptedDrugModelList());
         //tableView.setItems(databaseConnectorController.getMedicineCard(prescriptedDrugModel));
         /*try {
             tableView.setItems(databaseConnectorController.getMedicineCard());
