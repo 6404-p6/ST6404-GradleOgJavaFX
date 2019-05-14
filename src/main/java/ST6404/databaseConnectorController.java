@@ -155,7 +155,7 @@ public class databaseConnectorController {
             Connection conn = DriverManager.getConnection("jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC",
                     "hst_2019_19gr6404", "agipheethohwiquiteam");
             Statement st = conn.createStatement();
-            st.executeUpdate("INSERT INTO FMKdatabase  VALUES ('3003965678', 50, 'mg', '3 gange dagligt', 2019-02-03, 2019-02-04)");
+            st.executeUpdate("INSERT INTO FMKdatabase (CPR, navn, dosis, enhed, hyppighed, startdato, slutdato) VALUES ('3003965678', 50, 'mg', '3 gange dagligt', 2019-02-03, 2019-02-04)");
 
             conn.close();
         } catch (Exception e) {
@@ -179,6 +179,24 @@ public class databaseConnectorController {
         }
 
     }*/
+
+    public static void FMKDatabaseAddRow (String a, String b, String c, String d, String e, String f, String g) {
+        Statement st;           // Deklarer et statement til st.
+        st = null;              // Fortæller, at ST = null ->
+        ResultSet rs;           // Deklarer vores ResultSet til rs.
+        rs = null;              // Fortæller, at ST = null ->
+        Class.forName("com.mysql.cj.jdbc.Driver"); // Vores driver.
+        String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
+        Connection connection = DriverManager.getConnection(connectionUrl);
+        String CPRnummer = dataStorage.chosenPatient.getCPRNumber();
+        try {
+            String SQL1 = ( "INSERT INTO FMKdatabase (CPR, navn, dosis, enhed, administrationsvej, hyppighed, startdato, slutdato) VALUE (" + CPRnummer + "," + a + "," + b + "," + c + "," + d + "," + e + "," + f + "," + g + ")");   // Søger efter et CPR i patientdatabase, som stemmer overens med det indtastede
+            connection.createStatement().executeUpdate(SQL1);   // Forbinder til vores URL.
+
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
 
     public medicineCardModel getMedicineCard(String id){
         try {
