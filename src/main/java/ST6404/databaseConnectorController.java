@@ -185,7 +185,7 @@ public class databaseConnectorController {
     MedicineCardModel loader alle medikamenter, som er sat til en patient med tilhoerende CPR nr. Når patienten er genkendt
     vil den danne en ny arrayliste, som skal gemmes i Datastorage. Når dataeerne er gemt i datastorage vil de blive vist
      */
-    /*public static medicineCardModel getMedicineCard(String id) {
+    public static medicineCardModel getMedicineCard(String id) {
         try {
             String myDriver = "com.mysql.cj.jdbc.Driver";
             String myUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
@@ -209,9 +209,9 @@ public class databaseConnectorController {
             System.out.println(e);
         }
         return null;
-    }*/
+    }
 
-    public static ObservableList loadMedicineList(String id) throws ClassNotFoundException, SQLException {
+    /*public static ObservableList loadMedicineList(String id) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
         Connection connection = DriverManager.getConnection(connectionUrl);
@@ -231,8 +231,8 @@ public class databaseConnectorController {
             //System.out.println(prescriptedDrugList);
         }
         return prescriptedDrugList;
-    }
-    public static medicineCardModel getMedicineCard(String id) {
+    }*/
+    /*public static medicineCardModel getMedicineCard(String id) {
         try {
             String myDriver = "com.mysql.cj.jdbc.Driver";
             String myUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
@@ -240,7 +240,7 @@ public class databaseConnectorController {
             Connection conn = DriverManager.getConnection(myUrl);
             PreparedStatement st = conn.prepareStatement("select * from FMKdatabase Where CPR = " + id); //
             ResultSet rs = st.executeQuery();
-            ObservableList<prescriptedDrugModel> pml = new ObservableList<prescriptedDrugModel>();
+            ObservableList<prescriptedDrugModel> pml = new ObservableList<>();
             while (rs.next()){
                 prescriptedDrugModel pm = new prescriptedDrugModel(rs.getString("navn"), rs.getInt("dosis"), rs.getString("enhed"), rs.getString("hyppighed"), rs.getString("startdato"), rs.getString("slutdato"), "or", "atc");
                 pml.add(pm);
@@ -252,5 +252,5 @@ public class databaseConnectorController {
             System.out.println(e);
         }
         return null;
-    }
+    }*/
 }
