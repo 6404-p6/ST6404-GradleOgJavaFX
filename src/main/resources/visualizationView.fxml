@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<TitledPane fx:id="IDTitledPaneVisualization" animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" text="[010203-1234, Tove Tovesen]" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ST6404.visualizationController">
+<TitledPane fx:id="IDTitledPaneVisualization" animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" text="[010203-1234, Tove Tovesen]" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ST6404.visualizationController">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
          <children>
@@ -228,16 +228,16 @@
                         </VBox>
                         <VBox layoutX="650.0" layoutY="111.0" prefHeight="491.0" prefWidth="107.0" spacing="16.5">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Epinephrine" wrappingWidth="144.49999237060547" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Butorphanol" wrappingWidth="144.49999237060547" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Acenoumarol" wrappingWidth="144.49999237060547" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dicomuarol" wrappingWidth="144.49999237060547" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Warfarin" wrappingWidth="144.49999237060547" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ergotamine" wrappingWidth="144.49999237060547" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Guanfacine" wrappingWidth="144.49999237060547" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lisuride" wrappingWidth="144.49999237060547" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Deserpdine" wrappingWidth="144.49999237060547" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Methysergide" wrappingWidth="144.49999237060547" />
+                              <Text fx:id="IDtextfieldDrug15Right" strokeType="OUTSIDE" strokeWidth="0.0" text="Epinephrine" wrappingWidth="144.49999237060547" />
+                              <Text fx:id="IDtextfieldDrug14Right" strokeType="OUTSIDE" strokeWidth="0.0" text="Butorphanol" wrappingWidth="144.49999237060547" />
+                              <Text fx:id="IDtextfieldDrug13Right" strokeType="OUTSIDE" strokeWidth="0.0" text="Acenoumarol" wrappingWidth="144.49999237060547" />
+                              <Text fx:id="IDtextfieldDrug12Right" strokeType="OUTSIDE" strokeWidth="0.0" text="Dicomuarol" wrappingWidth="144.49999237060547" />
+                              <Text fx:id="IDtextfieldDrug11Right" strokeType="OUTSIDE" strokeWidth="0.0" text="Warfarin" wrappingWidth="144.49999237060547" />
+                              <Text fx:id="IDtextfieldDrug10Right" strokeType="OUTSIDE" strokeWidth="0.0" text="Ergotamine" wrappingWidth="144.49999237060547" />
+                              <Text fx:id="IDtextfieldDrug9Right" strokeType="OUTSIDE" strokeWidth="0.0" text="Guanfacine" wrappingWidth="144.49999237060547" />
+                              <Text fx:id="IDtextfieldDrug8Right" strokeType="OUTSIDE" strokeWidth="0.0" text="Lisuride" wrappingWidth="144.49999237060547" />
+                              <Text fx:id="IDtextfieldDrug7Right" strokeType="OUTSIDE" strokeWidth="0.0" text="Deserpdine" wrappingWidth="144.49999237060547" />
+                              <Text fx:id="IDtextfieldDrug6Right" strokeType="OUTSIDE" strokeWidth="0.0" text="Methysergide" wrappingWidth="144.49999237060547" />
                               <Text fx:id="IDtextfieldDrug5Right" strokeType="OUTSIDE" strokeWidth="0.0" text="Rescinnamine" wrappingWidth="144.49999237060547" />
                               <Text fx:id="IDtextfieldDrug4Right" strokeType="OUTSIDE" strokeWidth="0.0" text="Tolonidine" wrappingWidth="144.49999237060547" />
                               <Text fx:id="IDtextfieldDrug3Right" strokeType="OUTSIDE" strokeWidth="0.0" text="Somatostatin" wrappingWidth="144.49999237060547" />
