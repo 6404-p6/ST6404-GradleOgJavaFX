@@ -1,13 +1,9 @@
 package ST6404;
-import ST6404.prescriptedDrugModel;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.sql.Timestamp;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Collections;
-import java.util.*;
-import java.util.stream.*;
 
 public class medicineCardModel{
     public List medicineList;
