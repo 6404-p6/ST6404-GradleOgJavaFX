@@ -10,17 +10,11 @@ import java.util.List;
 public class interactionSummarizerModel {
 
     private int numberOfErrors;
-    private enum highestSeverity{
-        risk1,
-        risk2,
-        risk3;
-    }
     private int highestSeverity;
     private List interactionList;
 
 
-    public interactionSummarizerModel(int NumberOfErrors){
-        this.setNumberOfErrors(NumberOfErrors);
+    public interactionSummarizerModel(){
     }
 
     //Metoder

@@ -49,6 +49,7 @@ public class databaseConnectorController {
         return null;
     }
 
+    // Der er en metode under opbygning, under denne metode. I den nye er den ved at gøres implementerbar.
     public static void interactionList() {
         try {
             // create our mysql database connection
@@ -93,6 +94,31 @@ public class databaseConnectorController {
             System.err.println(e.getMessage());
         }
     }
+
+    // Dette er den ovenstående metode der er "in progress" til at blive lavet implementerbar.
+    public List loadInteractionsList() {
+        try {
+            String myDriver = "com.mysql.cj.jdbc.Driver";
+            String myUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
+            Class.forName(myDriver);
+            Connection conn = DriverManager.getConnection(myUrl);
+            PreparedStatement st = conn.prepareStatement("SELECT * FROM MIdatabase WHERE MedikamentA IN ('dicoumarol', 'warfarin', 'reserpine', 'warfarin', 'butorphanol', 'somatostatin') AND MedikamentB IN ('dicoumarol', 'warfarin', 'reserpine', 'warfarin', 'butorphanol', 'somatostatin')"); //
+            ResultSet rs = st.executeQuery();
+            List<medicineInteractionModel> tempIntList = new ArrayList<medicineInteractionModel>();
+
+            while (rs.next()) {
+                medicineInteractionModel tempInteraction = new medicineInteractionModel(rs.getString("MedikamentA"), rs.getString("MedikamentB"), rs.getInt("alvorlighedsgrad"), rs.getInt("dokumentationsgrad"), rs.getString("anbefaling"), rs.getString("beskrivelse"));
+                tempIntList.add(tempInteraction);
+            }
+            return tempIntList;
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
+
 
    /* public static void availableMedicineList() {
         try {
@@ -226,7 +252,7 @@ public class databaseConnectorController {
             String myDriver = "com.mysql.cj.jdbc.Driver";
             String myUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
             Class.forName(myDriver);
-            String test = "select From FMKdatabase Where CPR = " + id;
+            String test = "select * From FMKdatabase Where CPR = " + id;
             Connection conn = DriverManager.getConnection(myUrl);
             PreparedStatement st = conn.prepareStatement("select * from FMKdatabase Where CPR = " + id); //
             ResultSet rs = st.executeQuery();
