@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class prescriptedDrugModel extends drugModel {
     private int dosage;
     private String frequency;
-    // TD: Jeg kan ikke få dem indsat i tabellen endnu. Forstår ikke hvordan jeg laver dem i constructoren
     private String startDate;
     private String endDate;
     private String unit;
@@ -68,6 +67,7 @@ public class prescriptedDrugModel extends drugModel {
         prescriptedDrugModelList.add(new prescriptedDrugModel("Warfarin", 10, "mg", "1 dagligt", "11-10-2019", "11-11-2019", "OR", "CDA131"));
         return prescriptedDrugModelList;
     }
+
 
 
 }

@@ -9,9 +9,7 @@ public class medicineCardModel{
     public List medicineList;
 
 
-    public medicineCardModel(List medicineList) {
-        this.medicineList = medicineList;
-    }
+    public medicineCardModel(List medicineList){this.medicineList = medicineList;}
 
     public List getMedicineList() {
         return medicineList;
@@ -24,6 +22,4 @@ public class medicineCardModel{
     public void addToMedicineList(prescriptedDrugModel drugToAdd){
         medicineList.add(drugToAdd);
     }
-
-
 }
