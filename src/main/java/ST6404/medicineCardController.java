@@ -112,7 +112,16 @@ public class medicineCardController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Initialiser medicineListView");
         // Indhentning af dataStorage for at bruge dens patientModel
+        databaseConnectorController db = new databaseConnectorController();
+        // Indhentning af dataStorage for at bruge dens patientModel
         dataStorage.getInstance();
+        // Instantierer en interactionsummarizerModel og ligger den i dataStorage for globalt brug
+        //List tempInteractionList = (db.loadInteractionsList(dataStorage.chosenPatient.medicineCard.medicineList));
+        //dataStorage.iSM.setInteractionList(tempInteractionList);
+        interactionSummarizerModel iSM = new interactionSummarizerModel();
+        iSM.setInteractionList(db.loadInteractionsList(dataStorage.chosenPatient.medicineCard.medicineList));
+        interactionNumber.setText(iSM.calculateNumberOfErrors());
+        
         // Topbjælken får indsat navn og CPR fra metoden getPatientIdentification
         IDTitledPaneMedicineList.setText(dataStorage.chosenPatient.getPatientIdentification());
 
