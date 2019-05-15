@@ -62,12 +62,11 @@ public class medicineCardController implements Initializable {
     @FXML private TableColumn<prescriptedDrugModel, String> administrationColumn;
     @FXML private TableColumn<prescriptedDrugModel, String> startDateColumn;
     @FXML private TableColumn<prescriptedDrugModel, String> endDateColumn;
-    @FXML private TextField circle;
+    @FXML private TextField interactionNumber;
 
     public void setTextInCircle (String numberOfErrorsString){
-        circle.setText(numberOfErrorsString);
+        interactionNumber.setText(numberOfErrorsString);
     }
-
 
     // Se forklaring i patientSelector.changeSceneToMedicineListView
     @FXML
