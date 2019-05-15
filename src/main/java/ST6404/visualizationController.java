@@ -77,8 +77,13 @@ public class visualizationController implements Initializable {
         System.out.println("Initialiser visualitionView");
         // Indhentning af dataStorage for at bruge dens patientModel
         dataStorage.getInstance();
+        // Instantiering af database
+        databaseConnectorController db = new databaseConnectorController();
         // Topbjælken får indsat navn og CPR fra metoden getPatientIdentification
         IDTitledPaneVisualization.setText(dataStorage.chosenPatient.getPatientIdentification());
+        // Instantiering og load af interaktionslisten
+        interactionSummarizerModel iSM = new interactionSummarizerModel();
+        iSM.setInteractionList(db.loadInteractionsList(dataStorage.chosenPatient.medicineCard.medicineList));
     }
 
     /*@FXML

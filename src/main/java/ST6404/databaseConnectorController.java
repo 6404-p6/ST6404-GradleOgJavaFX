@@ -1,7 +1,5 @@
 package ST6404;
 //import javax.swing.plaf.nimbus.State;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.sql.Connection;
@@ -48,6 +46,7 @@ public class databaseConnectorController {
         return null;
     }
 
+    // Der er en metode under opbygning, under denne metode. I den nye er den ved at gøres implementerbar.
     public static void interactionList() {
         try {
             // create our mysql database connection
@@ -92,6 +91,49 @@ public class databaseConnectorController {
             System.err.println(e.getMessage());
         }
     }
+
+    // Dette er den ovenstående metode der er "in progress" til at blive lavet implementerbar.
+    public List loadInteractionsList(List medicineList) {
+        /*
+        Der skabes en string som midlertidigt indeholder medikament navnene for den SQL query, der skal
+        skabes. Den itererer igennem hele medicinlisten og tager navnene ud, lægger ' ' , omkring det
+        enkelte navne og gør det samme for næste navn. Til sidst er der et , tilbage, som så bliver cuttet
+        ved hjælp af en substring metode, der fjerner kommaet og mellemrummet i slutningen.
+        */
+        String tempSQLDrugNames = "";
+        for(int i = 0; i < medicineList.size(); i++ ){
+            prescriptedDrugModel tempPrescriptedDrugModel = (prescriptedDrugModel) medicineList.get(i);
+            tempSQLDrugNames = "'" + tempPrescriptedDrugModel.medicationName + "', " + tempSQLDrugNames;
+        }
+        tempSQLDrugNames = tempSQLDrugNames.substring(0, (tempSQLDrugNames.length()-2));
+
+        /*
+        Den indsætter tempSQLDrugNames ind i SQL query'en under, sådan at den bliver formatteret korrekt
+        til databasen. Herefter returneres til systemet en ResultSet med alle interaktioner, som lægges i
+        en liste og returneres.
+         */
+        try {
+            String myDriver = "com.mysql.cj.jdbc.Driver";
+            String myUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
+            Class.forName(myDriver);
+            Connection conn = DriverManager.getConnection(myUrl);
+            PreparedStatement st = conn.prepareStatement("SELECT * FROM MIdatabase WHERE MedikamentA IN (" + tempSQLDrugNames + ") AND MedikamentB IN (" + tempSQLDrugNames + ")");
+            ResultSet rs = st.executeQuery();
+            List<medicineInteractionModel> tempIntList = new ArrayList<medicineInteractionModel>();
+
+            while (rs.next()) {
+                medicineInteractionModel tempInteraction = new medicineInteractionModel(rs.getString("MedikamentA"), rs.getString("MedikamentB"), rs.getInt("alvorlighedsgrad"), rs.getInt("dokumentationsgrad"), rs.getString("anbefaling"), rs.getString("beskrivelse"));
+                tempIntList.add(tempInteraction);
+            }
+            return tempIntList;
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
+
 
    /* public static void availableMedicineList() {
         try {
@@ -178,24 +220,30 @@ public class databaseConnectorController {
         }
     }*/
 
-    /*public static void FMKDatabaseAddRow (String a, String b, String c, String d, String e, String f, String g) {
-        Statement st;           // Deklarer et statement til st.
-        st = null;              // Fortæller, at ST = null ->
-        ResultSet rs;           // Deklarer vores ResultSet til rs.
-        rs = null;              // Fortæller, at ST = null ->
-        Class.forName("com.mysql.cj.jdbc.Driver"); // Vores driver.
-        String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
-        Connection connection = DriverManager.getConnection(connectionUrl);
+    public static void FMKDatabaseAddRow (String a, String b, String c, String d, String h, String f, String g) throws ClassNotFoundException, SQLException{
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC",
+                "hst_2019_19gr6404", "agipheethohwiquiteam");
+        Statement st = conn.createStatement();
+
+        String ATCretrieve = ("select atc FROM praeparatdatabase WHERE navn = '" + a + "'");
+        ResultSet rs = st.executeQuery(ATCretrieve);
+        String ATC = rs.getString(1);
+
         String CPRnummer = dataStorage.chosenPatient.getCPRNumber();
+
         try {
-            String SQL1 = ("INSERT INTO FMKdatabase (CPR, navn, dosis, enhed, administrationsvej, hyppighed, startdato, slutdato) VALUE (" + CPRnummer + "," + a + "," + b + "," + c + "," + d + "," + e + "," + f + "," + g + ")");   // Søger efter et CPR i patientdatabase, som stemmer overens med det indtastede
-            connection.createStatement().executeUpdate(SQL1);   // Forbinder til vores URL.
+            String SQL1 = ("INSERT INTO FMKdatabase (CPR, navn, ATC, dosis, enhed, administrationsvej, hyppighed, startdato, slutdato) VALUE (" + CPRnummer + "," + ATC + "," + a + "," + b + "," + c + "," + d + "," + h + "," + f + "," + g + ")");   // Søger efter et CPR i patientdatabase, som stemmer overens med det indtastede
+
+            st.executeUpdate(SQL1);   // Forbinder til vores URL.
 
         } catch (Exception e) {
             System.err.println("Got an exception! ");
             System.err.println(e.getMessage());
         }
-    }*/
+    }
+
+
 
     /*public static void FMKDatabaseAddRow (String a, String b, String c, String d, String e, String f, String g) {
         Statement st;           // Deklarer et statement til st.
@@ -232,7 +280,7 @@ public class databaseConnectorController {
             ResultSet rs = st.executeQuery();
             List<prescriptedDrugModel> pml = new ArrayList<prescriptedDrugModel>();
             while (rs.next()) {
-                prescriptedDrugModel pm = new prescriptedDrugModel(rs.getString("navn"), rs.getInt("dosis"), rs.getString("enhed"), rs.getString("hyppighed"), rs.getString("startdato"), rs.getString("slutdato"), "or", "atc");
+                prescriptedDrugModel pm = new prescriptedDrugModel(rs.getString("navn"), rs.getInt("dosis"), rs.getString("enhed"), rs.getString("hyppighed"), rs.getString("startdato"), rs.getString("slutdato"), rs.getString("administrationsvej"), rs.getString("ATC"));
                 pml.add(pm);
             }
             medicineCardModel m = new medicineCardModel(pml);

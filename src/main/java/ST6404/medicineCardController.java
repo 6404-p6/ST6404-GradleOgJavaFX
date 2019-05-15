@@ -64,8 +64,8 @@ public class medicineCardController implements Initializable {
     @FXML private TableColumn<prescriptedDrugModel, String> endDateColumn;
     @FXML private TextField circle;
 
-    public void setTextInCircle (){
-        //circle.setText();
+    public void setTextInCircle (String numberOfErrorsString){
+        circle.setText(numberOfErrorsString);
     }
 
 
@@ -121,7 +121,7 @@ public class medicineCardController implements Initializable {
         dosageColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("dosage"));
         unitColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("unit"));
         frequencyColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("frequency"));
-        administrationColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("administrationRoute"));
+        //administrationColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("routeOfAdministration"));
         startDateColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("startDate"));
         endDateColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("endDate"));
         tableView.setItems(prescriptedDrugModel.getprescriptedDrugModelList());

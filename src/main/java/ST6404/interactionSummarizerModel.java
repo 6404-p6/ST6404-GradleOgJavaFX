@@ -10,17 +10,11 @@ import java.util.List;
 public class interactionSummarizerModel {
 
     private int numberOfErrors;
-    private enum highestSeverity{
-        risk1,
-        risk2,
-        risk3;
-    }
     private int highestSeverity;
     private List interactionList;
 
 
-    public interactionSummarizerModel(int NumberOfErrors){
-        this.setNumberOfErrors(NumberOfErrors);
+    public interactionSummarizerModel(){
     }
 
     //Metoder
@@ -38,8 +32,9 @@ public class interactionSummarizerModel {
 
 
     //Metoden udtrækker antallet af interaktioner fra listen interactionList.
-    public int calculateNumberOfErrors(List interactionList) {
-        return interactionList.size();
+    public String calculateNumberOfErrors(List interactionList) {
+        String numberOfErrorsString = Integer.toString(interactionList.size());
+        return numberOfErrorsString;
     }
 
     //Metoden udregner den samlede severity for alle interaktioner på interactionList, som medikamentet under ordination
