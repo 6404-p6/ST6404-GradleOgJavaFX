@@ -1,6 +1,9 @@
 package ST6404;
 //import javax.swing.plaf.nimbus.State;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.sql.*;
 import java.sql.Connection;
 import java.sql.Statement;
@@ -261,52 +264,9 @@ public class databaseConnectorController {
             Connection conn = DriverManager.getConnection(myUrl);
             PreparedStatement st = conn.prepareStatement("select * from FMKdatabase Where CPR = " + id); //
             ResultSet rs = st.executeQuery();
-            List<prescriptedDrugModel> pml = new ArrayList<prescriptedDrugModel>();
+            ObservableList<prescriptedDrugModel> prescriptedDrugModelList = FXCollections.observableArrayList();
             while (rs.next()) {
                 prescriptedDrugModel pm = new prescriptedDrugModel(rs.getString("navn"), "", rs.getString("administrationsvej"), rs.getInt("dosis"), rs.getString("hyppighed"), rs.getString("startdato"), rs.getString("slutdato"), rs.getString("enhed"));
-                pml.add(pm);
-            }
-            medicineCardModel m = new medicineCardModel(pml);
-            return m;
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return null;
-    }
-
-
-    /*public static ObservableList loadMedicineList2(String id) throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
-        Connection connection = DriverManager.getConnection(connectionUrl);
-        ResultSet FMKdatabase = connection.prepareStatement("SELECT * FROM `FMKdatabase`  WHERE CPR = 1122335678").executeQuery(); //1122335678
-        ObservableList<String> prescriptedDrugList = FXCollections.observableArrayList();
-
-        while (FMKdatabase.next()) {
-            // Brug constructor for medicineCard og dens attribut medicineList
-            prescriptedDrugList.add(FMKdatabase.getString(2));
-            prescriptedDrugList.add(FMKdatabase.getString(3));
-            prescriptedDrugList.add(FMKdatabase.getString(4));
-            prescriptedDrugList.add(FMKdatabase.getString(5));
-            prescriptedDrugList.add(FMKdatabase.getString(6));
-            prescriptedDrugList.add(FMKdatabase.getString(7));
-            // Brug constructor for prescriptedDrugModel
-            // medicineCard.medicinelist.ad(Constructor indsæt her)
-            //System.out.println(prescriptedDrugList);
-        }
-        return prescriptedDrugList;
-    }*/
-    /*public static ObservableList<prescriptedDrugModel> getMedicineCard2(String id) {
-        try {
-            String myDriver = "com.mysql.cj.jdbc.Driver";
-            String myUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
-            Class.forName(myDriver);
-            Connection conn = DriverManager.getConnection(myUrl);
-            PreparedStatement st = conn.prepareStatement("select * from FMKdatabase Where CPR = " + id); //
-            ResultSet rs = st.executeQuery();
-            ObservableList<prescriptedDrugModel> prescriptedDrugModelList = FXCollections.observableArrayList();
-            while (rs.next()){
-                prescriptedDrugModel pm = new prescriptedDrugModelList(rs.getString("navn"), rs.getInt("dosis"), rs.getString("enhed"), rs.getString("hyppighed"), rs.getString("startdato"), rs.getString("slutdato"), "or", "atc");
                 prescriptedDrugModelList.add(pm);
             }
             medicineCardModel m = new medicineCardModel(prescriptedDrugModelList);
@@ -315,32 +275,5 @@ public class databaseConnectorController {
             System.out.println(e);
         }
         return null;
-    }*/
-    /*public static ObservableList<String> getMedicineCard2() {
-        try {
-            String myDriver = "com.mysql.cj.jdbc.Driver";
-            String myUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
-            Class.forName(myDriver);
-            String test = "select From FMKdatabase Where CPR = " + id;
-            Connection conn = DriverManager.getConnection(myUrl);
-            PreparedStatement st = conn.prepareStatement("select * from FMKdatabase Where CPR = " + id); //
-            ResultSet rs = st.executeQuery();
-            List<prescriptedDrugModel> pml = new ArrayList<prescriptedDrugModel>();
-            //ObservableList<prescriptedDrugModel> pml = new ObservableList<prescriptedDrugModel>();
-            while (rs.next()) {
-                prescriptedDrugModel pm = new prescriptedDrugModel(rs.getString("navn"), rs.getInt("dosis"), rs.getString("enhed"), rs.getString("hyppighed"), rs.getString("startdato"), rs.getString("slutdato"), "or", "atc");
-                pml.add(pm);
-            }
-            ObservableList<String> Obspml = FXCollections.observableArrayList(pml);
-            medicineCardModel m = new medicineCardModel(pml);
-            //m = (medicineCardModel) FXCollections.observableArrayList();
-            //return m;
-            return Obspml;
-            //return FXCollections.observableArrayList(pml.getList());
-            //return pml;
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return null;
-    }*/
+    }
 }

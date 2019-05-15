@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class prescriptedDrugModel extends drugModel {
     private int dosage;
     private String frequency;
-    // TD: Jeg kan ikke få dem indsat i tabellen endnu. Forstår ikke hvordan jeg laver dem i constructoren
     private String startDate;
     private String endDate;
     private String unit;
@@ -63,14 +62,6 @@ public class prescriptedDrugModel extends drugModel {
     public void setUnit(String unit) {
         this.unit = unit;
     }
-
-    public static ObservableList<prescriptedDrugModel> getprescriptedDrugModelList(){
-        ObservableList<prescriptedDrugModel> prescriptedDrugModelList = FXCollections.observableArrayList();
-        prescriptedDrugModelList.add(new prescriptedDrugModel("Warfarin", "ATCCodeTest", "IV", 10, "1 dagligt", "11-11-2019", "11-12-2019", "mL"));
-        return prescriptedDrugModelList;
-    }
-
-
 }
 
 

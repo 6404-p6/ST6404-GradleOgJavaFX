@@ -6,24 +6,20 @@ import java.util.HashMap;
 import java.util.List;
 
 public class medicineCardModel{
-    public List medicineList;
+    public ObservableList medicineList;
 
 
-    public medicineCardModel(List medicineList) {
-        this.medicineList = medicineList;
-    }
+    public medicineCardModel(ObservableList medicineList) {this.medicineList = medicineList;}
 
-    public List getMedicineList() {
+    public ObservableList getMedicineList() {
         return medicineList;
     }
 
-    public void setMedicineList(List medicineList) {
+    public void setMedicineList(ObservableList medicineList) {
         this.medicineList = medicineList;
     }
 
     public void addToMedicineList(prescriptedDrugModel drugToAdd){
         medicineList.add(drugToAdd);
     }
-
-
 }
