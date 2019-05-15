@@ -131,7 +131,7 @@ public class databaseConnectorController {
         }
     }*/
 
-    // Nedenstående virker. Den sletter medikamenter fra patientens FMK
+    // Nedenstående virker. Den sletter medikamenter fra patientens FMK (Vi kan dog ikke bestemme hvad den sletter. Den sletter altid det samme)
     public static void deleteDrugRow() {
         Connection con = null;
         PreparedStatement ps = null;
@@ -177,26 +177,20 @@ public class databaseConnectorController {
             System.err.println(e.getMessage());
         }
     }*/
-
+//Nedestående metode virker som den skal
     public static void FMKDatabaseAddRow (String a, String b, String c, String d, String h, String f, String g) throws ClassNotFoundException, SQLException{
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection conn = DriverManager.getConnection("jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC",
                 "hst_2019_19gr6404", "agipheethohwiquiteam");
-        Statement st = conn.createStatement();
-
-        String ATCretrieve = ("select atc FROM praeparatdatabase WHERE navn = '" + a + "'");
-        ResultSet rs = st.executeQuery(ATCretrieve);
-        String ATC = rs.getString(1);
-
-        String CPRnummer = dataStorage.chosenPatient.getCPRNumber();
+        String CPRnummer = dataStorage.chosenPatient.getCPRNumber(); // Henter nuværende patients CPR nummer og placerer det i en string til senere brug
 
         try {
-            String SQL1 = ("INSERT INTO FMKdatabase (CPR, navn, ATC, dosis, enhed, administrationsvej, hyppighed, startdato, slutdato) VALUE (" + CPRnummer + "," + ATC + "," + a + "," + b + "," + c + "," + d + "," + h + "," + f + "," + g + ")");   // Søger efter et CPR i patientdatabase, som stemmer overens med det indtastede
-
+            String SQL1 = ("INSERT INTO FMKdatabase (CPR, navn, dosis, enhed,  administrationsvej, hyppighed,  startdato, slutdato) VALUE (" + CPRnummer + "," + "'" + a + "'" + "," + b + "," + "'" + c + "'" + "," + "'" + d + "'" + "," + "'"+ h + "'" + "," + "'" + f + "'" + "," + "'" + g + "'" + ")");   // laver et SQL kald med det hentede CPRnummer og så nogle forskellige strings som vi skriver i
+            Statement st = conn.createStatement();
             st.executeUpdate(SQL1);   // Forbinder til vores URL.
 
         } catch (Exception e) {
-            System.err.println("Got an exception! ");
+            System.err.println("Problem i FMKDatabaseAddRow! ");
             System.err.println(e.getMessage());
         }
     }
