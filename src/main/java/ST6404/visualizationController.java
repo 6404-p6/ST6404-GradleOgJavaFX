@@ -9,11 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import org.w3c.dom.Text;
-import java.awt.*;
-
 
 import java.io.IOException;
 import java.net.URL;
@@ -25,7 +21,6 @@ import java.util.ResourceBundle;
 
 public class visualizationController implements Initializable {
 
-    @FXML private TitledPane IDTitledPaneVisualization;
 
     @FXML public TextField IDtextfieldDrug2Bottom;
     @FXML public TextField IDtextfieldDrug3Bottom;
@@ -59,6 +54,17 @@ public class visualizationController implements Initializable {
     @FXML public TextField IDtextfieldDrug14Right;
     @FXML public TextField IDtextfieldDrug15Right;
 
+    @FXML
+    private TitledPane IDTitledPaneVisualization;
+
+    public static void AddMedicationName(){
+
+
+
+    }
+
+
+
     // Se forklaring i patientSelector.changeSceneToMedicineListView
     @FXML
     public void changeSceneToMedicineListView(ActionEvent event) throws IOException {
@@ -70,6 +76,7 @@ public class visualizationController implements Initializable {
         window.setScene(medicineListViewScene);
         window.show();
         System.out.println("Troubleshoot: Afslutter metode changeSceneToMedicineListView");
+
     }
 
     @Override
@@ -85,11 +92,5 @@ public class visualizationController implements Initializable {
         interactionSummarizerModel iSM = new interactionSummarizerModel();
         iSM.setInteractionList(db.loadInteractionsList(dataStorage.chosenPatient.medicineCard.medicineList));
     }
-
-    /*@FXML
-    private void InsertMedicineName(){
-
-
-    }*/
 
 }
