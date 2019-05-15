@@ -64,8 +64,8 @@ public class medicineCardController implements Initializable {
     @FXML private TableColumn<prescriptedDrugModel, String> endDateColumn;
     @FXML private TextField circle;
 
-    public void setTextInCircle (){
-        //circle.setText();
+    public void setTextInCircle (String numberOfErrorsString){
+        circle.setText(numberOfErrorsString);
     }
 
 
