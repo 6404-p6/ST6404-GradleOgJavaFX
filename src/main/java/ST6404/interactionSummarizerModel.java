@@ -32,7 +32,7 @@ public class interactionSummarizerModel {
 
 
     //Metoden udtrækker antallet af interaktioner fra listen interactionList.
-    public String calculateNumberOfErrors(List interactionList) {
+    public String calculateNumberOfErrors() {
         String numberOfErrorsString = Integer.toString(interactionList.size());
         return numberOfErrorsString;
     }

@@ -7,7 +7,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,8 +22,45 @@ import java.util.ResourceBundle;
 
 public class visualizationController implements Initializable {
 
+
+    @FXML public Text IDtextfieldDrug2Bottom;
+    @FXML public Text IDtextfieldDrug3Bottom;
+    @FXML public Text IDtextfieldDrug4Bottom;
+    @FXML public Text IDtextfieldDrug5Bottom;
+    @FXML public Text IDtextfieldDrug6Bottom;
+    @FXML public Text IDtextfieldDrug7Bottom;
+    @FXML public Text IDtextfieldDrug8Bottom;
+    @FXML public Text IDtextfieldDrug9Bottom;
+    @FXML public Text IDtextfieldDrug10Bottom;
+    @FXML public Text IDtextfieldDrug11Bottom;
+    @FXML public Text IDtextfieldDrug12Bottom;
+    @FXML public Text IDtextfieldDrug13Bottom;
+    @FXML public Text IDtextfieldDrug14Bottom;
+    @FXML public Text IDtextfieldDrug15Bottom;
+    @FXML public Text IDtextfieldDrug16Bottom;
+
+    @FXML public Text IDtextfieldDrug1Right;
+    @FXML public Text IDtextfieldDrug2Right;
+    @FXML public Text IDtextfieldDrug3Right;
+    @FXML public Text IDtextfieldDrug4Right;
+    @FXML public Text IDtextfieldDrug5Right;
+    @FXML public Text IDtextfieldDrug6Right;
+    @FXML public Text IDtextfieldDrug7Right;
+    @FXML public Text IDtextfieldDrug8Right;
+    @FXML public Text IDtextfieldDrug9Right;
+    @FXML public Text IDtextfieldDrug10Right;
+    @FXML public Text IDtextfieldDrug11Right;
+    @FXML public Text IDtextfieldDrug12Right;
+    @FXML public Text IDtextfieldDrug13Right;
+    @FXML public Text IDtextfieldDrug14Right;
+    @FXML public Text IDtextfieldDrug15Right;
+
     @FXML
     private TitledPane IDTitledPaneVisualization;
+
+    public static void AddMedicationName(){
+
+    }
 
     // Se forklaring i patientSelector.changeSceneToMedicineListView
     @FXML

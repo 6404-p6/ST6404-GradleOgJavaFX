@@ -14,7 +14,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TitledPane;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import javafx.scene.text.Text;
 
 import javax.print.DocFlavor;
 import java.io.IOException;
@@ -62,12 +65,12 @@ public class medicineCardController implements Initializable {
     @FXML private TableColumn<prescriptedDrugModel, String> administrationColumn;
     @FXML private TableColumn<prescriptedDrugModel, String> startDateColumn;
     @FXML private TableColumn<prescriptedDrugModel, String> endDateColumn;
-    @FXML private TextField circle;
+    @FXML private Text interactionNumber;
+    @FXML private Circle interactionCircle;
 
     public void setTextInCircle (String numberOfErrorsString){
-        circle.setText(numberOfErrorsString);
+        interactionNumber.setText(numberOfErrorsString);
     }
-
 
     // Se forklaring i patientSelector.changeSceneToMedicineListView
     @FXML
@@ -113,7 +116,19 @@ public class medicineCardController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Initialiser medicineListView");
         // Indhentning af dataStorage for at bruge dens patientModel
+        databaseConnectorController db = new databaseConnectorController();
+        // Indhentning af dataStorage for at bruge dens patientModel
         dataStorage.getInstance();
+        // Instantierer en interactionsummarizerModel og ligger den i dataStorage for globalt brug
+        //List tempInteractionList = (db.loadInteractionsList(dataStorage.chosenPatient.medicineCard.medicineList));
+        //dataStorage.iSM.setInteractionList(tempInteractionList);
+        interactionSummarizerModel iSM = new interactionSummarizerModel();
+        iSM.setInteractionList(db.loadInteractionsList(dataStorage.chosenPatient.medicineCard.medicineList));
+        //Sætter antallet af interaktioner ind i cirklen ved siden af "Vis interaktioner"
+        interactionNumber.setText(iSM.calculateNumberOfErrors());
+        //Bestemmer farven af cirklen omkring antallet af interaktioner
+        interactionCircle.setFill(Color.RED);
+
         // Topbjælken får indsat navn og CPR fra metoden getPatientIdentification
         IDTitledPaneMedicineList.setText(dataStorage.chosenPatient.getPatientIdentification());
 
@@ -121,7 +136,7 @@ public class medicineCardController implements Initializable {
         dosageColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("dosage"));
         unitColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("unit"));
         frequencyColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("frequency"));
-        //administrationColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("routeOfAdministration"));
+        administrationColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("routeOfAdministration"));
         startDateColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("startDate"));
         endDateColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("endDate"));
         tableView.setItems(prescriptedDrugModel.getprescriptedDrugModelList());
