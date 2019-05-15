@@ -75,7 +75,6 @@ public class visualizationController implements Initializable {
         window.setScene(medicineListViewScene);
         window.show();
         System.out.println("Troubleshoot: Afslutter metode changeSceneToMedicineListView");
-
     }
 
     @Override
