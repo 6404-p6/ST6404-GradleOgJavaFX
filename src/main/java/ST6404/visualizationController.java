@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.text.*;
 import javafx.application.Application;
@@ -62,8 +63,6 @@ public class visualizationController implements Initializable {
         IDtextfieldDrug2Bottom.setText("Hej");
     }
 
-
-
     // Se forklaring i patientSelector.changeSceneToMedicineListView
     @FXML
     public void changeSceneToMedicineListView(ActionEvent event) throws IOException {
@@ -76,6 +75,20 @@ public class visualizationController implements Initializable {
         window.show();
         System.out.println("Troubleshoot: Afslutter metode changeSceneToMedicineListView");
     }
+    //IDTextfieldDrug1Right
+    /*
+
+    private void inputMedicationNames(List medicineCard) {
+
+        List bottomMedicationNames = null;
+        String tempSQLDrugNames = "";
+
+        for(int i = 0; i < medicineList.size(); i++ ){
+            prescriptedDrugModel tempPrecriptedDrugModel = (prescriptedDRugModel) medicineCard.get(i);
+            tempPrescripted
+        }
+    }
+*/
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
