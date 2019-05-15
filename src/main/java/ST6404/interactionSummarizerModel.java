@@ -32,8 +32,9 @@ public class interactionSummarizerModel {
 
 
     //Metoden udtrækker antallet af interaktioner fra listen interactionList.
-    public int calculateNumberOfErrors(List interactionList) {
-        return interactionList.size();
+    public String calculateNumberOfErrors(List interactionList) {
+        String numberOfErrorsString = Integer.toString(interactionList.size());
+        return numberOfErrorsString;
     }
 
     //Metoden udregner den samlede severity for alle interaktioner på interactionList, som medikamentet under ordination
