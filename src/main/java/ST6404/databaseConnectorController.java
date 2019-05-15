@@ -94,6 +94,12 @@ public class databaseConnectorController {
 
     // Dette er den ovenstående metode der er "in progress" til at blive lavet implementerbar.
     public List loadInteractionsList(List medicineList) {
+        /*
+        Der skabes en string som midlertidigt indeholder medikament navnene for den SQL query, der skal
+        skabes. Den itererer igennem hele medicinlisten og tager navnene ud, lægger ' ' , omkring det
+        enkelte navne og gør det samme for næste navn. Til sidst er der et , tilbage, som så bliver cuttet
+        ved hjælp af en substring metode, der fjerner kommaet og mellemrummet i slutningen.
+        */
         String tempSQLDrugNames = "";
         for(int i = 0; i < medicineList.size(); i++ ){
             prescriptedDrugModel tempPrescriptedDrugModel = (prescriptedDrugModel) medicineList.get(i);
@@ -101,6 +107,11 @@ public class databaseConnectorController {
         }
         tempSQLDrugNames = tempSQLDrugNames.substring(0, (tempSQLDrugNames.length()-2));
 
+        /*
+        Den indsætter tempSQLDrugNames ind i SQL query'en under, sådan at den bliver formatteret korrekt
+        til databasen. Herefter returneres til systemet en ResultSet med alle interaktioner, som lægges i
+        en liste og returneres.
+         */
         try {
             String myDriver = "com.mysql.cj.jdbc.Driver";
             String myUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
