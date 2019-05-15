@@ -206,7 +206,7 @@
                         <Text fx:id="IDtextfieldDrug5Bottom" layoutX="426.3" layoutY="661.0" rotate="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rescinnamine" textAlignment="RIGHT" wrappingWidth="131.4444613456726" />
                         <Text fx:id="IDtextfieldDrug4Bottom" layoutX="459.6" layoutY="661.0" rotate="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tolonidine" textAlignment="RIGHT" wrappingWidth="131.4444613456726" />
                         <Text fx:id="IDtextfieldDrug3Bottom" layoutX="492.9" layoutY="661.0" rotate="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Somatostatin" textAlignment="RIGHT" wrappingWidth="131.4444613456726" />
-                        <Text fx:id="IDtextfieldDrug2Bottom" layoutX="525.2" layoutY="661.0" rotate="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reserpine" textAlignment="RIGHT" wrappingWidth="131.4444613456726" />
+                        <Text fx:id="IDtextfieldDrug2Bottom" layoutX="525.2" layoutY="661.0" rotate="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Medikament 2" textAlignment="RIGHT" wrappingWidth="131.4444613456726" />
                         <VBox layoutX="5.0" layoutY="111.0" prefHeight="491.0" prefWidth="107.0" spacing="16.5">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Epinephrine" textAlignment="RIGHT" wrappingWidth="144.49999237060547" />
@@ -241,8 +241,8 @@
                               <Text fx:id="IDtextfieldDrug5Right" strokeType="OUTSIDE" strokeWidth="0.0" text="Rescinnamine" wrappingWidth="144.49999237060547" />
                               <Text fx:id="IDtextfieldDrug4Right" strokeType="OUTSIDE" strokeWidth="0.0" text="Tolonidine" wrappingWidth="144.49999237060547" />
                               <Text fx:id="IDtextfieldDrug3Right" strokeType="OUTSIDE" strokeWidth="0.0" text="Somatostatin" wrappingWidth="144.49999237060547" />
-                              <Text fx:id="IDtextfieldDrug2Right" strokeType="OUTSIDE" strokeWidth="0.0" text="Reserpine" wrappingWidth="144.49999237060547" />
-                              <Text fx:id="IDtextfieldDrug1Right" strokeType="OUTSIDE" strokeWidth="0.0" text="Nalbuphine" wrappingWidth="144.49999237060547" />
+                              <Text fx:id="IDtextfieldDrug2Right" strokeType="OUTSIDE" strokeWidth="0.0" text="Medikament 2" wrappingWidth="144.49999237060547" />
+                              <Text fx:id="IDtextfieldDrug1Right" strokeType="OUTSIDE" strokeWidth="0.0" text="Medikament 1" wrappingWidth="144.49999237060547" />
                            </children>
                         </VBox>
                      </children>

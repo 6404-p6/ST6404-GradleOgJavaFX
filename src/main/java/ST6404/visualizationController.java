@@ -10,6 +10,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.stage.Stage;
+import javafx.scene.text.*;
+import javafx.application.Application;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,9 +24,9 @@ import java.util.ResourceBundle;
 public class visualizationController implements Initializable {
 
 
-    @FXML public TextField IDtextfieldDrug2Bottom;
-    @FXML public TextField IDtextfieldDrug3Bottom;
-    @FXML public TextField IDtextfieldDrug4Bottom;
+    @FXML public static Text IDtextfieldDrug2Bottom;
+    @FXML public static Text IDtextfieldDrug3Bottom;
+    /*@FXML public TextField IDtextfieldDrug4Bottom;
     @FXML public TextField IDtextfieldDrug5Bottom;
     @FXML public TextField IDtextfieldDrug6Bottom;
     @FXML public TextField IDtextfieldDrug7Bottom;
@@ -36,11 +38,10 @@ public class visualizationController implements Initializable {
     @FXML public TextField IDtextfieldDrug13Bottom;
     @FXML public TextField IDtextfieldDrug14Bottom;
     @FXML public TextField IDtextfieldDrug15Bottom;
-    @FXML public TextField IDtextfieldDrug16Bottom;
+    @FXML public TextField IDtextfieldDrug16Bottom;*/
 
-    @FXML public TextField IDtextfieldDrug1Right;
-    @FXML public TextField IDtextfieldDrug2Right;
-    @FXML public TextField IDtextfieldDrug3Right;
+    //@FXML public static TextField IDtextfieldDrug1Right;
+    /*@FXML public TextField IDtextfieldDrug3Right;
     @FXML public TextField IDtextfieldDrug4Right;
     @FXML public TextField IDtextfieldDrug5Right;
     @FXML public TextField IDtextfieldDrug6Right;
@@ -52,15 +53,13 @@ public class visualizationController implements Initializable {
     @FXML public TextField IDtextfieldDrug12Right;
     @FXML public TextField IDtextfieldDrug13Right;
     @FXML public TextField IDtextfieldDrug14Right;
-    @FXML public TextField IDtextfieldDrug15Right;
+    @FXML public TextField IDtextfieldDrug15Right;*/
 
     @FXML
     private TitledPane IDTitledPaneVisualization;
 
-    public static void AddMedicationName(){
-
-
-
+    public static void AddMedication(){
+        IDtextfieldDrug2Bottom.setText("Hej");
     }
 
 
