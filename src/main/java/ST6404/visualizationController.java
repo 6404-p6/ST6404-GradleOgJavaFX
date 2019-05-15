@@ -36,6 +36,20 @@ public class visualizationController implements Initializable {
         System.out.println("Troubleshoot: Afslutter metode changeSceneToMedicineListView");
 
     }
+    //IDTextfieldDrug1Right
+    /*
+
+    private void inputMedicationNames(List medicineCard) {
+
+        List bottomMedicationNames = null;
+        String tempSQLDrugNames = "";
+
+        for(int i = 0; i < medicineList.size(); i++ ){
+            prescriptedDrugModel tempPrecriptedDrugModel = (prescriptedDRugModel) medicineCard.get(i);
+            tempPrescripted
+        }
+    }
+*/
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
