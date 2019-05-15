@@ -14,7 +14,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TitledPane;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import javafx.scene.text.Text;
 
 import javax.print.DocFlavor;
 import java.io.IOException;
@@ -62,7 +65,8 @@ public class medicineCardController implements Initializable {
     @FXML private TableColumn<prescriptedDrugModel, String> administrationColumn;
     @FXML private TableColumn<prescriptedDrugModel, String> startDateColumn;
     @FXML private TableColumn<prescriptedDrugModel, String> endDateColumn;
-    @FXML private TextField interactionNumber;
+    @FXML private Text interactionNumber;
+    @FXML private Circle interactionCircle;
 
     public void setTextInCircle (String numberOfErrorsString){
         interactionNumber.setText(numberOfErrorsString);
@@ -120,8 +124,11 @@ public class medicineCardController implements Initializable {
         //dataStorage.iSM.setInteractionList(tempInteractionList);
         interactionSummarizerModel iSM = new interactionSummarizerModel();
         iSM.setInteractionList(db.loadInteractionsList(dataStorage.chosenPatient.medicineCard.medicineList));
+        //Sætter antallet af interaktioner ind i cirklen ved siden af "Vis interaktioner"
         interactionNumber.setText(iSM.calculateNumberOfErrors());
-        
+        //Bestemmer farven af cirklen omkring antallet af interaktioner
+        interactionCircle.setFill(Color.RED);
+
         // Topbjælken får indsat navn og CPR fra metoden getPatientIdentification
         IDTitledPaneMedicineList.setText(dataStorage.chosenPatient.getPatientIdentification());
 
