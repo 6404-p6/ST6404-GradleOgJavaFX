@@ -1,6 +1,5 @@
 package ST6404;
 
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -63,11 +62,10 @@ public class medicineCardController implements Initializable {
     @FXML private TableColumn<prescriptedDrugModel, String> administrationColumn;
     @FXML private TableColumn<prescriptedDrugModel, String> startDateColumn;
     @FXML private TableColumn<prescriptedDrugModel, String> endDateColumn;
-    @FXML
-    private SimpleObjectProperty<TextField> interactionNumber = new SimpleObjectProperty<>(this, "interactionNumber");
+    @FXML private TextField circle;
 
     public void setTextInCircle (String numberOfErrorsString){
-        interactionNumber.get().setText(numberOfErrorsString);
+        circle.setText(numberOfErrorsString);
     }
 
 
