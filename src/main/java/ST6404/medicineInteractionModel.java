@@ -10,35 +10,28 @@ import java.util.Scanner;
 public class medicineInteractionModel {
     public String medicamentA;
     public String medicamentB;
-
-    private enum severity {
-        mild,
-        moderate,
-        severe;
-    }
-
     public int severity;
     private int documentationLevel;
     private String recommendationText;
     private String descriptionOfEffect;
     private String suggestionForAlternative;
 
-    public medicineInteractionModel(String medicamentA, String medicamentB, int documentationLevel, int severity, String recommendationText, String descriptionOfEffect) {
-        this.setMedicamentA(medicamentA);
-        this.setMedicamentB(medicamentB);
-        this.setSeverity(severity);
-        this.setDocumentationLevel(documentationLevel);
-        this.setRecommendationText(recommendationText);
-        this.setDescriptionOfEffect(descriptionOfEffect);
+    public medicineInteractionModel(String medicamentA, String medicamentB, int severity, int documentationLevel, String recommendationText, String descriptionOfEffect) {
+        this.medicamentA = medicamentA;
+        this.medicamentB = medicamentB;
+        this.severity = severity;
+        this.documentationLevel = documentationLevel;
+        this.recommendationText = recommendationText;
+        this.descriptionOfEffect = descriptionOfEffect;
     }
 
     /*
-     Metoder:
-        - retrieveInteractionsInformation ()
-        - retrieveSimilarDrugs ()
-        - calculationBestMedicine ()
-        - showInteractionsInformation ()
-     */
+         Metoder:
+            - retrieveInteractionsInformation ()
+            - retrieveSimilarDrugs ()
+            - calculationBestMedicine ()
+            - showInteractionsInformation ()
+         */
     public String getMedicamentA() {
         return medicamentA;
     }

@@ -5,42 +5,40 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.text.Text?>
 
-<TitledPane fx:id="IDTitledPaneMedicineList" animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" text="[010203-1234, Tove Tovesen]" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ST6404.medicineCardController">
-  <content>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="287.0" prefWidth="1364.0">
-         <children>
-            <Button layoutX="-2.0" layoutY="2.0" mnemonicParsing="false" onAction="#changeSceneToCVisualizationView" text="Visualiser medicininteraktioner" />
-            <Circle fill="WHITE" layoutX="190.0" layoutY="15.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
-            <Text layoutX="179.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-            <Button layoutX="248.0" layoutY="3.0" mnemonicParsing="false" onAction="#changeSceneToChoosePatientView" text="Vælg ny patient" />
-            <Button layoutX="387.0" layoutY="3.0" mnemonicParsing="false" onAction="#changeSceneToPrescriptionView" text="Gå til ordination" />
-            <Button layoutX="489.0" layoutY="3.0" mnemonicParsing="false" text="Rediger medikament" />
-            <Button layoutX="616.0" layoutY="2.0" mnemonicParsing="false" text="Slet medikament" />
-            <TableView fx:id="tableView" layoutX="-2.0" layoutY="34.0" prefHeight="720.0" prefWidth="1023.0">
-              <columns>
-                <TableColumn fx:id="nameColumn" prefWidth="200.0" text="Navn" />
-                <TableColumn fx:id="dosageColumn" prefWidth="79.0" text="Dosis" />
-                  <TableColumn fx:id="unitColumn" prefWidth="48.0" text="Enhed" />
-                  <TableColumn fx:id="frequencyColumn" prefWidth="88.0" text="Hyppighed" />
-                  <TableColumn fx:id="administrationColumn" prefWidth="57.0" text="Adm. vej" />
-                  <TableColumn fx:id="startDateColumn" prefWidth="122.0" text="Startdato" />
-                  <TableColumn fx:id="endDateColumn" prefWidth="135.0" text="Slutdato" />
-              </columns>
-               <contextMenu>
-                  <ContextMenu>
-                    <items>
-                        <MenuItem mnemonicParsing="false" onAction="#changeSceneToPrescriptionView" text="Ordiner medikament" />
-                        <MenuItem mnemonicParsing="false" text="Rediger medikament" />
-                        <MenuItem mnemonicParsing="false" text="Slet medikament" />
-                    </items>
-                  </ContextMenu>
-               </contextMenu>
-            </TableView>
-         </children></AnchorPane>
-  </content>
+<TitledPane fx:id="IDTitledPaneMedicineList" animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" text="[010203-1234, Tove Tovesen]" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ST6404.medicineCardController">
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="287.0" prefWidth="1364.0">
+            <children>
+                <Button layoutX="-2.0" layoutY="2.0" mnemonicParsing="false" onAction="#changeSceneToCVisualizationView" text="Visualiser medicininteraktioner" />
+                <Button layoutX="248.0" layoutY="3.0" mnemonicParsing="false" onAction="#changeSceneToChoosePatientView" text="Vælg ny patient" />
+                <Button layoutX="387.0" layoutY="3.0" mnemonicParsing="false" onAction="#changeSceneToPrescriptionView" text="Gå til ordination" />
+                <Button layoutX="489.0" layoutY="3.0" mnemonicParsing="false" text="Rediger medikament" />
+                <TextField fx:id="interactionNumber" layoutX="221.0" layoutY="3.0" prefHeight="31.0" prefWidth="30.0" />
+                <Button layoutX="616.0" layoutY="2.0" mnemonicParsing="false" text="Slet medikament" />
+                <TableView fx:id="tableView" layoutX="-2.0" layoutY="34.0" prefHeight="720.0" prefWidth="1023.0">
+                    <columns>
+                        <TableColumn fx:id="nameColumn" prefWidth="200.0" text="Navn" />
+                        <TableColumn fx:id="dosageColumn" prefWidth="79.0" text="Dosis" />
+                        <TableColumn fx:id="unitColumn" prefWidth="48.0" text="Enhed" />
+                        <TableColumn fx:id="frequencyColumn" prefWidth="88.0" text="Hyppighed" />
+                        <TableColumn fx:id="administrationColumn" prefWidth="57.0" text="Adm. vej" />
+                        <TableColumn fx:id="startDateColumn" prefWidth="122.0" text="Startdato" />
+                        <TableColumn fx:id="endDateColumn" prefWidth="135.0" text="Slutdato" />
+                    </columns>
+                    <contextMenu>
+                        <ContextMenu>
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#changeSceneToPrescriptionView" text="Ordiner medikament" />
+                                <MenuItem mnemonicParsing="false" text="Rediger medikament" />
+                                <MenuItem mnemonicParsing="false" text="Slet medikament" />
+                            </items>
+                        </ContextMenu>
+                    </contextMenu>
+                </TableView>
+            </children></AnchorPane>
+    </content>
 </TitledPane>

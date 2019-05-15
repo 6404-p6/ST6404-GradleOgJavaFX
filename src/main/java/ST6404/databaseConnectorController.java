@@ -1,7 +1,5 @@
 package ST6404;
 //import javax.swing.plaf.nimbus.State;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.sql.Connection;
@@ -48,6 +46,7 @@ public class databaseConnectorController {
         return null;
     }
 
+    // Der er en metode under opbygning, under denne metode. I den nye er den ved at gøres implementerbar.
     public static void interactionList() {
         try {
             // create our mysql database connection
@@ -92,6 +91,38 @@ public class databaseConnectorController {
             System.err.println(e.getMessage());
         }
     }
+
+    // Dette er den ovenstående metode der er "in progress" til at blive lavet implementerbar.
+    public List loadInteractionsList(List medicineList) {
+        String tempSQLDrugNames = "";
+        for(int i = 0; i < medicineList.size(); i++ ){
+            prescriptedDrugModel tempPrescriptedDrugModel = (prescriptedDrugModel) medicineList.get(i);
+            tempSQLDrugNames = "'" + tempPrescriptedDrugModel.medicationName + "', " + tempSQLDrugNames;
+        }
+        tempSQLDrugNames = tempSQLDrugNames.substring(0, (tempSQLDrugNames.length()-2));
+
+        try {
+            String myDriver = "com.mysql.cj.jdbc.Driver";
+            String myUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
+            Class.forName(myDriver);
+            Connection conn = DriverManager.getConnection(myUrl);
+            PreparedStatement st = conn.prepareStatement("SELECT * FROM MIdatabase WHERE MedikamentA IN (" + tempSQLDrugNames + ") AND MedikamentB IN (" + tempSQLDrugNames + ")");
+            ResultSet rs = st.executeQuery();
+            List<medicineInteractionModel> tempIntList = new ArrayList<medicineInteractionModel>();
+
+            while (rs.next()) {
+                medicineInteractionModel tempInteraction = new medicineInteractionModel(rs.getString("MedikamentA"), rs.getString("MedikamentB"), rs.getInt("alvorlighedsgrad"), rs.getInt("dokumentationsgrad"), rs.getString("anbefaling"), rs.getString("beskrivelse"));
+                tempIntList.add(tempInteraction);
+            }
+            return tempIntList;
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
+
 
    /* public static void availableMedicineList() {
         try {
@@ -232,7 +263,7 @@ public class databaseConnectorController {
             ResultSet rs = st.executeQuery();
             List<prescriptedDrugModel> pml = new ArrayList<prescriptedDrugModel>();
             while (rs.next()) {
-                prescriptedDrugModel pm = new prescriptedDrugModel(rs.getString("navn"), rs.getInt("dosis"), rs.getString("enhed"), rs.getString("hyppighed"), rs.getString("startdato"), rs.getString("slutdato"), rs.getString("administrationsvej"), rs.getString("ATC"));
+                prescriptedDrugModel pm = new prescriptedDrugModel(rs.getString("navn"), "", rs.getString("administrationsvej"), rs.getInt("dosis"), rs.getString("hyppighed"), rs.getString("startdato"), rs.getString("slutdato"), rs.getString("enhed"));
                 pml.add(pm);
             }
             medicineCardModel m = new medicineCardModel(pml);
