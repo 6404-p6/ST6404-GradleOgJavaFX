@@ -12,6 +12,8 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.w3c.dom.Text;
+import java.awt.*;
+
 
 import java.io.IOException;
 import java.net.URL;
@@ -79,8 +81,10 @@ public class visualizationController implements Initializable {
         IDTitledPaneVisualization.setText(dataStorage.chosenPatient.getPatientIdentification());
     }
 
-    //@Override
-    //public void Visualization()
+    /*@FXML
+    private void InsertMedicineName(){
 
+
+    }*/
 
 }
