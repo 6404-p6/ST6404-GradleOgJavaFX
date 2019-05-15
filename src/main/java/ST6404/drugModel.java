@@ -13,20 +13,27 @@ public class drugModel {
         this.setRouteOfAdministration(routeOfAdministration);
     }
 
-/*
-Metoder:
-- showPrescriptionInfo ()
-- pullRecordInfo ()
-*/
-    public String getMedicationName() { return medicationName; }
+    public String getMedicationName() {
+        return medicationName;
+    }
 
-    public void setMedicationName(String medicationName) {this.medicationName = medicationName; }
+    public void setMedicationName(String medicationName) {
+        this.medicationName = medicationName;
+    }
 
-    public String getRouteOfAdministration() { return routeOfAdministration; }
+    public String getRouteOfAdministration() {
+        return routeOfAdministration;
+    }
 
-    public void setRouteOfAdministration(String administrationRoute) { this.routeOfAdministration = routeOfAdministration; }
+    public void setRouteOfAdministration(String routeOfAdministration) {
+        this.routeOfAdministration = routeOfAdministration;
+    }
 
-    public String getAtcCode() { return atcCode; }
+    public String getAtcCode() {
+        return atcCode;
+    }
 
-    public void setAtcCode(String atcCode) { this.atcCode = atcCode; }
+    public void setAtcCode(String atcCode) {
+        this.atcCode = atcCode;
+    }
 }

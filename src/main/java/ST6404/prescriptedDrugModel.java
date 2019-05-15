@@ -14,14 +14,15 @@ public class prescriptedDrugModel extends drugModel {
     private String endDate;
     private String unit;
 
-    public prescriptedDrugModel(String medicationName,int dosage, String unit, String frequency, String startDate, String endDate,String administrationRoute, String ATC){
-        super (medicationName, administrationRoute, ATC);
+    public prescriptedDrugModel(String medicineName, String atcCode, String routeOfAdministration, int dosage, String frequency, String startDate, String endDate, String unit) {
+        super(medicineName, atcCode, routeOfAdministration);
         this.dosage = dosage;
         this.frequency = frequency;
         this.startDate = startDate;
         this.endDate = endDate;
         this.unit = unit;
     }
+
     //Metoder:
     public int getDosage() {
         return dosage;
@@ -65,7 +66,7 @@ public class prescriptedDrugModel extends drugModel {
 
     public static ObservableList<prescriptedDrugModel> getprescriptedDrugModelList(){
         ObservableList<prescriptedDrugModel> prescriptedDrugModelList = FXCollections.observableArrayList();
-        prescriptedDrugModelList.add(new prescriptedDrugModel("Warfarin", 10, "mg", "1 dagligt", "11-10-2019", "11-11-2019", "OR", "CDA131"));
+        prescriptedDrugModelList.add(new prescriptedDrugModel("Warfarin", "ATCCodeTest", "IV", 10, "1 dagligt", "11-11-2019", "11-12-2019", "mL"));
         return prescriptedDrugModelList;
     }
 
