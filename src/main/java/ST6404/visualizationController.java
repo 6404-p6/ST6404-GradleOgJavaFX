@@ -131,7 +131,7 @@ public class visualizationController implements Initializable {
         tempIDTextBottomList.add(IDtextfieldDrug15Bottom);
         tempIDTextBottomList.add(IDtextfieldDrug16Bottom);
         // Samme process, men med anderledes iterationstart og slut.
-            for(int i = 1; i < medicineCard.size()-1; i++ ){
+            for(int i = 1; i < medicineCard.size(); i++ ){
                 prescriptedDrugModel tempPrescriptedDrugModelForBottomDrugNames = (prescriptedDrugModel) medicineCard.get(i);
                 tempIDTextBottomList.get(i-1).setText(tempPrescriptedDrugModelForBottomDrugNames.getMedicationName());
         }
