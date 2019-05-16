@@ -7,18 +7,21 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.List;
+
+import static java.awt.Color.*;
 
 public class prescriptionController implements Initializable {
 
@@ -31,7 +34,7 @@ public class prescriptionController implements Initializable {
     @FXML private TextField IDTextfieldStartdato;
     @FXML private TextField IDTextfieldSlutdato;
     @FXML private Text interactionNumber;
-    @FXML private Circle interactionCircle;
+    @FXML private static Circle interactionCircle;
 
 
 
@@ -46,9 +49,27 @@ public class prescriptionController implements Initializable {
         //Sætter antallet af interaktioner ind i cirklen ved siden af "Vis interaktioner"
         interactionNumber.setText(iSM.calculateNumberOfErrors());
         //Bestemmer farven af cirklen omkring antallet af interaktioner
-        interactionCircle.setFill(Color.RED);
+            // TD: Jeg udkommenterede den, fordi den ikke virker og forstyrrer RUN.
+        //interactionCircle.setFill(prescriptionController.decideColorOfCircle());
+
+
+
+        dataStorage.chosenPatient.medicineCard.medicineList.remove(dataStorage.chosenPatient.medicineCard.medicineList.size()-1);
 
     }
+
+    public static void decideColorOfCircle (int highestSeverity) { //
+        int High = 2;
+        int medium = 1;
+        if (highestSeverity == High) {
+            interactionCircle.setFill(Color.RED);
+        } else if (highestSeverity == medium) {
+            interactionCircle.setFill(Color.YELLOW);
+        } else {
+            interactionCircle.setFill(Color.WHITE);
+        }
+    }
+
         /*
 1) Indsætter nyt medikament på den lokale medikamentlisten
 2) Run iSM.loadInteractionList
