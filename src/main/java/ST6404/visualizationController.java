@@ -77,6 +77,7 @@ public class visualizationController implements Initializable {
 
     private void inputMedicationNames(List medicineCard) {
 
+        // Starter med at skabe en list, hvor alle ID'erne for teksterne for højre ide af visualiseringen indsættes.
         List<Text> tempIDTextRightList = new ArrayList<Text>();
         tempIDTextRightList.add(IDtextfieldDrug1Right);
         tempIDTextRightList.add(IDtextfieldDrug2Right);
@@ -93,10 +94,18 @@ public class visualizationController implements Initializable {
         tempIDTextRightList.add(IDtextfieldDrug13Right);
         tempIDTextRightList.add(IDtextfieldDrug14Right);
         tempIDTextRightList.add(IDtextfieldDrug15Right);
+        /*
+        Der skabes en for-løkke, som går fra 0 til størrelsen af listen minus 1. Minus 1 er på grund af
+        hvordan et heatmap opsættes. For bunden er det nødvendigt at gå fra 1 til størrelsen af listen.
+        I første linje inde i for-løkken, skabes en midlertidig instans for den i'ende række af medikament listen, som blev modtaget
+        som input. Herefter ændres teksten for i'ende ID(f.eks. IDTextfieldDrug1 på 0 index plads, IDTextfieldDRug2 på 1 index plads,osv)
+        ved at indsætte den returnerede værdi af getMedicationName af den midlertidige instans fra det ene element på listen af medikamenter.
+         */
         for(int i = 0; i < medicineCard.size()-1; i++ ) {
             prescriptedDrugModel tempPrescriptedDrugModelForRightDrugNames = (prescriptedDrugModel) medicineCard.get(i);
             tempIDTextRightList.get(i).setText(tempPrescriptedDrugModelForRightDrugNames.getMedicationName());
         }
+        // Samme process
             List<Text> tempIDTextBottomList = new ArrayList<Text>();
         tempIDTextBottomList.add(IDtextfieldDrug2Bottom);
         tempIDTextBottomList.add(IDtextfieldDrug3Bottom);
@@ -113,6 +122,7 @@ public class visualizationController implements Initializable {
         tempIDTextBottomList.add(IDtextfieldDrug14Bottom);
         tempIDTextBottomList.add(IDtextfieldDrug15Bottom);
         tempIDTextBottomList.add(IDtextfieldDrug16Bottom);
+        // Samme process, men med anderledes iterationstart og slut.
             for(int i = 1; i < medicineCard.size(); i++ ){
                 prescriptedDrugModel tempPrescriptedDrugModelForBottomDrugNames = (prescriptedDrugModel) medicineCard.get(i);
                 tempIDTextBottomList.get(i).setText(tempPrescriptedDrugModelForBottomDrugNames.getMedicationName());
@@ -132,7 +142,6 @@ public class visualizationController implements Initializable {
         // Instantiering og load af interaktionslisten
         interactionSummarizerModel iSM = new interactionSummarizerModel();
         iSM.setInteractionList(db.loadInteractionsList(dataStorage.chosenPatient.medicineCard.medicineList));
-        IDtextfieldDrug2Right.setText("test af to string ids");
         // Indsættelse af navne omkring heatmap
         inputMedicationNames(dataStorage.chosenPatient.medicineCard.medicineList);
     }
