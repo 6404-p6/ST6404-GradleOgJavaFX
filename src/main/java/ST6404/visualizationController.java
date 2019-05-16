@@ -142,7 +142,6 @@ public class visualizationController implements Initializable {
         // Instantiering og load af interaktionslisten
         interactionSummarizerModel iSM = new interactionSummarizerModel();
         iSM.setInteractionList(db.loadInteractionsList(dataStorage.chosenPatient.medicineCard.medicineList));
-        IDtextfieldDrug2Right.setText("test af to string ids");
         // Indsættelse af navne omkring heatmap
         inputMedicationNames(dataStorage.chosenPatient.medicineCard.medicineList);
     }
