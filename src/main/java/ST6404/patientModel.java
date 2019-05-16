@@ -36,13 +36,4 @@ public class patientModel {
     // Bruges i Databasecontroller
     public void setCPRNumber(String CPRNumber) { this.CPRNumber = CPRNumber; }
 
-
-
-
-    
-
-
-
-
-
 }

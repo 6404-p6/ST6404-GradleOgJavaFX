@@ -24,14 +24,6 @@ public class medicineInteractionModel {
         this.recommendationText = recommendationText;
         this.descriptionOfEffect = descriptionOfEffect;
     }
-
-    /*
-         Metoder:
-            - retrieveInteractionsInformation ()
-            - retrieveSimilarDrugs ()
-            - calculationBestMedicine ()
-            - showInteractionsInformation ()
-         */
     public String getMedicamentA() {
         return medicamentA;
     }
