@@ -10,12 +10,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.List;
 
 public class prescriptionController implements Initializable {
 
@@ -27,7 +30,37 @@ public class prescriptionController implements Initializable {
     @FXML private TextField IDTextfieldAdmVej;
     @FXML private TextField IDTextfieldStartdato;
     @FXML private TextField IDTextfieldSlutdato;
-    @FXML private Text IDTextAntalInteraktioner;
+    @FXML private Text interactionNumber;
+    @FXML private Circle interactionCircle;
+
+
+
+    public void checkInteraction(ActionEvent event){
+        String NavnTextFieldInput = IDTextfieldNavn.getText();
+        prescriptedDrugModel tempPrescriptedDrugModel = new prescriptedDrugModel(NavnTextFieldInput, "", "",0,"","","","");
+        dataStorage.chosenPatient.medicineCard.medicineList.add(tempPrescriptedDrugModel);
+
+        databaseConnectorController db = new databaseConnectorController();
+        interactionSummarizerModel iSM = new interactionSummarizerModel();
+        iSM.setInteractionList(db.loadInteractionsList(dataStorage.chosenPatient.medicineCard.medicineList));
+        //Sætter antallet af interaktioner ind i cirklen ved siden af "Vis interaktioner"
+        interactionNumber.setText(iSM.calculateNumberOfErrors());
+        //Bestemmer farven af cirklen omkring antallet af interaktioner
+        interactionCircle.setFill(Color.RED);
+
+    }
+        /*
+1) Indsætter nyt medikament på den lokale medikamentlisten
+2) Run iSM.loadInteractionList
+3) Circletext.setText(iSM.interactionlist.size());
+3.5) Snak med Cecilie om highestSeverity
+4) Fjern fra den lokale medicientliste
+}
+     */
+    public void setTextInCircle (String numberOfErrorsString){
+        interactionNumber.setText(numberOfErrorsString);
+    }
+
 
     // Se forklaring i patientSelector.changeSceneToMedicineListView
     @FXML
