@@ -219,7 +219,7 @@ public class databaseConnectorController {
         String CPRnummer = dataStorage.chosenPatient.getCPRNumber(); // Henter nuværende patients CPR nummer og placerer det i en string til senere brug
 
         try {
-            String SQL1 = ("INSERT INTO FMKdatabase (CPR, navn, dosis, enhed,  administrationsvej, hyppighed,  startdato, slutdato) VALUE (" + CPRnummer + "," + "'" + a + "'" + "," + b + "," + "'" + c + "'" + "," + "'" + d + "'" + "," + "'"+ h + "'" + "," + "'" + f + "'" + "," + "'" + g + "'" + ")");   // laver et SQL kald med det hentede CPRnummer og så nogle forskellige strings som vi skriver i
+            String SQL1 = ("INSERT INTO FMKdatabase (CPR, navn, dosis, enhed,  hyppighed, administrationsvej, startdato, slutdato) VALUE (" + CPRnummer + "," + "'" + a + "'" + "," + b + "," + "'" + c + "'" + "," + "'" + d + "'" + "," + "'"+ h + "'" + "," + "'" + f + "'" + "," + "'" + g + "'" + ")");   // laver et SQL kald med det hentede CPRnummer og så nogle forskellige strings som vi skriver i
             Statement st = conn.createStatement();
             st.executeUpdate(SQL1);   // Forbinder til vores URL.
 
