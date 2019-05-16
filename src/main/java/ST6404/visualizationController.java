@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.text.*;
@@ -59,7 +60,12 @@ public class visualizationController implements Initializable {
     @FXML public Text IDtextfieldDrug14Right;
     @FXML public Text IDtextfieldDrug15Right;
 
-    //@FXML public Circle IDCircle0x0y;
+    @FXML public Circle IDCircle0x0y;
+    @FXML public Circle IDCircle1x0y;
+    @FXML public Circle IDCircle2x0y;
+    @FXML public Circle IDCircle3x0y;
+    @FXML public Circle IDCircle4x0y;
+    @FXML public Circle IDCircle5x0y;
 
     @FXML
     private TitledPane IDTitledPaneVisualization;
@@ -167,8 +173,14 @@ public class visualizationController implements Initializable {
         tempIDTextBottomList.add(IDtextfieldDrug15Bottom);
         tempIDTextBottomList.add(IDtextfieldDrug16Bottom);
 
-        //List<Circle> tempListForFirstCircleRow = new ArrayList<Circle>();
-        //tempListForFirstCircleRow.add(IDCircle0x0y);
+        List<Circle> tempListForFirstCircleRow = new ArrayList<Circle>();
+        tempListForFirstCircleRow.add(IDCircle0x0y);
+        tempListForFirstCircleRow.add(IDCircle1x0y);
+        tempListForFirstCircleRow.add(IDCircle2x0y);
+        tempListForFirstCircleRow.add(IDCircle3x0y);
+        tempListForFirstCircleRow.add(IDCircle4x0y);
+        tempListForFirstCircleRow.add(IDCircle5x0y);
+
 
     }
 
