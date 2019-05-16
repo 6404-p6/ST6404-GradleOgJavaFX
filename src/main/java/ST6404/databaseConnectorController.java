@@ -15,15 +15,15 @@ import java.sql.PreparedStatement;
 
 public class databaseConnectorController {
     /*
-        loadPatientData (MGS + TD) skal hente patientdata fra MySQL. Den har 2 throws, som gør at ...
-        Koden laver et Try, hvor den søger efter et CPR-input fra brugeren. Hvis CPR-inputtet stemmer overens
-        med et CPR-nr. fra patientdatabase vil fornavn og efternavn blive vist.
-         */
+    loadPatientData (MGS + TD) skal hente patientdata fra MySQL. Den har 2 throws, som gør at ...
+    Koden laver et Try, hvor den søger efter et CPR-input fra brugeren. Hvis CPR-inputtet stemmer overens
+    med et CPR-nr. fra patientdatabase vil fornavn og efternavn blive vist.
+    */
     public patientModel loadPatientData(String CPRInput) throws ClassNotFoundException, SQLException {
         Statement st;           // Deklarer et statement til st.
-        st = null;              // Fortæller, at ST = null ->
+        st = null;              // Fortæller, at st = null -> st er tom, indeholder ingenting.
         ResultSet rs;           // Deklarer vores ResultSet til rs.
-        rs = null;              // Fortæller, at ST = null ->
+        rs = null;              // Fortæller, at rs = null -> rs er tom, indeholder ingenting.
         Class.forName("com.mysql.cj.jdbc.Driver"); // Vores driver.
         String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
         Connection connection = DriverManager.getConnection(connectionUrl);
@@ -195,8 +195,8 @@ public class databaseConnectorController {
             System.err.println("Got an exception! ");
             System.err.println(e.getMessage());
         }
-
     }
+
     public static void updateRow () {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -252,15 +252,14 @@ public class databaseConnectorController {
 
     /*
     MedicineCardModel loader alle medikamenter, som er sat til en patient med tilhoerende CPR nr. Når patienten er genkendt
-    vil den danne en ny arrayliste, som skal gemmes i Datastorage. Når dataeerne er gemt i datastorage vil de blive vist
+    vil den danne en ny Observable, som skal gemmes i Datastorage. Fra datastorage vil listen blive 'kaldt' til tableview,
+    og efterfølgende blive vist.
      */
-
     public static medicineCardModel getMedicineCard(String id) {
         try {
             String myDriver = "com.mysql.cj.jdbc.Driver";
             String myUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
             Class.forName(myDriver);
-            //String test = "select From FMKdatabase Where CPR = " + id;
             Connection conn = DriverManager.getConnection(myUrl);
             PreparedStatement st = conn.prepareStatement("select * from FMKdatabase Where CPR = " + id); //
             ResultSet rs = st.executeQuery();
