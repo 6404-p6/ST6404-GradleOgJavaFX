@@ -1,5 +1,6 @@
 package ST6404;
 
+import java.awt.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -14,21 +15,33 @@ public class interactionSummarizerModel {
     private List interactionList;
 
 
-    public interactionSummarizerModel(){
+    public interactionSummarizerModel() {
     }
 
     //Metoder
-    public int getNumberOfErrors() { return numberOfErrors; }
+    public int getNumberOfErrors() {
+        return numberOfErrors;
+    }
 
-    public void setNumberOfErrors(int numberOfErrors) { this.numberOfErrors = numberOfErrors;  }
+    public void setNumberOfErrors(int numberOfErrors) {
+        this.numberOfErrors = numberOfErrors;
+    }
 
-    public int getHighestSeverity() { return highestSeverity; }
+    public int getHighestSeverity() {
+        return highestSeverity;
+    }
 
-    public void setHighestSeverity(int highestSeverity) { this.highestSeverity = highestSeverity; }
+    public void setHighestSeverity(int highestSeverity) {
+        this.highestSeverity = highestSeverity;
+    }
 
-    public List getInteractionList() { return interactionList; }
+    public List getInteractionList() {
+        return interactionList;
+    }
 
-    public void setInteractionList(List interactionList) { this.interactionList = interactionList; }
+    public void setInteractionList(List interactionList) {
+        this.interactionList = interactionList;
+    }
 
 
     //Metoden udtrækker antallet af interaktioner fra listen interactionList.
@@ -39,12 +52,12 @@ public class interactionSummarizerModel {
 
     //Metoden udregner den samlede severity for alle interaktioner på interactionList, som medikamentet under ordination
     //indgår i. Der er lavet kode, så der kan returneres højeste severity i stedet
-     public int calculateHighestSeverity (drugModel new1, ArrayList interactionList){
+    public int calculateHighestSeverity(drugModel new1, ArrayList interactionList) {
         int highestSeverity = 0;
-        for (int i = 0; i < interactionList.size(); i++){
+        for (int i = 0; i < interactionList.size(); i++) {
             medicineInteractionModel test = (medicineInteractionModel) interactionList.get(i);
-            if (test.medicamentA == new1.medicationName || test.medicamentB == new1.medicationName){
-                if( highestSeverity < test.severity){
+            if (test.medicamentA == new1.medicationName || test.medicamentB == new1.medicationName) {
+                if (highestSeverity < test.severity) {
                     highestSeverity = test.severity;
                 }
                 /*
@@ -55,5 +68,4 @@ public class interactionSummarizerModel {
         }
         return highestSeverity;
     }
-
 }

@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -60,12 +61,141 @@ public class visualizationController implements Initializable {
     @FXML public Text IDtextfieldDrug14Right;
     @FXML public Text IDtextfieldDrug15Right;
 
+    // Første række
     @FXML public Circle IDCircle0x0y;
     @FXML public Circle IDCircle1x0y;
     @FXML public Circle IDCircle2x0y;
     @FXML public Circle IDCircle3x0y;
     @FXML public Circle IDCircle4x0y;
     @FXML public Circle IDCircle5x0y;
+    @FXML public Circle IDCircle6x0y;
+    @FXML public Circle IDCircle7x0y;
+    @FXML public Circle IDCircle8x0y;
+    @FXML public Circle IDCircle9x0y;
+    @FXML public Circle IDCircle10x0y;
+    @FXML public Circle IDCircle11x0y;
+    @FXML public Circle IDCircle12x0y;
+    @FXML public Circle IDCircle13x0y;
+    @FXML public Circle IDCircle14x0y;
+    // Anden række
+    @FXML public Circle IDCircle1x1y;
+    @FXML public Circle IDCircle2x1y;
+    @FXML public Circle IDCircle3x1y;
+    @FXML public Circle IDCircle4x1y;
+    @FXML public Circle IDCircle5x1y;
+    @FXML public Circle IDCircle6x1y;
+    @FXML public Circle IDCircle7x1y;
+    @FXML public Circle IDCircle8x1y;
+    @FXML public Circle IDCircle9x1y;
+    @FXML public Circle IDCircle10x1y;
+    @FXML public Circle IDCircle11x1y;
+    @FXML public Circle IDCircle12x1y;
+    @FXML public Circle IDCircle13x1y;
+    @FXML public Circle IDCircle14x1y;
+    // Tredje række
+    @FXML public Circle IDCircle2x2y;
+    @FXML public Circle IDCircle3x2y;
+    @FXML public Circle IDCircle4x2y;
+    @FXML public Circle IDCircle5x2y;
+    @FXML public Circle IDCircle6x2y;
+    @FXML public Circle IDCircle7x2y;
+    @FXML public Circle IDCircle8x2y;
+    @FXML public Circle IDCircle9x2y;
+    @FXML public Circle IDCircle10x2y;
+    @FXML public Circle IDCircle11x2y;
+    @FXML public Circle IDCircle12x2y;
+    @FXML public Circle IDCircle13x2y;
+    @FXML public Circle IDCircle14x2y;
+    // Fjerde række
+    @FXML public Circle IDCircle3x3y;
+    @FXML public Circle IDCircle4x3y;
+    @FXML public Circle IDCircle5x3y;
+    @FXML public Circle IDCircle6x3y;
+    @FXML public Circle IDCircle7x3y;
+    @FXML public Circle IDCircle8x3y;
+    @FXML public Circle IDCircle9x3y;
+    @FXML public Circle IDCircle10x3y;
+    @FXML public Circle IDCircle11x3y;
+    @FXML public Circle IDCircle12x3y;
+    @FXML public Circle IDCircle13x3y;
+    @FXML public Circle IDCircle14x3y;
+    // Femte række
+    @FXML public Circle IDCircle4x4y;
+    @FXML public Circle IDCircle5x4y;
+    @FXML public Circle IDCircle6x4y;
+    @FXML public Circle IDCircle7x4y;
+    @FXML public Circle IDCircle8x4y;
+    @FXML public Circle IDCircle9x4y;
+    @FXML public Circle IDCircle10x4y;
+    @FXML public Circle IDCircle11x4y;
+    @FXML public Circle IDCircle12x4y;
+    @FXML public Circle IDCircle13x4y;
+    @FXML public Circle IDCircle14x4y;
+    // Sjette række
+    @FXML public Circle IDCircle5x5y;
+    @FXML public Circle IDCircle6x5y;
+    @FXML public Circle IDCircle7x5y;
+    @FXML public Circle IDCircle8x5y;
+    @FXML public Circle IDCircle9x5y;
+    @FXML public Circle IDCircle10x5y;
+    @FXML public Circle IDCircle11x5y;
+    @FXML public Circle IDCircle12x5y;
+    @FXML public Circle IDCircle13x5y;
+    @FXML public Circle IDCircle14x5y;
+    // Syvende række
+    @FXML public Circle IDCircle6x6y;
+    @FXML public Circle IDCircle7x6y;
+    @FXML public Circle IDCircle8x6y;
+    @FXML public Circle IDCircle9x6y;
+    @FXML public Circle IDCircle10x6y;
+    @FXML public Circle IDCircle11x6y;
+    @FXML public Circle IDCircle12x6y;
+    @FXML public Circle IDCircle13x6y;
+    @FXML public Circle IDCircle14x6y;
+    // Ottende række
+    @FXML public Circle IDCircle7x7y;
+    @FXML public Circle IDCircle8x7y;
+    @FXML public Circle IDCircle9x7y;
+    @FXML public Circle IDCircle10x7y;
+    @FXML public Circle IDCircle11x7y;
+    @FXML public Circle IDCircle12x7y;
+    @FXML public Circle IDCircle13x7y;
+    @FXML public Circle IDCircle14x7y;
+    // Niende række
+    @FXML public Circle IDCircle8x8y;
+    @FXML public Circle IDCircle9x8y;
+    @FXML public Circle IDCircle10x8y;
+    @FXML public Circle IDCircle11x8y;
+    @FXML public Circle IDCircle12x8y;
+    @FXML public Circle IDCircle13x8y;
+    @FXML public Circle IDCircle14x8y;
+    // Tiende række
+    @FXML public Circle IDCircle9x9y;
+    @FXML public Circle IDCircle10x9y;
+    @FXML public Circle IDCircle11x9y;
+    @FXML public Circle IDCircle12x9y;
+    @FXML public Circle IDCircle13x9y;
+    @FXML public Circle IDCircle14x9y;
+    // Ellevte række
+    @FXML public Circle IDCircle10x10y;
+    @FXML public Circle IDCircle11x10y;
+    @FXML public Circle IDCircle12x10y;
+    @FXML public Circle IDCircle13x10y;
+    @FXML public Circle IDCircle14x10y;
+    // Tolvte række
+    @FXML public Circle IDCircle11x11y;
+    @FXML public Circle IDCircle12x11y;
+    @FXML public Circle IDCircle13x11y;
+    @FXML public Circle IDCircle14x11y;
+    // Trediende(?) række
+    @FXML public Circle IDCircle12x12y;
+    @FXML public Circle IDCircle13x12y;
+    @FXML public Circle IDCircle14x12y;
+    // Fjortende række
+    @FXML public Circle IDCircle13x13y;
+    @FXML public Circle IDCircle14x13y;
+    // Femtende række
+    @FXML public Circle IDCircle14x14y;
 
     @FXML
     private TitledPane IDTitledPaneVisualization;
@@ -131,14 +261,14 @@ public class visualizationController implements Initializable {
         tempIDTextBottomList.add(IDtextfieldDrug15Bottom);
         tempIDTextBottomList.add(IDtextfieldDrug16Bottom);
         // Samme process, men med anderledes iterationstart og slut.
-            for(int i = 1; i < medicineCard.size()-1; i++ ){
+            for(int i = 1; i < medicineCard.size(); i++ ){
                 prescriptedDrugModel tempPrescriptedDrugModelForBottomDrugNames = (prescriptedDrugModel) medicineCard.get(i);
                 tempIDTextBottomList.get(i-1).setText(tempPrescriptedDrugModelForBottomDrugNames.getMedicationName());
         }
     }
-// In progress
+    // In progress
     public void visualizeInteractionList(List interactionList){
-        // Instanticering af hjælpelister for iterationsproces
+        // Instanticering af hjælpelister for iterationsproces, en for bunden og en for siden
         List<Text> tempIDTextRightList = new ArrayList<Text>();
         tempIDTextRightList.add(IDtextfieldDrug1Right);
         tempIDTextRightList.add(IDtextfieldDrug2Right);
@@ -173,6 +303,7 @@ public class visualizationController implements Initializable {
         tempIDTextBottomList.add(IDtextfieldDrug15Bottom);
         tempIDTextBottomList.add(IDtextfieldDrug16Bottom);
 
+        // Tilføjer første række til en liste
         List<Circle> tempListForFirstCircleRow = new ArrayList<Circle>();
         tempListForFirstCircleRow.add(IDCircle0x0y);
         tempListForFirstCircleRow.add(IDCircle1x0y);
@@ -180,7 +311,30 @@ public class visualizationController implements Initializable {
         tempListForFirstCircleRow.add(IDCircle3x0y);
         tempListForFirstCircleRow.add(IDCircle4x0y);
         tempListForFirstCircleRow.add(IDCircle5x0y);
+        tempListForFirstCircleRow.add(IDCircle6x0y);
+        tempListForFirstCircleRow.add(IDCircle7x0y);
+        tempListForFirstCircleRow.add(IDCircle8x0y);
+        tempListForFirstCircleRow.add(IDCircle9x0y);
+        tempListForFirstCircleRow.add(IDCircle10x0y);
+        tempListForFirstCircleRow.add(IDCircle11x0y);
+        tempListForFirstCircleRow.add(IDCircle12x0y);
+        tempListForFirstCircleRow.add(IDCircle13x0y);
+        tempListForFirstCircleRow.add(IDCircle14x0y);
+        tempListForFirstCircleRow.add(IDCircle1x1y);
 
+        for(int i = 0; i < tempListForFirstCircleRow.size(); i++ ) {
+            Text tempTextRight = (Text) tempIDTextRightList.get(0);
+            Text tempTextBottom = (Text) tempIDTextBottomList.get(i);
+            for(int j = 0; j < interactionList.size(); j++ ) {
+                medicineInteractionModel tempInteraction = (medicineInteractionModel) interactionList.get(j);
+                if (tempTextRight.getText().equals(tempInteraction.getMedicamentA()) && tempTextBottom.getText().equals(tempInteraction.getMedicamentB()) //|| tempTextRight.getText() == tempInteraction.getMedicamentB() && tempTextBottom.getText() == tempInteraction.getMedicamentA()
+                ) {
+                    Circle circleToChange = (Circle) tempListForFirstCircleRow.get(i);
+                    circleToChange.setFill(Color.BLUE);
+                }
+
+            }
+        }
 
     }
 
@@ -199,6 +353,8 @@ public class visualizationController implements Initializable {
         iSM.setInteractionList(db.loadInteractionsList(dataStorage.chosenPatient.medicineCard.medicineList));
         // Indsættelse af navne omkring heatmap
         inputMedicationNames(dataStorage.chosenPatient.medicineCard.medicineList);
+        // Visning af cirkler med interagerende medikament navne
+        visualizeInteractionList(iSM.getInteractionList());
     }
 
 }
