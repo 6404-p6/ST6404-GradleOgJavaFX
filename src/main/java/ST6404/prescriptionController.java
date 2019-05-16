@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
@@ -33,7 +34,7 @@ public class prescriptionController implements Initializable {
     @FXML private TextField IDTextfieldStartdato;
     @FXML private TextField IDTextfieldSlutdato;
     @FXML private Text interactionNumber;
-    @FXML private Circle interactionCircle;
+    @FXML private static Circle interactionCircle;
 
 
 
@@ -48,21 +49,26 @@ public class prescriptionController implements Initializable {
         //Sætter antallet af interaktioner ind i cirklen ved siden af "Vis interaktioner"
         interactionNumber.setText(iSM.calculateNumberOfErrors());
         //Bestemmer farven af cirklen omkring antallet af interaktioner
+        interactionCircle.setFill(prescriptionController.decideColorOfCircle());
 
 
 
         dataStorage.chosenPatient.medicineCard.medicineList.remove(dataStorage.chosenPatient.medicineCard.medicineList.size()-1);
 
     }
-/*
-    public void decideColorOfCircle (int highestSeverity) {
-        if (highestSeverity == 2) {
+
+    public static void decideColorOfCircle (int highestSeverity) { //
+        int High = 2;
+        int medium = 1;
+        if (highestSeverity == High) {
             interactionCircle.setFill(Color.RED);
-        }
-        if (highestSeverity == 1) {
+        } else if (highestSeverity == medium) {
             interactionCircle.setFill(Color.YELLOW);
+        } else {
+            interactionCircle.setFill(Color.WHITE);
         }
     }
+
         /*
 1) Indsætter nyt medikament på den lokale medikamentlisten
 2) Run iSM.loadInteractionList
