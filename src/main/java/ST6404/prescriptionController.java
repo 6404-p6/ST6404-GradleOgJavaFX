@@ -10,15 +10,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.List;
+
+import static java.awt.Color.*;
 
 public class prescriptionController implements Initializable {
 
@@ -46,8 +48,20 @@ public class prescriptionController implements Initializable {
         //Sætter antallet af interaktioner ind i cirklen ved siden af "Vis interaktioner"
         interactionNumber.setText(iSM.calculateNumberOfErrors());
         //Bestemmer farven af cirklen omkring antallet af interaktioner
-        interactionCircle.setFill(Color.RED);
 
+
+
+        dataStorage.chosenPatient.medicineCard.medicineList.remove(dataStorage.chosenPatient.medicineCard.medicineList.size()-1);
+
+    }
+/*
+    public void decideColorOfCircle (int highestSeverity) {
+        if (highestSeverity == 2) {
+            interactionCircle.setFill(Color.RED);
+        }
+        if (highestSeverity == 1) {
+            interactionCircle.setFill(Color.YELLOW);
+        }
     }
         /*
 1) Indsætter nyt medikament på den lokale medikamentlisten
