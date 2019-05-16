@@ -251,7 +251,7 @@ public class databaseConnectorController {
     }*/
 
     /*
-    MedicineCardModel loader alle medikamenter, som er sat til en patient med tilhoerende CPR nr. Når patienten er genkendt
+    MedicineCardModel(MGS+TB) loader alle medikamenter, som er sat til en patient med tilhoerende CPR nr. Når patienten er genkendt
     vil den danne en ny Observable, som skal gemmes i Datastorage. Fra datastorage vil listen blive 'kaldt' til tableview,
     og efterfølgende blive vist.
      */
