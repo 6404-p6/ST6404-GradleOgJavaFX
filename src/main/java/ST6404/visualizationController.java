@@ -106,7 +106,7 @@ public class visualizationController implements Initializable {
             tempIDTextRightList.get(i).setText(tempPrescriptedDrugModelForRightDrugNames.getMedicationName());
         }
         // Samme process
-            List<Text> tempIDTextBottomList = new ArrayList<Text>();
+        List<Text> tempIDTextBottomList = new ArrayList<Text>();
         tempIDTextBottomList.add(IDtextfieldDrug2Bottom);
         tempIDTextBottomList.add(IDtextfieldDrug3Bottom);
         tempIDTextBottomList.add(IDtextfieldDrug4Bottom);
@@ -123,12 +123,20 @@ public class visualizationController implements Initializable {
         tempIDTextBottomList.add(IDtextfieldDrug15Bottom);
         tempIDTextBottomList.add(IDtextfieldDrug16Bottom);
         // Samme process, men med anderledes iterationstart og slut.
-            for(int i = 1; i < medicineCard.size(); i++ ){
+            for(int i = 1; i < medicineCard.size()-1; i++ ){
                 prescriptedDrugModel tempPrescriptedDrugModelForBottomDrugNames = (prescriptedDrugModel) medicineCard.get(i);
-                tempIDTextBottomList.get(i).setText(tempPrescriptedDrugModelForBottomDrugNames.getMedicationName());
+                tempIDTextBottomList.get(i-1).setText(tempPrescriptedDrugModelForBottomDrugNames.getMedicationName());
         }
     }
-
+// In progress
+    /*
+    public void visualizeInteractionList(List interactionList){
+        // Instanticering af hjælpelister for iterationsproces
+        List<Text> tempListForRightText = new ArrayList<Text>();
+        List<Text> tempListForBottomText = new ArrayList<Text>();
+        List<Circle> tempListForFirstCircleRow = new ArrayList<Circle>();
+    }
+*/
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
