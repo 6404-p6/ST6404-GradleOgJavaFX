@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.text.*;
@@ -58,6 +59,13 @@ public class visualizationController implements Initializable {
     @FXML public Text IDtextfieldDrug13Right;
     @FXML public Text IDtextfieldDrug14Right;
     @FXML public Text IDtextfieldDrug15Right;
+
+    @FXML public Circle IDCircle0x0y;
+    @FXML public Circle IDCircle1x0y;
+    @FXML public Circle IDCircle2x0y;
+    @FXML public Circle IDCircle3x0y;
+    @FXML public Circle IDCircle4x0y;
+    @FXML public Circle IDCircle5x0y;
 
     @FXML
     private TitledPane IDTitledPaneVisualization;
@@ -129,14 +137,53 @@ public class visualizationController implements Initializable {
         }
     }
 // In progress
-    /*
     public void visualizeInteractionList(List interactionList){
         // Instanticering af hjælpelister for iterationsproces
-        List<Text> tempListForRightText = new ArrayList<Text>();
-        List<Text> tempListForBottomText = new ArrayList<Text>();
+        List<Text> tempIDTextRightList = new ArrayList<Text>();
+        tempIDTextRightList.add(IDtextfieldDrug1Right);
+        tempIDTextRightList.add(IDtextfieldDrug2Right);
+        tempIDTextRightList.add(IDtextfieldDrug3Right);
+        tempIDTextRightList.add(IDtextfieldDrug4Right);
+        tempIDTextRightList.add(IDtextfieldDrug5Right);
+        tempIDTextRightList.add(IDtextfieldDrug6Right);
+        tempIDTextRightList.add(IDtextfieldDrug7Right);
+        tempIDTextRightList.add(IDtextfieldDrug8Right);
+        tempIDTextRightList.add(IDtextfieldDrug9Right);
+        tempIDTextRightList.add(IDtextfieldDrug10Right);
+        tempIDTextRightList.add(IDtextfieldDrug11Right);
+        tempIDTextRightList.add(IDtextfieldDrug12Right);
+        tempIDTextRightList.add(IDtextfieldDrug13Right);
+        tempIDTextRightList.add(IDtextfieldDrug14Right);
+        tempIDTextRightList.add(IDtextfieldDrug15Right);
+
+        List<Text> tempIDTextBottomList = new ArrayList<Text>();
+        tempIDTextBottomList.add(IDtextfieldDrug2Bottom);
+        tempIDTextBottomList.add(IDtextfieldDrug3Bottom);
+        tempIDTextBottomList.add(IDtextfieldDrug4Bottom);
+        tempIDTextBottomList.add(IDtextfieldDrug5Bottom);
+        tempIDTextBottomList.add(IDtextfieldDrug6Bottom);
+        tempIDTextBottomList.add(IDtextfieldDrug7Bottom);
+        tempIDTextBottomList.add(IDtextfieldDrug8Bottom);
+        tempIDTextBottomList.add(IDtextfieldDrug9Bottom);
+        tempIDTextBottomList.add(IDtextfieldDrug10Bottom);
+        tempIDTextBottomList.add(IDtextfieldDrug11Bottom);
+        tempIDTextBottomList.add(IDtextfieldDrug12Bottom);
+        tempIDTextBottomList.add(IDtextfieldDrug13Bottom);
+        tempIDTextBottomList.add(IDtextfieldDrug14Bottom);
+        tempIDTextBottomList.add(IDtextfieldDrug15Bottom);
+        tempIDTextBottomList.add(IDtextfieldDrug16Bottom);
+
         List<Circle> tempListForFirstCircleRow = new ArrayList<Circle>();
+        tempListForFirstCircleRow.add(IDCircle0x0y);
+        tempListForFirstCircleRow.add(IDCircle1x0y);
+        tempListForFirstCircleRow.add(IDCircle2x0y);
+        tempListForFirstCircleRow.add(IDCircle3x0y);
+        tempListForFirstCircleRow.add(IDCircle4x0y);
+        tempListForFirstCircleRow.add(IDCircle5x0y);
+
+
     }
-*/
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
