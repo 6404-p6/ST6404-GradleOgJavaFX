@@ -229,8 +229,6 @@ public class databaseConnectorController {
         }
     }
 
-
-
     /*public static void FMKDatabaseAddRow (String a, String b, String c, String d, String e, String f, String g) {
         Statement st;           // Deklarer et statement til st.
         st = null;              // Fortæller, at ST = null ->
