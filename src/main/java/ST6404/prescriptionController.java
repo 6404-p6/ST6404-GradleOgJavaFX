@@ -52,18 +52,14 @@ public class prescriptionController implements Initializable {
             // TD: Jeg udkommenterede den, fordi den ikke virker og forstyrrer RUN.
         //interactionCircle.setFill(prescriptionController.decideColorOfCircle());
 
-
-
         dataStorage.chosenPatient.medicineCard.medicineList.remove(dataStorage.chosenPatient.medicineCard.medicineList.size()-1);
 
     }
 
     public static void decideColorOfCircle (int highestSeverity) { //
-        int High = 2;
-        int medium = 1;
-        if (highestSeverity == High) {
+        if (highestSeverity == 2) {
             interactionCircle.setFill(Color.RED);
-        } else if (highestSeverity == medium) {
+        } else if (highestSeverity == 1) {
             interactionCircle.setFill(Color.YELLOW);
         } else {
             interactionCircle.setFill(Color.WHITE);
