@@ -18,8 +18,8 @@
                   <TextField disable="true" layoutX="535.0" layoutY="153.0" prefHeight="26.0" prefWidth="65.0" />
                   <TextField disable="true" layoutX="535.0" layoutY="257.0" prefHeight="26.0" prefWidth="65.0" />
                   <TextField disable="true" layoutX="535.0" layoutY="205.0" prefHeight="26.0" prefWidth="65.0" />
-                  <Circle fx:id="interactionCircle" fill="WHITE" layoutX="768.0" layoutY="520.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Text fx:id="interactionNumber" layoutX="754.0" layoutY="525.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="19.0" />
+               <Circle fx:id="interactionCircle1" fill="WHITE" layoutX="768.0" layoutY="520.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+               <Text fx:id="interactionNumber" layoutX="754.0" layoutY="525.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="19.0" />
                   <Text layoutX="551.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enhed" />
                   <Text layoutX="553.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Navn" />
                   <Text layoutX="540.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ordination">

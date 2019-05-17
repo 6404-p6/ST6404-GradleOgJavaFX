@@ -34,46 +34,30 @@ public class prescriptionController implements Initializable {
     @FXML private TextField IDTextfieldStartdato;
     @FXML private TextField IDTextfieldSlutdato;
     @FXML private Text interactionNumber;
-    @FXML private static Circle interactionCircle;
+    @FXML private Circle interactionCircle;
 
+    public Color decideColourOfCircle1 (int highestSeverity){
+        if(highestSeverity == 1){
+            return Color.YELLOW;
+        }
+        else return Color.RED;
+    }
 
-
-    public void checkInteraction(ActionEvent event){
+    public void checkInteraction(ActionEvent event) {
         String NavnTextFieldInput = IDTextfieldNavn.getText();
-        prescriptedDrugModel tempPrescriptedDrugModel = new prescriptedDrugModel(NavnTextFieldInput, "", "",0,"","","","");
+        prescriptedDrugModel tempPrescriptedDrugModel = new prescriptedDrugModel(NavnTextFieldInput, "", "", 0, "", "", "", "");
         dataStorage.chosenPatient.medicineCard.medicineList.add(tempPrescriptedDrugModel);
-
         databaseConnectorController db = new databaseConnectorController();
         interactionSummarizerModel iSM = new interactionSummarizerModel();
         iSM.setInteractionList(db.loadInteractionsList(dataStorage.chosenPatient.medicineCard.medicineList));
         //Sætter antallet af interaktioner ind i cirklen ved siden af "Vis interaktioner"
         interactionNumber.setText(iSM.calculateNumberOfErrors());
         //Bestemmer farven af cirklen omkring antallet af interaktioner
-            // TD: Jeg udkommenterede den, fordi den ikke virker og forstyrrer RUN.
-        //interactionCircle.setFill(prescriptionController.decideColorOfCircle());
-
-        dataStorage.chosenPatient.medicineCard.medicineList.remove(dataStorage.chosenPatient.medicineCard.medicineList.size()-1);
-
+        interactionCircle.setFill(decideColourOfCircle1(iSM.getHighestSeverity()));
+        //Sletter medikamentet fra listen igen
+        dataStorage.chosenPatient.medicineCard.medicineList.remove(dataStorage.chosenPatient.medicineCard.medicineList.size() - 1);
     }
 
-    public static void decideColorOfCircle (int highestSeverity) { //
-        if (highestSeverity == 2) {
-            interactionCircle.setFill(Color.RED);
-        } else if (highestSeverity == 1) {
-            interactionCircle.setFill(Color.YELLOW);
-        } else {
-            interactionCircle.setFill(Color.WHITE);
-        }
-    }
-
-        /*
-1) Indsætter nyt medikament på den lokale medikamentlisten
-2) Run iSM.loadInteractionList
-3) Circletext.setText(iSM.interactionlist.size());
-3.5) Snak med Cecilie om highestSeverity
-4) Fjern fra den lokale medicientliste
-}
-     */
     public void setTextInCircle (String numberOfErrorsString){
         interactionNumber.setText(numberOfErrorsString);
     }
@@ -129,10 +113,6 @@ public class prescriptionController implements Initializable {
             System.out.println("Something went wrong..." + e.getMessage());
         }
     }
-
-
-
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

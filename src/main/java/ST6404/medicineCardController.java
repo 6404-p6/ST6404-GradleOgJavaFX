@@ -88,7 +88,7 @@ public class medicineCardController implements Initializable {
             return Color.YELLOW;
         }
         else return Color.RED;
-    };
+    }
 
     // Se forklaring i patientSelector.changeSceneToMedicineListView
     @FXML
