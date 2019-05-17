@@ -36,10 +36,23 @@ import javax.swing.JOptionPane;
 
 public class medicineCardController implements Initializable {
 
+    @FXML private TextField IDTextfieldMedikament;
+
     private List availableMedicineList;
 
-    private void deleteDrugButton(java.awt.event.ActionEvent evt) {
+    public void deleteDrugButton() {
         try {
+            String MedikamentTextFieldInput = IDTextfieldMedikament.getText();
+            try {
+                databaseConnectorController db = new databaseConnectorController();
+                db.deleteDrugRow(MedikamentTextFieldInput);
+                System.out.println("Vi når til del 2");
+            }
+
+            catch (Exception e) {
+                System.out.println("Something went wrong..." + e.getMessage());
+            }
+
             Class.forName("com.mysql.jdbc.Driver");
             // establish connection
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Studentinformation", "root", "");
@@ -48,7 +61,6 @@ public class medicineCardController implements Initializable {
             JOptionPane.showMessageDialog(null, "Drug deleted...");
             statement.close();
             con.close();
-            databaseConnectorController.deleteDrugRow(); //Calling Referesh() method
         } catch (SQLException | ClassNotFoundException e) {
             JOptionPane.showMessageDialog(null, e);
         }
