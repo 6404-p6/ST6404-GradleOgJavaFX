@@ -34,9 +34,14 @@ public class prescriptionController implements Initializable {
     @FXML private TextField IDTextfieldStartdato;
     @FXML private TextField IDTextfieldSlutdato;
     @FXML private Text interactionNumber;
-    @FXML private static Circle interactionCircle1;
+    @FXML private Circle interactionCircle;
 
-
+    public Color decideColourOfCircle1 (int highestSeverity){
+        if(highestSeverity == 1){
+            return Color.YELLOW;
+        }
+        else return Color.RED;
+    }
 
     public void checkInteraction(ActionEvent event) {
         String NavnTextFieldInput = IDTextfieldNavn.getText();
@@ -48,7 +53,7 @@ public class prescriptionController implements Initializable {
         //Sætter antallet af interaktioner ind i cirklen ved siden af "Vis interaktioner"
         interactionNumber.setText(iSM.calculateNumberOfErrors());
         //Bestemmer farven af cirklen omkring antallet af interaktioner
-        interactionCircle1.setFill(decideColourOfCircle1(iSM.getHighestSeverity()));
+        interactionCircle.setFill(decideColourOfCircle1(iSM.getHighestSeverity()));
         //Sletter medikamentet fra listen igen
         dataStorage.chosenPatient.medicineCard.medicineList.remove(dataStorage.chosenPatient.medicineCard.medicineList.size() - 1);
     }
@@ -57,12 +62,6 @@ public class prescriptionController implements Initializable {
         interactionNumber.setText(numberOfErrorsString);
     }
 
-    public Color decideColourOfCircle1 (int highestSeverity){
-        if(highestSeverity == 1){
-            return Color.YELLOW;
-        }
-        else return Color.RED;
-    }
 
     // Se forklaring i patientSelector.changeSceneToMedicineListView
     @FXML
