@@ -49,7 +49,8 @@ public class prescriptionController implements Initializable {
         //Sætter antallet af interaktioner ind i cirklen ved siden af "Vis interaktioner"
         interactionNumber.setText(iSM.calculateNumberOfErrors());
         //Bestemmer farven af cirklen omkring antallet af interaktioner
-        interactionCircle.setFill(decideColorOfCircle());
+            // TD: Jeg udkommenterede den, fordi den ikke virker og forstyrrer RUN.
+        //interactionCircle.setFill(prescriptionController.decideColorOfCircle());
 
         dataStorage.chosenPatient.medicineCard.medicineList.remove(dataStorage.chosenPatient.medicineCard.medicineList.size()-1);
 
