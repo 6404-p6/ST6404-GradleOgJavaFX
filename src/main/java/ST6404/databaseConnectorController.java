@@ -166,20 +166,22 @@ public class databaseConnectorController {
     }*/
 
     // Nedenstående virker. Den sletter medikamenter fra patientens FMK (Vi kan dog ikke bestemme hvad den sletter. Den sletter altid det samme)
-    public static void deleteDrugRow() {
-        Connection con = null;
-        PreparedStatement ps = null;
-        String query = "DELETE FROM FMKdatabase WHERE CPR = '3003965678' AND navn = 'reserpine'";
+    public static void deleteDrugRow(String a) throws ClassNotFoundException, SQLException {
+        Connection conn;
+        String CPRnummer = dataStorage.chosenPatient.getCPRNumber();
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        conn = DriverManager.getConnection("jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC",
+                "hst_2019_19gr6404", "agipheethohwiquiteam");
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC",
-                    "hst_2019_19gr6404", "agipheethohwiquiteam");
-            ps = con.prepareStatement(query);
-            ps.executeUpdate();
-        } catch (ClassNotFoundException | SQLException e) {
+            String SQL1 = ("DELETE FROM FMKdatabase WHERE CPR =" + CPRnummer + " " + "AND navn = " + "'" + a + "'" );
+            Statement st = conn.createStatement();
+            st.executeUpdate(SQL1);
+
+        } catch (SQLException e) {
             System.out.println("Error: " + e.getMessage());
         }
+
     }
 /*
     public static void addRow () {
