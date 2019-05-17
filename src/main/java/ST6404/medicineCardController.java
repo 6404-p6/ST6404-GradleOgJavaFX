@@ -83,6 +83,12 @@ public class medicineCardController implements Initializable {
     public void setTextInCircle (String numberOfErrorsString){
         interactionNumber.setText(numberOfErrorsString);
     }
+    public Color decideColourOfCircle (int highestSeverity){
+        if(highestSeverity == 1){
+            return Color.YELLOW;
+        }
+        else return Color.RED;
+    };
 
     // Se forklaring i patientSelector.changeSceneToMedicineListView
     @FXML
@@ -139,7 +145,7 @@ public class medicineCardController implements Initializable {
         //Sætter antallet af interaktioner ind i cirklen ved siden af "Vis interaktioner"
         interactionNumber.setText(iSM.calculateNumberOfErrors());
         //Bestemmer farven af cirklen omkring antallet af interaktioner
-        interactionCircle.setFill(Color.RED);
+        interactionCircle.setFill(decideColourOfCircle(iSM.getHighestSeverity()));
 
         // Topbjælken får indsat navn og CPR fra metoden getPatientIdentification
         IDTitledPaneMedicineList.setText(dataStorage.chosenPatient.getPatientIdentification());

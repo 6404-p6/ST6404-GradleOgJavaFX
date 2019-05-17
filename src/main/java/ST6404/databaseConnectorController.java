@@ -197,21 +197,6 @@ public class databaseConnectorController {
             System.err.println("Got an exception! ");
             System.err.println(e.getMessage());
         }
-    }
-
-    public static void updateRow () {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC",
-                    "hst_2019_19gr6404", "agipheethohwiquiteam");
-            Statement st = conn.createStatement();
-            st.executeUpdate("UPDATE FMKdatabase SET navn = disedase, dosis = 5 WHERE CPR = 3003965678");
-
-            conn.close();
-        } catch (Exception e) {
-            System.err.println("Got an exception! ");
-            System.err.println(e.getMessage());
-        }
     }*/
 //Nedestående metode virker som den skal
     public static void FMKDatabaseAddRow (String a, String b, String c, String d, String h, String f, String g) throws ClassNotFoundException, SQLException{
