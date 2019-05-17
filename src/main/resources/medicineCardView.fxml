@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Text?>
 
-<TitledPane fx:id="IDTitledPaneMedicineList" animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" text="[010203-1234, Tove Tovesen]" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ST6404.medicineCardController">
+<TitledPane fx:id="IDTitledPaneMedicineList" animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" text="[010203-1234, Tove Tovesen]" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ST6404.medicineCardController">
     <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="287.0" prefWidth="1364.0">
             <children>
@@ -19,8 +19,8 @@
                 <Button layoutX="248.0" layoutY="3.0" mnemonicParsing="false" onAction="#changeSceneToChoosePatientView" text="Vælg ny patient" />
                 <Button layoutX="358.0" layoutY="3.0" mnemonicParsing="false" onAction="#changeSceneToPrescriptionView" text="Gå til ordination" />
                 <Button layoutX="473.0" layoutY="3.0" mnemonicParsing="false" onAction="#deleteDrugButton" text="Slet medikament" />
-            <Circle fx:id="interactionCircle" fill="WHITE" layoutX="221.0" layoutY="19.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-            <Text fx:id="interactionNumber" layoutX="212.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="19.0" />
+            <Circle fx:id="interactionCircle" fill="WHITE" layoutX="221.0" layoutY="19.0" opacity="0.9" radius="14.0" />
+            <Text fx:id="interactionNumber" layoutX="214.0" layoutY="24.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.1" wrappingWidth="19.0" />
                 <TableView fx:id="tableView" layoutX="-2.0" layoutY="34.0" prefHeight="720.0" prefWidth="1023.0">
                     <columns>
                         <TableColumn fx:id="nameColumn" prefWidth="200.0" text="Navn" />

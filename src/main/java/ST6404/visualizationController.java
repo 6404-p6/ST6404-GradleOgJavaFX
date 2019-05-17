@@ -468,6 +468,7 @@ for(int k = 0; k < dataStorage.chosenPatient.medicineCard.medicineList.size()-1;
                 ) {
                     Circle circleToChange = (Circle) tempListForFirstCircleRow.get(i+(15*k-k));
                     circleToChange.setFill(Color.BLUE);
+                    circleToChange.setAccessibleText(tempTextBottom.getText() + "+" + tempTextRight.getText());
                     break;
                 }
 
@@ -494,6 +495,9 @@ for(int k = 0; k < dataStorage.chosenPatient.medicineCard.medicineList.size()-1;
         inputMedicationNames(dataStorage.chosenPatient.medicineCard.medicineList);
         // Visning af cirkler med interagerende medikament navne
         visualizeInteractionList(iSM.getInteractionList());
+        System.out.print(IDCircle1x0y.getAccessibleText());
+        System.out.print(IDCircle5x0y.getAccessibleText());
+        System.out.print(IDCircle2x1y.getAccessibleText());
     }
 
 }
