@@ -49,20 +49,16 @@ public class prescriptionController implements Initializable {
         //Sætter antallet af interaktioner ind i cirklen ved siden af "Vis interaktioner"
         interactionNumber.setText(iSM.calculateNumberOfErrors());
         //Bestemmer farven af cirklen omkring antallet af interaktioner
-        interactionCircle.setFill(prescriptionController.decideColorOfCircle());
-
-
+        interactionCircle.setFill(decideColorOfCircle());
 
         dataStorage.chosenPatient.medicineCard.medicineList.remove(dataStorage.chosenPatient.medicineCard.medicineList.size()-1);
 
     }
 
     public static void decideColorOfCircle (int highestSeverity) { //
-        int High = 2;
-        int medium = 1;
-        if (highestSeverity == High) {
+        if (highestSeverity == 2) {
             interactionCircle.setFill(Color.RED);
-        } else if (highestSeverity == medium) {
+        } else if (highestSeverity == 1) {
             interactionCircle.setFill(Color.YELLOW);
         } else {
             interactionCircle.setFill(Color.WHITE);
