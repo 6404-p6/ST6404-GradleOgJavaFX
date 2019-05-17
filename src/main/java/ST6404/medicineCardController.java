@@ -37,34 +37,34 @@ import javax.swing.JOptionPane;
 public class medicineCardController implements Initializable {
 
     @FXML private TextField IDTextfieldMedikament;
-    @FXML public Button deleteDrugButton;
 
     private List availableMedicineList;
 
-    /*public void deleteDrugButton(ActionEvent event) {
+    public void deleteDrugButton() {
         try {
             String MedikamentTextFieldInput = IDTextfieldMedikament.getText();
             try {
                 databaseConnectorController db = new databaseConnectorController();
                 db.deleteDrugRow(MedikamentTextFieldInput);
                 System.out.println("Vi når til del 2");
-            } catch (Exception e) {
+            }
+
+            catch (Exception e) {
                 System.out.println("Something went wrong..." + e.getMessage());
             }
 
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             // establish connection
-            Connection con = DriverManager.getConnection("jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC", "hst_2019_19gr6404", "agipheethohwiquiteam");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Studentinformation", "root", "");
             Statement statement = con.createStatement();
             statement.executeUpdate("DELETE FROM FMKdatabase WHERE roll=" + nameColumn.getText() + "");
             JOptionPane.showMessageDialog(null, "Drug deleted...");
             statement.close();
             con.close();
-        }  catch (SQLException | ClassNotFoundException e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
+        } catch (SQLException | ClassNotFoundException e) {
+            JOptionPane.showMessageDialog(null, e);
         }
-    }*/
+    }
 
     @FXML
     private TitledPane IDTitledPaneMedicineList;
