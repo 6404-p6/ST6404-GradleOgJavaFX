@@ -266,9 +266,9 @@ public class visualizationController implements Initializable {
                 tempIDTextBottomList.get(i-1).setText(tempPrescriptedDrugModelForBottomDrugNames.getMedicationName());
         }
     }
-    // In progress
+
     public void visualizeInteractionList(List interactionList){
-        // Instanticering af hjælpelister for iterationsproces, en for bunden og en for siden
+        // Instanticering af hjælpelister for iterationsproces, en for navnene i bunden og en for navnene i siden
         List<Text> tempIDTextRightList = new ArrayList<Text>();
         tempIDTextRightList.add(IDtextfieldDrug1Right);
         tempIDTextRightList.add(IDtextfieldDrug2Right);
@@ -303,7 +303,9 @@ public class visualizationController implements Initializable {
         tempIDTextBottomList.add(IDtextfieldDrug15Bottom);
         tempIDTextBottomList.add(IDtextfieldDrug16Bottom);
 
-        // Tilføjer cirklerne til en liste
+        /* Cirklerne tilføjes til en liste, så de kan gennemgås. Dermed add'er cirklerne i alle rækker,
+        startende med nederste række og fra højre mod venstre.
+         */
         List<Circle> tempListForFirstCircleRow = new ArrayList<Circle>();
         // Første række
         tempListForFirstCircleRow.add(IDCircle0x0y);
@@ -441,34 +443,52 @@ public class visualizationController implements Initializable {
         // Femtende
         tempListForFirstCircleRow.add(IDCircle14x14y);
 /*
-Et for-loop gennemgår navnene i højre side og starter fra 0, den nederste, og bevæger sig opad, inden den når
-størrelsen af medicineList, så den ikke går længere end nødvendigt.
+Et for-loop gennemgår navnene i højre side og starter emd det nederste medikamentnavn, og bevæger sig opad, inden den når
+størrelsen af medicineList minus 1, så den ikke går længere end nødvendigt. Højre side går indeholder kun navne fra
+første medikament til det andet sidste. Dette er for ikke at skabe redundans i et heatmap system.
  */
 
 for(int k = 0; k < dataStorage.chosenPatient.medicineCard.medicineList.size()-1; k++){
     Text tempTextRight = (Text) tempIDTextRightList.get(k);
 
     /*
-    Et for-loop gennemgår navnene i bunden, bevægende fra højre mod venstre og går til medicineList size, så
-    den ikke går længere end nødvendigt. Der er trukket 1 fra, fordi at et sådan heatmap's navne i bunden vil starte
-    fra index plads 1 og ikke index plads 0. Der er trukket k fra, for at kompensere for indhakket efter hver
-    bevægelse opad.
+    Et for-loop gennemgår navnene i bunden og starter med det mest til højre. Den starter fra medikament 2 på medicinlisten
+    for ikke at skabe redundans i et heatmap system. Dermed indeholder denne række det sidste medikament, som navnene til
+    højre mangler.
      */
-        for(int i = 0; i < dataStorage.chosenPatient.medicineCard.medicineList.size()-1-k; i++ ) {
-            Text tempTextBottom = (Text) tempIDTextBottomList.get(i+k);
-
+        for(int i = 0; i < dataStorage.chosenPatient.medicineCard.medicineList.size()-1; i++ ) {
+            Text tempTextBottom = (Text) tempIDTextBottomList.get(i);
             /*
-            Et for-loop gennemgår interactionslisten og sammenligner med navnene i siden og bunden for om de
-            stemmer overens med dem i interaktionslistens medikamentA og medikamentB for alle indeks. Hvis de stemmer
-            overens, ændres den pågældende cirkel.
-             */
+            Et for-loop undersøger navnene der er valgt i de to forrige for-loops og sammenligner den med både medikamentA
+            og medikamentB i en midlertidig medicineInteractionModel. Den midlertidige medicineInteractionModel starter
+            som det første i interactionList. Hvis navnene stemmer overens, synliggøres cirklen på det pågældende koordinat.
+            Hvis de ikke stemmer overens, undersøges næste medicineInteractionModel i interactionList.
+                         */
             for(int j = 0; j < interactionList.size(); j++ ) {
                 medicineInteractionModel tempInteraction = (medicineInteractionModel) interactionList.get(j);
-                if (tempTextRight.getText().equals(tempInteraction.getMedicamentA()) && tempTextBottom.getText().equals(tempInteraction.getMedicamentB()) //|| tempTextRight.getText() == tempInteraction.getMedicamentB() && tempTextBottom.getText() == tempInteraction.getMedicamentA()
-                ) {
-                    Circle circleToChange = (Circle) tempListForFirstCircleRow.get(i+(15*k-k));
-                    circleToChange.setFill(Color.BLUE);
-                    circleToChange.setAccessibleText(tempTextBottom.getText() + "+" + tempTextRight.getText());
+                if (tempTextRight.getText().equals(tempInteraction.getMedicamentA()) && tempTextBottom.getText().equals(tempInteraction.getMedicamentB()) || tempTextRight.getText().equals(tempInteraction.getMedicamentB()) && tempTextBottom.getText().equals(tempInteraction.getMedicamentA()))
+                {
+                    /* For at undgå forkerte cirkler hvis i første omgang medikamentA og medikamentB passer med bunden
+                    og højre tekst, og i anden omgang passer i omvendt rækkefølge senere (pga. || funktionen da det er irrelevant
+                    om det er medikamentA eller B der er først), så slettes interactionModel'en fra listen. Dette gør
+                    samtidig koden hurtigere, da den skal look igennem et færre for hver gang den finder en.*/
+                    interactionList.remove(j);
+                    /* Pga. den matematiske rækkefølge i hvordan cirklerne er indsat i listen for cirkler, og den
+                    strukturelle forskel fra et heatmap og et kvadrat, så skal der kompenseres for at der på hver række
+                    kommer til at være færre cirkler. F.eks. på række 0 er der 15 cirkler, men i række 1 er der 14.
+                    pascal-faktoren jeg har tilføjet adderer alle forrige mindskelser af cirkler. Dvs. Hvis man er i
+                    række 4, så tilføjes 1+2+3+4 til koordinat-beregningen af hvilken cirkel skal ændres. */
+                    int pascalCompensation = ((k)*((k)+1))/(2);
+                    Circle circleToChange = (Circle) tempListForFirstCircleRow.get(i+(15*k-pascalCompensation));
+                    circleToChange.setOpacity(0.5);
+                    circleToChange.setRadius(3.5*tempInteraction.getDocumentationLevel());
+                    if (tempInteraction.getSeverity() == 2)
+                    {   circleToChange.setFill(Color.RED);
+                    } else {circleToChange.setFill(Color.ORANGERED);}
+
+                    /* Her tilføjes en tekst af hvilke medikamenter der interagerer i denne cirkel, så det senere i
+                    et onClick ActionEvent. */
+                    circleToChange.setAccessibleText(tempTextBottom.getText() + " + " + tempTextRight.getText());
                     break;
                 }
 
@@ -495,9 +515,6 @@ for(int k = 0; k < dataStorage.chosenPatient.medicineCard.medicineList.size()-1;
         inputMedicationNames(dataStorage.chosenPatient.medicineCard.medicineList);
         // Visning af cirkler med interagerende medikament navne
         visualizeInteractionList(iSM.getInteractionList());
-        System.out.print(IDCircle1x0y.getAccessibleText());
-        System.out.print(IDCircle5x0y.getAccessibleText());
-        System.out.print(IDCircle2x1y.getAccessibleText());
     }
 
 }
