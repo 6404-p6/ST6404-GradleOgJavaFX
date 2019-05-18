@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<TitledPane fx:id="IDTitledPaneVisualization" animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" text="[010203-1234, Tove Tovesen]" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ST6404.visualizationController">
+<TitledPane fx:id="IDTitledPaneVisualization" animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" text="[010203-1234, Tove Tovesen]" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ST6404.visualizationController">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
          <children>
@@ -22,22 +22,21 @@
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="721.0" prefWidth="719.0">
                      <children>
-                        <TextField fx:id="IDPotentiallyProblematicCounter" layoutX="318.0" layoutY="38.0" prefHeight="30.0" prefWidth="24.0" />
-                        <Text layoutX="105.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kritiske interaktioner:" wrappingWidth="209.7314453125">
+                        <Text layoutX="104.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kritiske interaktioner:" wrappingWidth="209.7314453125">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <Text layoutX="105.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Potentielt problematiske interaktioner:" wrappingWidth="209.7314453125">
+                        <Text layoutX="104.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Potentielt problematiske interaktioner:" wrappingWidth="338.7314453125">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="IDCriticalCounter" layoutX="318.0" layoutY="1.0" prefHeight="25.0" prefWidth="30.0" />
                         <GridPane alignment="CENTER" layoutX="150.0" layoutY="100.0" prefHeight="500.0" prefWidth="500.0">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -126,9 +125,9 @@
                               <Circle fx:id="IDCircle10x1y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle11x0y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle11x1y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle4x2y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle5x2y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle6x2y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle4x2y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle5x2y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle6x2y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle7x2y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle8x2y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle9x2y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER" />
@@ -136,16 +135,16 @@
                               <Circle fx:id="IDCircle12x0y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle10x2y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle11x2y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle3x3y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle4x3y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle5x3y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle3x3y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="12" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle4x3y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle5x3y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle12x2y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle4x4y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle5x4y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle6x3y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle4x4y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle5x4y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle6x3y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle7x3y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle8x3y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle6x4y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle6x4y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle7x4y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle9x3y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle10x3y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="CENTER" />
@@ -157,39 +156,39 @@
                               <Circle fx:id="IDCircle10x4y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle11x4y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle12x4y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle5x5y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle6x5y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle5x5y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle6x5y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle7x5y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle8x5y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle9x5y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle10x5y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle11x5y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle6x6y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle6x6y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle7x6y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle7x7y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle8x6y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle12x5y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle13x3y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle1x0y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="13" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle2x0y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="12" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle3x0y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle4x0y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle5x0y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle6x0y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle1x0y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="14" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle2x0y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="13" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle3x0y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="12" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle4x0y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle5x0y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle6x0y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle7x0y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle8x0y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle9x0y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle10x0y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle1x1y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="13" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle2x1y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="12" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle3x1y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle4x1y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle5x1y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle6x1y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle1x1y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="14" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle2x1y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="13" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle3x1y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="12" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle4x1y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle5x1y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle6x1y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle7x1y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle2x2y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="12" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle3x2y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle0x0y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="14" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle2x2y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="13" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle3x2y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="12" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle0x0y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="15" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
                            </children>
                         </GridPane>
                         <Text fx:id="IDtextfieldDrug16Bottom" layoutX="60.0" layoutY="662.0" rotate="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="RIGHT" wrappingWidth="131.4444613456726" />
@@ -226,6 +225,15 @@
                               <Text fx:id="IDtextfieldDrug1Right" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="144.49999237060547" />
                            </children>
                         </VBox>
+                        <Text fx:id="IDPotentiallyProblematicCounter" layoutX="416.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="24.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Text>
+                        <Text fx:id="IDCriticalCounter" layoutX="280.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="25.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
                      </children>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="887.0" prefWidth="571.0">
@@ -254,8 +262,8 @@
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <Circle fill="WHITE" layoutX="214.0" layoutY="455.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Text layoutX="207.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0" text="99" wrappingWidth="13.46875" />
+                        <Circle fill="#ffffff00" layoutX="214.0" layoutY="455.0" radius="14.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Text layoutX="207.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="13.46875" />
                         <Button layoutX="14.0" layoutY="481.0" mnemonicParsing="false" text="Forstør alternativ" />
                         <TextField layoutX="14.0" layoutY="438.0" prefHeight="35.0" prefWidth="179.0" />
                         <Button layoutX="19.0" layoutY="373.0" mnemonicParsing="false" text="Få yderligere information" />
