@@ -170,7 +170,7 @@
                               <Circle fx:id="IDCircle8x6y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle12x5y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle13x3y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle1x0y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="13" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle1x0y" fill="RED" onMouseClicked="#showDetailedInformationAboutInteraction" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="13" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle2x0y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="12" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle3x0y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle4x0y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
@@ -181,7 +181,7 @@
                               <Circle fx:id="IDCircle9x0y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle10x0y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle1x1y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="13" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
-                              <Circle fx:id="IDCircle2x1y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="12" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
+                              <Circle fx:id="IDCircle2x1y" fill="RED" onMouseClicked="#showDetailedInformationAboutInteraction" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="12" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle3x1y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle4x1y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
                               <Circle fx:id="IDCircle5x1y" fill="RED" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
@@ -231,7 +231,7 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="887.0" prefWidth="571.0">
                      <children>
                         <Button layoutX="17.0" layoutY="643.0" mnemonicParsing="false" onAction="#changeSceneToMedicineListView" text="Tilbage" />
-                        <TextField layoutX="14.0" layoutY="37.0" prefHeight="35.0" prefWidth="504.0" />
+                        <TextField fx:id="IDTextfieldInteractingDrugs" layoutX="14.0" layoutY="37.0" prefHeight="35.0" prefWidth="504.0" />
                         <Text layoutX="28.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Medicininteraktion mellem:">
                            <font>
                               <Font size="18.0" />
@@ -242,13 +242,13 @@
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <TextArea layoutX="14.0" layoutY="114.0" prefHeight="60.0" prefWidth="506.0" wrapText="true" />
+                        <TextArea fx:id="IDTextfieldRecommendation" layoutX="14.0" layoutY="114.0" prefHeight="60.0" prefWidth="506.0" wrapText="true" />
                         <Text layoutX="28.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Beskrivelse">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <TextArea layoutX="15.0" layoutY="211.0" prefHeight="150.0" prefWidth="509.0" wrapText="true" />
+                        <TextArea fx:id="IDTextfieldDescription" layoutX="15.0" layoutY="211.0" prefHeight="150.0" prefWidth="509.0" wrapText="true" />
                         <Text layoutX="28.0" layoutY="429.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alternativt medikament af samme terapeutisk formål">
                            <font>
                               <Font size="18.0" />

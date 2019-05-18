@@ -7,8 +7,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
@@ -30,6 +32,10 @@ public class visualizationController implements Initializable {
 
     @FXML public TextField IDCriticalCounter;
     @FXML public TextField IDPotentiallyProblematicCounter;
+
+    @FXML public TextField IDTextfieldInteractingDrugs;
+    @FXML public TextArea IDTextfieldRecommendation;
+    @FXML public TextArea IDTextfieldDescription;
 
     @FXML public Text IDtextfieldDrug2Bottom;
     @FXML public Text IDtextfieldDrug3Bottom;
@@ -490,7 +496,7 @@ for(int k = 0; k < dataStorage.chosenPatient.medicineCard.medicineList.size()-1;
 
                     /* Her tilføjes en tekst af hvilke medikamenter der interagerer i denne cirkel, så det senere i
                     et onClick ActionEvent. */
-                    circleToChange.setAccessibleText(tempTextBottom.getText() + " + " + tempTextRight.getText());
+                    circleToChange.setAccessibleText(tempTextBottom.getText() + "-" + tempTextRight.getText());
                     break;
                 }
 
@@ -510,6 +516,26 @@ private void showTypesAndNumberOfErrors(List interactionList){
             } else {countPotentiallyProblematic = countPotentiallyProblematic + 1;}
             IDPotentiallyProblematicCounter.setText(Integer.toString(countPotentiallyProblematic));
             IDCriticalCounter.setText(Integer.toString(countCritical));
+        }
+    }
+
+    public void showDetailedInformationAboutInteraction(MouseEvent event) {
+        String tempAccessibleText = event.getPickResult().getIntersectedNode().getAccessibleText();
+        String[] tempInteractionArray = tempAccessibleText.split("-");
+        String firstDrug = tempInteractionArray[0];
+        String secondDrug = tempInteractionArray[1];
+
+        interactionSummarizerModel iSM = new interactionSummarizerModel();
+        databaseConnectorController db = new databaseConnectorController();
+        iSM.setInteractionList(db.loadInteractionsList(dataStorage.chosenPatient.medicineCard.medicineList));
+        for(int i = 0; i < iSM.getInteractionList().size(); i++ ) {
+            medicineInteractionModel tempInteraction = (medicineInteractionModel) (iSM.getInteractionList()).get(i);
+            if (firstDrug.equals(tempInteraction.getMedicamentA()) && secondDrug.equals(tempInteraction.getMedicamentB()) || firstDrug.equals(tempInteraction.getMedicamentB()) && secondDrug.equals(tempInteraction.getMedicamentA())) {
+                IDTextfieldInteractingDrugs.setText(tempInteraction.getMedicamentA() + " og " + tempInteraction.getMedicamentB());
+                IDTextfieldRecommendation.setText(tempInteraction.getRecommendationText());
+                IDTextfieldDescription.setText(tempInteraction.getDescriptionOfEffect());
+                break;
+            }
         }
     }
 
