@@ -28,8 +28,6 @@ import java.util.ResourceBundle;
 
 public class visualizationController implements Initializable {
 
-    @FXML public Text IDCriticalCounter;
-    @FXML public Text IDPotentiallyProblematicCounter;
 
     @FXML public Text IDtextfieldDrug2Bottom;
     @FXML public Text IDtextfieldDrug3Bottom;
@@ -500,19 +498,6 @@ for(int k = 0; k < dataStorage.chosenPatient.medicineCard.medicineList.size()-1;
 
 }
 
-private void showTypesAndNumberOfErrors(List interactionList){
-        int countPotentiallyProblematic = 0;
-        int countCritical = 0;
-        for(int i = 0; i < interactionList.size(); i++ ) {
-            medicineInteractionModel tempInteraction = (medicineInteractionModel) interactionList.get(i);
-            if (tempInteraction.getSeverity() == 2){
-                countCritical = countCritical + 1;
-            } else {countPotentiallyProblematic = countPotentiallyProblematic + 1;}
-            IDPotentiallyProblematicCounter.setText(Integer.toString(countPotentiallyProblematic));
-            IDCriticalCounter.setText(Integer.toString(countCritical));
-        }
-    }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -528,14 +513,8 @@ private void showTypesAndNumberOfErrors(List interactionList){
         iSM.setInteractionList(db.loadInteractionsList(dataStorage.chosenPatient.medicineCard.medicineList));
         // Indsættelse af navne omkring heatmap
         inputMedicationNames(dataStorage.chosenPatient.medicineCard.medicineList);
-        // Visning af cirkler med interagerende medikament navne. Metoden sletter samtidig elementerne fra interaktionslisten
-        // enkeltvis med at de bliver uddelegeret til en cirkel.
+        // Visning af cirkler med interagerende medikament navne
         visualizeInteractionList(iSM.getInteractionList());
-        // De to felter i toppen af visualisering udfyldes. Der hentes en ny interaktionslist, fordi den visualiseringsmetoen
-        // sletter elementerne fra interaktionslisten.
-        iSM.setInteractionList(db.loadInteractionsList(dataStorage.chosenPatient.medicineCard.medicineList));
-        showTypesAndNumberOfErrors(iSM.getInteractionList());
-
     }
 
 }
