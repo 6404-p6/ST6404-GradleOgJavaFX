@@ -44,9 +44,19 @@ public class prescriptionController implements Initializable {
         else return Color.TOMATO;
     }
 
+    private void deleteTemporaryDrugs(){
+        for(int i = dataStorage.chosenPatient.medicineCard.medicineList.size()-1; i > 0; i-- ){
+            prescriptedDrugModel tempDrugToDelete = (prescriptedDrugModel) dataStorage.chosenPatient.medicineCard.medicineList.get(i);
+            if (tempDrugToDelete.isExampleForVisualization()){
+                dataStorage.chosenPatient.medicineCard.medicineList.remove(i);
+            } else {break;}
+        }
+    }
+
     public void checkInteraction(ActionEvent event) {
         String NavnTextFieldInput = IDTextfieldNavn.getText();
         prescriptedDrugModel tempPrescriptedDrugModel = new prescriptedDrugModel(NavnTextFieldInput, "", "", 0, "", "", "", "");
+        tempPrescriptedDrugModel.setExampleForVisualization(true);
         dataStorage.chosenPatient.medicineCard.medicineList.add(tempPrescriptedDrugModel);
         databaseConnectorController db = new databaseConnectorController();
         interactionSummarizerModel iSM = new interactionSummarizerModel();
@@ -56,7 +66,8 @@ public class prescriptionController implements Initializable {
         //Bestemmer farven af cirklen omkring antallet af interaktioner
         interactionCircle.setFill(decideColourOfCircle1(iSM.getHighestSeverity()));
         //Sletter medikamentet fra listen igen
-        dataStorage.chosenPatient.medicineCard.medicineList.remove(dataStorage.chosenPatient.medicineCard.medicineList.size() - 1);
+        // TD: Fjernet fordi vi prøver noget andet
+        //dataStorage.chosenPatient.medicineCard.medicineList.remove(dataStorage.chosenPatient.medicineCard.medicineList.size() - 1);
     }
 
     public void setTextInCircle (String numberOfErrorsString){
@@ -81,6 +92,7 @@ public class prescriptionController implements Initializable {
     @FXML
     public void changeSceneToMedicineListView(ActionEvent event) throws IOException {
         System.out.println("Troubleshoot: Begynder metode changeSceneToMedicineListView");
+        deleteTemporaryDrugs();
         Parent medicineListView = FXMLLoader.load(Main.class.getResource("/medicineCardView.fxml"));
         Scene medicineListViewScene = new Scene(medicineListView);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();

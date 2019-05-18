@@ -12,6 +12,7 @@ public class prescriptedDrugModel extends drugModel {
     private String startDate;
     private String endDate;
     private String unit;
+    private boolean exampleForVisualization;
 
     public prescriptedDrugModel(String medicineName, String atcCode, String routeOfAdministration, int dosage, String frequency, String startDate, String endDate, String unit) {
         super(medicineName, atcCode, routeOfAdministration);
@@ -23,6 +24,16 @@ public class prescriptedDrugModel extends drugModel {
     }
 
     //Metoder:
+
+
+    public boolean isExampleForVisualization() {
+        return exampleForVisualization;
+    }
+
+    public void setExampleForVisualization(boolean exampleForVisualization) {
+        this.exampleForVisualization = exampleForVisualization;
+    }
+
     public int getDosage() {
         return dosage;
     }
