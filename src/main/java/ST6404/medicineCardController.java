@@ -25,6 +25,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.sql.*;
 import java.sql.Connection;
@@ -38,31 +39,33 @@ public class medicineCardController implements Initializable {
 
     @FXML private TextField IDTextfieldMedikament;
 
+
     private List availableMedicineList;
 
-    public void deleteDrugButton() {
-        try {
-            String MedikamentTextFieldInput = IDTextfieldMedikament.getText();
+
+    public void sletMedikament() {
+        // Vælg medikament
+        prescriptedDrugModel medikamentValgt = tableView.getSelectionModel().getSelectedItem();
+        if (medikamentValgt == null) {
+            System.out.println("Intet medikament valgt");
+            return;
+        }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Sletter medikament");
+        alert.setContentText("Er du sikker paa at du vil slette dette medikament?");
+        Optional<ButtonType> answer = alert.showAndWait();
+        if (answer.get() == ButtonType.OK) {
             try {
                 databaseConnectorController db = new databaseConnectorController();
-                db.deleteDrugRow(MedikamentTextFieldInput);
-                System.out.println("Vi når til del 2");
+                db.deleteDrugRow(medikamentValgt.medicationName);
             }
-
-            catch (Exception e) {
+            catch (Exception e){
                 System.out.println("Something went wrong..." + e.getMessage());
             }
 
-            Class.forName("com.mysql.jdbc.Driver");
-            // establish connection
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Studentinformation", "root", "");
-            Statement statement = con.createStatement();
-            statement.executeUpdate("DELETE FROM FMKdatabase WHERE roll=" + nameColumn.getText() + "");
-            JOptionPane.showMessageDialog(null, "Drug deleted...");
-            statement.close();
-            con.close();
-        } catch (SQLException | ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(null, e);
+        }
+        else {
+            System.out.println("Sletteprocess annulleret");
         }
     }
 
