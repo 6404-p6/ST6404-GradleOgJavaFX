@@ -30,6 +30,8 @@ import java.util.ResourceBundle;
 
 public class visualizationController implements Initializable {
 
+    @FXML public Text IDCriticalCounter;
+    @FXML public Text IDPotentiallyProblematicCounter;
 
     @FXML public TextField IDTextfieldInteractingDrugs;
     @FXML public TextArea IDTextfieldRecommendation;
@@ -205,6 +207,19 @@ public class visualizationController implements Initializable {
 
     @FXML
     private TitledPane IDTitledPaneVisualization;
+
+    private void showTypesAndNumberOfErrors(List interactionList){
+        int countPotentiallyProblematic = 0;
+        int countCritical = 0;
+        for(int i = 0; i < interactionList.size(); i++ ) {
+            medicineInteractionModel tempInteraction = (medicineInteractionModel) interactionList.get(i);
+            if (tempInteraction.getSeverity() == 2){
+                countCritical = countCritical + 1;
+            } else {countPotentiallyProblematic = countPotentiallyProblematic + 1;}
+            IDPotentiallyProblematicCounter.setText(Integer.toString(countPotentiallyProblematic));
+            IDCriticalCounter.setText(Integer.toString(countCritical));
+        }
+    }
 
     private void deleteTemporaryDrugs(){
         for(int i = dataStorage.chosenPatient.medicineCard.medicineList.size()-1; i > 0; i-- ){
@@ -552,6 +567,8 @@ for(int k = 0; k < dataStorage.chosenPatient.medicineCard.medicineList.size()-1;
         inputMedicationNames(dataStorage.chosenPatient.medicineCard.medicineList);
         // Visning af cirkler med interagerende medikament navne
         visualizeInteractionList(iSM.getInteractionList());
+        // Udfyldning af de numeriske indikatorer for hver alvorlighedsgrad i toppen
+        showTypesAndNumberOfErrors(db.loadInteractionsList(dataStorage.chosenPatient.medicineCard.medicineList));
     }
 
 }

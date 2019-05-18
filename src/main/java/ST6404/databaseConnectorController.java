@@ -48,7 +48,7 @@ public class databaseConnectorController {
         }
         return null;
     }
-
+/*
     // Der er en metode under opbygning, under denne metode. I den nye er den ved at gøres implementerbar.
     public static void interactionList() {
         try {
@@ -93,7 +93,7 @@ public class databaseConnectorController {
             System.err.println("Got an exception! ");
             System.err.println(e.getMessage());
         }
-    }
+    }*/
 
     // Dette er den ovenstående metode der er "in progress" til at blive lavet implementerbar.
     public List loadInteractionsList(List medicineList) {
