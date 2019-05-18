@@ -484,7 +484,7 @@ for(int k = 0; k < dataStorage.chosenPatient.medicineCard.medicineList.size()-1;
                     circleToChange.setRadius(3.5*tempInteraction.getDocumentationLevel());
                     if (tempInteraction.getSeverity() == 2)
                     {   circleToChange.setFill(Color.RED);
-                    } else {circleToChange.setFill(Color.ORANGERED);}
+                    } else {circleToChange.setFill(Color.YELLOW);}
 
                     /* Her tilføjes en tekst af hvilke medikamenter der interagerer i denne cirkel, så det senere i
                     et onClick ActionEvent. */
