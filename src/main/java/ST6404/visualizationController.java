@@ -30,8 +30,8 @@ import java.util.ResourceBundle;
 
 public class visualizationController implements Initializable {
 
-    @FXML public TextField IDCriticalCounter;
-    @FXML public TextField IDPotentiallyProblematicCounter;
+    @FXML public Text IDCriticalCounter;
+    @FXML public Text IDPotentiallyProblematicCounter;
 
     @FXML public TextField IDTextfieldInteractingDrugs;
     @FXML public TextArea IDTextfieldRecommendation;
