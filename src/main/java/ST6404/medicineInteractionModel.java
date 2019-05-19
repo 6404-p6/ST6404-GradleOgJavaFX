@@ -2,9 +2,9 @@ package ST6404;
 
 
 public class medicineInteractionModel {
-    public String medicamentA;
-    public String medicamentB;
-    public int severity;
+    private String medicamentA;
+    private String medicamentB;
+    private int severity;
     private int documentationLevel;
     private String recommendationText;
     private String descriptionOfEffect;
