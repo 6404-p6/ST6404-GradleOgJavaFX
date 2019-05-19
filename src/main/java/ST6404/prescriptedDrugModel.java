@@ -1,10 +1,5 @@
 package ST6404;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-
-import java.sql.Timestamp;
-import java.util.ArrayList;
 
 public class prescriptedDrugModel extends drugModel {
     private int dosage;
@@ -12,6 +7,7 @@ public class prescriptedDrugModel extends drugModel {
     private String startDate;
     private String endDate;
     private String unit;
+    private boolean exampleForVisualization;
 
     public prescriptedDrugModel(String medicineName, String atcCode, String routeOfAdministration, int dosage, String frequency, String startDate, String endDate, String unit) {
         super(medicineName, atcCode, routeOfAdministration);
@@ -23,6 +19,16 @@ public class prescriptedDrugModel extends drugModel {
     }
 
     //Metoder:
+
+
+    public boolean isExampleForVisualization() {
+        return exampleForVisualization;
+    }
+
+    public void setExampleForVisualization(boolean exampleForVisualization) {
+        this.exampleForVisualization = exampleForVisualization;
+    }
+
     public int getDosage() {
         return dosage;
     }

@@ -8,20 +8,18 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
-import java.util.List;
 
-import static java.awt.Color.*;
 
 public class prescriptionController implements Initializable {
 
@@ -44,9 +42,19 @@ public class prescriptionController implements Initializable {
         else return Color.TOMATO;
     }
 
+    private void deleteTemporaryDrugs(){
+        for(int i = dataStorage.chosenPatient.medicineCard.medicineList.size()-1; i > 0; i-- ){
+            prescriptedDrugModel tempDrugToDelete = (prescriptedDrugModel) dataStorage.chosenPatient.medicineCard.medicineList.get(i);
+            if (tempDrugToDelete.isExampleForVisualization()){
+                dataStorage.chosenPatient.medicineCard.medicineList.remove(i);
+            } else {break;}
+        }
+    }
+
     public void checkInteraction(ActionEvent event) {
         String NavnTextFieldInput = IDTextfieldNavn.getText();
         prescriptedDrugModel tempPrescriptedDrugModel = new prescriptedDrugModel(NavnTextFieldInput, "", "", 0, "", "", "", "");
+        tempPrescriptedDrugModel.setExampleForVisualization(true);
         dataStorage.chosenPatient.medicineCard.medicineList.add(tempPrescriptedDrugModel);
         databaseConnectorController db = new databaseConnectorController();
         interactionSummarizerModel iSM = new interactionSummarizerModel();
@@ -56,7 +64,7 @@ public class prescriptionController implements Initializable {
         //Bestemmer farven af cirklen omkring antallet af interaktioner
         interactionCircle.setFill(decideColourOfCircle1(iSM.getHighestSeverity()));
         //Sletter medikamentet fra listen igen
-        dataStorage.chosenPatient.medicineCard.medicineList.remove(dataStorage.chosenPatient.medicineCard.medicineList.size() - 1);
+        // TD: Fjernet fordi vi prøver noget andet
     }
 
     public void setTextInCircle (String numberOfErrorsString){
@@ -84,6 +92,7 @@ public class prescriptionController implements Initializable {
         databaseConnectorController db = new databaseConnectorController();
         dataStorage.chosenPatient.medicineCard = db.getMedicineCard(dataStorage.chosenPatient.getCPRNumber());
 
+        deleteTemporaryDrugs();
         Parent medicineListView = FXMLLoader.load(Main.class.getResource("/medicineCardView.fxml"));
         Scene medicineListViewScene = new Scene(medicineListView);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -125,6 +134,8 @@ public class prescriptionController implements Initializable {
         dataStorage.getInstance();
         // Topbjælken får indsat navn og CPR fra metoden getPatientIdentification
         IDTitledPanePrescription.setText(dataStorage.chosenPatient.getPatientIdentification());
-        databaseConnectorController db = new databaseConnectorController();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate localDate = LocalDate.now();
+        IDTextfieldStartdato.setText(dtf.format(localDate));
     }
 }

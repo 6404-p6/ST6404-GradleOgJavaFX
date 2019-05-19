@@ -1,7 +1,5 @@
 package ST6404;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,21 +17,12 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.scene.text.Text;
 
-import javax.print.DocFlavor;
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
-import java.time.Month;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import java.sql.*;
-import java.sql.Connection;
-import java.sql.Statement;
-import java.sql.ResultSet;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
+
 
 public class medicineCardController implements Initializable {
 

@@ -49,52 +49,6 @@ public class databaseConnectorController {
         return null;
     }
 
-    // Der er en metode under opbygning, under denne metode. I den nye er den ved at gøres implementerbar.
-    public static void interactionList() {
-        try {
-            // create our mysql database connection
-            String myDriver = "com.mysql.cj.jdbc.Driver";
-            String myUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
-            Class.forName(myDriver);
-            Connection conn = DriverManager.getConnection(myUrl);
-
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
-            String query = "SELECT * FROM MIdatabase WHERE MedikamentA = 'dicoumarol' AND MedikamentB = 'ergotamine'";
-
-            // create the java statement
-            Statement st = conn.createStatement();
-
-            // execute the query, and get a java resultset
-            ResultSet rs = st.executeQuery(query);
-
-            // iterate through the java resultset
-            while (rs.next()) {
-                String medicamentA = rs.getString("medikamentA");
-                String medicamentB = rs.getString("medikamentB");
-                int severity = rs.getInt("alvorlighedsgrad");
-                int documentationLevel = rs.getInt("dokumentationsgrad");
-                String recommendationText = rs.getString("anbefaling");
-                String descriptionOfEffect = rs.getString("beskrivelse");
-
-                medicineInteractionModel interactionList = new medicineInteractionModel(medicamentA, medicamentB, documentationLevel, severity, recommendationText, descriptionOfEffect);
-
-                System.out.println(interactionList.getMedicamentA());
-                System.out.println(interactionList.getMedicamentB());
-                System.out.println(interactionList.getDocumentationLevel());
-                System.out.println(interactionList.getSeverity());
-                System.out.println(interactionList.getRecommendationText());
-                System.out.println(interactionList.getDescriptionOfEffect());
-                // print the results
-                // System.out.format("%s, %s, %s, %s, %s, %s\n", medicamentA, medicamentB, severity, probability, recommendationText, descriptionOfEffect);
-            }
-            st.close();
-        } catch (Exception e) {
-            System.err.println("Got an exception! ");
-            System.err.println(e.getMessage());
-        }
-    }
-
     // Dette er den ovenstående metode der er "in progress" til at blive lavet implementerbar.
     public List loadInteractionsList(List medicineList) {
         String tempSQLDrugNames = "";
@@ -126,45 +80,6 @@ public class databaseConnectorController {
     }
 
 
-
-   /* public static void availableMedicineList() {
-        try {
-            // create our mysql database connection
-            String myDriver = "com.mysql.cj.jdbc.Driver";
-            String myUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
-            Class.forName(myDriver);
-            Connection conn = DriverManager.getConnection(myUrl);
-
-            // our SQL SELECT query.
-            // if you only need a few columns, specify them by name instead of using "*"
-            String query = "SELECT * FROM praeparatdatabase";
-
-            // create the java statement
-            Statement st = conn.createStatement();
-
-            // execute the query, and get a java resultset
-            ResultSet rs = st.executeQuery(query);
-
-            // iterate through the java resultset
-            while (rs.next()) {
-                String medicineName = rs.getString("navn");
-                String atcCode = rs.getString("atc");
-                String routeOfAdministration = rs.getString("administrationsvej");
-
-                drugModel availableMedicineList = new drugModel(medicineName, atcCode, routeOfAdministration);
-
-                System.out.println(availableMedicineList.getMedicationName());
-                System.out.println(availableMedicineList.getAtcCode());
-                System.out.println(availableMedicineList.getRouteOfAdministration());
-
-            }
-            st.close();
-        } catch (Exception e) {
-            System.err.println("Got an exception! ");
-            System.err.println(e.getMessage());
-        }
-    }*/
-
     // Nedenstående virker. Den sletter medikamenter fra patientens FMK (Vi kan dog ikke bestemme hvad den sletter. Den sletter altid det samme)
     public static void deleteDrugRow(String a) throws ClassNotFoundException, SQLException {
         Connection conn;
@@ -183,21 +98,7 @@ public class databaseConnectorController {
         }
 
     }
-/*
-    public static void addRow () {
-        try {
-            String url = "com.mysql.cj.jdbc.Driver";
-            Connection conn = DriverManager.getConnection("jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC",
-                    "hst_2019_19gr6404", "agipheethohwiquiteam");
-            Statement st = conn.createStatement();
-            st.executeUpdate("INSERT INTO FMKdatabase (CPR, navn, dosis, enhed, hyppighed, startdato, slutdato) VALUES ('3003965678', 50, 'mg', '3 gange dagligt', 2019-02-03, 2019-02-04)");
 
-            conn.close();
-        } catch (Exception e) {
-            System.err.println("Got an exception! ");
-            System.err.println(e.getMessage());
-        }
-    }*/
 //Nedestående metode virker som den skal
     public static void FMKDatabaseAddRow (String a, String b, String c, String d, String h, String f, String g) throws ClassNotFoundException, SQLException{
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -216,24 +117,7 @@ public class databaseConnectorController {
         }
     }
 
-    /*public static void FMKDatabaseAddRow (String a, String b, String c, String d, String e, String f, String g) {
-        Statement st;           // Deklarer et statement til st.
-        st = null;              // Fortæller, at ST = null ->
-        ResultSet rs;           // Deklarer vores ResultSet til rs.
-        rs = null;              // Fortæller, at ST = null ->
-        Class.forName("com.mysql.cj.jdbc.Driver"); // Vores driver.
-        String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
-        Connection connection = DriverManager.getConnection(connectionUrl);
-        String CPRnummer = dataStorage.chosenPatient.getCPRNumber();
-        try {
-            String SQL1 = ("INSERT INTO FMKdatabase (CPR, navn, dosis, enhed, administrationsvej, hyppighed, startdato, slutdato) VALUE (" + CPRnummer + "," + a + "," + b + "," + c + "," + d + "," + e + "," + f + "," + g + ")");   // Søger efter et CPR i patientdatabase, som stemmer overens med det indtastede
-            connection.createStatement().executeUpdate(SQL1);   // Forbinder til vores URL.
 
-        } catch (Exception e) {
-            System.err.println("Got an exception! ");
-            System.err.println(e.getMessage());
-        }
-    }*/
 
     /*
     MedicineCardModel(MGS+TB) loader alle medikamenter, som er sat til en patient med tilhoerende CPR nr. Når patienten er genkendt

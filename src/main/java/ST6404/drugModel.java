@@ -1,7 +1,5 @@
 package ST6404;
 
-import java.sql.Timestamp;
-
 public class drugModel {
     public String medicationName;
     private String routeOfAdministration;

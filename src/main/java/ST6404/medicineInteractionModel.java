@@ -1,11 +1,7 @@
 package ST6404;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.List;
-import java.util.Scanner;
+
 
 public class medicineInteractionModel {
     public String medicamentA;
