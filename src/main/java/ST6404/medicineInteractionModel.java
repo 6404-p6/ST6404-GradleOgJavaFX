@@ -1,7 +1,5 @@
 package ST6404;
 
-import java.util.List;
-
 
 public class medicineInteractionModel {
     public String medicamentA;
@@ -10,6 +8,9 @@ public class medicineInteractionModel {
     private int documentationLevel;
     private String recommendationText;
     private String descriptionOfEffect;
+    /* Død kode, men det bliver liggende for at vise intentionen. Det skulle være blevet brugt i en algoritme,
+    som sendte ATC koder til SQL, fik alternative medikamenter tilbage og derefter beregnede det bedste alternativ
+    som havde færrest interaktioner over hele interaktionslisten*/
     private String suggestionForAlternative;
 
     public medicineInteractionModel(String medicamentA, String medicamentB, int severity, int documentationLevel, String recommendationText, String descriptionOfEffect) {
@@ -24,61 +25,24 @@ public class medicineInteractionModel {
         return medicamentA;
     }
 
-    private void setMedicamentA(String medicamentA) {
-        this.medicamentA = medicamentA;
-    }
-
    public String getMedicamentB() {
         return medicamentB;
     }
 
-    private void setMedicamentB(String medicamentB) {
-        this.medicamentB = medicamentB;
-    }
-
-
     public int getSeverity() {
         return severity;
-    }
-
-    private void setSeverity(int severity) {
-        this.severity = severity;
     }
 
     public int getDocumentationLevel() {
         return documentationLevel;
     }
 
-    public void setDocumentationLevel(int documentationLevel) {
-        this.documentationLevel = documentationLevel;
-    }
-
     public String getRecommendationText() {
         return recommendationText;
     }
 
-    private void setRecommendationText(String recommendationText) {
-        this.recommendationText = recommendationText;
-    }
-
     public String getDescriptionOfEffect() {
         return descriptionOfEffect;
-    }
-
-    private void setDescriptionOfEffect(String descriptionOfEffect) {
-        this.descriptionOfEffect = descriptionOfEffect;
-    }
-
-    private String getSuggestionForAlternative() {
-        return suggestionForAlternative;
-    }
-
-    private void setSuggestionForAlternative(String suggestionForAlternative) {
-        this.suggestionForAlternative = suggestionForAlternative;
-    }
-
-    public int calculateNumberOfMedicine(List medicineCardList) {
-        return medicineCardList.size();
     }
 
 }
