@@ -8,20 +8,16 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.List;
 
-import static java.awt.Color.*;
 
 public class prescriptionController implements Initializable {
 
@@ -67,7 +63,6 @@ public class prescriptionController implements Initializable {
         interactionCircle.setFill(decideColourOfCircle1(iSM.getHighestSeverity()));
         //Sletter medikamentet fra listen igen
         // TD: Fjernet fordi vi prøver noget andet
-        //dataStorage.chosenPatient.medicineCard.medicineList.remove(dataStorage.chosenPatient.medicineCard.medicineList.size() - 1);
     }
 
     public void setTextInCircle (String numberOfErrorsString){
