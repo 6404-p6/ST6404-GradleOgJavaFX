@@ -15,22 +15,8 @@ public class patientModel {
         this.medicineCard = medicineCard;
     }
 
-    // Getters og setters
     public String getPatientIdentification() {return firstName + " " + lastName + ", CPR: " + CPRNumber;}
 
-    public String getFirstName() { return firstName; }
-
-    // Bruges i Databasecontroller
-    public void setFirstName(String firstName) { this.firstName = firstName; }
-
-    public String getLastName() { return lastName; }
-
-    // Bruges i Databasecontroller
-    public void setLastName(String lastName) { this.lastName = lastName; }
-
     public String getCPRNumber() { return CPRNumber; }
-
-    // Bruges i Databasecontroller
-    public void setCPRNumber(String CPRNumber) { this.CPRNumber = CPRNumber; }
 
 }
