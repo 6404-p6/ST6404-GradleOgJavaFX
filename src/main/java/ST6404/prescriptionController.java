@@ -42,6 +42,11 @@ public class prescriptionController implements Initializable {
         else return Color.TOMATO;
     }
 
+    /*
+    Denne metode bliver kørt i changeScene for medicinlisten, da medikamenter som er blevet tilføjet for at tjekke
+    indikatoren, ikke skal bruges i medicinlisten. Den fjerner alle medikamenter, som er blevet 'tagged' som
+    eksempler. Metoden går også fra size til 0, da tilføjede medikamenter sættes på den højeste indeks plads.
+    */
     private void deleteTemporaryDrugs(){
         for(int i = dataStorage.chosenPatient.medicineCard.medicineList.size()-1; i > 0; i-- ){
             prescriptedDrugModel tempDrugToDelete = (prescriptedDrugModel) dataStorage.chosenPatient.medicineCard.medicineList.get(i);
@@ -51,6 +56,11 @@ public class prescriptionController implements Initializable {
         }
     }
 
+    /*
+    Tilføjer et medikament til medicinlisten, som så skaber en ny interaktionsliste, som opdaterer indikatoren.
+    Dermed kan brugeren undersøge om medikamentet gør en stor forskel uden at skulle visualisere. Her bliver de
+    'tagged' som "exampleForVisualization = true'
+     */
     public void checkInteraction(ActionEvent event) {
         String NavnTextFieldInput = IDTextfieldNavn.getText();
         prescriptedDrugModel tempPrescriptedDrugModel = new prescriptedDrugModel(NavnTextFieldInput, "", "", 0, "", "", "", "");
@@ -59,18 +69,10 @@ public class prescriptionController implements Initializable {
         databaseConnectorController db = new databaseConnectorController();
         interactionSummarizerModel iSM = new interactionSummarizerModel();
         iSM.setInteractionList(db.loadInteractionsList(dataStorage.chosenPatient.medicineCard.medicineList));
-        //Sætter antallet af interaktioner ind i cirklen ved siden af "Vis interaktioner"
+        // opdaterer indikatoren
         interactionNumber.setText(iSM.calculateNumberOfErrors());
-        //Bestemmer farven af cirklen omkring antallet af interaktioner
         interactionCircle.setFill(decideColourOfCircle1(iSM.getHighestSeverity()));
-        //Sletter medikamentet fra listen igen
-        // TD: Fjernet fordi vi prøver noget andet
     }
-
-    public void setTextInCircle (String numberOfErrorsString){
-        interactionNumber.setText(numberOfErrorsString);
-    }
-
 
     // Se forklaring i patientSelector.changeSceneToMedicineListView
     @FXML
@@ -89,10 +91,12 @@ public class prescriptionController implements Initializable {
     @FXML
     public void changeSceneToMedicineListView(ActionEvent event) throws IOException {
         System.out.println("Troubleshoot: Begynder metode changeSceneToMedicineListView");
+        //Databasen instantieres og henter medicinlisten igen, så den korrekte medicinliste tages med til medicinlisten
         databaseConnectorController db = new databaseConnectorController();
         dataStorage.chosenPatient.medicineCard = db.loadMedicineCard(dataStorage.chosenPatient.getCPRNumber());
-
+        // Sletter alle 'midlertidige' medikamenter, hvis formål var visualisering og ikke ordination.
         deleteTemporaryDrugs();
+        // Metoden om at skifte scene fortsætter som sædvanlig.
         Parent medicineListView = FXMLLoader.load(Main.class.getResource("/medicineCardView.fxml"));
         Scene medicineListViewScene = new Scene(medicineListView);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -102,9 +106,10 @@ public class prescriptionController implements Initializable {
         System.out.println("Troubleshoot: Afslutter metode changeSceneToMedicineListView");
     }
 
-    // Jeg prøver her at lave en metode som tager informationerne skrevet
-    // Ind i prescriptionView og tilføje dem til databasen. dele af den skal skrives inde i databaseController
-
+    /*
+    Indsætter tekst fra felterne i et database kald, som tilføjer dem til medicinlisten i databasen. Herefter sættes
+    tekstfelterne til tomme, hvilket også gør det nemmere for brugeren at indskrive et nyt og vide, at knappen virkede
+     */
     public void processTextFieldPrescripeDrug() throws IOException {
         String NavnTextFieldInput = IDTextfieldNavn.getText();
         String DosisTextFieldInput = IDTextfieldDosis.getText();
@@ -113,13 +118,9 @@ public class prescriptionController implements Initializable {
         String AdmVejTextFieldInput = IDTextfieldAdmVej.getText();
         String StartdatoTextFieldInput = IDTextfieldStartdato.getText();
         String SlutdatoTextFieldInput = IDTextfieldSlutdato.getText();
-
-        System.out.println("vi når til del 1 ");
-
         try {
             databaseConnectorController db = new databaseConnectorController();
             db.FMKDatabaseAddRow(NavnTextFieldInput, DosisTextFieldInput, EnhedTextFieldInput, HyppighedTextFieldInput, AdmVejTextFieldInput, StartdatoTextFieldInput, SlutdatoTextFieldInput);
-        System.out.println("Vi når til del 2");
         IDTextfieldNavn.setText("");
         IDTextfieldDosis.setText("");
         IDTextfieldEnhed.setText("");
@@ -140,6 +141,7 @@ public class prescriptionController implements Initializable {
         dataStorage.getInstance();
         // Topbjælken får indsat navn og CPR fra metoden getPatientIdentification
         IDTitledPanePrescription.setText(dataStorage.chosenPatient.getPatientIdentification());
+        // Der sker en indtastning af dagsdato i startdato feltet, da det er den mest sandsynlige dato at blive brugt
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate localDate = LocalDate.now();
         IDTextfieldStartdato.setText(dtf.format(localDate));
