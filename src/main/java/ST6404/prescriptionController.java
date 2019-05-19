@@ -120,6 +120,12 @@ public class prescriptionController implements Initializable {
             databaseConnectorController db = new databaseConnectorController();
             db.FMKDatabaseAddRow(NavnTextFieldInput, DosisTextFieldInput, EnhedTextFieldInput, HyppighedTextFieldInput, AdmVejTextFieldInput, StartdatoTextFieldInput, SlutdatoTextFieldInput);
         System.out.println("Vi når til del 2");
+        IDTextfieldNavn.setText("");
+        IDTextfieldDosis.setText("");
+        IDTextfieldEnhed.setText("");
+        IDTextfieldHyppighed.setText("");
+        IDTextfieldAdmVej.setText("");
+        IDTextfieldSlutdato.setText("");
         }
 
         catch (Exception e) {
