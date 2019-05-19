@@ -3,7 +3,6 @@ package ST6404;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,10 +10,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class patientSelectorController implements Initializable {
+public class patientSelectorController {
 
     @FXML
     private TextField IDTextFieldInsertCPR;
@@ -34,11 +31,10 @@ public class patientSelectorController implements Initializable {
             dataStorage.getInstance();
             dataStorage.chosenPatient = db.loadPatientData(CPRTextFieldInput);
             dataStorage.chosenPatient.medicineCard = db.loadMedicineCard(dataStorage.chosenPatient.getCPRNumber());
-
         } catch (Exception e) {
             System.out.println("Something went wrong..." + e.getMessage());
-        }
-        }
+    }
+}
 
     /*
     Først skabes en parent-klasse kaldt "medicineListView". Parent-klassen
@@ -58,7 +54,7 @@ public class patientSelectorController implements Initializable {
         System.out.println("Troubleshoot: Begynder metode changeSceneToMedicineListView");
         processTextFieldInsertCPR();
         // Hvis der ikke blev instantieret en patient, så stoppes metoden og man
-        // forbliver i view'et.
+        // forbliver i view'et pga. return.
         if (dataStorage.chosenPatient.getCPRNumber() == null) {
             // TD: Virker ikke, men ved ikke lige helt hvorfor. Som om den
             // smider en invocationException
@@ -72,11 +68,5 @@ public class patientSelectorController implements Initializable {
         window.setScene(medicineListViewScene);
         window.show();
         System.out.println("Troubleshoot: Afslutter metode changeSceneToMedicineListView");
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-
     }
 }
