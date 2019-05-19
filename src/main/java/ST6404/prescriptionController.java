@@ -18,6 +18,8 @@ import javafx.stage.Stage;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import java.util.List;
 
@@ -134,6 +136,8 @@ public class prescriptionController implements Initializable {
         dataStorage.getInstance();
         // Topbjælken får indsat navn og CPR fra metoden getPatientIdentification
         IDTitledPanePrescription.setText(dataStorage.chosenPatient.getPatientIdentification());
-        databaseConnectorController db = new databaseConnectorController();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate localDate = LocalDate.now();
+        IDTextfieldStartdato.setText(dtf.format(localDate));
     }
 }
