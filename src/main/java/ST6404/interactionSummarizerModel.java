@@ -51,7 +51,7 @@ public class interactionSummarizerModel {
         int highestSeverity = 0;
         for (int i = 0; i < interactionList.size(); i++) {
             medicineInteractionModel test = (medicineInteractionModel) interactionList.get(i);
-            if (test.medicamentA == new1.medicationName || test.medicamentB == new1.medicationName) {
+            if (test.medicamentA == new1.getMedicationName() || test.medicamentB == new1.getMedicationName()) {
                 if (highestSeverity < test.severity) {
                     highestSeverity = test.severity;
                 }

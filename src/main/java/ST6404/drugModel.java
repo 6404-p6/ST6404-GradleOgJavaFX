@@ -1,7 +1,7 @@
 package ST6404;
 
 public class drugModel {
-    public String medicationName;
+    private String medicationName;
     private String routeOfAdministration;
     private String atcCode;
 

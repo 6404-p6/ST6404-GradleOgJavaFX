@@ -60,7 +60,7 @@ public class databaseConnectorController {
         String tempSQLDrugNames = "";
         for(int i = 0; i < medicineList.size(); i++ ){
             prescriptedDrugModel tempPrescriptedDrugModel = (prescriptedDrugModel) medicineList.get(i);
-            tempSQLDrugNames = "'" + tempPrescriptedDrugModel.medicationName + "', " + tempSQLDrugNames;
+            tempSQLDrugNames = "'" + tempPrescriptedDrugModel.getMedicationName() + "', " + tempSQLDrugNames;
         }
         tempSQLDrugNames = tempSQLDrugNames.substring(0, (tempSQLDrugNames.length()-2));
 
