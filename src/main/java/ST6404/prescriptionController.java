@@ -90,7 +90,7 @@ public class prescriptionController implements Initializable {
     public void changeSceneToMedicineListView(ActionEvent event) throws IOException {
         System.out.println("Troubleshoot: Begynder metode changeSceneToMedicineListView");
         databaseConnectorController db = new databaseConnectorController();
-        dataStorage.chosenPatient.medicineCard = db.getMedicineCard(dataStorage.chosenPatient.getCPRNumber());
+        dataStorage.chosenPatient.medicineCard = db.loadMedicineCard(dataStorage.chosenPatient.getCPRNumber());
 
         deleteTemporaryDrugs();
         Parent medicineListView = FXMLLoader.load(Main.class.getResource("/medicineCardView.fxml"));

@@ -15,9 +15,9 @@ import java.sql.PreparedStatement;
 
 public class databaseConnectorController {
     /*
-    loadPatientData (MGS + TD) skal hente patientdata fra MySQL. Den har 2 throws, som gør at ...
-    Koden laver et Try, hvor den søger efter et CPR-input fra brugeren. Hvis CPR-inputtet stemmer overens
-    med et CPR-nr. fra patientdatabase vil fornavn og efternavn blive vist.
+    loadPatientData (MGS + TD) skal hente patientdata fra MySQL. Metoden modtager et CPR fra en patient og
+    returnerer en patientModel som objekt, som skabes ud fra de informationer, som SQL sender tilbage, f.eks. fornavn,
+    efternavn og CPR.
     */
     public patientModel loadPatientData(String CPRInput) throws ClassNotFoundException, SQLException {
         Statement st;           // Deklarer et statement til st.
@@ -40,7 +40,7 @@ public class databaseConnectorController {
                 patientModel tempPatientModel = new patientModel(FirstName, LastName, CPR, null);
                 return tempPatientModel;
             } else {
-                System.out.println("CPR eksisterer ikke. Prøv igen.");     // Hvis systemet ikke finder CPR, skal der skrives fejl.
+                System.out.println("CPR eksisterer ikke. Prøv igen.");// Hvis systemet ikke finder CPR, skal der skrives fejl.
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -49,8 +49,14 @@ public class databaseConnectorController {
         return null;
     }
 
-    // Dette er den ovenstående metode der er "in progress" til at blive lavet implementerbar.
+    /* Metoden skal bruge en patients medicinliste og sender den til SQL databasen. SQL statement'et undersøger alle
+    interaktioner for dem som indeholder et navn fra medicinlisten på enten medikamentA OG medikamentB's plads.
+    SQL statement'et indeholder en streng for tempSQLDrugNames hvor navnene på medicinlisten trækkes ud, formateres
+    med korrekt SQL syntaks og sættes ind i statement'et.
+     */
+
     public List loadInteractionsList(List medicineList) {
+        // Korrekt formatering af medikamentnavne til SQL statement'et.
         String tempSQLDrugNames = "";
         for(int i = 0; i < medicineList.size(); i++ ){
             prescriptedDrugModel tempPrescriptedDrugModel = (prescriptedDrugModel) medicineList.get(i);
@@ -80,8 +86,13 @@ public class databaseConnectorController {
     }
 
 
-    // Nedenstående virker. Den sletter medikamenter fra patientens FMK (Vi kan dog ikke bestemme hvad den sletter. Den sletter altid det samme)
-    public static void deleteDrugRow(String a) throws ClassNotFoundException, SQLException {
+    /*
+    Metoden sletter hele rækken i SQL databasen for den valgte patients CPR og medikamentets navn. CPR nummeret er
+    nødvendigt, for at den også sletter det medikamentnavn for den valgte patient og ikke alle patienter med samme
+    medikamentnavn.
+     */
+    public void deleteDrugRow(String a) throws ClassNotFoundException, SQLException {
+
         Connection conn;
         String CPRnummer = dataStorage.chosenPatient.getCPRNumber();
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -98,8 +109,10 @@ public class databaseConnectorController {
         }
 
     }
-
-//Nedestående metode virker som den skal
+    /*
+    Indsætter i FMK databasen det nye medikament. Første kolonne er en identifikator for hvilken patient medikamentet
+    hører til.
+    */
     public static void FMKDatabaseAddRow (String a, String b, String c, String d, String h, String f, String g) throws ClassNotFoundException, SQLException{
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection conn = DriverManager.getConnection("jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC",
@@ -121,10 +134,9 @@ public class databaseConnectorController {
 
     /*
     MedicineCardModel(MGS+TB) loader alle medikamenter, som er sat til en patient med tilhoerende CPR nr. Når patienten er genkendt
-    vil den danne en ny Observable, som skal gemmes i Datastorage. Fra datastorage vil listen blive 'kaldt' til tableview,
-    og efterfølgende blive vist.
+    vil den danne en ny ObservableList, som skal gemmes i patientens medicineCardModel's medicineList.
      */
-    public static medicineCardModel getMedicineCard(String id) {
+    public medicineCardModel loadMedicineCard(String id) {
         try {
             String myDriver = "com.mysql.cj.jdbc.Driver";
             String myUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";

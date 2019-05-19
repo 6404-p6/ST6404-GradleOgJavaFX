@@ -48,7 +48,7 @@ public class medicineCardController implements Initializable {
             try {
                 databaseConnectorController db = new databaseConnectorController();
                 db.deleteDrugRow(medikamentValgt.medicationName);
-                dataStorage.chosenPatient.medicineCard = db.getMedicineCard(CPRnummer);
+                dataStorage.chosenPatient.medicineCard = db.loadMedicineCard(CPRnummer);
                 tableView.setItems(dataStorage.chosenPatient.medicineCard.medicineList);
             }
             catch (Exception e){

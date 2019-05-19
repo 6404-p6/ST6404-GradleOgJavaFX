@@ -33,7 +33,7 @@ public class patientSelectorController implements Initializable {
             databaseConnectorController db = new databaseConnectorController();
             dataStorage.getInstance();
             dataStorage.chosenPatient = db.loadPatientData(CPRTextFieldInput);
-            dataStorage.chosenPatient.medicineCard = db.getMedicineCard(dataStorage.chosenPatient.getCPRNumber());
+            dataStorage.chosenPatient.medicineCard = db.loadMedicineCard(dataStorage.chosenPatient.getCPRNumber());
 
         } catch (Exception e) {
             System.out.println("Something went wrong..." + e.getMessage());
