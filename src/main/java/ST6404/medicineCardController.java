@@ -26,14 +26,26 @@ import java.util.ResourceBundle;
 
 public class medicineCardController implements Initializable {
 
-    @FXML private TextField IDTextfieldMedikament;
+    @FXML
+    private TitledPane IDTitledPaneMedicineList;
 
+    @FXML private TableView<prescriptedDrugModel> tableView;
+    @FXML private TableColumn<prescriptedDrugModel, String> nameColumn;
+    @FXML private TableColumn<prescriptedDrugModel, String> dosageColumn;
+    @FXML private TableColumn<prescriptedDrugModel, String> unitColumn;
+    @FXML private TableColumn<prescriptedDrugModel, String> frequencyColumn;
+    @FXML private TableColumn<prescriptedDrugModel, String> administrationColumn;
+    @FXML private TableColumn<prescriptedDrugModel, String> startDateColumn;
+    @FXML private TableColumn<prescriptedDrugModel, String> endDateColumn;
+    @FXML private Text interactionNumber;
+    @FXML private Circle interactionCircle;
 
-    private List availableMedicineList;
-
-
+    /*
+    Sletter et medikament ved hjælp af højreklik. Når man højreklikker selekteres objektet af det valgte medikament,
+    og der sættes en alert popup for om man er sikker. Herefter sendes en SQL statement, hvis man vil slette.
+    Tabellen og indikatoren opdateres lige efter sletning.
+     */
     public void sletMedikament() {
-        // Vælg medikament
         prescriptedDrugModel medikamentValgt = tableView.getSelectionModel().getSelectedItem();
         String CPRnummer = dataStorage.chosenPatient.getCPRNumber();
         if (medikamentValgt == null) {
@@ -50,6 +62,9 @@ public class medicineCardController implements Initializable {
                 db.deleteDrugRow(medikamentValgt.getMedicationName());
                 dataStorage.chosenPatient.medicineCard = db.loadMedicineCard(CPRnummer);
                 tableView.setItems(dataStorage.chosenPatient.medicineCard.medicineList);
+                interactionSummarizerModel iSM = new interactionSummarizerModel();
+                iSM.calculateHighestSeverity();
+                interactionCircle.setFill(decideColourOfCircle(iSM.getHighestSeverity()));
             }
             catch (Exception e){
                 System.out.println("Something went wrong..." + e.getMessage());
@@ -59,20 +74,6 @@ public class medicineCardController implements Initializable {
             System.out.println("Sletteprocess annulleret");
         }
     }
-
-    @FXML
-    private TitledPane IDTitledPaneMedicineList;
-
-    @FXML private TableView<prescriptedDrugModel> tableView;
-    @FXML private TableColumn<prescriptedDrugModel, String> nameColumn;
-    @FXML private TableColumn<prescriptedDrugModel, String> dosageColumn;
-    @FXML private TableColumn<prescriptedDrugModel, String> unitColumn;
-    @FXML private TableColumn<prescriptedDrugModel, String> frequencyColumn;
-    @FXML private TableColumn<prescriptedDrugModel, String> administrationColumn;
-    @FXML private TableColumn<prescriptedDrugModel, String> startDateColumn;
-    @FXML private TableColumn<prescriptedDrugModel, String> endDateColumn;
-    @FXML private Text interactionNumber;
-    @FXML private Circle interactionCircle;
 
     //Metoden farver cirklen rundt omkring antallet af interaktioner på baggrund af highestSeverity
     public Color decideColourOfCircle (int highestSeverity) {
@@ -128,14 +129,13 @@ public class medicineCardController implements Initializable {
         databaseConnectorController db = new databaseConnectorController();
         // Indhentning af dataStorage for at bruge dens patientModel
         dataStorage.getInstance();
-        // Instantierer en interactionsummarizerModel og ligger den i dataStorage for globalt brug
-        //List tempInteractionList = (db.loadInteractionsList(dataStorage.chosenPatient.medicineCard.medicineList));
-        //dataStorage.iSM.setInteractionList(tempInteractionList);
+        // Instantierer en interactionSummarizer for at bruge dens interaktionsliste. Den loader også en liste.
         interactionSummarizerModel iSM = new interactionSummarizerModel();
         iSM.setInteractionList(db.loadInteractionsList(dataStorage.chosenPatient.medicineCard.medicineList));
         //Sætter antallet af interaktioner ind i cirklen ved siden af "Vis interaktioner"
         interactionNumber.setText(iSM.calculateNumberOfErrors());
         //Bestemmer farven af cirklen omkring antallet af interaktioner
+        iSM.calculateHighestSeverity();
         interactionCircle.setFill(decideColourOfCircle(iSM.getHighestSeverity()));
         // Topbjælken får indsat navn og CPR fra metoden getPatientIdentification
         IDTitledPaneMedicineList.setText(dataStorage.chosenPatient.getPatientIdentification());

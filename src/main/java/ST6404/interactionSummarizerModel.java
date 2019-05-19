@@ -13,7 +13,6 @@ public class interactionSummarizerModel {
     public interactionSummarizerModel() {
     }
 
-    //Metoder
     public int getNumberOfErrors() {
         return numberOfErrors;
     }
@@ -45,22 +44,16 @@ public class interactionSummarizerModel {
         return numberOfErrorsString;
     }
 
-    //Metoden udregner den samlede severity for alle interaktioner på interactionList, som medikamentet under ordination
-    //indgår i. Der er lavet kode, så der kan returneres højeste severity i stedet
-    public int calculateHighestSeverity(drugModel new1, ArrayList interactionList) {
-        int highestSeverity = 0;
+
+    // Gennemgår hele interaktionslisten for om nogle har en severity på 2. Hvis ja, er highest severity = 2 og der
+    // breakes i for-loopet.
+    public void calculateHighestSeverity(){
         for (int i = 0; i < interactionList.size(); i++) {
-            medicineInteractionModel test = (medicineInteractionModel) interactionList.get(i);
-            if (test.medicamentA == new1.getMedicationName() || test.medicamentB == new1.getMedicationName()) {
-                if (highestSeverity < test.severity) {
-                    highestSeverity = test.severity;
-                }
-                /*
-                highestSeverity += test.severity;
-                akkumulerer highestSeverity for hele interaktionslisten
-                 */
-            }
+            medicineInteractionModel tempInteraction = (medicineInteractionModel) interactionList.get(i);
+            if (tempInteraction.getSeverity() == 2) {
+                setHighestSeverity(2);
+                break;
+            } else {setHighestSeverity(1);}
         }
-        return highestSeverity;
     }
 }
