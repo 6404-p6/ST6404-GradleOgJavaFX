@@ -1,5 +1,4 @@
 package ST6404;
-//import javax.swing.plaf.nimbus.State;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,9 +20,7 @@ public class databaseConnectorController {
     */
     public patientModel loadPatientData(String CPRInput) throws ClassNotFoundException, SQLException {
         Statement st;           // Deklarer et statement til st.
-        st = null;              // Fortæller, at st = null -> st er tom, indeholder ingenting.
         ResultSet rs;           // Deklarer vores ResultSet til rs.
-        rs = null;              // Fortæller, at rs = null -> rs er tom, indeholder ingenting.
         Class.forName("com.mysql.cj.jdbc.Driver"); // Vores driver.
         String connectionUrl = "jdbc:mysql://db.course.hst.aau.dk:3306/hst_2019_19gr6404?autoReconnect=true&useSSL=false&user=hst_2019_19gr6404&password=agipheethohwiquiteam&serverTimezone=UTC";
         Connection connection = DriverManager.getConnection(connectionUrl);

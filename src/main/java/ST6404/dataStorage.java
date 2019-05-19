@@ -8,7 +8,6 @@ public class dataStorage {
     private static dataStorage dataStorageObject;
 
     public static patientModel chosenPatient;
-    public static interactionSummarizerModel iSM;
 
     private dataStorage(){
     }

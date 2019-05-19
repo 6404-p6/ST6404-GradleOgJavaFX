@@ -15,15 +15,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.scene.text.*;
-import javafx.application.Application;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -319,7 +313,7 @@ public class visualizationController implements Initializable {
     Tredje for-loop er for gennemgang at interaktionslisten. Herefter beregnes koordinatetet af cirklerne, hvis der
     findes en interaktion og cirklerne vises. Hele metoden indeholder kommentering step-by-step for bedre gennemgang.
      */
-    public void visualizeInteractionList(List interactionList){
+    private void visualizeInteractionList(List interactionList){
         // Instanticering af hjælpelister for iterationsproces, en for navnene i bunden og en for navnene i siden
         List<Text> tempIDTextRightList = new ArrayList<Text>();
         tempIDTextRightList.add(IDtextfieldDrug1Right);
@@ -358,142 +352,142 @@ public class visualizationController implements Initializable {
         /* Cirklerne tilføjes til en liste, så de kan gennemgås. Dermed add'er cirklerne i alle rækker,
         startende med nederste række og fra højre mod venstre.
          */
-        List<Circle> tempListForFirstCircleRow = new ArrayList<Circle>();
+        List<Circle> tempListForCircles = new ArrayList<Circle>();
         // Første række
-        tempListForFirstCircleRow.add(IDCircle0x0y);
-        tempListForFirstCircleRow.add(IDCircle1x0y);
-        tempListForFirstCircleRow.add(IDCircle2x0y);
-        tempListForFirstCircleRow.add(IDCircle3x0y);
-        tempListForFirstCircleRow.add(IDCircle4x0y);
-        tempListForFirstCircleRow.add(IDCircle5x0y);
-        tempListForFirstCircleRow.add(IDCircle6x0y);
-        tempListForFirstCircleRow.add(IDCircle7x0y);
-        tempListForFirstCircleRow.add(IDCircle8x0y);
-        tempListForFirstCircleRow.add(IDCircle9x0y);
-        tempListForFirstCircleRow.add(IDCircle10x0y);
-        tempListForFirstCircleRow.add(IDCircle11x0y);
-        tempListForFirstCircleRow.add(IDCircle12x0y);
-        tempListForFirstCircleRow.add(IDCircle13x0y);
-        tempListForFirstCircleRow.add(IDCircle14x0y);
+        tempListForCircles.add(IDCircle0x0y);
+        tempListForCircles.add(IDCircle1x0y);
+        tempListForCircles.add(IDCircle2x0y);
+        tempListForCircles.add(IDCircle3x0y);
+        tempListForCircles.add(IDCircle4x0y);
+        tempListForCircles.add(IDCircle5x0y);
+        tempListForCircles.add(IDCircle6x0y);
+        tempListForCircles.add(IDCircle7x0y);
+        tempListForCircles.add(IDCircle8x0y);
+        tempListForCircles.add(IDCircle9x0y);
+        tempListForCircles.add(IDCircle10x0y);
+        tempListForCircles.add(IDCircle11x0y);
+        tempListForCircles.add(IDCircle12x0y);
+        tempListForCircles.add(IDCircle13x0y);
+        tempListForCircles.add(IDCircle14x0y);
         // Anden række
-        tempListForFirstCircleRow.add(IDCircle1x1y);
-        tempListForFirstCircleRow.add(IDCircle2x1y);
-        tempListForFirstCircleRow.add(IDCircle3x1y);
-        tempListForFirstCircleRow.add(IDCircle4x1y);
-        tempListForFirstCircleRow.add(IDCircle5x1y);
-        tempListForFirstCircleRow.add(IDCircle6x1y);
-        tempListForFirstCircleRow.add(IDCircle7x1y);
-        tempListForFirstCircleRow.add(IDCircle8x1y);
-        tempListForFirstCircleRow.add(IDCircle9x1y);
-        tempListForFirstCircleRow.add(IDCircle10x1y);
-        tempListForFirstCircleRow.add(IDCircle11x1y);
-        tempListForFirstCircleRow.add(IDCircle12x1y);
-        tempListForFirstCircleRow.add(IDCircle13x1y);
-        tempListForFirstCircleRow.add(IDCircle14x1y);
+        tempListForCircles.add(IDCircle1x1y);
+        tempListForCircles.add(IDCircle2x1y);
+        tempListForCircles.add(IDCircle3x1y);
+        tempListForCircles.add(IDCircle4x1y);
+        tempListForCircles.add(IDCircle5x1y);
+        tempListForCircles.add(IDCircle6x1y);
+        tempListForCircles.add(IDCircle7x1y);
+        tempListForCircles.add(IDCircle8x1y);
+        tempListForCircles.add(IDCircle9x1y);
+        tempListForCircles.add(IDCircle10x1y);
+        tempListForCircles.add(IDCircle11x1y);
+        tempListForCircles.add(IDCircle12x1y);
+        tempListForCircles.add(IDCircle13x1y);
+        tempListForCircles.add(IDCircle14x1y);
         // Tredje række
-        tempListForFirstCircleRow.add(IDCircle2x2y);
-        tempListForFirstCircleRow.add(IDCircle3x2y);
-        tempListForFirstCircleRow.add(IDCircle4x2y);
-        tempListForFirstCircleRow.add(IDCircle5x2y);
-        tempListForFirstCircleRow.add(IDCircle6x2y);
-        tempListForFirstCircleRow.add(IDCircle7x2y);
-        tempListForFirstCircleRow.add(IDCircle8x2y);
-        tempListForFirstCircleRow.add(IDCircle9x2y);
-        tempListForFirstCircleRow.add(IDCircle10x2y);
-        tempListForFirstCircleRow.add(IDCircle11x2y);
-        tempListForFirstCircleRow.add(IDCircle12x2y);
-        tempListForFirstCircleRow.add(IDCircle13x2y);
-        tempListForFirstCircleRow.add(IDCircle14x2y);
+        tempListForCircles.add(IDCircle2x2y);
+        tempListForCircles.add(IDCircle3x2y);
+        tempListForCircles.add(IDCircle4x2y);
+        tempListForCircles.add(IDCircle5x2y);
+        tempListForCircles.add(IDCircle6x2y);
+        tempListForCircles.add(IDCircle7x2y);
+        tempListForCircles.add(IDCircle8x2y);
+        tempListForCircles.add(IDCircle9x2y);
+        tempListForCircles.add(IDCircle10x2y);
+        tempListForCircles.add(IDCircle11x2y);
+        tempListForCircles.add(IDCircle12x2y);
+        tempListForCircles.add(IDCircle13x2y);
+        tempListForCircles.add(IDCircle14x2y);
         // Fjerde række
-        tempListForFirstCircleRow.add(IDCircle3x3y);
-        tempListForFirstCircleRow.add(IDCircle4x3y);
-        tempListForFirstCircleRow.add(IDCircle5x3y);
-        tempListForFirstCircleRow.add(IDCircle6x3y);
-        tempListForFirstCircleRow.add(IDCircle7x3y);
-        tempListForFirstCircleRow.add(IDCircle8x3y);
-        tempListForFirstCircleRow.add(IDCircle9x3y);
-        tempListForFirstCircleRow.add(IDCircle10x3y);
-        tempListForFirstCircleRow.add(IDCircle11x3y);
-        tempListForFirstCircleRow.add(IDCircle12x3y);
-        tempListForFirstCircleRow.add(IDCircle13x3y);
-        tempListForFirstCircleRow.add(IDCircle14x3y);
+        tempListForCircles.add(IDCircle3x3y);
+        tempListForCircles.add(IDCircle4x3y);
+        tempListForCircles.add(IDCircle5x3y);
+        tempListForCircles.add(IDCircle6x3y);
+        tempListForCircles.add(IDCircle7x3y);
+        tempListForCircles.add(IDCircle8x3y);
+        tempListForCircles.add(IDCircle9x3y);
+        tempListForCircles.add(IDCircle10x3y);
+        tempListForCircles.add(IDCircle11x3y);
+        tempListForCircles.add(IDCircle12x3y);
+        tempListForCircles.add(IDCircle13x3y);
+        tempListForCircles.add(IDCircle14x3y);
         // Femte række
-        tempListForFirstCircleRow.add(IDCircle4x4y);
-        tempListForFirstCircleRow.add(IDCircle5x4y);
-        tempListForFirstCircleRow.add(IDCircle6x4y);
-        tempListForFirstCircleRow.add(IDCircle7x4y);
-        tempListForFirstCircleRow.add(IDCircle8x4y);
-        tempListForFirstCircleRow.add(IDCircle9x4y);
-        tempListForFirstCircleRow.add(IDCircle10x4y);
-        tempListForFirstCircleRow.add(IDCircle11x4y);
-        tempListForFirstCircleRow.add(IDCircle12x4y);
-        tempListForFirstCircleRow.add(IDCircle13x4y);
-        tempListForFirstCircleRow.add(IDCircle14x4y);
+        tempListForCircles.add(IDCircle4x4y);
+        tempListForCircles.add(IDCircle5x4y);
+        tempListForCircles.add(IDCircle6x4y);
+        tempListForCircles.add(IDCircle7x4y);
+        tempListForCircles.add(IDCircle8x4y);
+        tempListForCircles.add(IDCircle9x4y);
+        tempListForCircles.add(IDCircle10x4y);
+        tempListForCircles.add(IDCircle11x4y);
+        tempListForCircles.add(IDCircle12x4y);
+        tempListForCircles.add(IDCircle13x4y);
+        tempListForCircles.add(IDCircle14x4y);
         // Sjette række
-        tempListForFirstCircleRow.add(IDCircle5x5y);
-        tempListForFirstCircleRow.add(IDCircle6x5y);
-        tempListForFirstCircleRow.add(IDCircle7x5y);
-        tempListForFirstCircleRow.add(IDCircle8x5y);
-        tempListForFirstCircleRow.add(IDCircle9x5y);
-        tempListForFirstCircleRow.add(IDCircle10x5y);
-        tempListForFirstCircleRow.add(IDCircle11x5y);
-        tempListForFirstCircleRow.add(IDCircle12x5y);
-        tempListForFirstCircleRow.add(IDCircle13x5y);
-        tempListForFirstCircleRow.add(IDCircle14x5y);
+        tempListForCircles.add(IDCircle5x5y);
+        tempListForCircles.add(IDCircle6x5y);
+        tempListForCircles.add(IDCircle7x5y);
+        tempListForCircles.add(IDCircle8x5y);
+        tempListForCircles.add(IDCircle9x5y);
+        tempListForCircles.add(IDCircle10x5y);
+        tempListForCircles.add(IDCircle11x5y);
+        tempListForCircles.add(IDCircle12x5y);
+        tempListForCircles.add(IDCircle13x5y);
+        tempListForCircles.add(IDCircle14x5y);
         // Syvende
-        tempListForFirstCircleRow.add(IDCircle6x6y);
-        tempListForFirstCircleRow.add(IDCircle7x6y);
-        tempListForFirstCircleRow.add(IDCircle8x6y);
-        tempListForFirstCircleRow.add(IDCircle9x6y);
-        tempListForFirstCircleRow.add(IDCircle10x6y);
-        tempListForFirstCircleRow.add(IDCircle11x6y);
-        tempListForFirstCircleRow.add(IDCircle12x6y);
-        tempListForFirstCircleRow.add(IDCircle13x6y);
-        tempListForFirstCircleRow.add(IDCircle14x6y);
+        tempListForCircles.add(IDCircle6x6y);
+        tempListForCircles.add(IDCircle7x6y);
+        tempListForCircles.add(IDCircle8x6y);
+        tempListForCircles.add(IDCircle9x6y);
+        tempListForCircles.add(IDCircle10x6y);
+        tempListForCircles.add(IDCircle11x6y);
+        tempListForCircles.add(IDCircle12x6y);
+        tempListForCircles.add(IDCircle13x6y);
+        tempListForCircles.add(IDCircle14x6y);
         // Ottende
-        tempListForFirstCircleRow.add(IDCircle7x7y);
-        tempListForFirstCircleRow.add(IDCircle8x7y);
-        tempListForFirstCircleRow.add(IDCircle9x7y);
-        tempListForFirstCircleRow.add(IDCircle10x7y);
-        tempListForFirstCircleRow.add(IDCircle11x7y);
-        tempListForFirstCircleRow.add(IDCircle12x7y);
-        tempListForFirstCircleRow.add(IDCircle13x7y);
-        tempListForFirstCircleRow.add(IDCircle14x7y);
+        tempListForCircles.add(IDCircle7x7y);
+        tempListForCircles.add(IDCircle8x7y);
+        tempListForCircles.add(IDCircle9x7y);
+        tempListForCircles.add(IDCircle10x7y);
+        tempListForCircles.add(IDCircle11x7y);
+        tempListForCircles.add(IDCircle12x7y);
+        tempListForCircles.add(IDCircle13x7y);
+        tempListForCircles.add(IDCircle14x7y);
         // Niende
-        tempListForFirstCircleRow.add(IDCircle8x8y);
-        tempListForFirstCircleRow.add(IDCircle9x8y);
-        tempListForFirstCircleRow.add(IDCircle10x8y);
-        tempListForFirstCircleRow.add(IDCircle11x8y);
-        tempListForFirstCircleRow.add(IDCircle12x8y);
-        tempListForFirstCircleRow.add(IDCircle13x8y);
-        tempListForFirstCircleRow.add(IDCircle14x8y);
+        tempListForCircles.add(IDCircle8x8y);
+        tempListForCircles.add(IDCircle9x8y);
+        tempListForCircles.add(IDCircle10x8y);
+        tempListForCircles.add(IDCircle11x8y);
+        tempListForCircles.add(IDCircle12x8y);
+        tempListForCircles.add(IDCircle13x8y);
+        tempListForCircles.add(IDCircle14x8y);
         // Tiende
-        tempListForFirstCircleRow.add(IDCircle9x9y);
-        tempListForFirstCircleRow.add(IDCircle10x9y);
-        tempListForFirstCircleRow.add(IDCircle11x9y);
-        tempListForFirstCircleRow.add(IDCircle12x9y);
-        tempListForFirstCircleRow.add(IDCircle13x9y);
-        tempListForFirstCircleRow.add(IDCircle14x9y);
+        tempListForCircles.add(IDCircle9x9y);
+        tempListForCircles.add(IDCircle10x9y);
+        tempListForCircles.add(IDCircle11x9y);
+        tempListForCircles.add(IDCircle12x9y);
+        tempListForCircles.add(IDCircle13x9y);
+        tempListForCircles.add(IDCircle14x9y);
         // Ellevte
-        tempListForFirstCircleRow.add(IDCircle10x10y);
-        tempListForFirstCircleRow.add(IDCircle11x10y);
-        tempListForFirstCircleRow.add(IDCircle12x10y);
-        tempListForFirstCircleRow.add(IDCircle13x10y);
-        tempListForFirstCircleRow.add(IDCircle14x10y);
+        tempListForCircles.add(IDCircle10x10y);
+        tempListForCircles.add(IDCircle11x10y);
+        tempListForCircles.add(IDCircle12x10y);
+        tempListForCircles.add(IDCircle13x10y);
+        tempListForCircles.add(IDCircle14x10y);
         // Tolvte
-        tempListForFirstCircleRow.add(IDCircle11x11y);
-        tempListForFirstCircleRow.add(IDCircle12x11y);
-        tempListForFirstCircleRow.add(IDCircle13x11y);
-        tempListForFirstCircleRow.add(IDCircle14x11y);
+        tempListForCircles.add(IDCircle11x11y);
+        tempListForCircles.add(IDCircle12x11y);
+        tempListForCircles.add(IDCircle13x11y);
+        tempListForCircles.add(IDCircle14x11y);
         // Trediende(?)
-        tempListForFirstCircleRow.add(IDCircle12x12y);
-        tempListForFirstCircleRow.add(IDCircle13x12y);
-        tempListForFirstCircleRow.add(IDCircle14x12y);
+        tempListForCircles.add(IDCircle12x12y);
+        tempListForCircles.add(IDCircle13x12y);
+        tempListForCircles.add(IDCircle14x12y);
         // Fjortende
-        tempListForFirstCircleRow.add(IDCircle13x13y);
-        tempListForFirstCircleRow.add(IDCircle14x13y);
+        tempListForCircles.add(IDCircle13x13y);
+        tempListForCircles.add(IDCircle14x13y);
         // Femtende
-        tempListForFirstCircleRow.add(IDCircle14x14y);
+        tempListForCircles.add(IDCircle14x14y);
 /*
 Et for-loop gennemgår navnene i højre side og starter emd det nederste medikamentnavn, og bevæger sig opad, inden den når
 størrelsen af medicineList minus 1, så den ikke går længere end nødvendigt. Højre side går indeholder kun navne fra
@@ -531,7 +525,7 @@ for(int k = 0; k < dataStorage.chosenPatient.medicineCard.medicineList.size()-1;
                     pascal-faktoren jeg har tilføjet adderer alle forrige mindskelser af cirkler. Dvs. Hvis man er i
                     række 4, så tilføjes 1+2+3+4 til koordinat-beregningen af hvilken cirkel skal ændres. */
                     int pascalCompensation = ((k)*((k)+1))/(2);
-                    Circle circleToChange = (Circle) tempListForFirstCircleRow.get(i+(15*k-pascalCompensation));
+                    Circle circleToChange = (Circle) tempListForCircles.get(i+(15*k-pascalCompensation));
                     circleToChange.setOpacity(0.5);
                     circleToChange.setRadius(3.5*tempInteraction.getDocumentationLevel());
                     if (tempInteraction.getSeverity() == 2)

@@ -35,7 +35,7 @@ public class prescriptionController implements Initializable {
     @FXML private Circle interactionCircle;
 
     //Metoden farver cirklen rundt omkring antallet af interaktioner på baggrund af highestSeverity
-    public Color decideColourOfCircle1 (int highestSeverity){
+    private Color decideColourOfCircle1 (int highestSeverity){
         if(highestSeverity == 1){
             return Color.LEMONCHIFFON;
         }
