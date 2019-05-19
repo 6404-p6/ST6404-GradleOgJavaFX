@@ -30,13 +30,16 @@ import java.util.ResourceBundle;
 
 public class visualizationController implements Initializable {
 
+    // De to 'counters' i toppen af venstre splitPane
     @FXML public Text IDCriticalCounter;
     @FXML public Text IDPotentiallyProblematicCounter;
 
+    // tekstfelterne i højre splitPane
     @FXML public TextField IDTextfieldInteractingDrugs;
     @FXML public TextArea IDTextfieldRecommendation;
     @FXML public TextArea IDTextfieldDescription;
 
+    // Alle teksterne i bunden af heatmap'ets gridPane
     @FXML public Text IDtextfieldDrug2Bottom;
     @FXML public Text IDtextfieldDrug3Bottom;
     @FXML public Text IDtextfieldDrug4Bottom;
@@ -53,6 +56,7 @@ public class visualizationController implements Initializable {
     @FXML public Text IDtextfieldDrug15Bottom;
     @FXML public Text IDtextfieldDrug16Bottom;
 
+    // Alle teksterne i VBox'en til højre for heatmap'ets gridPane
     @FXML public Text IDtextfieldDrug1Right;
     @FXML public Text IDtextfieldDrug2Right;
     @FXML public Text IDtextfieldDrug3Right;
@@ -69,6 +73,7 @@ public class visualizationController implements Initializable {
     @FXML public Text IDtextfieldDrug14Right;
     @FXML public Text IDtextfieldDrug15Right;
 
+    //      Alle cirkler i gridPane skal også have en attribut.
     // Første række
     @FXML public Circle IDCircle0x0y;
     @FXML public Circle IDCircle1x0y;
@@ -195,7 +200,7 @@ public class visualizationController implements Initializable {
     @FXML public Circle IDCircle12x11y;
     @FXML public Circle IDCircle13x11y;
     @FXML public Circle IDCircle14x11y;
-    // Trediende(?) række
+    // Trettende række
     @FXML public Circle IDCircle12x12y;
     @FXML public Circle IDCircle13x12y;
     @FXML public Circle IDCircle14x12y;
@@ -208,6 +213,7 @@ public class visualizationController implements Initializable {
     @FXML
     private TitledPane IDTitledPaneVisualization;
 
+    // Tæller de to typer alvorlighedsgrad i en interaktionslist og sætter dem i 'counteren' i toppen af venstre side
     private void showTypesAndNumberOfErrors(List interactionList){
         int countPotentiallyProblematic = 0;
         int countCritical = 0;
@@ -221,6 +227,11 @@ public class visualizationController implements Initializable {
         }
     }
 
+    /*
+    Denne metode bliver kørt i changeScene for medicinlisten, da medikamenter som er blevet tilføjet for at tjekke
+    indikatoren, ikke skal bruges i medicinlisten. Den fjerner alle medikamenter, som er blevet 'tagged' som
+    eksempler. Metoden går også fra size til 0, da tilføjede medikamenter sættes på den højeste indeks plads.
+    */
     private void deleteTemporaryDrugs(){
         for(int i = dataStorage.chosenPatient.medicineCard.medicineList.size()-1; i > 0; i-- ){
             prescriptedDrugModel tempDrugToDelete = (prescriptedDrugModel) dataStorage.chosenPatient.medicineCard.medicineList.get(i);
@@ -244,8 +255,12 @@ public class visualizationController implements Initializable {
         System.out.println("Troubleshoot: Afslutter metode changeSceneToMedicineListView");
     }
 
+    /* Indsætter navnene i teksterne i siden og bunden afhængigt af medicinlistens indhold. I højre side placeres første
+    medikament, men ikke sidste. I bunden tilføjes første medikament IKKE, men det sidste tilføjes. Dette er grundet
+    strukturen af heatmap og for at undgå redundans
+    Først indsættes navnene i en liste, og derefter gennemgår en for-løkke listen af navne og medicinlisten.
+     */
     private void inputMedicationNames(List medicineCard) {
-
         // Starter med at skabe en list, hvor alle ID'erne for teksterne for højre ide af visualiseringen indsættes.
         List<Text> tempIDTextRightList = new ArrayList<Text>();
         tempIDTextRightList.add(IDtextfieldDrug1Right);
@@ -298,6 +313,12 @@ public class visualizationController implements Initializable {
         }
     }
 
+    /*
+    Metoden visualiserer med 4 lister og 3 for-loops. De fire lister er navnene til højre, navnene i bunden, cirklerne
+    og interaktionslisten. Første for-loop er for navnene nedefra og opad, højre for-loop er for højre og til venstre.
+    Tredje for-loop er for gennemgang at interaktionslisten. Herefter beregnes koordinatetet af cirklerne, hvis der
+    findes en interaktion og cirklerne vises. Hele metoden indeholder kommentering step-by-step for bedre gennemgang.
+     */
     public void visualizeInteractionList(List interactionList){
         // Instanticering af hjælpelister for iterationsproces, en for navnene i bunden og en for navnene i siden
         List<Text> tempIDTextRightList = new ArrayList<Text>();
@@ -529,7 +550,12 @@ for(int k = 0; k < dataStorage.chosenPatient.medicineCard.medicineList.size()-1;
 
 }
 
-
+    /*
+    Metoden trækker "AccessibleText" ud fra hvad end objekt der trykkes på, og ligger det i en string, som splittes op.
+    På forhånd er AccessibleText to medikamentnavne med et "-" imellem, så der splittes op derfra. Dette gør, at brugeren
+    kan trykke på en cirkel og metoden kan køre igennem et for-loop af interaktionslisten, vælge det korrekte
+    medikament og indsætte dets beskrivelse samt anbefaling i højre side af visualiseringsvinduet.
+     */
     public void showDetailedInformationAboutInteraction(MouseEvent event) {
         String tempAccessibleText = event.getPickResult().getIntersectedNode().getAccessibleText();
         String[] tempInteractionArray = tempAccessibleText.split("-");
