@@ -5,6 +5,8 @@ import java.util.List;
 
 public class interactionSummarizerModel {
 
+    /* numberOfErrors bliver teknisk set ikke brugt til noget, da metoden til at beregne den har endt med at returnere
+    .size af listen i stedet for at setNumberOfErrors = .size. Koden bliver liggende for at vise ideen.*/
     private int numberOfErrors;
     private int highestSeverity;
     private List interactionList;
@@ -13,10 +15,10 @@ public class interactionSummarizerModel {
     public interactionSummarizerModel() {
     }
 
+    // Død kode. Se forklaring ved attributten.
     public int getNumberOfErrors() {
         return numberOfErrors;
     }
-
     public void setNumberOfErrors(int numberOfErrors) {
         this.numberOfErrors = numberOfErrors;
     }
