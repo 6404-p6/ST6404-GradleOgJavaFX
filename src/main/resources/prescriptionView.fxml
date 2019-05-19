@@ -45,7 +45,7 @@
                   <TextField fx:id="IDTextfieldSlutdato" layoutX="633.0" layoutY="459.0" prefHeight="26.0" prefWidth="212.0" />
                   <Button layoutX="635.0" layoutY="507.0" mnemonicParsing="false" onAction="#changeSceneToCVisualizationView" text="Vis interaktioner" />
                   <Button layoutX="635.0" layoutY="563.0" mnemonicParsing="false" onAction="#processTextFieldPrescripeDrug" text="Godkend og opdater" />
-                  <Button layoutX="773.0" layoutY="563.0" mnemonicParsing="false" onAction="#changeSceneToMedicineListView" text="Annuller" />
+                  <Button layoutX="773.0" layoutY="563.0" mnemonicParsing="false" onAction="#changeSceneToMedicineListView" text="Tilbage" />
                   <Text layoutX="552.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dosis" />
                   <Button fx:id="checkInteraktion" layoutX="876.0" layoutY="153.0" mnemonicParsing="false" onAction="#checkInteraction" text="Tjek interaktioner" />
                </children>

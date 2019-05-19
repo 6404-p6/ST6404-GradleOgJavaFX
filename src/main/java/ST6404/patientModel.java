@@ -1,8 +1,5 @@
 package ST6404;
 
-/*
-* Dette er model-klassen for patient.
- */
 
 public class patientModel {
 

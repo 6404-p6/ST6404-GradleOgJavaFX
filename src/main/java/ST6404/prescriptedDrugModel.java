@@ -1,10 +1,5 @@
 package ST6404;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-
-import java.sql.Timestamp;
-import java.util.ArrayList;
 
 public class prescriptedDrugModel extends drugModel {
     private int dosage;
