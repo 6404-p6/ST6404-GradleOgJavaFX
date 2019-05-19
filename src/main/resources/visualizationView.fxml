@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<TitledPane fx:id="IDTitledPaneVisualization" animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" text="[010203-1234, Tove Tovesen]" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ST6404.visualizationController">
+<TitledPane fx:id="IDTitledPaneVisualization" animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" text="[010203-1234, Tove Tovesen]" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ST6404.visualizationController">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
          <children>
@@ -225,17 +225,8 @@
                               <Text fx:id="IDtextfieldDrug1Right" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="144.49999237060547" />
                            </children>
                         </VBox>
-                        <Text fx:id="IDPotentiallyProblematicCounter" layoutX="416.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="24.0">
-                           <font>
-                              <Font size="16.0" />
-                           </font></Text>
-                        <Text fx:id="IDCriticalCounter" layoutX="280.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="25.0">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="IDCriticalCounter" layoutX="428.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" />
-                        <Text fx:id="IDPotentiallyProblematicCounter" layoutX="425.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="29.13671875" />
+                        <Text fx:id="IDCriticalCounter" layoutX="458.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                        <Text fx:id="IDPotentiallyProblematicCounter" layoutX="457.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="29.13671875" />
                      </children>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="887.0" prefWidth="571.0">
