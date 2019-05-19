@@ -17,7 +17,10 @@ public class Main extends Application {
     Der skiftes view ved at skabe en scene ud fra FXMLLoaderen der
     er sat til at loade et FXML dokument, her PatientSelectorView
     og samme tid instantierer den dertilhørende controller.
-    Herefter "vises" scenen, så et vindue popper op.
+    Herefter "vises" scenen, så et vindue popper op. primayStage fungerer sådan, at den får skabt den første Stage
+    men at alle andre koder fora t skifte scene ser en anelse anderledes ud pga. måden JavaFX virker på. Se yderligere
+    forklaring af FXMLLoader og benyttelsen af denne "changeScene" kode i
+    patientSelectorController.changeSceneToMedicineListView
      */
     @Override
     public void start (Stage primaryStage) throws IOException {

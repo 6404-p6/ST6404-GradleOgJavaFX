@@ -29,6 +29,7 @@ public class medicineCardController implements Initializable {
     @FXML
     private TitledPane IDTitledPaneMedicineList;
 
+    // Opsætning af tabellen og dens enkelte kolonner.
     @FXML private TableView<prescriptedDrugModel> tableView;
     @FXML private TableColumn<prescriptedDrugModel, String> nameColumn;
     @FXML private TableColumn<prescriptedDrugModel, String> dosageColumn;
@@ -37,6 +38,7 @@ public class medicineCardController implements Initializable {
     @FXML private TableColumn<prescriptedDrugModel, String> administrationColumn;
     @FXML private TableColumn<prescriptedDrugModel, String> startDateColumn;
     @FXML private TableColumn<prescriptedDrugModel, String> endDateColumn;
+    // Opsætning af indikatoren for interaktioner
     @FXML private Text interactionNumber;
     @FXML private Circle interactionCircle;
 
@@ -126,9 +128,9 @@ public class medicineCardController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Initialiser medicineListView");
         // Indhentning af dataStorage for at bruge dens patientModel
-        databaseConnectorController db = new databaseConnectorController();
-        // Indhentning af dataStorage for at bruge dens patientModel
         dataStorage.getInstance();
+        // Instantiering af databasen, så dens metoder kan blive brugt.
+        databaseConnectorController db = new databaseConnectorController();
         // Instantierer en interactionSummarizer for at bruge dens interaktionsliste. Den loader også en liste.
         interactionSummarizerModel iSM = new interactionSummarizerModel();
         iSM.setInteractionList(db.loadInteractionsList(dataStorage.chosenPatient.medicineCard.medicineList));
@@ -139,7 +141,8 @@ public class medicineCardController implements Initializable {
         interactionCircle.setFill(decideColourOfCircle(iSM.getHighestSeverity()));
         // Topbjælken får indsat navn og CPR fra metoden getPatientIdentification
         IDTitledPaneMedicineList.setText(dataStorage.chosenPatient.getPatientIdentification());
-
+        //Tabellens kolonner får deres værdi sat ved, at den søger i objektet efter en bestemt type, som har
+        // et bestemt navn som identifier, f.eks. "medicationName". Herefter sætter den dem klar.
         nameColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("medicationName"));
         dosageColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("dosage"));
         unitColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("unit"));
@@ -147,6 +150,7 @@ public class medicineCardController implements Initializable {
         administrationColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("routeOfAdministration"));
         startDateColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("startDate"));
         endDateColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("endDate"));
+        // Tabellen "refreshes" og loader alle kolonnerne.
         tableView.setItems(dataStorage.chosenPatient.medicineCard.medicineList);
     }
 }
