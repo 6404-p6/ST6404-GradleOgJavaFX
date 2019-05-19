@@ -81,6 +81,9 @@ public class prescriptionController implements Initializable {
     @FXML
     public void changeSceneToMedicineListView(ActionEvent event) throws IOException {
         System.out.println("Troubleshoot: Begynder metode changeSceneToMedicineListView");
+        databaseConnectorController db = new databaseConnectorController();
+        dataStorage.chosenPatient.medicineCard = db.getMedicineCard(dataStorage.chosenPatient.getCPRNumber());
+
         Parent medicineListView = FXMLLoader.load(Main.class.getResource("/medicineCardView.fxml"));
         Scene medicineListViewScene = new Scene(medicineListView);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();

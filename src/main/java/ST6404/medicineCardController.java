@@ -46,6 +46,7 @@ public class medicineCardController implements Initializable {
     public void sletMedikament() {
         // Vælg medikament
         prescriptedDrugModel medikamentValgt = tableView.getSelectionModel().getSelectedItem();
+        String CPRnummer = dataStorage.chosenPatient.getCPRNumber();
         if (medikamentValgt == null) {
             System.out.println("Intet medikament valgt");
             return;
@@ -58,11 +59,12 @@ public class medicineCardController implements Initializable {
             try {
                 databaseConnectorController db = new databaseConnectorController();
                 db.deleteDrugRow(medikamentValgt.medicationName);
+                dataStorage.chosenPatient.medicineCard = db.getMedicineCard(CPRnummer);
+                tableView.setItems(dataStorage.chosenPatient.medicineCard.medicineList);
             }
             catch (Exception e){
                 System.out.println("Something went wrong..." + e.getMessage());
             }
-
         }
         else {
             System.out.println("Sletteprocess annulleret");
@@ -148,6 +150,8 @@ public class medicineCardController implements Initializable {
         interactionCircle.setFill(decideColourOfCircle(iSM.getHighestSeverity()));
         // Topbjælken får indsat navn og CPR fra metoden getPatientIdentification
         IDTitledPaneMedicineList.setText(dataStorage.chosenPatient.getPatientIdentification());
+
+
 
         nameColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("medicationName"));
         dosageColumn.setCellValueFactory(new PropertyValueFactory<prescriptedDrugModel, String>("dosage"));
