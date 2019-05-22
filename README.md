@@ -5,3 +5,8 @@ Koden har til formål at simulere et medicinmodul, hvor en patient vælges og der 
 Nedenstående billeder indeholder alle patienter i systemet og deres CPR, som skal benyttes i første view.
 
 ![Tilgængelige patienter](https://i.imgur.com/To4GFrw.jpg)
+
+Systemet indeholder ikke en dropdown-menu til valg af præparater. Præparater som er en del af systemet, som der derfor også kan bruges i interaktionslisten, kan ses på nedenstående billede.
+
+![Tilgængelige patienter](https://i.imgur.com/SamqAKt.jpg)
+
