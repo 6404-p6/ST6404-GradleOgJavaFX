@@ -1,12 +1,12 @@
-Dette repository er benyttet af projektgruppen 19gr6404 i 2019 på Aalborg Universitetshospital. Projekgruppen består af fem studerende på 6. semester af Sundhedskteknologi. Koden benytter en database, som kræver, at der er adgang til Aalborg Universitets netværk.
+Dette repository er benyttet af projektgruppen 19gr6404 i 2019 pÃ¥ Aalborg Universitetshospital. Projekgruppen bestÃ¥r af fem studerende pÃ¥ 6. semester af Sundhedskteknologi. Koden benytter en database, som krÃ¦ver, at der er adgang til Aalborg Universitets netvÃ¦rk.
 
-Koden har til formål at simulere et medicinmodul, hvor en patient vælges og der vises en redigerbar medicinliste. Herfra kan brugeren tilgå en visualisering af medicininteraktioner, som kan være farlige for en patient. Denne visualisering er dermed proof-of-concept for, hvordan et beslutningsstøtte system til et medicinmodul kan se ud. 
+Koden har til formÃ¥l at simulere et medicinmodul, hvor en patient vÃ¦lges og der vises en redigerbar medicinliste. Herfra kan brugeren tilgÃ¥ en visualisering af medicininteraktioner, som kan vÃ¦re farlige for en patient. Denne visualisering er dermed proof-of-concept for, hvordan et beslutningsstÃ¸tte system til et medicinmodul kan se ud. 
 
-Nedenstående billeder indeholder alle patienter i systemet og deres CPR, som skal benyttes i første view.
+NedenstÃ¥ende billeder indeholder alle patienter i systemet og deres CPR, som skal benyttes i fÃ¸rste view.
 
-![Tilgængelige patienter](https://i.imgur.com/To4GFrw.jpg)
+![TilgÃ¦ngelige patienter](https://i.imgur.com/To4GFrw.jpg)
 
-Systemet indeholder ikke en dropdown-menu til valg af præparater. Præparater som er en del af systemet, som der derfor også kan bruges i interaktionslisten, kan ses på nedenstående billede.
+Systemet indeholder ikke en dropdown-menu til valg af prÃ¦parater. PrÃ¦parater som er en del af PrÃ¦parat-databasen og derfor ogsÃ¥ indgÃ¥r i MI-databasen kan ses pÃ¥ nedenstÃ¥ende billede. Disse prÃ¦parater skal bruges under ordination, hvis der skal beregnes interaktioner af dem senere. PrÃ¦parater som ikke er pÃ¥ PrÃ¦parat-databasen kan stadig ordineres, men indeholder aldrig interaktioner.
 
-![Tilgængelige patienter](https://i.imgur.com/SamqAKt.jpg)
+![TilgÃ¦ngelige patienter](https://i.imgur.com/SamqAKt.jpg)
 
