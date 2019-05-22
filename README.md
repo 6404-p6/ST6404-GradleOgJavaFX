@@ -4,4 +4,4 @@ Koden har til formål at simulere et medicinmodul, hvor en patient vælges og der 
 
 Nedenstående billeder indeholder alle patienter i systemet og deres CPR, som skal benyttes i første view.
 
-![Tilgængelige patienter](http://url/to/https://i.imgur.com/To4GFrw.jpg)
+![Tilgængelige patienter](https://i.imgur.com/To4GFrw.jpg)
