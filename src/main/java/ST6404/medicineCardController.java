@@ -64,8 +64,10 @@ public class medicineCardController implements Initializable {
                 dataStorage.chosenPatient.medicineCard = db.loadMedicineCard(CPRnummer);
                 tableView.setItems(dataStorage.chosenPatient.medicineCard.medicineList);
                 interactionSummarizerModel iSM = new interactionSummarizerModel();
+                iSM.setInteractionList(db.loadInteractionsList(dataStorage.chosenPatient.medicineCard.medicineList));
                 iSM.calculateHighestSeverity();
                 interactionCircle.setFill(decideColourOfCircle(iSM.getHighestSeverity()));
+                interactionNumber.setText(iSM.calculateNumberOfErrors());
             }
             catch (Exception e){
                 System.out.println("Something went wrong..." + e.getMessage());
@@ -74,6 +76,7 @@ public class medicineCardController implements Initializable {
         else {
             System.out.println("Sletteprocess annulleret");
         }
+
     }
 
     //Metoden farver cirklen rundt omkring antallet af interaktioner på baggrund af highestSeverity
