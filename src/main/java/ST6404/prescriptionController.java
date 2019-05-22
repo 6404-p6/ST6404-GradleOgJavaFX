@@ -7,6 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.paint.Color;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
@@ -18,6 +20,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 
@@ -118,23 +121,31 @@ public class prescriptionController implements Initializable {
         String AdmVejTextFieldInput = IDTextfieldAdmVej.getText();
         String StartdatoTextFieldInput = IDTextfieldStartdato.getText();
         String SlutdatoTextFieldInput = IDTextfieldSlutdato.getText();
-        try {
-            databaseConnectorController db = new databaseConnectorController();
-            db.FMKDatabaseAddRow(NavnTextFieldInput, DosisTextFieldInput, EnhedTextFieldInput, HyppighedTextFieldInput, AdmVejTextFieldInput, StartdatoTextFieldInput, SlutdatoTextFieldInput);
-        IDTextfieldNavn.setText("");
-        IDTextfieldDosis.setText("");
-        IDTextfieldEnhed.setText("");
-        IDTextfieldHyppighed.setText("");
-        IDTextfieldAdmVej.setText("");
-        IDTextfieldSlutdato.setText("");
-        }
 
-        catch (Exception e) {
-            System.out.println("Something went wrong..." + e.getMessage());
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Ordinerer medikament");
+        alert.setContentText("Er du sikker paa at du vil ordinere dette medikament?");
+        Optional<ButtonType> answer = alert.showAndWait();
+
+        if (answer.get() == ButtonType.OK) {
+            try {
+                databaseConnectorController db = new databaseConnectorController();
+                db.FMKDatabaseAddRow(NavnTextFieldInput, DosisTextFieldInput, EnhedTextFieldInput, HyppighedTextFieldInput, AdmVejTextFieldInput, StartdatoTextFieldInput, SlutdatoTextFieldInput);
+                IDTextfieldNavn.setText("");
+                IDTextfieldDosis.setText("");
+                IDTextfieldEnhed.setText("");
+                IDTextfieldHyppighed.setText("");
+                IDTextfieldAdmVej.setText("");
+                IDTextfieldSlutdato.setText("");
+            } catch (Exception e) {
+                System.out.println("Something went wrong..." + e.getMessage());
+            }
+        } else {
+            System.out.println("Sletteprocess annulleret");
         }
     }
 
-    @Override
+        @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Initialiser prescriptionView");
         // Indhentning af dataStorage for at bruge dens patientModel
